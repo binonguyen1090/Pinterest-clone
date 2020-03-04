@@ -7,46 +7,41 @@ export default class Splash extends React.Component {
         return (
           <div className="all-splash">
             <div className="splash title">
-              <h1>Get your next</h1>
+              <h1>Get ur next idea</h1>
             </div>
+            
+            <div className="containerSplashImg">
+              <div className="example first">
+                <img className="imgSplash" src="assets/dress2" />
+                <img className="imgSplash" src="assets/dress5" />
+              </div>
+              <div className="example">
+                <img className="imgSplash" src="assets/dress3" />
+                <img className="imgSplash" src="assets/dress4" />
+              </div>
+              <div className="example">
+                <img className="imgSplash" src="assets/dress2" />
+                <img className="imgSplash" src="assets/dress5" />
+              </div>
+              <div className="example">
+                <h2 className="exempletext">Yo</h2>
+              
+                <img className="imgSplash" src="assets/dress3" />
+                <img className="imgSplash" src="assets/dress4" />
+              </div>
+              <div className="example">
+                <img className="imgSplash" src="assets/dress2" />
+                <img className="imgSplash" src="assets/dress5" />
+              </div>
+              <div className="example">
+                <img className="imgSplash" src="assets/dress3" />
+                <img className="imgSplash" src="assets/dress4" />
+              </div>
+              <div className="example last">
+                <img className="imgSplash" src="assets/dress2" />
+                <img className="imgSplash" src="assets/dress5" />
+              </div>
 
-            <div className="containerSplash">
-                <div className="example">
-                  <img className="imgSplash" src="assets/dress2" />
-                  <img className="imgSplash" src="assets/dress5" />
-                </div>
-                <div className="example">
-                  <img className="imgSplash" src="assets/dress3" />
-                  <img className="imgSplash" src="assets/dress4" />
-                </div>
-                <div className="example">
-                  <img className="imgSplash" src="assets/dress2" />
-                  <img className="imgSplash" src="assets/dress5" />
-                </div>
-                <div className="example 1">
-                  <h2>Idea</h2>
-                  <img className="imgSplash" src="assets/dress3" />
-                  <img className="imgSplash" src="assets/dress4" />
-                </div>
-                <div className="example">
-                  <img className="imgSplash" src="assets/dress2" />
-                  <img className="imgSplash" src="assets/dress5" />
-                </div>
-                <div className="example">
-                  <img className="imgSplash" src="assets/dress3" />
-                  <img className="imgSplash" src="assets/dress4" />
-                </div>
-                <div className="example">
-                  <img className="imgSplash" src="assets/dress2" />
-                  <img className="imgSplash" src="assets/dress5" />
-                </div>
-              {/* <img className="imgSplash" src="assets/dress" /> */}
-              {/* <img className="imgSplash" src="assets/dress2" />
-              <img className="imgSplash" src="assets/dress3" />
-              <img className="imgSplash" src="assets/dress4" />
-              <img className="imgSplash" src="assets/dress5" /> */}
-              {/* <img className="imgSplash" src="assets/dress6" /> */}
-              {/* <img className="imgSplash" src="assets/noodle" /> */}
             </div>
 
             <div className="splashFooter">
