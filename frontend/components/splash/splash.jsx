@@ -9,7 +9,6 @@ export default class Splash extends React.Component {
             <div className="splash-title">
               <h1>Get ur next idea</h1>
             </div>
-
             <div className="containerSplashImg">
               <div className="divSplashpics">
                 <img className="imgSplash" src="assets/splash11" />
@@ -44,7 +43,6 @@ export default class Splash extends React.Component {
                 <img className="imgSplash" src="assets/dress5" />
               </div>
             </div>
-
             <div className="splashFooter">
               <Link to="/" className="no-underline">
                 Terms of Service
