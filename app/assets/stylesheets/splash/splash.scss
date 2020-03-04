@@ -8,11 +8,6 @@
     text-align: center;
 }
 
-.containerSplash{
-    display: flex;
-    flex-direction: row;
-    
-}
 .imgSplash{
     border-radius: 20px;
     height: 300px;
@@ -24,14 +19,23 @@
     justify-content: space-evenly;
     color: black;
 }
+
+.containerSplash{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   
+//    resize: both;
+
+    
+}
 .example{
     background-color: burlywood;
-    // height: 600px;
-    // width: 250px;
     height: 600px;
     width: 15%;
-    display: flex;
-    flex-direction: column;
-    overflow:hidden;
-    min-width: 205px;
+    min-width: 200px;  
+
+    
+
 }
+

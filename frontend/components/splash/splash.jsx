@@ -11,35 +11,35 @@ export default class Splash extends React.Component {
             </div>
 
             <div className="containerSplash">
-              <div className="example">
-                <img className="imgSplash" src="assets/dress3" />
-                <img className="imgSplash" src="assets/dress4" />
-              </div>
-              <div className="example">
-                <img className="imgSplash" src="assets/dress3" />
-                <img className="imgSplash" src="assets/dress4" />
-              </div>
-              <div className="example">
-                <img className="imgSplash" src="assets/dress3" />
-                <img className="imgSplash" src="assets/dress4" />
-              </div>
-              <div className="example">
-                <h2>Idea</h2>
-                <img className="imgSplash" src="assets/dress3" />
-                <img className="imgSplash" src="assets/dress4" />
-              </div>
-              <div className="example">
-                <img className="imgSplash" src="assets/dress3" />
-                <img className="imgSplash" src="assets/dress4" />
-              </div>
-              <div className="example">
-                <img className="imgSplash" src="assets/dress3" />
-                <img className="imgSplash" src="assets/dress4" />
-              </div>
-              <div className="example">
-                <img className="imgSplash" src="assets/dress3" />
-                <img className="imgSplash" src="assets/dress4" />
-              </div>
+                <div className="example">
+                  <img className="imgSplash" src="assets/dress2" />
+                  <img className="imgSplash" src="assets/dress5" />
+                </div>
+                <div className="example">
+                  <img className="imgSplash" src="assets/dress3" />
+                  <img className="imgSplash" src="assets/dress4" />
+                </div>
+                <div className="example">
+                  <img className="imgSplash" src="assets/dress2" />
+                  <img className="imgSplash" src="assets/dress5" />
+                </div>
+                <div className="example 1">
+                  <h2>Idea</h2>
+                  <img className="imgSplash" src="assets/dress3" />
+                  <img className="imgSplash" src="assets/dress4" />
+                </div>
+                <div className="example">
+                  <img className="imgSplash" src="assets/dress2" />
+                  <img className="imgSplash" src="assets/dress5" />
+                </div>
+                <div className="example">
+                  <img className="imgSplash" src="assets/dress3" />
+                  <img className="imgSplash" src="assets/dress4" />
+                </div>
+                <div className="example">
+                  <img className="imgSplash" src="assets/dress2" />
+                  <img className="imgSplash" src="assets/dress5" />
+                </div>
               {/* <img className="imgSplash" src="assets/dress" /> */}
               {/* <img className="imgSplash" src="assets/dress2" />
               <img className="imgSplash" src="assets/dress3" />
