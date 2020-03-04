@@ -9,15 +9,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  // renderErrors(){
-  //     return (
-  //       <ul>
-  //         {this.props.errors.map((error) => (
-  //          {error}
-  //         ))}
-  //       </ul>
-  //     );
-  // };
+  
 
   renderErrors() {
     return (
@@ -42,7 +34,8 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div>
-        {/* <h1>{this.props.formType}</h1> or {this.props.navLink} */}
+        
+        <h1>{this.props.formType}</h1>
         {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
           <label>
@@ -63,6 +56,7 @@ class SessionForm extends React.Component {
             />
           </label>
           <button type="submit">{this.props.formType}</button>
+          {this.props.navLink}
         </form>
       </div>
     );

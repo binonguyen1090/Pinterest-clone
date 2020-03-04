@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require './reset.scss'
+  *= require './navbar/navlogo.scss'
  *= require './session_form/style_session.scss'
  *= require_tree .
  *= require_self

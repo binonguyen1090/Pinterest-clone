@@ -1,0 +1,37 @@
+.splash{
+    background-color: yellow;
+}
+.splash.title {
+    font-size: 60px;
+    margin: 2px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.containerSplash{
+    display: flex;
+    flex-direction: row;
+    
+}
+.imgSplash{
+    border-radius: 20px;
+    height: 300px;
+    margin: 5px;
+    width: 200px;
+}
+.splashFooter {
+    display: flex;
+    justify-content: space-evenly;
+    color: black;
+}
+.example{
+    background-color: burlywood;
+    // height: 600px;
+    // width: 250px;
+    height: 600px;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    overflow:hidden;
+    min-width: 205px;
+}

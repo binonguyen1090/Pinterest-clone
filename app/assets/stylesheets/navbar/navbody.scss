@@ -1,0 +1,74 @@
+.navbar.not_login{
+    padding: 10px;
+    display: flex;
+    // background-color: green;
+    position: relative;
+}
+
+.signinupbutton {
+  position: absolute;
+  right: 50px;
+  top: 20px;
+  
+//   background-color: chartreuse;
+
+}
+
+.splashsignin {
+    // text-decoration: none;
+    border-radius: 30px;
+    // font-weight: bold;
+    border: 0px;
+    min-width: 84px;
+    // padding: 5px;
+    // justify-content: center;
+    // align-items: center;
+    margin: 4px;
+    height: 40px;
+    background-color: red;
+}
+.splashsignup {
+    // text-decoration: none;
+    border-radius: 30px;
+    border: 0px;
+    min-width: 84px;
+    // padding: 5px;
+    // justify-content: center;
+    // align-items: center;
+    margin: 4px;
+    height: 40px;
+    background-color: rgb(240, 240, 240);
+}
+
+.navcontent{
+    width: 180px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    // background-color: cornflowerblue;  
+}
+
+#navcontent{
+    text-decoration: none;
+    color: black;
+    font-weight:bold;
+    padding: 8px;
+
+}
+.navcontentlongin{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
+.navcontentlongout{
+    color: black;
+    text-decoration: none;
+    font-weight:bold;
+}
+.no-underline{
+    text-decoration: none;
+    padding: 20px;
+}
