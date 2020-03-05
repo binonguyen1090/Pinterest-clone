@@ -50,7 +50,8 @@ class SessionForm extends React.Component {
       <div className="all_session">
         <form className="sessionform" onSubmit={this.handleSubmit}>
           <div className="session_logo">
-            <img className="session_logo_img" src="assets/session_logo.png" />
+            {/* <img className="session_logo_img" src="assets/session_logo.png" /> */}
+            <img className="session_logo_img" src={window.favicon} />;
           </div>
           <h3 className="session_title">Welcome to B-interest</h3>
           <div>
@@ -133,12 +134,18 @@ class SessionForm extends React.Component {
 
           <div>
             {this.props.formType !== "Log in" ? (
-              <button className="navlink" onClick={() => this.props.openModal("Log in")}>
+              <button
+                className="navlink"
+                onClick={() => this.props.openModal("Log in")}
+              >
                 {" "}
                 Already a member? Log in
               </button>
             ) : (
-              <button className="navlink" onClick={() => this.props.openModal("Sign up")}>
+              <button
+                className="navlink"
+                onClick={() => this.props.openModal("Sign up")}
+              >
                 {" "}
                 Not on Pinterest yet? Sign Up
               </button>

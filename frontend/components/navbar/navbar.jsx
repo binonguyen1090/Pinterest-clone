@@ -10,9 +10,9 @@ export const Navbar = ({ currentUser, logout, openModal}) => {
          ) : (
            <div className="navbar not_login">
              <div>
-               <img src="assets/logo.png" id="logo" />
+               {/* <img src="assets/logo.png" id="logo" /> */}
+               <img src={window.splash6} id="logo" />;
              </div>
-
 
              <div className="signinupbutton">
                <Link id="navcontent" to="/">
@@ -30,7 +30,7 @@ export const Navbar = ({ currentUser, logout, openModal}) => {
                >
                  <p className="navcontentlongin">Log In</p>
                </button>
-               
+
                <button
                  className="splashsignup"
                  onClick={() => openModal("Sign up")}
