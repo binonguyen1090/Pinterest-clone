@@ -13,6 +13,7 @@ export default class Splash extends React.Component {
               <div className="divSplashpics">
                 <img className="imgSplash" src="assets/splash11" />
                 <img className="imgSplash" src="assets/splash6" />
+                <img className="imgSplash" src="assets/splash6" />
               </div>
               <div className="divSplashpics">
                 <div className="dummy1"></div>
@@ -26,7 +27,8 @@ export default class Splash extends React.Component {
               </div>
               <div className="divSplashpics">
                 <h2 className="textinsplash">Yo</h2>
-                <img className="imgSplash" src="assets/dress3" />
+                {/* <img className="imgSplash" src="assets/dress3" /> */}
+                <img src={window.brentURL} />;
               </div>
               <div className="divSplashpics">
                 <div className="dummy2"></div>
