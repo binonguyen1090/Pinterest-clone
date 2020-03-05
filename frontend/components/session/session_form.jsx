@@ -12,11 +12,9 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
   }
-  componentDidMount(){
+  componentDidMount() {
     this.props.clearError();
   }
-
-  
 
   renderErrors() {
     return (
@@ -36,13 +34,14 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(this.props.closeModal);
   }
+
 
   handleDemo(e) {
     e.preventDefault();
     const user = { email: "special_999@gmail.com", password: "123123" };
-    this.props.processForm(user);
+    this.props.processForm(user).then(this.props.closeModal);
   }
 
   render() {

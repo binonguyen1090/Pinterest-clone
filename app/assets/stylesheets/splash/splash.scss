@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 790px;
+    min-height: 700px;
 }
 .splash-title {
     font-size: 60px;
@@ -18,9 +18,9 @@
 
 .imgSplash{
     border-radius: 10px;
-    height: 300px;
+    height: 270px;
     margin: 5px;
-    width: 220px;
+    width: 200px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -42,9 +42,9 @@
 }
 .divSplashpics{
     // background-color: burlywood;
-    height: 600px;
+    height: 550px;
     width: 10%;
-    min-width: 220px;  
+    min-width: 200px;  
     margin: 1px;
     overflow: hidden;
     padding: 2px;
@@ -64,21 +64,15 @@
 
 .textinsplash{
     font-size: 60px;
-    height: 350px;
+    height: 250px;
     // background-color: green;
     padding-top: 20px;
     // justify-content: center;
 
 }
 .dummy1{
-    height: 100px;
+    height: 80px;
 }
 .dummy2{
-    height: 200px;
+    height: 150px;
 }
-
-// .imgSplash.t{
-//     position: relative ;/* Declared position allows for location changes */
-//     top: -40px
-// }
-

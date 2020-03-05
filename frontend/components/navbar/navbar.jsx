@@ -3,14 +3,10 @@ import { Link, Redirect } from "react-router-dom";
 
 export const Navbar = ({ currentUser, logout, openModal}) => {
          const display = currentUser ? (
-           <div>
-             <h3>Hello, {currentUser.email}</h3>
-             <button onClick={logout}>Logout</button>
-           </div>
+            ""
          ) : (
            <div className="navbar not_login">
              <div>
-               {/* <img src="assets/logo.png" id="logo" /> */}
                <img src={window.logo} id="logo" />
              </div>
 
@@ -41,11 +37,10 @@ export const Navbar = ({ currentUser, logout, openModal}) => {
            </div>
          );
 
-         return (
-           <div>
-             <div>{display}</div>
-           </div>
-         );
-       };
+     
+    return (
+      <div>{display}</div>
+    )
+};
 
        

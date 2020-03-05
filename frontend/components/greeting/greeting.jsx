@@ -8,14 +8,7 @@ export const Greeting = ({ currentUser, logout }) => {
       <h3>Hello, {currentUser.email}</h3>
       <button onClick={logout}>Logout</button>
     </div>
-  ) : (
-    <div>
-        <Link to="/signup">
-          <button>Sign Up</button>
-        </Link>
-      <Link to="/login">Log In</Link>
-    </div>
-  );
+  ) : null;
   return (
     <div>
  

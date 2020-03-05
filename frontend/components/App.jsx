@@ -14,6 +14,7 @@ const App = () => (
     <Modal />
     <header>
       <NavBarContainer />
+      <GreetingContainer />
     </header>
 
     <Switch>

@@ -1,4 +1,7 @@
 import { OPEN_MODAL, CLOSE_MODAL } from "../actions/modal_action";
+import {
+  RECEIVE_CURRENT_USER,
+} from "../actions/session_action";
 
 export default function modalReducer(state = null, action) {
   switch (action.type) {
@@ -6,6 +9,8 @@ export default function modalReducer(state = null, action) {
       return action.modal;
     case CLOSE_MODAL:
       return null;
+    case RECEIVE_CURRENT_USER:
+      return null
     default:
       return state;
   }
