@@ -11,7 +11,7 @@ export const Navbar = ({ currentUser, logout, openModal}) => {
            <div className="navbar not_login">
              <div>
                {/* <img src="assets/logo.png" id="logo" /> */}
-               <img src={window.splash6} id="logo" />;
+               <img src={window.logo} id="logo" />
              </div>
 
              <div className="signinupbutton">

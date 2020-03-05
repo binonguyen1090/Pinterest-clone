@@ -51,7 +51,7 @@ class SessionForm extends React.Component {
         <form className="sessionform" onSubmit={this.handleSubmit}>
           <div className="session_logo">
             {/* <img className="session_logo_img" src="assets/session_logo.png" /> */}
-            <img className="session_logo_img" src={window.favicon} />;
+            <img className="session_logo_img" src={window.favicon} />
           </div>
           <h3 className="session_title">Welcome to B-interest</h3>
           <div>
