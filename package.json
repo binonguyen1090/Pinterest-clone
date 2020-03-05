@@ -25,8 +25,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch --mode=development"
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -38,5 +37,9 @@
   "bugs": {
     "url": "https://github.com/binonguyen1090/FullStack/issues"
   },
-  "homepage": "https://github.com/binonguyen1090/FullStack#readme"
+  "homepage": "https://github.com/binonguyen1090/FullStack#readme",
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.4.1"
+  }
 }

@@ -10,15 +10,12 @@ export const Greeting = ({ currentUser, logout }) => {
     </div>
   ) : (
     <div>
-    
         <Link to="/signup">
           <button>Sign Up</button>
         </Link>
-
       <Link to="/login">Log In</Link>
     </div>
   );
-
   return (
     <div>
  
