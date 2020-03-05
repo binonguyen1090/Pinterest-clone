@@ -12,6 +12,11 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
   }
+  componentDidMount(){
+    this.props.clearError();
+  }
+
+  
 
   renderErrors() {
     return (
@@ -22,6 +27,7 @@ class SessionForm extends React.Component {
       </ul>
     );
   }
+
   update(type) {
     return e => {
       this.setState({ [type]: e.target.value });
@@ -32,18 +38,11 @@ class SessionForm extends React.Component {
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
   }
-  // handleDemo() {
-  //   // e.preventDefault();
-  //   const user = { email: "special_999@gmail.com", password: "123123" };
-  //   this.props.processForm(user);
-  // }
+
   handleDemo(e) {
     e.preventDefault();
-    const user = 
-      { email: "special_999@gmail.com", password: "123123" };
-        this.props.processForm(user);
- 
-    
+    const user = { email: "special_999@gmail.com", password: "123123" };
+    this.props.processForm(user);
   }
 
   render() {
@@ -62,6 +61,7 @@ class SessionForm extends React.Component {
             </div>
 
             <div className="session_errors">{this.renderErrors()}</div>
+
             <input
               type="text"
               value={this.state.email}
@@ -122,9 +122,6 @@ class SessionForm extends React.Component {
             Continue with Facebook
           </a>
 
-          {/* <a href="https://www.gmail.com/" className="ggbutton">
-            <img src="https://img.icons8.com/clouds/16/000000/google-logo.png">
-            Continue with Google */}
           <a href="https://www.gmail.com/" className="ggbutton">
             <img
               className="google_button"
