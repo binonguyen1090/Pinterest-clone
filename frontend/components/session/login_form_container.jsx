@@ -19,11 +19,9 @@ const mDTP = dispatch => ({
   processForm: user => dispatch(login(user)),
   clearError: () => dispatch(receiveErrors([])),
   closeModal: () => dispatch(closeModal()),
-  // loginDemo: () =>
-  //   dispatch(login({ email: "special_999@gmail.com", password: "123123" }),closeModal()),
-  otherForm: (
-    <button onClick={() => dispatch(openModal("signup"))}>Signup</button>
-  )
+  // otherForm: (
+  //   <button onClick={() => dispatch(openModal("signup"))}>Signup</button>
+  // )
 });
 
 export default connect(mSTP, mDTP)(SessionForm);

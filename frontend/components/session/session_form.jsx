@@ -46,6 +46,28 @@ class SessionForm extends React.Component {
 
   render() {
     return (
+      <div>
+        <div className="button_on_modal">
+          {this.props.formType !== "Log in" ? (
+            <button
+              className="splashsignin"
+              onClick={() => this.props.openModal("Log in")}
+            >
+              <p className="navcontentlongin">Log In</p>
+            </button>
+          ) : (
+              <button
+                className="splashsignup"
+                onClick={() => this.props.openModal("Sign up")}
+              >
+                <p className="navcontentlongout">Sign Up</p>
+              </button>
+            )}
+          <div onClick={this.props.closeModal} className="close-x">X</div>
+
+        </div>
+
+      
       <div className="all_session">
         <form className="sessionform" onSubmit={this.handleSubmit}>
           <div className="session_logo">
@@ -79,16 +101,7 @@ class SessionForm extends React.Component {
             />
           </div>
 
-          {/* <div>
-            {
-              this.props.formType !== "Log in" ?<input
-              type="text"
-              // value={this.state.password}
-              // onChange={this.update("password")}
-              placeholder="Age"
-            /> : ""
-            }
-          </div> */}
+        
 
           <div className="forgot_password">
             {this.props.formType === "Log in" ? "Forgot your password?" : ""}
@@ -151,6 +164,10 @@ class SessionForm extends React.Component {
             )}
           </div>
         </form>
+      </div>
+
+
+
       </div>
     );
   }

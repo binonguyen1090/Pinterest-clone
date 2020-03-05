@@ -619,14 +619,10 @@ var mDTP = function mDTP(dispatch) {
     },
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_5__["closeModal"])());
-    },
-    // loginDemo: () =>
-    //   dispatch(login({ email: "special_999@gmail.com", password: "123123" }),closeModal()),
-    otherForm: react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("button", {
-      onClick: function onClick() {
-        return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_5__["openModal"])("signup"));
-      }
-    }, "Signup")
+    } // otherForm: (
+    //   <button onClick={() => dispatch(openModal("signup"))}>Signup</button>
+    // )
+
   };
 };
 
@@ -732,7 +728,26 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "button_on_modal"
+      }, this.props.formType !== "Log in" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "splashsignin",
+        onClick: function onClick() {
+          return _this3.props.openModal("Log in");
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "navcontentlongin"
+      }, "Log In")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "splashsignup",
+        onClick: function onClick() {
+          return _this3.props.openModal("Sign up");
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "navcontentlongout"
+      }, "Sign Up")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: this.props.closeModal,
+        className: "close-x"
+      }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "all_session"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "sessionform",
@@ -794,7 +809,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this3.props.openModal("Sign up");
         }
-      }, " ", "Not on Pinterest yet? Sign Up"))));
+      }, " ", "Not on Pinterest yet? Sign Up")))));
     }
   }]);
 

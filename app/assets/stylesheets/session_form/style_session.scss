@@ -172,4 +172,32 @@ input[type=text]:focus {
     background-color: rgb(8, 179, 8);
     height: 30px;
 }
-
+.button_on_modal{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.close-x{
+  color: white;
+  padding-top: 5px;
+  cursor: pointer;
+}
+.splashsignin:hover {
+  // background-color: #3e8e41;
+  opacity: 0.4;
+}
+.splashsignup:hover {
+  // background-color: #3e8e41;
+  opacity: 0.4;
+}
+.close-x {
+  font-size: 20px;
+text-transform: uppercase;
+text-decoration: none;
+// background: #60a3bc;
+padding: 20px;
+border-radius: 50px;
+display: inline-block;
+border: none;
+transition: all 0.4s ease 0s;
+}
