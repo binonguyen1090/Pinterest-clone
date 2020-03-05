@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-
+import SplashHeaderContainer from './splash_header_cotainer';
 export default class Splash extends React.Component {
     render(){
         return (
+          <div>
+            <div><SplashHeaderContainer /></div>
           <div className="all-splash">
             <div className="splash-title">
               <h1>Get ur next idea</h1>
@@ -70,6 +72,9 @@ export default class Splash extends React.Component {
                 Topics
               </Link>
             </div>
+          </div>
+
+
           </div>
         );
     }

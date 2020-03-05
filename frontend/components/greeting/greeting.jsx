@@ -10,7 +10,7 @@ export const Greeting = ({ currentUser, logout }) => {
     </div>
   ) : null;
   return (
-    <div>
+    <div className ="user_index_nav">
  
       <div>{display}</div>
     </div>
