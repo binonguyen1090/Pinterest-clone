@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import SplashHeaderContainer from './splash_header_cotainer';
 export default class Splash extends React.Component {
     render(){
+    
         return (
+          
           <div>
             <div><SplashHeaderContainer /></div>
           <div className="all-splash">

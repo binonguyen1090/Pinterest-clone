@@ -7,23 +7,27 @@ import LogInFormContainer from './session/login_form_container';
 import HomepageContainer from './homepage/homepage_container'
 import NavBarContainer from './navbar/navbar_container';
 import SplashHeaderContainer from './splash/splash_header_cotainer';
-
+// import 
 import Splash from './splash/splash';
-import { AuthRoute} from '../util/route_util'
+import { AuthRoute, ProtectedRoute} from '../util/route_util'
 import Modal from "./modal/modal";
 
 const App = () => (
   <div>
     <Modal />
+
     <header>
-      {/* <NavBarContainer /> */}
-      <GreetingContainer />
+      <NavBarContainer />
+      {/* <GreetingContainer /> */}
+      {/* <AuthRoute component={NavBarContainer} /> */}
       {/* < SplashHeaderContainer /> */}
     </header>
 
     <Switch>
+
       <AuthRoute exact path="/" component={Splash} />
-      <Route exact path="/home" component={HomepageContainer} />
+      {/* <Route path="/home/" component={NavBarContainer} /> */}
+      <ProtectedRoute exact path="/home" component={HomepageContainer} />
       {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />  */}
     </Switch>

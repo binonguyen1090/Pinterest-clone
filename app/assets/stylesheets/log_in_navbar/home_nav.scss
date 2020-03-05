@@ -1,0 +1,23 @@
+.homeNavbar {
+    background-color: yellow;
+    // position: fixed;
+    // width: max-content;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+}
+.rightNav {
+    background-color: green;
+    display: flex;
+    // justify-content: space-between;
+    padding: 5px;
+    align-items: center;
+
+}
+.searchbar {
+    background-color: red;
+    padding: 5px;
+    // align-content: center;
+
+}

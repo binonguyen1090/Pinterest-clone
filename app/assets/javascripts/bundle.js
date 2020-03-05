@@ -254,7 +254,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_login_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session/login_form_container */ "./frontend/components/session/login_form_container.jsx");
 /* harmony import */ var _homepage_homepage_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./homepage/homepage_container */ "./frontend/components/homepage/homepage_container.jsx");
 /* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./navbar/navbar_container */ "./frontend/components/navbar/navbar_container.jsx");
-/* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _splash_splash_header_cotainer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./splash/splash_header_cotainer */ "./frontend/components/splash/splash_header_cotainer.jsx");
 /* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./splash/splash */ "./frontend/components/splash/splash.jsx");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
@@ -266,17 +265,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // import 
 
 
 
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_10__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_10__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_6__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
     exact: true,
     path: "/",
     component: _splash_splash__WEBPACK_IMPORTED_MODULE_8__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["ProtectedRoute"], {
     exact: true,
     path: "/home",
     component: _homepage_homepage_container__WEBPACK_IMPORTED_MODULE_5__["default"]
@@ -398,7 +398,9 @@ var HomePage = /*#__PURE__*/function (_React$Component) {
   _createClass(HomePage, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is from homepage Container");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "homepage"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is from homepage Container"), "m going to keep this brief, because you\u2019re not going to sticm going to keep this brief, because you\u2019re not going to stick around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. Bum going to keep this brief, because you\u2019re not going to stick around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. But not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web artm going to keep this brief, because you\u2019re not going to stick around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. But not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web artm going to keep this brief, because you\u2019re not going to stick around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. But not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web artt not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web artk around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. But not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web art m going to keep this brief, because you\u2019re not going to stick around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. But not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web art m going to keep this brief, because you\u2019re not going to stick around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. But not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web art \u2019m going to keep this brief, because you\u2019re not going to stick around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. But not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web article is about 2000 pixels long. In the graph below, each bar represents the share of readers who got to a particular depth in the story. There\u2019s a spike at 0 percent\u2014i.e., the very top pixel on the page\u2014because 5 percent of readers never scrolled deeper than that spot. (A few notes: This graph only includes people who spent any time engaging with the page at all\u2014users who \u201Cbounced\u201D from the page immediately after landing on it are not represented. The X axis goes beyond 100 percent to include stuff, like the comments section, that falls below the 2,000-pixel mark. Finally, the spike near the end is an anomaly caused by pages containing photos and videos\u2014on those pages, people scroll through the whole page");
     }
   }]);
 
@@ -520,26 +522,101 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/navbar/navbar_component.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/navbar/navbar_component.jsx ***!
+  \*********************************************************/
+/*! exports provided: Navbar */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Navbar", function() { return Navbar; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var Navbar = function Navbar(_ref) {
+  var currentUser = _ref.currentUser,
+      logout = _ref.logout;
+  var display = !currentUser ? "" : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "homeNavbar"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " this is Logo ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "searchbar"
+  }, "SearchBar "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "rightNav"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Home "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Following "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Hello, ", currentUser.email), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Inbox "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Notification "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: logout
+  }, "Logout"))) //    <div className="navbar not_login">
+  //      <div>
+  //        <img src={window.logo} id="logo" />
+  //      </div>
+  //      <div className="signinupbutton">
+  //        <Link id="navcontent" to="/">
+  //          About
+  //        </Link>
+  //        <Link id="navcontent" to="/">
+  //          Busiess
+  //        </Link>
+  //        <Link id="navcontent" to="/">
+  //          Blog
+  //        </Link>
+  //        <button
+  //          className="splashsignin"
+  //          onClick={() => openModal("Log in")}
+  //        >
+  //          <p className="navcontentlongin">Log In</p>
+  //        </button>
+  //        <button
+  //          className="splashsignup"
+  //          onClick={() => openModal("Sign up")}
+  //        >
+  //          <p className="navcontentlongout">Sign Up</p>
+  //        </button>
+  //      </div>
+  //    </div>
+  ;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, display);
+};
+
+/***/ }),
+
 /***/ "./frontend/components/navbar/navbar_container.jsx":
 /*!*********************************************************!*\
   !*** ./frontend/components/navbar/navbar_container.jsx ***!
   \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// import React from "react";
-// import { connect } from "react-redux";
-// import { Navbar } from "./navbar";
-// import { logout } from "../../actions/session_action";
-// import { openModal } from "../../actions/modal_action";
-// const mSTP = state => ({
-//   currentUser: state.entities.users[state.session.id]
-// });
-// const mDTP = dispatch => ({
-//   logout: () => dispatch(logout()),
-//   openModal: modal => dispatch(openModal(modal))
-// });
-// export default connect(mSTP, mDTP)(Navbar);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _navbar_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navbar_component */ "./frontend/components/navbar/navbar_component.jsx");
+/* harmony import */ var _actions_session_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_action */ "./frontend/actions/session_action.js");
+/* harmony import */ var _actions_modal_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/modal_action */ "./frontend/actions/modal_action.js");
+
+
+
+
+
+
+var mSTP = function mSTP(state) {
+  return {
+    currentUser: state.entities.users[state.session.id]
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    logout: function logout() {
+      return dispatch(Object(_actions_session_action__WEBPACK_IMPORTED_MODULE_3__["logout"])());
+    } //   openModal: modal => dispatch(openModal(modal))
+
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_navbar_component__WEBPACK_IMPORTED_MODULE_2__["Navbar"]));
 
 /***/ }),
 
@@ -1386,12 +1463,13 @@ var configureStore = function configureStore() {
 /*!**************************************!*\
   !*** ./frontend/util/route_util.jsx ***!
   \**************************************/
-/*! exports provided: AuthRoute */
+/*! exports provided: AuthRoute, ProtectedRoute */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthRoute", function() { return AuthRoute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProtectedRoute", function() { return ProtectedRoute; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
@@ -1423,7 +1501,24 @@ var Auth = function Auth(_ref) {
   });
 };
 
+var Protected = function Protected(_ref2) {
+  var Component = _ref2.component,
+      path = _ref2.path,
+      loggedIn = _ref2.loggedIn,
+      exact = _ref2.exact;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: path,
+    exact: exact,
+    render: function render(props) {
+      return loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        to: "/"
+      });
+    }
+  });
+};
+
 var AuthRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, null)(Auth));
+var ProtectedRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Protected));
 
 /***/ }),
 
