@@ -540,11 +540,30 @@ var Navbar = function Navbar(_ref) {
       logout = _ref.logout;
   var display = !currentUser ? "" : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "homeNavbar"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " this is Logo ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "searchbar"
-  }, "SearchBar "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "navbarLogo",
+    src: window.favicon
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "topnav"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "search",
+    src: window.favicon,
+    type: "text",
+    placeholder: "Search.."
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "rightNav"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Home "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Following "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Hello, ", currentUser.email), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Inbox "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Notification "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "item"
+  }, "Home "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "item"
+  }, "Following "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "item"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Hello, ", currentUser.email), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "item"
+  }, "Inbox "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "item"
+  }, "Notification "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "item",
     onClick: logout
   }, "Logout"))) //    <div className="navbar not_login">
   //      <div>
@@ -676,10 +695,7 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state) {
   return {
     errors: state.errors.session,
-    // errors: [],
-    formType: "Log in" // ui: "moal"
-    // navLink: <Link to="/signup">Sign up</Link>
-
+    formType: "Log in"
   };
 };
 
@@ -696,10 +712,7 @@ var mDTP = function mDTP(dispatch) {
     },
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_5__["closeModal"])());
-    } // otherForm: (
-    //   <button onClick={() => dispatch(openModal("signup"))}>Signup</button>
-    // )
-
+    }
   };
 };
 
@@ -858,8 +871,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType === "Log in" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "session_button demo",
         type: "submit",
-        value: "DEMO USER" // onChange={this.update("password")
-        ,
+        value: "DEMO USER",
         onClick: this.handleDemo
       }) : ""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "or"
@@ -924,11 +936,7 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state) {
   return {
     errors: state.errors.session,
-    // errors:[],
-    formType: "Sign up",
-    navLink: react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-      to: "/login"
-    }, "Log in")
+    formType: "Sign up"
   };
 };
 
@@ -1125,10 +1133,13 @@ var SplashHeader = function SplashHeader(_ref) {
       openModal = _ref.openModal;
   var display = currentUser ? "" : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navbar not_login"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    id: "navcontent",
+    to: "/"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: window.logo,
     id: "logo"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "signinupbutton"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     id: "navcontent",
@@ -1136,7 +1147,7 @@ var SplashHeader = function SplashHeader(_ref) {
   }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     id: "navcontent",
     to: "/"
-  }, "Busiess"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, "Business"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     id: "navcontent",
     to: "/"
   }, "Blog"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {

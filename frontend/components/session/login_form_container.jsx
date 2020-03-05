@@ -8,10 +8,8 @@ import { openModal, closeModal } from "../../actions/modal_action";
 
 const mSTP = state => ({
   errors: state.errors.session,
-  // errors: [],
   formType: "Log in",
-  // ui: "moal"
-  // navLink: <Link to="/signup">Sign up</Link>
+
 });
 
 const mDTP = dispatch => ({
@@ -19,9 +17,7 @@ const mDTP = dispatch => ({
   processForm: user => dispatch(login(user)),
   clearError: () => dispatch(receiveErrors([])),
   closeModal: () => dispatch(closeModal()),
-  // otherForm: (
-  //   <button onClick={() => dispatch(openModal("signup"))}>Signup</button>
-  // )
+
 });
 
 export default connect(mSTP, mDTP)(SessionForm);

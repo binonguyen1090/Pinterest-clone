@@ -6,17 +6,23 @@ export const Navbar = ({ currentUser, logout}) => {
          ) : ( 
     <div className="homeNavbar">
 
-        <div><h1> this is Logo </h1></div>
+                     <div>
+                         <img className="navbarLogo" src={window.favicon} />
+                     </div>
 
-        <div className="searchbar">SearchBar </div>
+                     <div className="topnav">
+                        
+                         <input className="search" src={window.favicon}type="text" placeholder="Search.." />
+
+                    </div>
 
                      <div className="rightNav">
-            <div>Home </div>
-            <div>Following </div>
-            <div><h3>Hello, {currentUser.email}</h3> </div>
-            <div>Inbox </div>
-            <div>Notification </div>
-            <button onClick={logout}>Logout</button>
+            <div className="item" >Home </div>
+            <div className="item" >Following </div>
+            <div className="item" ><h3>Hello, {currentUser.email}</h3> </div>
+            <div className="item" >Inbox </div>
+            <div className="item" >Notification </div>
+            <button  className="item" onClick={logout}>Logout</button>
         </div>
 
 

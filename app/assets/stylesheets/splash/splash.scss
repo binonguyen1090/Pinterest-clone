@@ -23,6 +23,19 @@
     width: 200px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+  animation-name: example;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+animation-direction: reverse;
+  
+}
+@keyframes example {
+  0%   {left:0px; top:0px;}
+  25%  {left:0px; top:10px;}
+  50%  {left:0px; top:20px;}
+  75%  { left:0px; top:30px;}
+  100% {left:0px; top:40px;}
 }
 .splashFooter {
     display: flex;
@@ -38,6 +51,7 @@
    padding-top: 20px;
 //    background-color: darkblue;
 //    resize: both;
+
 
     
 }

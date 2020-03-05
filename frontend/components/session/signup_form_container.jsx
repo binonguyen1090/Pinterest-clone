@@ -9,9 +9,7 @@ import { openModal, closeModal } from "../../actions/modal_action";
 
 const mSTP = state => ({
   errors: state.errors.session,
-  // errors:[],
   formType: "Sign up",
-  navLink: <Link to="/login">Log in</Link>
 });
 
 const mDTP = dispatch => ({

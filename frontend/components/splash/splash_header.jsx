@@ -7,7 +7,10 @@ export const SplashHeader = ({ currentUser, logout, openModal }) => {
     ) : (
             <div className="navbar not_login">
                 <div>
-                    <img src={window.logo} id="logo" />
+                    {/* <button> */}
+                        
+                        <Link id="navcontent" to="/"><img src={window.logo} id="logo" /></Link>
+                    {/* </button> */}
                 </div>
 
                 <div className="signinupbutton">
@@ -15,7 +18,7 @@ export const SplashHeader = ({ currentUser, logout, openModal }) => {
                         About
                </Link>
                     <Link id="navcontent" to="/">
-                        Busiess
+                        Business
                </Link>
                     <Link id="navcontent" to="/">
                         Blog

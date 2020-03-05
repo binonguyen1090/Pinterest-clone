@@ -71,7 +71,6 @@ class SessionForm extends React.Component {
       <div className="all_session">
         <form className="sessionform" onSubmit={this.handleSubmit}>
           <div className="session_logo">
-            {/* <img className="session_logo_img" src="assets/session_logo.png" /> */}
             <img className="session_logo_img" src={window.favicon} />
           </div>
           <h3 className="session_title">Welcome to B-interest</h3>
@@ -120,7 +119,6 @@ class SessionForm extends React.Component {
                 className="session_button demo"
                 type="submit"
                 value={"DEMO USER"}
-                // onChange={this.update("password")
                 onClick={this.handleDemo}
               />
             ) : (
