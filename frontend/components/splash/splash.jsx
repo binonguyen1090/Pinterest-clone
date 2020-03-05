@@ -11,19 +11,24 @@ export default class Splash extends React.Component {
             </div>
             <div className="containerSplashImg">
               <div className="divSplashpics">
-                <img className="imgSplash" src="assets/splash11" />
-                <img className="imgSplash" src="assets/splash6" />
-                <img className="imgSplash" src="assets/splash6" />
+                {/* <img className="imgSplash" src="assets/splash11" />
+                <img className="imgSplash" src="assets/splash6" /> */}
+                <img src={window.splash11} />;
+                <img src={window.splash6} />;
               </div>
               <div className="divSplashpics">
                 <div className="dummy1"></div>
-                <img className="imgSplash" src="assets/dress2" />
-                <img className="imgSplash t" src="assets/splash3" />
+                {/* <img className="imgSplash" src="assets/dress2" /> */}
+                <img src={window.dress2} />;
+                {/* <img className="imgSplash t" src="assets/splash3" /> */}
+                <img src={window.splash3} />;
               </div>
               <div className="divSplashpics">
                 <div className="dummy2"></div>
-                <img className="imgSplash" src="assets/splash7" />
-                <img className="imgSplash" src="assets/splash5" />
+                {/* <img className="imgSplash" src="assets/splash7" /> */}
+                <img src={window.splash7} />;
+                {/* <img className="imgSplash" src="assets/splash5" /> */}
+                <img src={window.splash5} />;
               </div>
               <div className="divSplashpics">
                 <h2 className="textinsplash">Yo</h2>
@@ -32,17 +37,23 @@ export default class Splash extends React.Component {
               </div>
               <div className="divSplashpics">
                 <div className="dummy2"></div>
-                <img className="imgSplash" src="assets/splash10" />
-                <img className="imgSplash" src="assets/splash4" />
+                {/* <img className="imgSplash" src="assets/splash10" /> */}
+                <img src={window.splash10} />;
+                {/* <img className="imgSplash" src="assets/splash4" /> */}
+                <img src={window.splash4} />;
               </div>
               <div className="divSplashpics">
                 <div className="dummy1"></div>
-                <img className="imgSplash" src="assets/splash8" />
-                <img className="imgSplash t" src="assets/dress4" />
+                {/* <img className="imgSplash" src="assets/splash8" /> */}
+                <img src={window.splash8} />;
+                {/* <img className="imgSplash t" src="assets/dress4" /> */}
+                <img src={window.dress4} />;
               </div>
               <div className="divSplashpics last">
-                <img className="imgSplash" src="assets/splash9" />
-                <img className="imgSplash" src="assets/dress5" />
+                {/* <img className="imgSplash" src="assets/splash9" /> */}
+                <img src={window.splash9} />;
+                {/* <img className="imgSplash" src="assets/dress5" /> */}
+                <img src={window.dress5} />;
               </div>
             </div>
             <div className="splashFooter">
