@@ -15,6 +15,7 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
+  openModal: modal => dispatch(openModal(modal)),
   processForm: user => dispatch(login(user)),
   clearError: () => dispatch(receiveErrors([])),
   closeModal: () => dispatch(closeModal()),

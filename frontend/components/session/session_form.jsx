@@ -133,18 +133,16 @@ class SessionForm extends React.Component {
 
           <div>
             {this.props.formType !== "Log in" ? (
-              <Link className="navlink" to="/login">
+              <button className="navlink" onClick={() => this.props.openModal("Log in")}>
                 {" "}
                 Already a member? Log in
-              </Link>
+              </button>
             ) : (
-              <Link className="navlink" to="/signup">
+              <button className="navlink" onClick={() => this.props.openModal("Sign up")}>
                 {" "}
                 Not on Pinterest yet? Sign Up
-              </Link>
+              </button>
             )}
-            {/* Not on Pinterest yet? {this.props.navLink}
-            Already a member? {this.props.navLink} */}
           </div>
         </form>
       </div>
