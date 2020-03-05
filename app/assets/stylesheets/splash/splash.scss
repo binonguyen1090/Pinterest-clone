@@ -11,7 +11,7 @@
     margin: 2px;
     font-weight: 500;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 30px;
     
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,ヒラギノ角ゴ Pro W3,Hiragino Kaku Gothic Pro,メイリオ,Meiryo,ＭＳ Ｐゴシック,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 }
@@ -19,7 +19,7 @@
 .imgSplash{
     border-radius: 10px;
     height: 270px;
-    margin: 5px;
+    margin: 10px;
     width: 200px;
     margin-left: auto;
     margin-right: auto;
@@ -35,6 +35,7 @@
    align-items: center;
    justify-content: center;
    overflow: hidden;
+   padding-top: 20px;
 //    background-color: darkblue;
 //    resize: both;
 
@@ -47,7 +48,7 @@
     min-width: 200px;  
     margin: 1px;
     overflow: hidden;
-    padding: 2px;
+    padding: 7px;
     
 
 }
