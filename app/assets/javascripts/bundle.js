@@ -818,25 +818,6 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "button_on_modal"
-      }, this.props.formType !== "Log in" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "splashsignin",
-        onClick: function onClick() {
-          return _this3.props.openModal("Log in");
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "navcontentlongin"
-      }, "Log In")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "splashsignup",
-        onClick: function onClick() {
-          return _this3.props.openModal("Sign up");
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "navcontentlongout"
-      }, "Sign Up")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        onClick: this.props.closeModal,
-        className: "close-x"
-      }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "all_session"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "sessionform",
@@ -873,19 +854,6 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         value: "DEMO USER",
         onClick: this.handleDemo
       }) : ""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "or"
-      }, "OR"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://www.facebook.com/",
-        className: "fbbutton"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fab fa-facebook"
-      }), "Continue with Facebook"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://www.gmail.com/",
-        className: "ggbutton"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "google_button",
-        src: "https://img.icons8.com/color/20/000000/google-logo.png"
-      }), "Continue with Google"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session_dummy"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType !== "Log in" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "navlink",

@@ -47,7 +47,7 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div>
-        <div className="button_on_modal">
+        {/* <div className="button_on_modal">
           {this.props.formType !== "Log in" ? (
             <button
               className="splashsignin"
@@ -65,7 +65,7 @@ class SessionForm extends React.Component {
             )}
           <div onClick={this.props.closeModal} className="close-x">X</div>
 
-        </div>
+        </div> */}
 
       
       <div className="all_session">
@@ -126,7 +126,7 @@ class SessionForm extends React.Component {
             )}
           </div>
 
-          <div className="or">OR</div>
+          {/* <div className="or">OR</div>
 
           <a href="https://www.facebook.com/" className="fbbutton">
             <i className="fab fa-facebook"></i>
@@ -139,7 +139,7 @@ class SessionForm extends React.Component {
               src="https://img.icons8.com/color/20/000000/google-logo.png"
             ></img>
             Continue with Google
-          </a>
+          </a> */}
           <div className="session_dummy"></div>
 
           <div>
