@@ -22,7 +22,7 @@ class Api::PinsController < ApplicationController
     
       def show
         @pin = Pin.find(params[:id])
-        render :show
+        render '/api/pins/show'
       end
     
       def create
