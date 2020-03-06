@@ -23,16 +23,16 @@ const App = () => (
       {/* < SplashHeaderContainer /> */}
     </header>
 
-    <Switch>
+    {/* <Switch> */}
 
       <AuthRoute exact path="/" component={Splash} />
       {/* <Route path="/home/" component={NavBarContainer} /> */}
         
-      <ProtectedRoute exact path="/home" component={HomepageContainer} />
+      <ProtectedRoute exact path="/" component={HomepageContainer} />
       {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />  */}
       
-    </Switch>
+    {/* </Switch> */}
     
   </div>
 );
