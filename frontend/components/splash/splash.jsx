@@ -15,8 +15,8 @@ export default class Splash extends React.Component {
             <div className="containerSplashImg">
               <div className="divSplashpics">
                 
-                <img className="imgSplash" src={window.splash12} />
-                <img className="imgSplash" src={window.splash3} />
+                  <img className="imgSplash" src={window.splash12} />
+                  <img className="imgSplash" src={window.splash3} />
               </div>
               <div className="divSplashpics">
                 <div className="dummy1"></div>

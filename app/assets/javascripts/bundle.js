@@ -224,16 +224,15 @@ document.addEventListener("DOMContentLoaded", function () {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])();
   }
 
-  var root = document.getElementById("root"); // const store = configureStore()
-  // TESTING START
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
-  // TESTING END
-
+  var root = document.getElementById("root");
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);
-});
+}); // const store = configureStore()
+// TESTING START
+// window.getState = store.getState;
+// window.dispatch = store.dispatch;
+// TESTING END
 
 /***/ }),
 

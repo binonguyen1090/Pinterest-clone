@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: boards
+#
+#  id         :bigint           not null, primary key
+#  title      :string
+#  boday      :string
+#  visibility :boolean
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  title: MyString
+  boday: MyString
+  visibility: false
+  user_id: 1
+
+two:
+  title: MyString
+  boday: MyString
+  visibility: false
+  user_id: 1

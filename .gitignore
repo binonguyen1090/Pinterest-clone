@@ -38,3 +38,5 @@ npm-debug.log
 /yarn-error.log/public/assets
 /log/*
 /log/.keep
+# Ignore master key for decrypting credentials and more.
+/config/master.key

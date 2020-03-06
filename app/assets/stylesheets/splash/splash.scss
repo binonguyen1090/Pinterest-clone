@@ -25,17 +25,17 @@
     margin-right: auto;
     position: relative;
   animation-name: example;
-  animation-duration: 5s;
+  animation-duration: 4s;
   animation-iteration-count: infinite;
-animation-direction: reverse;
+animation-direction: alternate-reverse;
   
 }
 @keyframes example {
   0%   {left:0px; top:0px;}
-  25%  {left:0px; top:10px;}
-  50%  {left:0px; top:20px;}
-  75%  { left:0px; top:30px;}
-  100% {left:0px; top:40px;}
+  25%  {left:0px; top:15px;}
+  50%  {left:0px; top:30px;}
+  75%  { left:0px; top:45px;}
+  100% {left:0px; top:60px;}
 }
 .splashFooter {
     display: flex;
@@ -49,14 +49,9 @@ animation-direction: reverse;
    justify-content: center;
    overflow: hidden;
    padding-top: 20px;
-//    background-color: darkblue;
-//    resize: both;
 
-
-    
 }
 .divSplashpics{
-    // background-color: burlywood;
     height: 550px;
     width: 10%;
     min-width: 200px;  
@@ -67,7 +62,6 @@ animation-direction: reverse;
 
 }
 .divSplashpics > .textinsplash{
-    // background-color: red;
     font-size: 60px;
     margin: 2px;
     font-weight: 500;
@@ -80,9 +74,7 @@ animation-direction: reverse;
 .textinsplash{
     font-size: 60px;
     height: 250px;
-    // background-color: green;
     padding-top: 20px;
-    // justify-content: center;
 
 }
 .dummy1{
@@ -90,4 +82,21 @@ animation-direction: reverse;
 }
 .dummy2{
     height: 150px;
+}
+
+////////// animation
+
+.col_1{
+  animation-name: example;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  
+}
+@keyframes example {
+  0%   {left:0px; top:0px;}
+  25%  {left:0px; top:10px;}
+  50%  {left:0px; top:20px;}
+  75%  { left:0px; top:30px;}
+  100% {left:0px; top:40px;}
 }
