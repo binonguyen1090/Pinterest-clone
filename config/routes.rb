@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :pins, only: [:index]
     end 
 
-    resources :pins, except: [:create]
+    resources :pins#, except: [:create]
 
     resource :session, only: [:create, :destroy]
 

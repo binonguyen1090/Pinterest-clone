@@ -1,0 +1,25 @@
+.board{
+    background-color: rgb(94, 59, 59);
+    color: white;
+    // width: 100%;
+    padding: 75px;
+    display: flex;
+    flex-direction: column;
+
+    
+    // margin-top: 50px;
+    // position: fixed;
+}
+.bottomboard {
+    background-color: red;
+    padding: 20px;
+    margin: 20px;
+    height: 300px;
+}
+.topboard {
+    background-color: green;
+        padding: 20px;
+        margin: 20px;
+        height: 200px;
+
+}

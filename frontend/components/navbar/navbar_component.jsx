@@ -1,31 +1,31 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 export const Navbar = ({ currentUser, logout}) => {
          const display = !currentUser ? (
             ""
          ) : ( 
     <div className="homeNavbar">
 
-                     <div>
-                         <img className="navbarLogo" src={window.favicon} />
-                     </div>
+            <div>
+                <Link className="logoLink" to="/"><img className="navbarLogo" src={window.favicon} /></Link>       
+            </div>
 
-                     <div className="topnav">
-                        
-                         <input className="search" src={window.favicon}type="text" placeholder="Search.." />
+            <div className="topnav">  
+                <input className="search" src={window.favicon}type="text" placeholder="Search.." />
+            </div>
 
-                    </div>
-
-                     <div className="rightNav">
-            <div className="item" >Home </div>
-            <div className="item" >Following </div>
-            <div className="item" ><h3>Hello, {currentUser.email}</h3> </div>
-            <div className="item" >Inbox </div>
-            <div className="item" >Notification </div>
-            <button  className="item" onClick={logout}>Logout</button>
-        </div>
-
-
+            <div className="rightNav">
+                <div className="item" >Home </div>
+                <div className="item" >Following </div>
+                <div className="item" >
+                    <Link className="proLink" to={`/users/${currentUser.id}`}>
+                        <i className="far fa-smile">{currentUser.email.split('@')[0]}</i>
+                    </Link>           
+                </div>
+                <div className="item" >Inbox </div>
+                <div className="item" >Notification </div>
+                <button  className="item" onClick={logout}>Logout</button>
+            </div>
     </div>
         //    <div className="navbar not_login">
         //      <div>

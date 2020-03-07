@@ -4,4 +4,3 @@
 #         json.lastEdited @board.pins.last.updated_at
 #       end
 
- 

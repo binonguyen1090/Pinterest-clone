@@ -4,10 +4,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 700px;
+    min-height: 830px;
 }
 .splash-title {
-    font-size: 60px;
+    font-size: 90px;
     margin: 2px;
     font-weight: 500;
     text-align: center;
@@ -17,10 +17,11 @@
 }
 
 .imgSplash{
+    // padding: px;
     border-radius: 10px;
-    height: 270px;
-    margin: 10px;
-    width: 200px;
+    height: 350px;
+    margin-top: 25px;
+    width: 240px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -41,6 +42,7 @@ animation-direction: alternate-reverse;
     display: flex;
     justify-content: space-evenly;
     color: black;
+    margin-top: 10px;
 }
 
 .containerSplashImg{
@@ -49,54 +51,89 @@ animation-direction: alternate-reverse;
    justify-content: center;
    overflow: hidden;
    padding-top: 20px;
+//    background-color: blue;
+   margin-left: 15px;
 
 }
 .divSplashpics{
-    height: 550px;
-    width: 10%;
+    height: 650px;
+    width: 13.5%;
     min-width: 200px;  
     margin: 1px;
     overflow: hidden;
     padding: 7px;
-    
+    // background-color: cornflowerblue;
 
 }
-.divSplashpics > .textinsplash{
-    font-size: 60px;
+.textinsplash{
+    // font-size: 60px;
+        // background-color: red;
+
+    // color: red;
+    font-size: 150px;
     margin: 2px;
-    font-weight: 500;
+    font-weight: 700;
+    height: 270px;
+    // padding-top: 70px;
+    margin-top: 20px;
     text-align: center;
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,ヒラギノ角ゴ Pro W3,Hiragino Kaku Gothic Pro,メイリオ,Meiryo,ＭＳ Ｐゴシック,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-
+      animation-name: title;
+  animation-duration: 5s;
+    animation-iteration-count: infinite;
 }
 
 
-.textinsplash{
-    font-size: 60px;
-    height: 250px;
-    padding-top: 20px;
+// .textinsplash{
+//     background-color: red;
+//     font-size: 80px;
 
-}
+//     height: 240px;
+//     // padding-top: 70px;
+//     margin-top: 70px;
+//     // position: ;
+
+// }
 .dummy1{
-    height: 80px;
+    height: 100px;
+    // background-color: burlywood;
 }
 .dummy2{
-    height: 150px;
+    height: 200px;
+        // background-color: burlywood;
+
 }
 
 ////////// animation
 
-.col_1{
-  animation-name: example;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-direction: reverse;
-  
+div {
+
+
 }
-@keyframes example {
-  0%   {left:0px; top:0px;}
-  25%  {left:0px; top:10px;}
-  50%  {left:0px; top:20px;}
-  75%  { left:0px; top:30px;}
-  100% {left:0px; top:40px;}
+
+.splash-title {
+    font-size: 90px;
+    margin: 2px;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 30px;
+    
+
 }
+
+@keyframes title {
+  0%   {color: red;}
+  20%  {color: rgb(124, 255, 2);}
+  40%  {color: blue;}
+  60% {color: rgb(152, 247, 199);}
+  80% {color: rgb(119, 220, 245);}
+  100% {color: rgb(220, 15, 247);}
+}
+
+
+
+
+
+
+
+

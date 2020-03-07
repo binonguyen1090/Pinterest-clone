@@ -6,7 +6,11 @@ import SignUpFormContainer from './session/signup_form_container';
 import LogInFormContainer from './session/login_form_container';
 import HomepageContainer from './homepage/homepage_container'
 import NavBarContainer from './navbar/navbar_container';
-import SplashHeaderContainer from './splash/splash_header_cotainer';
+import ProfileContainer from './profile/profile_container';
+
+import BoardFormContainer from './board/board_form';
+import BoardShowContainer from './board/board_show_container';
+import BoardIndexContainer from './board/board_index_container';
 // import 
 import Splash from './splash/splash';
 import { AuthRoute, ProtectedRoute} from '../util/route_util'
@@ -29,6 +33,11 @@ const App = () => (
       {/* <Route path="/home/" component={NavBarContainer} /> */}
         
       <ProtectedRoute exact path="/" component={HomepageContainer} />
+    <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
+    <ProtectedRoute exact path="/boards/new" component={BoardFormContainer} />
+    <ProtectedRoute exact path="/boards/:id" component={BoardShowContainer} />
+    <ProtectedRoute exact path="/users/:user_id/boards" component={BoardIndexContainer} />
+
       {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />  */}
       
