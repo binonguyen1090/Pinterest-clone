@@ -3,6 +3,7 @@ import { closeModal } from "../../actions/modal_action";
 import { connect } from "react-redux";
 import LoginFormContainer from "../session/login_form_container";
 import SignupFormContainer from "../session/signup_form_container";
+import CreateBoardFormContainer from "../board/create_board_form_container"
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -15,6 +16,9 @@ function Modal({ modal, closeModal }) {
       break;
     case "Sign up":
       component = <SignupFormContainer />;
+      break;
+    case "Create Board":
+      component = <CreateBoardFormContainer />;
       break;
     default:
       return null;

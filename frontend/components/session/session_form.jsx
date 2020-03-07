@@ -47,28 +47,8 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div>
-        {/* <div className="button_on_modal">
-          {this.props.formType !== "Log in" ? (
-            <button
-              className="splashsignin"
-              onClick={() => this.props.openModal("Log in")}
-            >
-              <p className="navcontentlongin">Log In</p>
-            </button>
-          ) : (
-              <button
-                className="splashsignup"
-                onClick={() => this.props.openModal("Sign up")}
-              >
-                <p className="navcontentlongout">Sign Up</p>
-              </button>
-            )}
-          <div onClick={this.props.closeModal} className="close-x">X</div>
-
-        </div> */}
-
-      
-      <div className="all_session">
+        
+        <div className="all_session">
         <form className="sessionform" onSubmit={this.handleSubmit}>
           <div className="session_logo">
             <img className="session_logo_img" src={window.favicon} />

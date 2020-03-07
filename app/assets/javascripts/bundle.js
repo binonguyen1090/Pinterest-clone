@@ -90,7 +90,7 @@
 /*!******************************************!*\
   !*** ./frontend/actions/board_action.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_ALL_BOARDS, RECEIVE_BOARD, REMOVE_BOARD, receiveBoard, receiveBoardErrors, fetchBoards, fetchBoard, createBoard, updateBoard, deleteBoard */
+/*! exports provided: RECEIVE_ALL_BOARDS, RECEIVE_BOARD, REMOVE_BOARD, RECEIVE_BOARD_ERRORS, receiveBoard, receiveBoardErrors, fetchBoards, fetchBoard, createBoard, updateBoard, deleteBoard */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98,6 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_BOARDS", function() { return RECEIVE_ALL_BOARDS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_BOARD", function() { return RECEIVE_BOARD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_BOARD", function() { return REMOVE_BOARD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_BOARD_ERRORS", function() { return RECEIVE_BOARD_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveBoard", function() { return receiveBoard; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveBoardErrors", function() { return receiveBoardErrors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBoards", function() { return fetchBoards; });
@@ -117,7 +118,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var RECEIVE_ALL_BOARDS = "RECEIVE_ALL_BOARDS";
 var RECEIVE_BOARD = "RECEIVE_BOARD";
-var REMOVE_BOARD = "REMOVE_BOARD"; // export const RECEIVE_BOARD_ERRORS = 'RECEIVE_BOARD_ERRORS';
+var REMOVE_BOARD = "REMOVE_BOARD";
+var RECEIVE_BOARD_ERRORS = 'RECEIVE_BOARD_ERRORS';
 
 var receiveAllBoards = function receiveAllBoards(boards) {
   return {
@@ -392,10 +394,6 @@ var App = function App() {
     component: _profile_profile_container__WEBPACK_IMPORTED_MODULE_7__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_12__["ProtectedRoute"], {
     exact: true,
-    path: "/boards/new",
-    component: _board_board_form__WEBPACK_IMPORTED_MODULE_8__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_12__["ProtectedRoute"], {
-    exact: true,
     path: "/boards/:id",
     component: _board_board_show_container__WEBPACK_IMPORTED_MODULE_9___default.a
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_12__["ProtectedRoute"], {
@@ -418,63 +416,93 @@ var App = function App() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return BoardForm; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-// import React from 'react';
-// export default class BoardForm extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = this.props.board
-//         this.handleSubmit = this.handleSubmit.bind(this)
-//         this.update = this.update.bind(this)
-//     }
-//     handleSubmit(e) {
-//         e.preventDefault(),
-//             this.props.createBoard(this.state)
-//     }
-//     update(v) {
-//         return (e) => this.setState({ [v]: e.target.value })
-//     }
-//     componentDidMount(){
-//         this.props.createBoard(board)
-//     }
-//     render() {
-//         return (
-//             <div>
-//                 {/* <h1>{this.props.formType}</h1> */}
-//                 <form onSubmit={this.handleSubmit}>
-//                     <input type="date" value={this.state.title} onChange={this.update('title')} />
-//                     <input type="text" value={this.state.body} onChange={this.update('body')} />
-//                     <input type="submit" value="Create Board" />
-//                 </form>
-//             </div>
-//         )
-//     }
-// }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
-var CreateBoard = function CreateBoard(props) {
-  if (props.boards.length < 1 && props.currentUserId === parseInt(props.match.params.userId)) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "create-board-page"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "create-board-square"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "create-small-square"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      onClick: function onClick() {
-        return props.openModal('boardform');
-      },
-      className: "red-plus"
-    }, " + ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-      className: "create-board-h1"
-    }, "Create a board"))));
-  } else {
-    return null;
+
+var BoardForm = /*#__PURE__*/function (_React$Component) {
+  _inherits(BoardForm, _React$Component);
+
+  function BoardForm(props) {
+    var _this;
+
+    _classCallCheck(this, BoardForm);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(BoardForm).call(this, props)); // this.state = {
+    //     title: "",
+    //     body: ""
+    // };
+
+    _this.state = _this.props.board;
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
+    return _this;
   }
-};
 
-/* harmony default export */ __webpack_exports__["default"] = (CreateBoard);
+  _createClass(BoardForm, [{
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault(), this.props.createBoard(this.state).then(this.props.closeModal);
+    }
+  }, {
+    key: "update",
+    value: function update(v) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, v, e.target.value));
+      };
+    } // componentDidMount(){
+    //     this.props.createBoard(board)
+    // }
+
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wellcome to Create Board"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        value: this.state.title,
+        onChange: this.update('title'),
+        placeholder: "Topic"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        value: this.state.body,
+        onChange: this.update('body'),
+        placeholder: "Description"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "submit",
+        value: "Create Board"
+      }))));
+    }
+  }]);
+
+  return BoardForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
 
 /***/ }),
 
@@ -640,6 +668,59 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/board/create_board_form_container.jsx":
+/*!*******************************************************************!*\
+  !*** ./frontend/components/board/create_board_form_container.jsx ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _board_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./board_form */ "./frontend/components/board/board_form.jsx");
+/* harmony import */ var _actions_board_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/board_action */ "./frontend/actions/board_action.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _actions_modal_action__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/modal_action */ "./frontend/actions/modal_action.js");
+
+
+
+
+
+
+
+var mSTP = function mSTP(state) {
+  return {
+    errors: state.errors.board,
+    currentUser: state.entities.users[state.session.id],
+    board: state.entities.boards // formType: "Create Board",
+
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    openModal: function openModal(modal) {
+      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_5__["openModal"])(modal));
+    },
+    createBoard: function createBoard(board) {
+      return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["createBoard"])(board));
+    },
+    clearError: function clearError() {
+      return dispatch(receiveErrors([]));
+    },
+    closeModal: function closeModal() {
+      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_5__["closeModal"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_board_form__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/components/greeting/greeting.jsx":
 /*!***************************************************!*\
   !*** ./frontend/components/greeting/greeting.jsx ***!
@@ -753,7 +834,9 @@ var HomePage = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "homepage"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is from homepage Container"), "m going to keep this brief, because you\u2019re not going to sticm going to keep this brief, because you\u2019re not going to stick around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. Bum going to keep this brief, because you\u2019re not going to stick around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. But not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web artm going to keep this brief, because you\u2019re not going to stick around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. But not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web artm going to keep this brief, because you\u2019re not going to stick around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. But not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web artt not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web artk around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. But not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web art m going to keep this brief, because you\u2019re not going to stick around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. But not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web art m going to keep this brief, because you\u2019re not going to stick around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. But not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web art \u2019m going to keep this brief, because you\u2019re not going to stick around for long. I\u2019ve already lost a bunch of you. For every 161 people who landed on this page, about 61 of you\u201438 percent\u2014are already gone. You \u201Cbounced\u201D in Web traffic jargon, meaning you spent no time \u201Cengaging\u201D with this page at all. So now there are 100 of you left. Nice round number. But not for long! We\u2019re at the point in the page where you have to scroll to see more. Of the 100 of you who didn\u2019t bounce, five are never going to scroll. Bye! OK, fine, good riddance. So we\u2019re 95 now. A friendly, intimate crowd, just the people who want to be here. Thanks for reading, folks! I was beginning to worry about your attention span, even your intellig \u2026 wait a second, where are you guys going? You\u2019re tweeting a link to this article already? You haven\u2019t even read it yet! What if I go on to advocate something truly awful, like a constitutional amendment requiring that we all type two spaces after a period? Wait, hold on, now you guys are leaving too? You\u2019re going off to comment? Come on! There\u2019s nothing to say yet. I haven\u2019t even gotten to the nut graph. I better get on with it. So here\u2019s the story: Only a small number of you are reading all the way through articles on the Web. I\u2019ve long suspected this, because so many smart-alecks jump in to the comments to make points that get mentioned later in the piece. But now I\u2019ve got proof. I asked Josh Schwartz, a data scientist at the traffic analysis firm Chartbeat, to look at how people scroll through Slate articles. Schwartz also did a similar analysis for other sites that use Chartbeat and have allowed the firm to include their traffic in its aggregate analyses. Schwartz\u2019s data shows that readers can\u2019t stay focused. The more I type, the more of you tune out. And it\u2019s not just me. It\u2019s not just Slate. It\u2019s everywhere online. When people land on a story, they very rarely make it all the way down the page. A lot of people don\u2019t even make it halfway. Even more dispiriting is the relationship between scrolling and sharing. Schwartz\u2019s data suggest that lots of people are tweeting out links to articles they haven\u2019t fully read. If you see someone recommending a story online, you shouldn\u2019t assume that he has read the thing he\u2019s sharing. OK, we\u2019re a few hundred words into the story now. According to the data, for every 100 readers who didn\u2019t bounce up at the top, there are about 50 who\u2019ve stuck around. Only one-half! Take a look at the following graph created by Schwartz, a histogram showing where people stopped scrolling in Slate articles. Chartbeat can track this information because it analyzes reader behavior in real time\u2014every time a Web browser is on a Slate page, Chartbeat\u2019s software records what that browser is doing on a second-by-second basis, including which portion of the page the browser is currently viewing. A typical Web article is about 2000 pixels long. In the graph below, each bar represents the share of readers who got to a particular depth in the story. There\u2019s a spike at 0 percent\u2014i.e., the very top pixel on the page\u2014because 5 percent of readers never scrolled deeper than that spot. (A few notes: This graph only includes people who spent any time engaging with the page at all\u2014users who \u201Cbounced\u201D from the page immediately after landing on it are not represented. The X axis goes beyond 100 percent to include stuff, like the comments section, that falls below the 2,000-pixel mark. Finally, the spike near the end is an anomaly caused by pages containing photos and videos\u2014on those pages, people scroll through the whole page");
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "textinsplash"
+      }, "Yo...Come back later"));
     }
   }]);
 
@@ -817,6 +900,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _session_login_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../session/login_form_container */ "./frontend/components/session/login_form_container.jsx");
 /* harmony import */ var _session_signup_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../session/signup_form_container */ "./frontend/components/session/signup_form_container.jsx");
+/* harmony import */ var _board_create_board_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../board/create_board_form_container */ "./frontend/components/board/create_board_form_container.jsx");
+
 
 
 
@@ -840,6 +925,10 @@ function Modal(_ref) {
 
     case "Sign up":
       component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_signup_form_container__WEBPACK_IMPORTED_MODULE_4__["default"], null);
+      break;
+
+    case "Create Board":
+      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_board_create_board_form_container__WEBPACK_IMPORTED_MODULE_5__["default"], null);
       break;
 
     default:
@@ -1041,22 +1130,29 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var Profile = /*#__PURE__*/function (_React$Component) {
   _inherits(Profile, _React$Component);
 
-  function Profile() {
+  function Profile(props) {
     _classCallCheck(this, Profile);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Profile).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Profile).call(this, props));
   }
 
   _createClass(Profile, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "board"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "topboard"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/boards/new"
-      }, "Create Board")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "splashsignin",
+        onClick: function onClick() {
+          return _this.props.openModal("Create Board");
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "navcontentlongin"
+      }, "Create Board")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile"
       }, "This is Hello from Profile Component")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bottomboard"
@@ -1083,8 +1179,11 @@ var Profile = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _profile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile */ "./frontend/components/profile/profile.jsx");
+/* harmony import */ var _actions_modal_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_action */ "./frontend/actions/modal_action.js");
 
  // import { logout } from "../../actions/session_action";
+
+
 
 var mSTP = function mSTP(state) {
   return {
@@ -1093,7 +1192,11 @@ var mSTP = function mSTP(state) {
 };
 
 var mDTP = function mDTP(dispatch) {
-  return {};
+  return {
+    openModal: function openModal(modal) {
+      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_2__["openModal"])(modal));
+    }
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_profile__WEBPACK_IMPORTED_MODULE_1__["default"]));
@@ -1459,7 +1562,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.c18
+        src: window.splash3
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
         src: window.splash12
@@ -1467,10 +1570,10 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.f2
+        src: window.f3
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
-        src: window.splash3
+        src: window.c22
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "divSplashpics"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1482,15 +1585,15 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         src: window.c20
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
-        src: window.splash16
+        src: window.c18
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.f4
+        src: window.f2
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
-        src: window.splash17
+        src: window.c24
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "divSplashpics"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1521,10 +1624,10 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.f3
+        src: window.c26
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
-        src: window.dress6
+        src: window.c27
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "divSplashpics"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1553,10 +1656,10 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.f10
+        src: window.c21
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
-        src: window.splash8
+        src: window.c17
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1564,14 +1667,14 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         src: window.f7
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
-        src: window.splash18
+        src: window.c25
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "divSplashpics"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.c17
+        src: window.c28
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
         src: window.dress2
@@ -1582,7 +1685,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         src: window.f6
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
-        src: window.dress4
+        src: window.c23
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splashFooter"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -1763,6 +1866,38 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/reducers/board_error_reducer.js":
+/*!**************************************************!*\
+  !*** ./frontend/reducers/board_error_reducer.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_board_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/board_action */ "./frontend/actions/board_action.js");
+
+
+var boardErrorsReducer = function boardErrorsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_board_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BOARD_ERRORS"]:
+      return action.errors;
+    // case RECEIVE_CURRENT_USER:
+    //     return [];
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (boardErrorsReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/board_reducers.js":
 /*!*********************************************!*\
   !*** ./frontend/reducers/board_reducers.js ***!
@@ -1842,10 +1977,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "errorsReducer", function() { return errorsReducer; });
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
+/* harmony import */ var _board_error_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./board_error_reducer */ "./frontend/reducers/board_error_reducer.js");
+
 
 
 var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  board: _board_error_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 }); // export default errorsReducer
 
 /***/ }),

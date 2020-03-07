@@ -21,12 +21,12 @@ export default class Splash extends React.Component {
 
                   <div className="divSplashpics">
                     <div id="cf">
-                      <img className="top" src={window.c18}  />
+                    <img className="top" src={window.splash3}  />
                       <img className="bottom" src={window.splash12}  />
                     </div>
                     <div id="cf">
-                        <img className="top" src={window.f2} />
-                      <img className="bottom" src={window.splash3} />
+                        <img className="top" src={window.f3} />
+                    <img className="bottom" src={window.c22} />
                     </div>
                   </div>
 
@@ -35,11 +35,11 @@ export default class Splash extends React.Component {
                     <div className="dummy1"></div>
                     <div id="cf">
                       <img className="top" src={window.c20}  />
-                      <img className="bottom" src={window.splash16}  />
+                      <img className="bottom" src={window.c18}  />
                     </div>
                     <div id="cf">
-                      <img className="top" src={window.f4} />
-                        <img className="bottom" src={window.splash17} />
+                      <img className="top" src={window.f2} />
+                        <img className="bottom" src={window.c24} />
                     </div>
                   </div>
 
@@ -62,8 +62,8 @@ export default class Splash extends React.Component {
                         <h2 className="textinsplash">Yo</h2>
                     </div>
                     <div id="cf">
-                      <img className="top" src={window.f3} />
-                        <img className="bottom" src={window.dress6} />
+                    <img className="top" src={window.c26} />
+                        <img className="bottom" src={window.c27} />
                     </div>
                   </div>
 
@@ -85,24 +85,24 @@ export default class Splash extends React.Component {
                     <div className="dummy1"></div>
 
                     <div id="cf">
-                      <img className="top" src={window.f10}  />
-                      <img className="bottom" src={window.splash8}  />
+                      <img className="top" src={window.c21}  />
+                    <img className="bottom" src={window.c17}  />
                     </div>
                     <div id="cf">
                         <img className="top" src={window.f7} />
-                        <img className="bottom" src={window.splash18} />
+                        <img className="bottom" src={window.c25} />
                     </div>
                   </div>
 
 
                   <div className="divSplashpics">
                     <div id="cf">
-                      <img className="top" src={window.c17}  />
+                      <img className="top" src={window.c28}  />
                         <img className="bottom" src={window.dress2}  />
                     </div>
                     <div id="cf">
                       <img className="top" src={window.f6} />
-                        <img className="bottom" src={window.dress4} />
+                        <img className="bottom" src={window.c23} />
                     </div>
                   </div>
             </div>
