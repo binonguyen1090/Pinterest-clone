@@ -1438,6 +1438,15 @@ var Splash = /*#__PURE__*/function (_React$Component) {
   _createClass(Splash, [{
     key: "render",
     value: function render() {
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "divSplashpics"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "imgSplash",
+        src: window.splash16
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "imgSplash",
+        src: window.splash17
+      }));
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_header_cotainer__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "all-splash"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1446,68 +1455,135 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "containerSplashImg"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "divSplashpics"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgSplash",
-        src: window.splash12
+        className: "top",
+        src: window.c18
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgSplash",
-        src: window.splash3
+        className: "bottom",
+        src: window.splash12
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "cf"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "top",
+        src: window.f2
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "bottom",
+        src: window.splash3
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "divSplashpics"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dummy1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "cf"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "top",
+        src: window.c20
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgSplash",
+        className: "bottom",
         src: window.splash16
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgSplash",
-        src: window.splash17
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "cf"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "top",
+        src: window.f4
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "bottom",
+        src: window.splash17
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "divSplashpics"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dummy2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "cf"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "top",
+        src: window.f1
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgSplash",
+        className: "bottom",
         src: window.splash14
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgSplash",
-        src: window.splash5
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "cf"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "top",
+        src: window.f9
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "bottom",
+        src: window.c16
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "divSplashpics"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "textinsplash"
-      }, "Yo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgSplash 1",
+      }, "Yo")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "cf"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "top",
+        src: window.f3
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "bottom",
         src: window.dress6
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "divSplashpics"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dummy2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "cf"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "top",
+        src: window.f5
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgSplash",
+        className: "bottom",
         src: window.splash15
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgSplash",
-        src: window.splash4
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "cf"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "top",
+        src: window.f8
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "bottom",
+        src: window.c15
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "divSplashpics"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dummy1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgSplash",
-        src: window.splash8
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgSplash",
-        src: window.splash18
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "divSplashpics"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgSplash",
-        src: window.dress2
+        className: "top",
+        src: window.f10
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgSplash",
-        src: window.dress4
+        className: "bottom",
+        src: window.splash8
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "cf"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "top",
+        src: window.f7
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "bottom",
+        src: window.splash18
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "divSplashpics"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "cf"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "top",
+        src: window.c17
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "bottom",
+        src: window.dress2
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "cf"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "top",
+        src: window.f6
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "bottom",
+        src: window.dress4
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splashFooter"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/",
@@ -1535,9 +1611,55 @@ var Splash = /*#__PURE__*/function (_React$Component) {
   }]);
 
   return Splash;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); //////dummy
 
 
+
+{
+  /* <div className="divSplashpics">
+              
+                   <img className="imgSplash" src={window.splash12} />
+                   <img className="imgSplash" src={window.splash3} />
+                 
+                 
+               </div>
+  
+                <div className="divSplashpics">
+                 <div className="dummy1"></div>
+                 <img className="imgSplash" src={window.splash16} />
+                 <img className="imgSplash" src={window.splash17} />
+               </div> 
+  
+                <div className="divSplashpics">
+                 <div className="dummy2"></div>
+                 <img className="imgSplash" src={window.splash14} />
+                 <img className="imgSplash" src={window.splash5} />
+               </div> 
+  
+               <div className="divSplashpics">
+                 <h2 className="textinsplash">Yo</h2>
+                 <img className="imgSplash 1" src={window.dress6} />
+               </div> 
+  
+               <div className="divSplashpics">
+                 <div className="dummy2"></div>
+                 <img className="imgSplash" src={window.splash15} />
+                 <img className="imgSplash" src={window.splash4} />
+               </div> 
+  
+               <div className="divSplashpics">
+                 <div className="dummy1"></div>
+                 <img className="imgSplash" src={window.splash8} />
+                 <img className="imgSplash" src={window.splash18} />
+               </div> 
+  
+            
+                   <div className="divSplashpics">
+                     <img className="imgSplash" src={window.dress2} />
+                     <img className="imgSplash" src={window.dress4} />
+                   </div>
+             */
+}
 
 /***/ }),
 
