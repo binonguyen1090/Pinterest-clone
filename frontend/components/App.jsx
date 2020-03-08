@@ -33,7 +33,7 @@ const App = () => (
       {/* <Route path="/home/" component={NavBarContainer} /> */}
         
       <ProtectedRoute exact path="/" component={HomepageContainer} />
-    <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
+      <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
       {/* <ProtectedRoute exact path="/users/:user_id/boards" component={ProfileContainer} />  */}
 
  

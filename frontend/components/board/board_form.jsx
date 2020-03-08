@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 export default class BoardForm extends React.Component {
     constructor(props) {
         super(props);
@@ -37,25 +37,32 @@ export default class BoardForm extends React.Component {
         }
         return (
             <div> 
-                <div className="errorInBoardForm">Wellcome to Create Board</div>
-                 <form onSubmit={this.handleSubmit}>
-                    <div className='errorInBoardForm' onClick={this.props.closeModal}>X</div>
+                <div className="all_board">
 
-                    <div>
-                        <input type="text" value={this.state.title} onChange={this.update('title')} placeholder="Topic"/>
-                    </div>
-                    <div>
-                        <input type="text" value={this.state.body} onChange={this.update('body')} placeholder="Description" />
-                    </div>
-                    
-                    <div>
-                        <input type="submit" value="Create Board" />
-                    </div>
-                    <div className="errorInBoardForm">
-                        {this.renderErrors()}
-                    </div>
-                </form> 
+                    <form className="boardform" onSubmit={this.handleSubmit}>
+                        <div className="errorInBoardForm">Create Board</div>
+                        <div className='errorInBoardForm' onClick={this.props.closeModal}>X</div>
+                        <label> Topic
+                            <div>
+                                <input type="text" value={this.state.title} onChange={this.update('title')} placeholder="Topic"/>
+                            </div>
+                        </label>
+                        <label> Topic
+                            <div>
+                                <input type="text" value={this.state.body} onChange={this.update('body')} placeholder="Description" />
+                            </div>
+                        </label>
+
+                        <div>
+                            <input type="submit" value="Create" />
+                            {/* <Link to={`/users/${currentUser.id}`}>Cancel</Link>                        </div> */}
+                        </div>
+                        <div className="errorInBoardForm">
+                            {this.renderErrors()}
+                        </div>
+                    </form> 
                 
+                </div>
             </div>
         )
     }

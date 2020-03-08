@@ -3,7 +3,7 @@ import {
     RECEIVE_BOARD,
     REMOVE_BOARD,
 } from '../actions/board_action';
-// import merge from 'lodash/merge';
+import merge from 'lodash/merge';
 
 /*
 Export an `EventsReducer` that takes in the old state and appropriately handles
@@ -15,7 +15,7 @@ const BoardsReducer = (state = {}, action) => {
     let nextState = Object.assign({}, state)
     switch (action.type) {
         case RECEIVE_ALL_BOARDS:
-            return action.payload.boards
+            return merge({}, action.payload.boards);
         case RECEIVE_BOARD:
             nextState[action.board.id] = action.board
             return nextState

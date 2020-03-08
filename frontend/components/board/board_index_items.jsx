@@ -16,8 +16,9 @@ export default class BoardIndexItem extends React.Component {
     };
 
     render() {
+        
         let editButton
-        if (this.props.currentUserId === this.props.currentUser.id) {
+        if (this.props.board.user_id === this.props.currentUser.id) {
             editButton = <button
                 className="splashsignin"
                 onClick={() => this.props.openModal("Edit Board")}
@@ -37,9 +38,9 @@ export default class BoardIndexItem extends React.Component {
             //     <button onClick={() => this.props.deleteEvent(this.props.event.id)}>Delete</button>
             // </li>
             <div className="box-index-items">
-                {board.title}
-                {board.body}
-                {board.id}
+                {board.title} <br/>
+                {board.body} <br/>
+                {board.id} <br/>
                 {editButton}
             </div>
         )

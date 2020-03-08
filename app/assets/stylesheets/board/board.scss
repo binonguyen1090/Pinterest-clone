@@ -7,3 +7,25 @@
 .errorInBoardForm{
     color: white;
 }
+.all_board{
+    background-color: pink;
+    padding-top: 60px;
+
+    height: 400px;
+    
+}
+.boardform {
+    margin: auto;
+    ;
+    // background: white;
+    text-align: center;
+    width: 410px;
+    // height: fit-content;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 20px;
+    background-color: white;
+    // box-sizing: border-box;
+    // overflow: hidden;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
