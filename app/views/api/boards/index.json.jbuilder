@@ -21,3 +21,8 @@
 # end
 
 json.array! @boards, :title, :body
+# json.boards do 
+#     @boards.each do |board|
+#         json.set! board, :id, :title, :user_id,
+#     end
+# end
