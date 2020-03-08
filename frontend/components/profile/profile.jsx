@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BoardIndexComponent from '../board/board_index'
+import BoardIndexContainer from '../board/board_index_container'
 export default class Profile extends React.Component {
     constructor(props){
         super(props);
@@ -21,7 +21,7 @@ export default class Profile extends React.Component {
                 </div>
 
                 <div className="bottomboard">
-                    <BoardIndexComponent />
+                    <BoardIndexContainer />
                 </div>
             </div>
         )

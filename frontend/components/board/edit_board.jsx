@@ -11,7 +11,7 @@ export default class BoardForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.update = this.update.bind(this)
         this.renderErrors = this.renderErrors.bind(this)
-        
+
     }
     handleSubmit(e) {
         e.preventDefault(),
@@ -30,29 +30,29 @@ export default class BoardForm extends React.Component {
             </ul>
         );
     }
-    
+
     render() {
         return (
-            <div> 
+            <div>
                 <div>Wellcome to Create Board</div>
-                 <form onSubmit={this.handleSubmit}>
-                     <div>
+                <form onSubmit={this.handleSubmit}>
+                    <div>
 
-                    <input type="text" value={this.state.title} onChange={this.update('title')} placeholder="Topic"/>
-                     </div>
+                        <input type="text" value={this.state.title} onChange={this.update('title')} placeholder="Topic" />
+                    </div>
                     <div>
 
                         <input type="text" value={this.state.body} onChange={this.update('body')} placeholder="Description" />
                     </div>
                     <div>
 
-                    <input type="submit" value="Create Board" />
+                        <input type="submit" value="Create Board" />
                     </div>
                     <div>
                         {this.renderErrors()}
                     </div>
-                </form> 
-                
+                </form>
+
             </div>
         )
     }

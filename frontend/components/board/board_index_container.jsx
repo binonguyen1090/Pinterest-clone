@@ -6,13 +6,13 @@ import BoardIndex from '../board/board_index'
 // import { logout } from "../../actions/session_action";
 
 const mSTP = state => ({
-    // currentUser: state.entities.users[state.session.id],
-    // boards: Object.values(state.entities.boards)
+    currentUserId: state.session.id,
+    boards: Object.values(state.entities.boards)
 });
 
 const mDTP = dispatch => ({
-    // fetchBoards: (userId) => dispatch(fetchBoards(userId)),
+    fetchBoards: (userId) => dispatch(fetchBoards(userId)),
     // deleteEvent: eventId => dispatch(deleteEvent(eventId))
 });
 
-export default connect(null, null)(BoardIndex);
+export default connect(mSTP, mDTP)(BoardIndex);

@@ -9,7 +9,7 @@ import { openModal, closeModal } from "../../actions/modal_action";
 const mSTP = state => ({
     errors: state.errors.board,
     currentUser: state.entities.users[state.session.id],
-    board : state.entities.boards
+    board: state.entities.boards
     // formType: "Create Board",
 
 });

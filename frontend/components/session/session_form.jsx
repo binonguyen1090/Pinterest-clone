@@ -61,7 +61,6 @@ class SessionForm extends React.Component {
                 : ""}
             </div>
 
-            <div className="session_errors">{this.renderErrors()}</div>
 
             <input
               type="text"
@@ -141,6 +140,8 @@ class SessionForm extends React.Component {
               </button>
             )}
           </div>
+          <div className="session_errors">{this.renderErrors()}</div>
+
         </form>
       </div>
 

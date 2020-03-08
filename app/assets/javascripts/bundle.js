@@ -327,6 +327,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   var root = document.getElementById("root");
+  window.store = store;
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);
@@ -392,14 +393,6 @@ var App = function App() {
     exact: true,
     path: "/users/:userId",
     component: _profile_profile_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_12__["ProtectedRoute"], {
-    exact: true,
-    path: "/boards/:id",
-    component: _board_board_show_container__WEBPACK_IMPORTED_MODULE_9___default.a
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_12__["ProtectedRoute"], {
-    exact: true,
-    path: "/users/:user_id/boards",
-    component: _board_board_index_container__WEBPACK_IMPORTED_MODULE_10__["default"]
   }));
 };
 
@@ -449,14 +442,15 @@ var BoardForm = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, BoardForm);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(BoardForm).call(this, props)); // this.state = {
-    //     title: "",
-    //     body: ""
-    // };
-
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(BoardForm).call(this, props));
+    _this.state = {
+      title: '',
+      body: ''
+    };
     _this.state = _this.props.board;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.renderErrors = _this.renderErrors.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -473,10 +467,16 @@ var BoardForm = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         return _this2.setState(_defineProperty({}, v, e.target.value));
       };
-    } // componentDidMount(){
-    //     this.props.createBoard(board)
-    // }
-
+    }
+  }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: idx
+        }, error);
+      }));
+    }
   }, {
     key: "render",
     value: function render() {
@@ -495,7 +495,7 @@ var BoardForm = /*#__PURE__*/function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: "Create Board"
-      }))));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderErrors())));
     }
   }]);
 
@@ -521,6 +521,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _board_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./board_show */ "./frontend/components/board/board_show.jsx");
 /* harmony import */ var _board_show__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_board_show__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _board_index_items__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./board_index_items */ "./frontend/components/board/board_index_items.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -542,6 +543,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 /*
 Export an `EventIndex` presentational component that renders a list (`ul`) of
 `EventIndexItems`. This component should receive `events` from the store as a 
@@ -552,20 +554,31 @@ DOM. Below the `ul`, add a link to the new event page with text 'New Event'.
 var BoardIndex = /*#__PURE__*/function (_React$Component) {
   _inherits(BoardIndex, _React$Component);
 
-  function BoardIndex() {
+  function BoardIndex(props) {
     _classCallCheck(this, BoardIndex);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BoardIndex).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(BoardIndex).call(this, props));
   }
 
   _createClass(BoardIndex, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchBoards(this.props.currentUserId);
+    }
+  }, {
     key: "render",
-    // componentDidMount() {
-    //     this.props.fetchBoards(currentUser.id)
-    // }
     value: function render() {
-      // const { boards } = this.props
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "This is from Board_Index_Component");
+      if (!this.props.boards) {
+        return null;
+      }
+
+      var boards = this.props.boards;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "This is from Board_Index_Component", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, boards.map(function (board, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_board_index_items__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          board: board,
+          key: idx
+        });
+      })));
     }
   }]);
 
@@ -594,18 +607,107 @@ __webpack_require__.r(__webpack_exports__);
  // import { logout } from "../../actions/session_action";
 
 var mSTP = function mSTP(state) {
-  return {// currentUser: state.entities.users[state.session.id],
-    // boards: Object.values(state.entities.boards)
+  return {
+    currentUserId: state.session.id,
+    boards: Object.values(state.entities.boards)
   };
 };
 
 var mDTP = function mDTP(dispatch) {
-  return {// fetchBoards: (userId) => dispatch(fetchBoards(userId)),
-    // deleteEvent: eventId => dispatch(deleteEvent(eventId))
+  return {
+    fetchBoards: function fetchBoards(userId) {
+      return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["fetchBoards"])(userId));
+    } // deleteEvent: eventId => dispatch(deleteEvent(eventId))
+
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, null)(_board_index__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_board_index__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/board/board_index_items.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/board/board_index_items.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return BoardIndexItem; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+/*
+Export an `EventIndexItem` presentational component that takes in an `event`
+and the `deleteEvent` action via props. The component should render an `li`
+containing the following:
+
+1. A link to the event's show page with text of the event's description
+2. A link to the event's edit page with text 'Edit'.
+3. A button to delete the event.
+*/
+
+var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
+  _inherits(BoardIndexItem, _React$Component);
+
+  function BoardIndexItem(props) {
+    _classCallCheck(this, BoardIndexItem);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(BoardIndexItem).call(this, props));
+  }
+
+  _createClass(BoardIndexItem, [{
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      var _this$props = this.props,
+          board = _this$props.board,
+          idx = _this$props.idx;
+      return (// <li>
+        //     <Link to={`/events/${this.props.event.id}`}>{this.props.event.description}</Link>
+        //     <Link to={`/events/${this.props.event.id}/edit`}>Edit</Link>
+        //     <button onClick={() => this.props.deleteEvent(this.props.event.id)}>Delete</button>
+        // </li>
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "box-index-items"
+        }, board.title, board.body, board.id, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Edit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "splashsignin",
+          onClick: function onClick() {
+            return _this.props.openModal("Edit Board");
+          }
+        }))
+      );
+    }
+  }]);
+
+  return BoardIndexItem;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
+;
 
 /***/ }),
 
@@ -702,9 +804,7 @@ var mSTP = function mSTP(state) {
 
 var mDTP = function mDTP(dispatch) {
   return {
-    openModal: function openModal(modal) {
-      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_5__["openModal"])(modal));
-    },
+    // openModal: modal => dispatch(openModal(modal)),
     createBoard: function createBoard(board) {
       return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["createBoard"])(board));
     },
@@ -1104,7 +1204,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _board_board_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../board/board_index */ "./frontend/components/board/board_index.jsx");
+/* harmony import */ var _board_board_index_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../board/board_index_container */ "./frontend/components/board/board_index_container.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1156,7 +1256,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         className: "profile"
       }, "This is Hello from Profile Component")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bottomboard"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_board_board_index__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_board_board_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
     }
   }]);
 
@@ -1394,9 +1494,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         src: window.favicon
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "session_title"
-      }, "Welcome to B-interest"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType !== "Log in" ? "Sign Up! It’s quick and easy." : ""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "session_errors"
-      }, this.renderErrors()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Welcome to B-interest"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType !== "Log in" ? "Sign Up! It’s quick and easy." : ""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.email,
         onChange: this.update("email"),
@@ -1430,7 +1528,9 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this3.props.openModal("Sign up");
         }
-      }, " ", "Not on Pinterest yet? Sign Up")))));
+      }, " ", "Not on Pinterest yet? Sign Up")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "session_errors"
+      }, this.renderErrors()))));
     }
   }]);
 
