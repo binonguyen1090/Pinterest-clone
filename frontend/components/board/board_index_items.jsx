@@ -40,7 +40,7 @@ export default class BoardIndexItem extends React.Component {
             <div className="box-index-items">
                 {board.title} <br/>
                 {board.body} <br/>
-                {board.id} <br/>
+                {/* {board.id} <br/> */}
                 {editButton}
             </div>
         )

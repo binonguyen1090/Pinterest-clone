@@ -8,7 +8,7 @@
     color: white;
 }
 .all_board{
-    background-color: pink;
+    // background-color: pink;
     padding-top: 60px;
 
     height: 400px;
@@ -28,4 +28,69 @@
     // box-sizing: border-box;
     // overflow: hidden;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+.errorInBoardForm{
+    color: red;
+    padding: 5px;
+}
+.titlecreateForm{
+    font-weight: bold;
+    font-size: 40px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    padding: 20px;
+    
+    //   border-radius: 10px;
+
+
+}
+.inputCreateBoard{
+    border-radius: 40px;
+}
+.create-group-btton{
+    display: flex;
+    justify-content: right;
+    // background-color: pink;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 220px;
+    padding: 10px;
+    margin-bottom: 20px;
+
+}
+// .canclebutton{
+//     margin-right: 30px;
+// }
+
+.canclebutton{
+  width: 80%;
+//   padding: 12px 20px;
+  margin: 8px 0;
+  background-color: red;
+  color: white;
+//   -webkit-transition: 0.5s;
+//   transition: 0.5s;
+  outline: none;
+  height: 45px;
+  align-items: center;
+  margin-right: 30px;
+  border-radius: 10px;
+//   padding: 20px;
+}
+.createbutton{
+    width: 80%;  
+    // padding: 20px;
+
+      border-radius: 10px;
+
+//   padding: 12px 20px;
+  margin: 8px 0;
+  background-color:blue;
+  color: white;
+//   -webkit-transition: 0.5s;
+//   transition: 0.5s;
+  outline: none;
+  height: 45px;
+  align-items: center;
+  margin-right: 30px;
 }

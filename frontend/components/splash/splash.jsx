@@ -24,7 +24,7 @@ export default class Splash extends React.Component {
 
                   <div className="divSplashpics">
                     <div id="cf">
-                    <img className="top" src={window.splash3}  />
+                      <img className="top" src={window.splash3}  />
                       <img className="bottom" src={window.splash12}  />
                     </div>
                     <div id="cf">

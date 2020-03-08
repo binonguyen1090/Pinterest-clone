@@ -40,28 +40,23 @@ export default class BoardForm extends React.Component {
                 <div className="all_board">
 
                     <form className="boardform" onSubmit={this.handleSubmit}>
-                        <div className="errorInBoardForm">Create Board</div>
-                        <div className='errorInBoardForm' onClick={this.props.closeModal}>X</div>
-                        <label> Topic
-                            <div>
-                                <input type="text" value={this.state.title} onChange={this.update('title')} placeholder="Topic"/>
-                            </div>
-                        </label>
-                        <label> Topic
-                            <div>
-                                <input type="text" value={this.state.body} onChange={this.update('body')} placeholder="Description" />
-                            </div>
-                        </label>
-
-                        <div>
-                            <input type="submit" value="Create" />
-                            {/* <Link to={`/users/${currentUser.id}`}>Cancel</Link>                        </div> */}
+                        <div className="titlecreateForm">Create Board</div>
+                        <div >                      
+                            <input className="inputCreateBoard" type="text" value={this.state.title} onChange={this.update('title')} placeholder="Topic"/>
+                        </div>
+                        <div >
+                            <input className="inputCreateBoard" type="text" value={this.state.body} onChange={this.update('body')} placeholder="Description" />
                         </div>
                         <div className="errorInBoardForm">
                             {this.renderErrors()}
                         </div>
+                        <div className="create-group-btton">
+                            <button className='canclebutton' onClick={this.props.closeModal}>Cancle</button>    
+                            <input className='createbutton' type="submit" value="Create" />
+                        </div>                    
+                        
                     </form> 
-                
+
                 </div>
             </div>
         )

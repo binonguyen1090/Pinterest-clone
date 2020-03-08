@@ -493,26 +493,31 @@ var BoardForm = /*#__PURE__*/function (_React$Component) {
         className: "boardform",
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "errorInBoardForm"
-      }, "Create Board"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "errorInBoardForm",
-        onClick: this.props.closeModal
-      }, "X"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Topic", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "titlecreateForm"
+      }, "Create Board"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "inputCreateBoard",
         type: "text",
         value: this.state.title,
         onChange: this.update('title'),
         placeholder: "Topic"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Topic", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "inputCreateBoard",
         type: "text",
         value: this.state.body,
         onChange: this.update('body'),
         placeholder: "Description"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "submit",
-        value: "Create"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "errorInBoardForm"
-      }, this.renderErrors()))));
+      }, this.renderErrors()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "create-group-btton"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "canclebutton",
+        onClick: this.props.closeModal
+      }, "Cancle"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "createbutton",
+        type: "submit",
+        value: "Create"
+      })))));
     }
   }]);
 
@@ -748,7 +753,7 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
         // </li>
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "box-index-items"
-        }, board.title, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), board.body, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), board.id, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), editButton)
+        }, board.title, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), board.body, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), editButton)
       );
     }
   }]);
