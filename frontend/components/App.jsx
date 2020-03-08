@@ -27,7 +27,7 @@ const App = () => (
       {/* < SplashHeaderContainer /> */}
     </header>
 
-    {/* <Switch> */}
+    <Switch>
 
       <AuthRoute exact path="/" component={Splash} />
       {/* <Route path="/home/" component={NavBarContainer} /> */}
@@ -46,7 +46,7 @@ const App = () => (
       {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />  */}
       
-    {/* </Switch> */}
+    </Switch>
     
   </div>
 );
