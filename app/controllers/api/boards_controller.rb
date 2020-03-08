@@ -34,7 +34,6 @@ class Api::BoardsController < ApplicationController
         render json: {id: @board.id, user_id: @board.user_id}
       end
     
-      private
     
       def board_params
         params.require(:board).permit(:title)

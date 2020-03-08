@@ -33,7 +33,7 @@ export default class BoardForm extends React.Component {
     
     render() {
         if (!this.props.errors) {
-            return null
+            return []
         }
         return (
             <div> 

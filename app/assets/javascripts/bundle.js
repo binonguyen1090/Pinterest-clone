@@ -485,7 +485,7 @@ var BoardForm = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       if (!this.props.errors) {
-        return null;
+        return [];
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wellcome to Create Board"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
