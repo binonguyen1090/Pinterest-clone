@@ -393,6 +393,10 @@ var App = function App() {
     exact: true,
     path: "/users/:userId",
     component: _profile_profile_container__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_12__["ProtectedRoute"], {
+    exact: true,
+    path: "/users/:user_id/boards",
+    component: _board_board_index_container__WEBPACK_IMPORTED_MODULE_10__["default"]
   }));
 };
 
