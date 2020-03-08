@@ -8,7 +8,7 @@ import { openModal, closeModal } from "../../actions/modal_action";
 
 const mSTP = state => ({
     currentUser: state.entities.users[state.session.id],
-    errors: state.errors.board,
+    errors: Object.values(state.errors.board),
     // board : state.entities.boards
 
     // formType: "Create Board",

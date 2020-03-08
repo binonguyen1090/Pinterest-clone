@@ -27,14 +27,14 @@ const App = () => (
       {/* < SplashHeaderContainer /> */}
     </header>
 
-    <Switch>
+    {/* <Switch> */}
 
       <AuthRoute exact path="/" component={Splash} />
       {/* <Route path="/home/" component={NavBarContainer} /> */}
         
       <ProtectedRoute exact path="/" component={HomepageContainer} />
     <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
-      <ProtectedRoute exact path="/users/:user_id/boards" component={ProfileContainer} /> 
+      {/* <ProtectedRoute exact path="/users/:user_id/boards" component={ProfileContainer} />  */}
 
  
     {/* <ProtectedRoute exact path="/boards/new" component={BoardFormContainer} />
@@ -46,7 +46,7 @@ const App = () => (
       {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />  */}
       
-    </Switch>
+    {/* </Switch> */}
     
   </div>
 );
