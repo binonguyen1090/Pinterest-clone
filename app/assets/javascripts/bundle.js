@@ -453,8 +453,8 @@ var BoardForm = /*#__PURE__*/function (_React$Component) {
 
     _this.state = _this.props.board;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.update = _this.update.bind(_assertThisInitialized(_this));
-    _this.renderErrors = _this.renderErrors.bind(_assertThisInitialized(_this));
+    _this.update = _this.update.bind(_assertThisInitialized(_this)); // this.renderErrors = this.renderErrors.bind(this)
+
     return _this;
   }
 
@@ -471,23 +471,22 @@ var BoardForm = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         return _this2.setState(_defineProperty({}, v, e.target.value));
       };
-    }
-  }, {
-    key: "renderErrors",
-    value: function renderErrors() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, idx) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: idx
-        }, error);
-      }));
-    }
+    } // renderErrors() {
+    //     return (
+    //         <ul>
+    //             {this.props.errors.map((error, idx) => (
+    //                 <li key={idx}>{error}</li>
+    //             ))}
+    //         </ul>
+    //     );
+    // }
+
   }, {
     key: "render",
     value: function render() {
-      if (!this.props.errors) {
-        return [];
-      }
-
+      // if (!this.props.errors) {
+      //     return []
+      // }
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wellcome to Create Board"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -503,7 +502,7 @@ var BoardForm = /*#__PURE__*/function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: "Create Board"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderErrors())));
+      }))));
     }
   }]);
 
@@ -807,7 +806,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var mSTP = function mSTP(state) {
   return _defineProperty({
-    errors: state.errors.board,
+    // errors: state.errors.board,
     board: {
       date: '',
       description: ''
@@ -818,7 +817,9 @@ var mSTP = function mSTP(state) {
 
 var mDTP = function mDTP(dispatch) {
   return {
-    // openModal: modal => dispatch(openModal(modal)),
+    openModal: function openModal(modal) {
+      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_5__["openModal"])(modal));
+    },
     createBoard: function createBoard(board) {
       return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["createBoard"])(board));
     },

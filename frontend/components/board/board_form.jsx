@@ -10,7 +10,7 @@ export default class BoardForm extends React.Component {
         this.state = this.props.board
         this.handleSubmit = this.handleSubmit.bind(this)
         this.update = this.update.bind(this)
-        this.renderErrors = this.renderErrors.bind(this)
+        // this.renderErrors = this.renderErrors.bind(this)
         
     }
     handleSubmit(e) {
@@ -21,20 +21,20 @@ export default class BoardForm extends React.Component {
         return (e) => this.setState({ [v]: e.target.value })
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {this.props.errors.map((error, idx) => (
-                    <li key={idx}>{error}</li>
-                ))}
-            </ul>
-        );
-    }
+    // renderErrors() {
+    //     return (
+    //         <ul>
+    //             {this.props.errors.map((error, idx) => (
+    //                 <li key={idx}>{error}</li>
+    //             ))}
+    //         </ul>
+    //     );
+    // }
     
     render() {
-        if (!this.props.errors) {
-            return []
-        }
+        // if (!this.props.errors) {
+        //     return []
+        // }
         return (
             <div> 
                 <div>Wellcome to Create Board</div>
@@ -51,9 +51,9 @@ export default class BoardForm extends React.Component {
 
                     <input type="submit" value="Create Board" />
                     </div>
-                    <div>
+                    {/* <div>
                         {this.renderErrors()}
-                    </div>
+                    </div> */}
                 </form> 
                 
             </div>

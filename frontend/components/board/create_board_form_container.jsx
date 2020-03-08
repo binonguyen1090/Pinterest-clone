@@ -7,7 +7,7 @@ import { openModal, closeModal } from "../../actions/modal_action";
 
 
 const mSTP = state => ({
-    errors: state.errors.board,
+    // errors: state.errors.board,
     board: {
         date: '',
         description: ''},
@@ -19,7 +19,7 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-    // openModal: modal => dispatch(openModal(modal)),
+    openModal: modal => dispatch(openModal(modal)),
     createBoard: board => dispatch(createBoard(board)),
     clearError: () => dispatch(receiveErrors([])),
     closeModal: () => dispatch(closeModal()),
