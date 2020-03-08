@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+
+
 export const Navbar = ({ currentUser, logout}) => {
          const display = !currentUser ? (
             ""
@@ -27,7 +30,23 @@ export const Navbar = ({ currentUser, logout}) => {
                 <button  className="item" onClick={logout}>Logout</button>
             </div>
     </div>
-        //    <div className="navbar not_login">
+        
+         );
+
+     
+    return (
+      <div >{display}</div>
+    )
+};
+
+
+
+       
+
+
+
+//saving
+//    <div className="navbar not_login">
         //      <div>
         //        <img src={window.logo} id="logo" />
         //      </div>
@@ -57,14 +76,3 @@ export const Navbar = ({ currentUser, logout}) => {
         //        </button>
         //      </div>
         //    </div>
-         );
-
-     
-    return (
-      <div >{display}</div>
-    )
-};
-
-
-
-       

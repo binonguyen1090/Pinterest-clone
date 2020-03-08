@@ -397,7 +397,7 @@ var App = function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_12__["ProtectedRoute"], {
     exact: true,
     path: "/users/:user_id/boards",
-    component: _board_board_index_container__WEBPACK_IMPORTED_MODULE_10__["default"]
+    component: _profile_profile_container__WEBPACK_IMPORTED_MODULE_7__["default"]
   })));
 };
 
@@ -1160,37 +1160,37 @@ var Navbar = function Navbar(_ref) {
   }, "Notification "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "item",
     onClick: logout
-  }, "Logout"))) //    <div className="navbar not_login">
-  //      <div>
-  //        <img src={window.logo} id="logo" />
-  //      </div>
-  //      <div className="signinupbutton">
-  //        <Link id="navcontent" to="/">
-  //          About
-  //        </Link>
-  //        <Link id="navcontent" to="/">
-  //          Busiess
-  //        </Link>
-  //        <Link id="navcontent" to="/">
-  //          Blog
-  //        </Link>
-  //        <button
-  //          className="splashsignin"
-  //          onClick={() => openModal("Log in")}
-  //        >
-  //          <p className="navcontentlongin">Log In</p>
-  //        </button>
-  //        <button
-  //          className="splashsignup"
-  //          onClick={() => openModal("Sign up")}
-  //        >
-  //          <p className="navcontentlongout">Sign Up</p>
-  //        </button>
-  //      </div>
-  //    </div>
-  ;
+  }, "Logout")));
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, display);
-};
+}; //saving
+//    <div className="navbar not_login">
+//      <div>
+//        <img src={window.logo} id="logo" />
+//      </div>
+//      <div className="signinupbutton">
+//        <Link id="navcontent" to="/">
+//          About
+//        </Link>
+//        <Link id="navcontent" to="/">
+//          Busiess
+//        </Link>
+//        <Link id="navcontent" to="/">
+//          Blog
+//        </Link>
+//        <button
+//          className="splashsignin"
+//          onClick={() => openModal("Log in")}
+//        >
+//          <p className="navcontentlongin">Log In</p>
+//        </button>
+//        <button
+//          className="splashsignup"
+//          onClick={() => openModal("Sign up")}
+//        >
+//          <p className="navcontentlongout">Sign Up</p>
+//        </button>
+//      </div>
+//    </div>
 
 /***/ }),
 
@@ -1213,11 +1213,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
+ // import { withRouter } from 'react-router-dom'
 
 var mSTP = function mSTP(state) {
   return {
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    currentUserId: state.session.id
   };
 };
 
@@ -1230,7 +1231,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_navbar_component__WEBPACK_IMPORTED_MODULE_2__["Navbar"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_navbar_component__WEBPACK_IMPORTED_MODULE_2__["Navbar"])); // export default connect(mSTP, mDTP)(Navbar);
 
 /***/ }),
 

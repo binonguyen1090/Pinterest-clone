@@ -3,9 +3,11 @@ import { connect } from "react-redux";
 import {Navbar} from './navbar_component'
 import { logout } from "../../actions/session_action";
 import { openModal } from "../../actions/modal_action";
+// import { withRouter } from 'react-router-dom'
 
 const mSTP = state => ({
-  currentUser: state.entities.users[state.session.id]
+  currentUser: state.entities.users[state.session.id],
+  currentUserId: state.session.id
 });
 
 const mDTP = dispatch => ({
@@ -14,6 +16,7 @@ const mDTP = dispatch => ({
 });
 
 export default connect(mSTP, mDTP)(Navbar);
+// export default connect(mSTP, mDTP)(Navbar);
 
 
 
