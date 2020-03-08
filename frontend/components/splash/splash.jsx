@@ -16,8 +16,10 @@ export default class Splash extends React.Component {
               
               <div className="splash-title">
                 <h1>Get ur next idea</h1>
-              </div>
-
+                
+               </div>
+               
+              
               <div className="containerSplashImg">
 
                   <div className="divSplashpics">

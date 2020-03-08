@@ -7,21 +7,18 @@ import { openModal, closeModal } from "../../actions/modal_action";
 
 
 const mSTP = state => ({
-    // errors: state.errors.board,
-    board: {
-        date: '',
-        description: ''},
     currentUser: state.entities.users[state.session.id],
-    board : state.entities.boards
+    errors: state.errors.board,
+    // board : state.entities.boards
 
     // formType: "Create Board",
 
 });
 
 const mDTP = dispatch => ({
-    openModal: modal => dispatch(openModal(modal)),
+    // openModal: modal => dispatch(openModal(modal)),
+    // clearError: () => dispatch(receiveErrors([])),
     createBoard: board => dispatch(createBoard(board)),
-    clearError: () => dispatch(receiveErrors([])),
     closeModal: () => dispatch(closeModal()),
 
 });

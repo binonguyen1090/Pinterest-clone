@@ -1,18 +1,21 @@
 class Api::BoardsController < ApplicationController
     def index
       # debugger
-        @boards = User.find(params[:user_id]).boards 
+      # @boards = User.find(params[:user_id]).boards 
+      @boards = Board.all.where(user_id: current_user.id)
+      render :index
     end
     
       def show
         @board = Board.find(params[:id])
+        render :show
       end
     
       def create
         @board = current_user.boards.new(board_params)
     
         if @board.save
-          render '/api/boards/show'
+          render :show
         else
           render json: @board.errors.full_messages, status: 422
         end
@@ -21,7 +24,7 @@ class Api::BoardsController < ApplicationController
       def update
         @board = current_user.boards.find(params[:id]) 
           if @board.update(board_params)
-            render '/api/boards/show'
+            render :show
           else
             render json: @board.errors.full_messages, status: 422
           end

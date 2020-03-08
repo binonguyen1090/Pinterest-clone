@@ -50,9 +50,15 @@ class SessionForm extends React.Component {
         
         <div className="all_session">
         <form className="sessionform" onSubmit={this.handleSubmit}>
-          <div className="session_logo">
+
+
+
+          <div className="lds-circle">
             <img className="session_logo_img" src={window.favicon} />
           </div>
+            {/* <div class="lds-circle"><div></div></div> */}
+
+
           <h3 className="session_title">Welcome to B-interest</h3>
           <div>
             <div>
@@ -93,16 +99,16 @@ class SessionForm extends React.Component {
             />
           </div>
           <div>
-            {this.props.formType === "Log in" ? (
+            {/* {this.props.formType === "Log in" ? ( */}
               <input
                 className="session_button demo"
                 type="submit"
                 value={"DEMO USER"}
                 onClick={this.handleDemo}
               />
-            ) : (
-              ""
-            )}
+            {/* ) : ( */}
+              {/* "" */}
+            {/* )} */}
           </div>
 
           {/* <div className="or">OR</div>

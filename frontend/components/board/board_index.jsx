@@ -15,20 +15,20 @@ export default class BoardIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchBoards(this.props.currentUserId);
+        this.props.fetchBoards(this.props.currentUser.id);
     }
 
     render() {
         if  (!this.props.boards){
             return null
         }
-        const { boards } = this.props
+        const { boards, deleteBoard, currentUser} = this.props
 
         return (
             <div>
                 This is from Board_Index_Component
                 <ul>
-                    {boards.map((board,idx) => <BoardIndexItem board={board} key={idx}/>)}
+                    {boards.map((board, idx) => <BoardIndexItem board={board} currentUser={this.props.currentUser} deleteBoard={this.props.deleteBoard} key={idx}/> )}
                 </ul>
                 
             </div>

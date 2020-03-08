@@ -16,6 +16,19 @@ export default class BoardIndexItem extends React.Component {
     };
 
     render() {
+        let editButton
+        if (this.props.currentUserId === this.props.currentUser.id) {
+            editButton = <button
+                className="splashsignin"
+                onClick={() => this.props.openModal("Edit Board")}
+            >
+                <p className="navcontentlongin">Edit Board</p>
+            </button>
+        }
+        else {
+            editButton = null
+        }
+
         const { board , idx} = this.props;
         return (
             // <li>
@@ -27,12 +40,7 @@ export default class BoardIndexItem extends React.Component {
                 {board.title}
                 {board.body}
                 {board.id}
-                <button
-                    className="splashsignin"
-                    onClick={() => this.props.openModal("Edit Board")}
-                >
-                    <p className="navcontentlongin">Edit Board</p>
-                </button>
+                {editButton}
             </div>
         )
     }

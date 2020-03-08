@@ -41,6 +41,14 @@
     animation-duration: 5s;
     animation-iteration-count: infinite;
 }
+@keyframes title {
+  0%   {color: red;}
+  20%  {color: rgb(124, 255, 2);}
+  40%  {color: blue;}
+  60% {color: rgb(152, 247, 199);}
+  80% {color: rgb(238, 41, 133);}
+  100% {color: rgb(220, 15, 247);}
+}
 
 .dummy1{
     height: 100px;
@@ -59,14 +67,6 @@
     padding-top: 30px;
 }
 
-@keyframes title {
-  0%   {color: red;}
-  20%  {color: rgb(124, 255, 2);}
-  40%  {color: blue;}
-  60% {color: rgb(152, 247, 199);}
-  80% {color: rgb(238, 41, 133);}
-  100% {color: rgb(220, 15, 247);}
-}
 
 /////animation for images
 
@@ -159,3 +159,6 @@ animation-direction: alternate-reverse;
 animation-direction: alternate-reverse;
   
 }
+
+///////////////testing animation text
+

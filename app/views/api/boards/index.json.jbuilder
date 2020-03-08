@@ -16,10 +16,16 @@
 
 # end
 
-json.array! @boards do |board|
-    json.extract! board, :id, :body, :user_id
+# json.array! @boards do |board|
+#     json.extract! board, :id, :body, :user_id
+# end
+json.boards do
+    @boards.each do |board|
+        json.set! board.id do
+            json.extract! board, :id, :body, :user_id
+        end
+    end
 end
-
 
 # json.boards do 
 #     @boards.each do |board|

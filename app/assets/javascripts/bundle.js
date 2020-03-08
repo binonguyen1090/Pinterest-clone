@@ -121,10 +121,10 @@ var RECEIVE_BOARD = "RECEIVE_BOARD";
 var REMOVE_BOARD = "REMOVE_BOARD";
 var RECEIVE_BOARD_ERRORS = 'RECEIVE_BOARD_ERRORS';
 
-var receiveAllBoards = function receiveAllBoards(boards) {
+var receiveAllBoards = function receiveAllBoards(payload) {
   return {
     type: RECEIVE_ALL_BOARDS,
-    boards: boards
+    payload: payload
   };
 };
 
@@ -135,10 +135,11 @@ var receiveBoard = function receiveBoard(board) {
   };
 };
 
-var removeBoard = function removeBoard(boardID) {
+var removeBoard = function removeBoard(payload) {
   return {
     type: REMOVE_BOARD,
-    boardID: boardID
+    boardId: payload.id,
+    userId: payload.user_id
   };
 };
 
@@ -166,8 +167,8 @@ var createBoard = function createBoard(board) {
   return function (dispatch) {
     return _util_board_api_util__WEBPACK_IMPORTED_MODULE_0__["createBoard"](board).then(function (board) {
       return dispatch(receiveBoard(board));
-    }, function (error) {
-      return dispatch(receiveBoardErrors(error.responseJSON));
+    }, function (errors) {
+      return dispatch(receiveBoardErrors(errors.responseJSON));
     });
   };
 };
@@ -446,24 +447,19 @@ var BoardForm = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, BoardForm);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(BoardForm).call(this, props)); // this.state = {
-    //     title: '',
-    //     body: ''
-    // };
-
-    _this.state = _this.props.board;
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.update = _this.update.bind(_assertThisInitialized(_this)); // this.renderErrors = this.renderErrors.bind(this)
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(BoardForm).call(this, props));
+    _this.state = {
+      title: '',
+      body: ''
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); // this.state = this.props.board
+    // this.update = this.update.bind(this)
+    // this.renderErrors = this.renderErrors.bind(this)
 
     return _this;
   }
 
   _createClass(BoardForm, [{
-    key: "handleSubmit",
-    value: function handleSubmit(e) {
-      e.preventDefault(), this.props.createBoard(this.state).then(this.props.closeModal);
-    }
-  }, {
     key: "update",
     value: function update(v) {
       var _this2 = this;
@@ -471,25 +467,34 @@ var BoardForm = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         return _this2.setState(_defineProperty({}, v, e.target.value));
       };
-    } // renderErrors() {
-    //     return (
-    //         <ul>
-    //             {this.props.errors.map((error, idx) => (
-    //                 <li key={idx}>{error}</li>
-    //             ))}
-    //         </ul>
-    //     );
-    // }
-
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault(), this.props.createBoard(this.state).then(this.props.closeModal);
+    }
+  }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: idx
+        }, error);
+      }));
+    }
   }, {
     key: "render",
     value: function render() {
-      // if (!this.props.errors) {
-      //     return []
-      // }
+      if (!this.props.errors) {
+        return [];
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wellcome to Create Board"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "board-x",
+        onClick: this.props.closeModal
+      }, "X"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.title,
         onChange: this.update('title'),
@@ -502,7 +507,7 @@ var BoardForm = /*#__PURE__*/function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: "Create Board"
-      }))));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderErrors())));
     }
   }]);
 
@@ -570,19 +575,26 @@ var BoardIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(BoardIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchBoards(this.props.currentUserId);
+      this.props.fetchBoards(this.props.currentUser.id);
     }
   }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       if (!this.props.boards) {
         return null;
       }
 
-      var boards = this.props.boards;
+      var _this$props = this.props,
+          boards = _this$props.boards,
+          deleteBoard = _this$props.deleteBoard,
+          currentUser = _this$props.currentUser;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "This is from Board_Index_Component", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, boards.map(function (board, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_board_index_items__WEBPACK_IMPORTED_MODULE_3__["default"], {
           board: board,
+          currentUser: _this.props.currentUser,
+          deleteBoard: _this.props.deleteBoard,
           key: idx
         });
       })));
@@ -606,30 +618,46 @@ var BoardIndex = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _board_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./board_index */ "./frontend/components/board/board_index.jsx");
-/* harmony import */ var _actions_board_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/board_action */ "./frontend/actions/board_action.js");
+/* harmony import */ var _actions_board_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/board_action */ "./frontend/actions/board_action.js");
+/* harmony import */ var _board_board_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../board/board_index */ "./frontend/components/board/board_index.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
 
- // import { logout } from "../../actions/session_action";
+
 
 var mSTP = function mSTP(state) {
   return {
     currentUserId: state.session.id,
-    boards: Object.values(state.entities.boards)
+    boards: Object.values(state.entities.boards),
+    currentUser: state.entities.users[state.session.id] // user: state.entities.users[ownProps.match.params.userId] 
+
   };
 };
 
 var mDTP = function mDTP(dispatch) {
   return {
     fetchBoards: function fetchBoards(userId) {
-      return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["fetchBoards"])(userId));
-    } // deleteEvent: eventId => dispatch(deleteEvent(eventId))
+      return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_1__["fetchBoards"])(userId));
+    },
+    deleteBoard: function (_deleteBoard) {
+      function deleteBoard(_x) {
+        return _deleteBoard.apply(this, arguments);
+      }
+
+      deleteBoard.toString = function () {
+        return _deleteBoard.toString();
+      };
+
+      return deleteBoard;
+    }(function (boardId) {
+      return dispatch(deleteBoard(boardId));
+    }) // deleteEvent: eventId => dispatch(deleteEvent(eventId))
 
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_board_index__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_board_board_index__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -690,6 +718,21 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
+      var editButton;
+
+      if (this.props.currentUserId === this.props.currentUser.id) {
+        editButton = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "splashsignin",
+          onClick: function onClick() {
+            return _this.props.openModal("Edit Board");
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "navcontentlongin"
+        }, "Edit Board"));
+      } else {
+        editButton = null;
+      }
+
       var _this$props = this.props,
           board = _this$props.board,
           idx = _this$props.idx;
@@ -700,14 +743,7 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
         // </li>
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "box-index-items"
-        }, board.title, board.body, board.id, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "splashsignin",
-          onClick: function onClick() {
-            return _this.props.openModal("Edit Board");
-          }
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "navcontentlongin"
-        }, "Edit Board")))
+        }, board.title, board.body, board.id, editButton)
       );
     }
   }]);
@@ -795,8 +831,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _actions_modal_action__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/modal_action */ "./frontend/actions/modal_action.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -805,26 +839,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var mSTP = function mSTP(state) {
-  return _defineProperty({
-    // errors: state.errors.board,
-    board: {
-      date: '',
-      description: ''
-    },
-    currentUser: state.entities.users[state.session.id]
-  }, "board", state.entities.boards);
+  return {
+    currentUser: state.entities.users[state.session.id],
+    errors: state.errors.board // board : state.entities.boards
+    // formType: "Create Board",
+
+  };
 };
 
 var mDTP = function mDTP(dispatch) {
   return {
-    openModal: function openModal(modal) {
-      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_5__["openModal"])(modal));
-    },
+    // openModal: modal => dispatch(openModal(modal)),
+    // clearError: () => dispatch(receiveErrors([])),
     createBoard: function createBoard(board) {
       return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["createBoard"])(board));
-    },
-    clearError: function clearError() {
-      return dispatch(receiveErrors([]));
     },
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_5__["closeModal"])());
@@ -1503,7 +1531,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         className: "sessionform",
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "session_logo"
+        className: "lds-circle"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "session_logo_img",
         src: window.favicon
@@ -1526,12 +1554,12 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         type: "submit",
         value: this.props.formType === "Log in" ? "Log In" : "Continue",
         onChange: this.update("password")
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType === "Log in" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "session_button demo",
         type: "submit",
         value: "DEMO USER",
         onClick: this.handleDemo
-      }) : ""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session_dummy"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType !== "Log in" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "navlink",
@@ -1997,6 +2025,7 @@ var boardErrorsReducer = function boardErrorsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
+  var _nullErrors = [];
 
   switch (action.type) {
     case _actions_board_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BOARD_ERRORS"]:
@@ -2005,7 +2034,7 @@ var boardErrorsReducer = function boardErrorsReducer() {
     //     return [];
 
     default:
-      return state;
+      return _nullErrors;
   }
 };
 
@@ -2038,7 +2067,7 @@ var BoardsReducer = function BoardsReducer() {
 
   switch (action.type) {
     case _actions_board_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_BOARDS"]:
-      return action.boards;
+      return action.payload.boards;
 
     case _actions_board_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BOARD"]:
       nextState[action.board.id] = action.board;
