@@ -16,6 +16,8 @@
 
 # end
 
-json.array! @boards do |board|
-    json.extract! board, :id, :body, :user_id
-end
+# json.array! @boards do |board|
+#     json.extract! board, :id, :body, :user_id
+# end
+
+json.array! @boards, :title, :body
