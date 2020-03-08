@@ -393,7 +393,11 @@ var App = function App() {
     exact: true,
     path: "/users/:userId",
     component: _profile_profile_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-  }));
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_12__["ProtectedRoute"], {
+    exact: true,
+    path: "/users/:user_id/boards",
+    component: _board_board_index_container__WEBPACK_IMPORTED_MODULE_10__["default"]
+  }), " */}");
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -442,11 +446,11 @@ var BoardForm = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, BoardForm);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(BoardForm).call(this, props));
-    _this.state = {
-      title: '',
-      body: ''
-    };
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(BoardForm).call(this, props)); // this.state = {
+    //     title: '',
+    //     body: ''
+    // };
+
     _this.state = _this.props.board;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.update = _this.update.bind(_assertThisInitialized(_this));
@@ -480,6 +484,10 @@ var BoardForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      if (!this.props.errors) {
+        return null;
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wellcome to Create Board"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -788,6 +796,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _actions_modal_action__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/modal_action */ "./frontend/actions/modal_action.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -796,12 +806,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
-  return {
+  return _defineProperty({
     errors: state.errors.board,
-    currentUser: state.entities.users[state.session.id],
-    board: state.entities.boards // formType: "Create Board",
-
-  };
+    board: {
+      date: '',
+      description: ''
+    },
+    currentUser: state.entities.users[state.session.id]
+  }, "board", state.entities.boards);
 };
 
 var mDTP = function mDTP(dispatch) {

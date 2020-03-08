@@ -3,10 +3,10 @@ import React from 'react';
 export default class BoardForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            title: '',
-            body: ''
-        };
+        // this.state = {
+        //     title: '',
+        //     body: ''
+        // };
         this.state = this.props.board
         this.handleSubmit = this.handleSubmit.bind(this)
         this.update = this.update.bind(this)
@@ -32,6 +32,9 @@ export default class BoardForm extends React.Component {
     }
     
     render() {
+        if (!this.props.errors) {
+            return null
+        }
         return (
             <div> 
                 <div>Wellcome to Create Board</div>
