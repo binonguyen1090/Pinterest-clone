@@ -37,9 +37,9 @@ export default class BoardForm extends React.Component {
         }
         return (
             <div> 
-                <div>Wellcome to Create Board</div>
+                <div className="errorInBoardForm">Wellcome to Create Board</div>
                  <form onSubmit={this.handleSubmit}>
-                    <div className='board-x' onClick={this.props.closeModal}>X</div>
+                    <div className='errorInBoardForm' onClick={this.props.closeModal}>X</div>
 
                     <div>
                         <input type="text" value={this.state.title} onChange={this.update('title')} placeholder="Topic"/>
@@ -51,7 +51,7 @@ export default class BoardForm extends React.Component {
                     <div>
                         <input type="submit" value="Create Board" />
                     </div>
-                    <div>
+                    <div className="errorInBoardForm">
                         {this.renderErrors()}
                     </div>
                 </form> 
