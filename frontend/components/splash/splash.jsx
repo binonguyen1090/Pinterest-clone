@@ -13,6 +13,7 @@ export default class Splash extends React.Component {
             <div><SplashHeaderContainer /></div>
 
             <div className="all-splash">
+              
               <div className="splash-title">
                 <h1>Get ur next idea</h1>
               </div>

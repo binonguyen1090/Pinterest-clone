@@ -27,11 +27,11 @@ export default class BoardIndexItem extends React.Component {
                 {board.title}
                 {board.body}
                 {board.id}
-                <button>Edit</button>
                 <button
                     className="splashsignin"
                     onClick={() => this.props.openModal("Edit Board")}
                 >
+                    <p className="navcontentlongin">Edit Board</p>
                 </button>
             </div>
         )

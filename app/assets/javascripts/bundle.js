@@ -693,12 +693,14 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
         // </li>
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "box-index-items"
-        }, board.title, board.body, board.id, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Edit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, board.title, board.body, board.id, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "splashsignin",
           onClick: function onClick() {
             return _this.props.openModal("Edit Board");
           }
-        }))
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "navcontentlongin"
+        }, "Edit Board")))
       );
     }
   }]);
