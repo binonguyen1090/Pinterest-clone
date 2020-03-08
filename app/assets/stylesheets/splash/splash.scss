@@ -64,42 +64,42 @@
     margin: 2px;
     font-weight: 500;
     text-align: center;
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
 
 /////animation for images
 
-.imgSplash{
-    border-radius: 10px;
-    height: 350px;
-    margin-top: 25px;
-    width: 240px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-  animation-name: example;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-animation-direction: alternate-reverse;
+// .imgSplash{
+//     border-radius: 10px;
+//     height: 340px;
+//     margin-top: 25px;
+//     width: 190px;
+//     margin-left: auto;
+//     margin-right: auto;
+//     position: relative;
+//   animation-name: example;
+//   animation-duration: 4s;
+//   animation-iteration-count: infinite;
+// animation-direction: alternate-reverse;
   
-}
-@keyframes example {
-  0%   {left:0px; top:0px;}
-  25%  {left:0px; top:15px;}
-  50%  {left:0px; top:30px;}
-  75%  { left:0px; top:45px;}
-  100% {left:0px; top:60px;}
-}
+// }
+// @keyframes example {
+//   0%   {left:0px; top:0px;}
+//   25%  {left:0px; top:15px;}
+//   50%  {left:0px; top:30px;}
+//   75%  { left:0px; top:45px;}
+//   100% {left:0px; top:60px;}
+// }
 .containerSplashImg{
    display: flex;
    align-items: center;
    justify-content: center;
    overflow: hidden;
    padding-top: 20px;
-   margin-left: 10px;
-   padding: 10px;
-
+  //  margin-right: 5px;
+   padding: 5px;
+   width: 1650px;
 }
 
 /////////////////////testing/////////////////
@@ -125,10 +125,10 @@ animation-direction: alternate-reverse;
   opacity:0;
 }
 .top{
-    border-radius: 10px;
+    border-radius: 15px;
     height: 337px;
     margin-top: 25px;
-    width: 240px;
+    width: 220px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -146,10 +146,10 @@ animation-direction: alternate-reverse;
   100% {left:0px; top:60px;}
 }
 .bottom{
-    border-radius: 10px;
+    border-radius: 15px;
     height: 337px;
     margin-top: 25px;
-    width: 240px;
+    width: 220px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
