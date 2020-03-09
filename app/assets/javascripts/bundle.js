@@ -203,12 +203,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openModal", function() { return openModal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeModal", function() { return closeModal; });
 var OPEN_MODAL = "OPEN_MODAL";
-var CLOSE_MODAL = "CLOSE_MODAL";
-var openModal = function openModal(modal, boardId) {
+var CLOSE_MODAL = "CLOSE_MODAL"; // export const openModal = (modal, boardId) => {
+
+var openModal = function openModal(modal) {
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   return {
     type: OPEN_MODAL,
     modal: modal,
-    boardId: boardId
+    // boardId
+    options: options
   };
 };
 var closeModal = function closeModal() {
@@ -573,12 +576,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-/*
-Export an `EventIndex` presentational component that renders a list (`ul`) of
-`EventIndexItems`. This component should receive `events` from the store as a 
-prop via its container and fetch them once it has successfully mounted to the 
-DOM. Below the `ul`, add a link to the new event page with text 'New Event'.
-*/
 
 var BoardIndex = /*#__PURE__*/function (_React$Component) {
   _inherits(BoardIndex, _React$Component);
@@ -592,7 +589,14 @@ var BoardIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(BoardIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchBoards(this.props.currentUser.id);
+      this.props.fetchBoards(this.props.user.id);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.user.id != this.props.user.id) {
+        this.props.fetchBoards(this.props.user.id);
+      }
     }
   }, {
     key: "render",
@@ -600,6 +604,10 @@ var BoardIndex = /*#__PURE__*/function (_React$Component) {
       var _this = this;
 
       if (!this.props.boards) {
+        return null;
+      }
+
+      if (!this.props.user) {
         return null;
       }
 
@@ -611,18 +619,53 @@ var BoardIndex = /*#__PURE__*/function (_React$Component) {
           closeModal = _this$props.closeModal;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "This is from Board_Index_Component", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, boards.map(function (board, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_board_index_items__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          openModal: _this.props.openModal,
+          key: idx,
           board: board,
-          currentUser: _this.props.currentUser,
           deleteBoard: _this.props.deleteBoard,
-          key: idx
+          openModal: _this.props.openModal,
+          currentUserId: _this.props.currentUserId,
+          user: _this.props.user
         });
       })));
     }
   }]);
 
   return BoardIndex;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // import React from 'react';
+// import { Link } from 'react-router-dom';
+// import BoardShow from './board_show'
+// import BoardIndexItem from './board_index_items'
+// /*
+// Export an `EventIndex` presentational component that renders a list (`ul`) of
+// `EventIndexItems`. This component should receive `events` from the store as a 
+// prop via its container and fetch them once it has successfully mounted to the 
+// DOM. Below the `ul`, add a link to the new event page with text 'New Event'.
+// */
+// export default class BoardIndex extends React.Component {
+//     constructor(props){
+//         super(props);
+//     }
+//     componentDidMount() {
+//         this.props.fetchBoards(this.props.currentUser.id);
+//     }
+//     render() {
+//         if  (!this.props.boards){
+//             return null
+//         }
+//         const { boards, deleteBoard, currentUser, openModal, closeModal} = this.props
+//         return (
+//             <div>
+//                 This is from Board_Index_Component
+//                 <ul>
+//                     {boards.map((board, idx) => <BoardIndexItem openModal={this.props.openModal} 
+//                     board={board} currentUser={this.props.currentUser}
+//                      deleteBoard={this.props.deleteBoard} key={idx}/> )}
+//                 </ul>
+//             </div>
+//         )
+//     }
+// }
+
 
 
 
@@ -648,12 +691,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mSTP = function mSTP(state) {
+var mSTP = function mSTP(state, ownProps) {
   return {
     currentUserId: state.session.id,
     boards: Object.values(state.entities.boards),
-    currentUser: state.entities.users[state.session.id] // user: state.entities.users[ownProps.match.params.userId] 
-
+    // user: state.entities.users[ownProps.match.prams.userId]
+    user: state.entities.users[ownProps.match.params.userId]
   };
 };
 
@@ -675,16 +718,33 @@ var mDTP = function mDTP(dispatch) {
     }(function (boardId) {
       return dispatch(deleteBoard(boardId));
     }),
-    closeModal: function closeModal() {
-      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_4__["closeModal"])());
-    },
+    // closeModal: () => dispatch(closeModal()),
     openModal: function openModal(modal, boardId) {
-      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_4__["openModal"])(modal, boardId));
+      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_4__["openModal"])(modal, {
+        boardId: boardId
+      }));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_board_board_index__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_board_board_index__WEBPACK_IMPORTED_MODULE_2__["default"]))); // import { connect } from "react-redux";
+// import { fetchBoards } from '../../actions/board_action';
+// import BoardIndex from '../board/board_index'
+// import { withRouter } from 'react-router-dom';
+// import { openModal, closeModal } from "../../actions/modal_action";
+// const mSTP = state => ({
+//     currentUserId: state.session.id,
+//     boards: Object.values(state.entities.boards),
+//     currentUser: state.entities.users[state.session.id]
+//     // user: state.entities.users[ownProps.match.params.userId] 
+// });
+// const mDTP = dispatch => ({
+//     fetchBoards: (userId) => dispatch(fetchBoards(userId)),
+//     deleteBoard: (boardId) => dispatch(deleteBoard(boardId)),
+//     // closeModal: () => dispatch(closeModal()),
+//     openModal: (modal,boardId) => dispatch(openModal(modal,boardId)),
+// });
+// export default connect(mSTP, mDTP)(BoardIndex);
 
 /***/ }),
 
@@ -721,15 +781,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-/*
-Export an `EventIndexItem` presentational component that takes in an `event`
-and the `deleteEvent` action via props. The component should render an `li`
-containing the following:
-
-1. A link to the event's show page with text of the event's description
-2. A link to the event's edit page with text 'Edit'.
-3. A button to delete the event.
-*/
 
 var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
   _inherits(BoardIndexItem, _React$Component);
@@ -747,7 +798,7 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
 
       var editButton;
 
-      if (this.props.board.user_id === this.props.currentUser.id) {
+      if (this.props.currentUserId === this.props.user.id) {
         editButton = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "splashsignin",
           onClick: function onClick() {
@@ -773,7 +824,36 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 
-;
+; // import React from 'react';
+// import { Link } from 'react-router-dom';
+// export default class BoardIndexItem extends React.Component {
+//     constructor(props){
+//         super(props);
+//     };
+//     render() {
+//         let editButton;
+//         if (this.props.board.user_id === this.props.currentUser.id) {
+//             editButton = <button
+//                 className="splashsignin"
+//                 onClick={() => this.props.openModal("Edit Board", this.props.board.id)}
+//             >
+//                 <p className="navcontentlongin">Edit Board</p>
+//             </button>
+//         }
+//         else {
+//             editButton = null
+//         }
+//         const { board , idx} = this.props;
+//         return (
+//             <div className="box-index-items">
+//                 {board.title} <br/>
+//                 {board.body} <br/>
+//                 {/* {board.id} <br/> */}
+//                 {editButton}
+//             </div>
+//         )
+//     }
+// };
 
 /***/ }),
 
@@ -942,7 +1022,8 @@ var EditBoardForm = /*#__PURE__*/function (_React$Component) {
   _createClass(EditBoardForm, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchBoard(this.props.boardId);
+      debugger;
+      this.props.fetchBoard(this.props.board.id);
     }
   }, {
     key: "handleSubmit",
@@ -970,6 +1051,7 @@ var EditBoardForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      debugger;
       var _this$props = this.props,
           board = _this$props.board,
           currentUser = _this$props.currentUser,
@@ -986,7 +1068,7 @@ var EditBoardForm = /*#__PURE__*/function (_React$Component) {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "titlecreateForm"
-      }, "Edit BoardAAAAAAAA"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Edit board"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "inputCreateBoard",
         type: "text",
         value: this.state.title,
@@ -1042,11 +1124,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, oP) {
+  debugger;
   return {
     errors: state.errors.board,
     currentUser: state.entities.users[state.session.id],
-    board: state.entities.boards[state.ui.modal.boardId],
-    boardId: state.ui.modal.boardId // board: state.entities.boards[oP.match.params.eventId],
+    board: state.entities.boards[state.ui.modal.options.boardId],
+    boardId: state.ui.modal.options.boardId // boardId: state.ui.modal.boardId,
+    // board: state.entities.boards[oP.match.params.eventId],
     // board: state.events[oP.match.params.eventId],
     // formType: "Create Board",
 
@@ -1054,6 +1138,7 @@ var mSTP = function mSTP(state, oP) {
 };
 
 var mDTP = function mDTP(dispatch) {
+  debugger;
   return {
     fetchBoard: function fetchBoard(boardId) {
       return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["fetchBoard"])(boardId));
@@ -1277,6 +1362,7 @@ function Modal(_ref) {
   var component;
 
   switch (modal.modal) {
+    // switch (modal) {
     case "Log in":
       component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_login_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], null);
       break;
@@ -1774,11 +1860,18 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         type: "submit",
         value: this.props.formType === "Log in" ? "Log In" : "Continue",
         onChange: this.update("password")
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType === "Log in" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "session_button demo",
         type: "submit",
         value: "DEMO USER",
         onClick: this.handleDemo
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "session_button demo",
+        type: "submit",
+        value: "DEMO USER",
+        onClick: function onClick() {
+          return _this3.props.openModal("Log in");
+        }
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session_dummy"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType !== "Log in" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1786,12 +1879,12 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this3.props.openModal("Log in");
         }
-      }, " ", "Already a member? Log in") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Already a member? Log in") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "navlink",
         onClick: function onClick() {
           return _this3.props.openModal("Sign up");
         }
-      }, " ", "Not on Pinterest yet? Sign Up")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Not on Pinterest yet? Sign Up")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session_errors"
       }, this.renderErrors()))));
     }
@@ -2377,10 +2470,12 @@ function modalReducer() {
 
   switch (action.type) {
     case _actions_modal_action__WEBPACK_IMPORTED_MODULE_0__["OPEN_MODAL"]:
+      // return action.modal
+      // return merge ( {},{modal: action.modal}, {boardId: action.boardId})
       return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, {
         modal: action.modal
       }, {
-        boardId: action.boardId
+        options: action.options
       });
 
     case _actions_modal_action__WEBPACK_IMPORTED_MODULE_0__["CLOSE_MODAL"]:

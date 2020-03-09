@@ -1,32 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-/*
-Export an `EventIndexItem` presentational component that takes in an `event`
-and the `deleteEvent` action via props. The component should render an `li`
-containing the following:
-
-1. A link to the event's show page with text of the event's description
-2. A link to the event's edit page with text 'Edit'.
-3. A button to delete the event.
-*/
 export default class BoardIndexItem extends React.Component {
     constructor(props){
         super(props);
     };
 
     render() {
-        
         let editButton;
-        if (this.props.board.user_id === this.props.currentUser.id) {
+        if (this.props.currentUserId === this.props.user.id) {
             editButton = <button
                 className="splashsignin"
-                onClick={() => this.props.openModal("Edit Board", this.props.board.id)}
-            >
+                onClick={() => this.props.openModal("Edit Board", this.props.board.id)} >
                 <p className="navcontentlongin">Edit Board</p>
             </button>
-        }
-        else {
+        }else {
             editButton = null
         }
 
@@ -36,11 +24,44 @@ export default class BoardIndexItem extends React.Component {
             <div className="box-index-items">
                 {board.title} <br/>
                 {board.body} <br/>
-                {/* {board.id} <br/> */}
                 {editButton}
-               
             </div>
         )
     }
 };
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+
+// export default class BoardIndexItem extends React.Component {
+//     constructor(props){
+//         super(props);
+//     };
+
+//     render() {
+//         let editButton;
+//         if (this.props.board.user_id === this.props.currentUser.id) {
+//             editButton = <button
+//                 className="splashsignin"
+//                 onClick={() => this.props.openModal("Edit Board", this.props.board.id)}
+//             >
+//                 <p className="navcontentlongin">Edit Board</p>
+//             </button>
+//         }
+//         else {
+//             editButton = null
+//         }
+
+//         const { board , idx} = this.props;
+//         return (
+          
+//             <div className="box-index-items">
+//                 {board.title} <br/>
+//                 {board.body} <br/>
+//                 {/* {board.id} <br/> */}
+//                 {editButton}
+               
+//             </div>
+//         )
+//     }
+// };
 

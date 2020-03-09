@@ -99,17 +99,24 @@ class SessionForm extends React.Component {
             />
           </div>
           <div>
-            {/* {this.props.formType === "Log in" ? ( */}
+            {this.props.formType === "Log in" ? (
               <input
                 className="session_button demo"
                 type="submit"
                 value={"DEMO USER"}
                 onClick={this.handleDemo}
               />
-            {/* ) : ( */}
-              {/* "" */}
-            {/* )} */}
+            ) : ( 
+                  <input
+                    className="session_button demo"
+                    type="submit"
+                    value={"DEMO USER"}
+                    onClick={() => this.props.openModal("Log in")}
+                  />
+             )} 
           </div>
+
+            
 
           {/* <div className="or">OR</div>
 
@@ -133,15 +140,14 @@ class SessionForm extends React.Component {
                 className="navlink"
                 onClick={() => this.props.openModal("Log in")}
               >
-                {" "}
+                {/* {" "} */}
                 Already a member? Log in
               </button>
             ) : (
               <button
                 className="navlink"
-                onClick={() => this.props.openModal("Sign up")}
-              >
-                {" "}
+                onClick={() => this.props.openModal("Sign up")}>
+                {/* {" "} */}
                 Not on Pinterest yet? Sign Up
               </button>
             )}

@@ -14,8 +14,8 @@ export default class EditBoardForm extends React.Component {
         
     }
     componentDidMount() {
-        
-        this.props.fetchBoard(this.props.boardId)
+        debugger
+        this.props.fetchBoard(this.props.board.id)
 
     }
     handleSubmit(e) {
@@ -37,6 +37,7 @@ export default class EditBoardForm extends React.Component {
     }
     
     render() {
+        debugger
         const { board, currentUser, errors, updateBoard, openModal, closeModal} = this.props
         if (!board) return null;
         if (!errors) return null;
@@ -46,7 +47,7 @@ export default class EditBoardForm extends React.Component {
                     <div className="all_board">
 
                         <form className="boardform" onSubmit={this.handleSubmit}>
-                            <div className="titlecreateForm">Edit BoardAAAAAAAA</div>
+                            <div className="titlecreateForm">Edit board</div>
                             <div >
                                 {/* <input className="inputCreateBoard" type="text" placeholder="Topic" /> */}
                                 <input className="inputCreateBoard" type="text" value={this.state.title} onChange={this.update('title')}  />

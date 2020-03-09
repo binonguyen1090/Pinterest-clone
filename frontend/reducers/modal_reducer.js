@@ -7,7 +7,9 @@ import merge from 'lodash/merge';
 export default function modalReducer(state = null, action) {
   switch (action.type) {
     case OPEN_MODAL:
-      return merge ( {},{modal: action.modal}, {boardId: action.boardId})
+      // return action.modal
+      // return merge ( {},{modal: action.modal}, {boardId: action.boardId})
+      return merge ( {},{modal: action.modal}, {options: action.options})
     case CLOSE_MODAL:
       return null;
     case RECEIVE_CURRENT_USER:

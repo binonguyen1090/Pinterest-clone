@@ -7,12 +7,14 @@ import CreateBoardFormContainer from "../board/create_board_form_container"
 import EditBoardFormContainer from "../board/edit_board_form_container"
 
 function Modal({ modal, closeModal }) {
+  
   if (!modal) {
     return null;
   }
   let component;
   
   switch (modal.modal) {
+  // switch (modal) {
     case "Log in":
       component = <LoginFormContainer />;
       break;
