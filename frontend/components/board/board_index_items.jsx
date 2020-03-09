@@ -17,6 +17,7 @@ export default class BoardIndexItem extends React.Component {
         }else {
             editButton = null
         }
+        
 
         const { board , idx} = this.props;
         return (
@@ -25,6 +26,7 @@ export default class BoardIndexItem extends React.Component {
                 {board.title} <br/>
                 {board.body} <br/>
                 {editButton}
+                
             </div>
         )
     }

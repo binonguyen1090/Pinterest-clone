@@ -47,17 +47,7 @@
 .inputCreateBoard{
     border-radius: 40px;
 }
-.create-group-btton{
-    display: flex;
-    justify-content: right;
-    // background-color: pink;
-    height: 30px;
-    margin-top: 20px;
-    margin-left: 220px;
-    padding: 10px;
-    margin-bottom: 20px;
 
-}
 // .canclebutton{
 //     margin-right: 30px;
 // }
@@ -93,4 +83,28 @@
   height: 45px;
   align-items: center;
   margin-right: 30px;
+}
+.delete-edit-button{
+  display: flex;
+  // background-color: rosybrown;
+}
+.delete-board{
+    margin: 10px;
+    // background-color: sandybrown;
+    text-decoration: none;
+    font-size: 30px;
+    border: none;
+    padding-top: 30px;
+
+}
+.create-group-btton{
+    display: flex;
+    justify-content: right;
+    // background-color: pink;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 180px;
+    padding: 10px;
+    margin-bottom: 20px;
+
 }

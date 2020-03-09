@@ -10,11 +10,12 @@ export default class EditBoardForm extends React.Component {
         this.state = this.props.board
         this.handleSubmit = this.handleSubmit.bind(this)
         this.update = this.update.bind(this)
+        this.deleteBoard = this.deleteBoard.bind(this)
         // this.renderErrors = this.renderErrors.bind(this)
         
     }
     componentDidMount() {
-        debugger
+        // debugger
         this.props.fetchBoard(this.props.board.id)
 
     }
@@ -24,6 +25,12 @@ export default class EditBoardForm extends React.Component {
     }
     update(v) {
         return (e) => this.setState({ [v]: e.target.value })
+    }
+    deleteBoard(e) {
+        // debugger
+        e.preventDefault(),
+            this.props.closeModal()
+            this.props.deleteBoard(this.props.boardId)
     }
 
     renderErrors() {
@@ -37,7 +44,7 @@ export default class EditBoardForm extends React.Component {
     }
     
     render() {
-        debugger
+        // debugger
         const { board, currentUser, errors, updateBoard, openModal, closeModal} = this.props
         if (!board) return null;
         if (!errors) return null;
@@ -59,9 +66,17 @@ export default class EditBoardForm extends React.Component {
                             <div className="errorInBoardForm">
                                 {this.renderErrors()}
                             </div>
-                            <div className="create-group-btton">
-                                <button className='canclebutton' onClick={this.props.closeModal}>Cancle</button>
-                                <input className='createbutton' type="submit" value="Update" />
+
+                            <div className="delete-edit-button">
+                                <div>
+                                    <button className='delete-board' onClick={this.deleteBoard}><i className="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+
+                                <div className="create-group-btton">
+                                    <button className='canclebutton' onClick={this.props.closeModal}>Cancle</button>
+                                    <input className='createbutton' type="submit" value="Update" />
+                                </div>
                             </div>
 
                         </form>

@@ -5,6 +5,7 @@ import {
 import merge from 'lodash/merge';
 
 export default function modalReducer(state = null, action) {
+  // debugger
   switch (action.type) {
     case OPEN_MODAL:
       // return action.modal

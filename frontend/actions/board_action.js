@@ -60,5 +60,5 @@ export const updateBoard = board => dispatch => (
 
 export const deleteBoard = (boardId) => dispatch => (
         BoardApiUtil.deleteBoard(boardId)
-        .then(() => dispatch(removeBoard(boardId)))
+        .then((boardId) => dispatch(removeBoard(boardId)))
 );

@@ -181,7 +181,7 @@ var updateBoard = function updateBoard(board) {
 };
 var deleteBoard = function deleteBoard(boardId) {
   return function (dispatch) {
-    return _util_board_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteBoard"](boardId).then(function () {
+    return _util_board_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteBoard"](boardId).then(function (boardId) {
       return dispatch(removeBoard(boardId));
     });
   };
@@ -207,6 +207,7 @@ var CLOSE_MODAL = "CLOSE_MODAL"; // export const openModal = (modal, boardId) =>
 
 var openModal = function openModal(modal) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  // debugger
   return {
     type: OPEN_MODAL,
     modal: modal,
@@ -1014,7 +1015,8 @@ var EditBoardForm = /*#__PURE__*/function (_React$Component) {
 
     _this.state = _this.props.board;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.update = _this.update.bind(_assertThisInitialized(_this)); // this.renderErrors = this.renderErrors.bind(this)
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.deleteBoard = _this.deleteBoard.bind(_assertThisInitialized(_this)); // this.renderErrors = this.renderErrors.bind(this)
 
     return _this;
   }
@@ -1022,7 +1024,7 @@ var EditBoardForm = /*#__PURE__*/function (_React$Component) {
   _createClass(EditBoardForm, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
+      // debugger
       this.props.fetchBoard(this.props.board.id);
     }
   }, {
@@ -1040,6 +1042,13 @@ var EditBoardForm = /*#__PURE__*/function (_React$Component) {
       };
     }
   }, {
+    key: "deleteBoard",
+    value: function deleteBoard(e) {
+      // debugger
+      e.preventDefault(), this.props.closeModal();
+      this.props.deleteBoard(this.props.boardId);
+    }
+  }, {
     key: "renderErrors",
     value: function renderErrors() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, idx) {
@@ -1051,7 +1060,7 @@ var EditBoardForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
+      // debugger
       var _this$props = this.props,
           board = _this$props.board,
           currentUser = _this$props.currentUser,
@@ -1081,6 +1090,13 @@ var EditBoardForm = /*#__PURE__*/function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "errorInBoardForm"
       }, this.renderErrors()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "delete-edit-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "delete-board",
+        onClick: this.deleteBoard
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-trash-alt"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-group-btton"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "canclebutton",
@@ -1089,7 +1105,7 @@ var EditBoardForm = /*#__PURE__*/function (_React$Component) {
         className: "createbutton",
         type: "submit",
         value: "Update"
-      })))));
+      }))))));
     }
   }]);
 
@@ -1124,7 +1140,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, oP) {
-  debugger;
+  // debugger
   return {
     errors: state.errors.board,
     currentUser: state.entities.users[state.session.id],
@@ -1138,10 +1154,13 @@ var mSTP = function mSTP(state, oP) {
 };
 
 var mDTP = function mDTP(dispatch) {
-  debugger;
+  // debugger
   return {
     fetchBoard: function fetchBoard(boardId) {
       return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["fetchBoard"])(boardId));
+    },
+    deleteBoard: function deleteBoard(boardId) {
+      return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["deleteBoard"])(boardId));
     },
     openModal: function openModal(modal) {
       return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_5__["openModal"])(modal));
@@ -1355,6 +1374,7 @@ function Modal(_ref) {
   var modal = _ref.modal,
       closeModal = _ref.closeModal;
 
+  // debugger
   if (!modal) {
     return null;
   }
@@ -1395,12 +1415,14 @@ function Modal(_ref) {
 }
 
 var mSTP = function mSTP(state) {
+  // debugger
   return {
     modal: state.ui.modal
   };
 };
 
 var mDTP = function mDTP(dispatch) {
+  // debugger
   return {
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_1__["closeModal"])());
@@ -2468,6 +2490,7 @@ function modalReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
+  // debugger
   switch (action.type) {
     case _actions_modal_action__WEBPACK_IMPORTED_MODULE_0__["OPEN_MODAL"]:
       // return action.modal
@@ -2731,6 +2754,7 @@ var updateBoard = function updateBoard(board) {
   });
 };
 var deleteBoard = function deleteBoard(boardId) {
+  // debugger
   return $.ajax({
     url: "api/boards/".concat(boardId),
     method: 'DELETE'
