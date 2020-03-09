@@ -10,7 +10,7 @@ export default class BoardForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         // this.state = this.props.board
         // this.update = this.update.bind(this)
-        // this.renderErrors = this.renderErrors.bind(this)
+        this.renderErrors = this.renderErrors.bind(this)
         
     }
     update(v) {

@@ -8,6 +8,7 @@ export const postUser = (user) => {
     })
 }
 
+
 export const postSession = (user) => {
     return $.ajax({
         url: "api/session",
