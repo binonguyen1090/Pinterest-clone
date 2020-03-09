@@ -1,60 +1,73 @@
-// import React from 'react';
+import React from 'react';
 
-// export default class BoardForm extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             title: '',
-//             body: ''
-//         };
-//         this.state = this.props.board
-//         this.handleSubmit = this.handleSubmit.bind(this)
-//         this.update = this.update.bind(this)
-//         this.renderErrors = this.renderErrors.bind(this)
+export default class EditBoardForm extends React.Component {
+    constructor(props) {
+        super(props);
+        // this.state = {
+        //     title: '',
+        //     body: ''
+        // };
+        this.state = this.props.board
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.update = this.update.bind(this)
+        // this.renderErrors = this.renderErrors.bind(this)
         
-//     }
-//     handleSubmit(e) {
-//         e.preventDefault(),
-//             this.props.createBoard(this.state).then(this.props.closeModal)
-//     }
-//     update(v) {
-//         return (e) => this.setState({ [v]: e.target.value })
-//     }
+    }
+    componentDidMount() {
+        
+        this.props.fetchBoard(this.props.boardId)
 
-//     renderErrors() {
-//         return (
-//             <ul>
-//                 {this.props.errors.map((error, idx) => (
-//                     <li key={idx}>{error}</li>
-//                 ))}
-//             </ul>
-//         );
-//     }
+    }
+    handleSubmit(e) {
+        e.preventDefault(),
+            this.props.updateBoard(this.state).then(this.props.closeModal)
+    }
+    update(v) {
+        return (e) => this.setState({ [v]: e.target.value })
+    }
+
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, idx) => (
+                    <li key={idx}>{error}</li>
+                ))}
+            </ul>
+        );
+    }
     
-//     render() {
-//         return (
-//             <div> 
-//                 <div>Wellcome to Create Board</div>
-//                  <form onSubmit={this.handleSubmit}>
-//                      <div>
+    render() {
+        const { board, currentUser, errors, updateBoard, openModal, closeModal} = this.props
+        if (!board) return null;
+        if (!errors) return null;
+        return (
+            
+                <div>
+                    <div className="all_board">
 
-//                     <input type="text" value={this.state.title} onChange={this.update('title')} placeholder="Topic"/>
-//                      </div>
-//                     <div>
+                        <form className="boardform" onSubmit={this.handleSubmit}>
+                            <div className="titlecreateForm">Edit BoardAAAAAAAA</div>
+                            <div >
+                                {/* <input className="inputCreateBoard" type="text" placeholder="Topic" /> */}
+                                <input className="inputCreateBoard" type="text" value={this.state.title} onChange={this.update('title')}  />
+                            </div>
+                            <div >
+                                {/* <input className="inputCreateBoard" type="text"  placeholder="Description" /> */}
+                                <input className="inputCreateBoard" type="text" value={this.state.body} onChange={this.update('body')} />
+                            </div>
+                            <div className="errorInBoardForm">
+                                {this.renderErrors()}
+                            </div>
+                            <div className="create-group-btton">
+                                <button className='canclebutton' onClick={this.props.closeModal}>Cancle</button>
+                                <input className='createbutton' type="submit" value="Update" />
+                            </div>
 
-//                         <input type="text" value={this.state.body} onChange={this.update('body')} placeholder="Description" />
-//                     </div>
-//                     <div>
+                        </form>
 
-//                     <input type="submit" value="Create Board" />
-//                     </div>
-//                     <div>
-//                         {this.renderErrors()}
-//                     </div>
-//                 </form> 
-                
-//             </div>
-//         )
-//     }
-// }
+                    </div>
+                </div>
+        )
+    }
+}
 

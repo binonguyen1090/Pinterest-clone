@@ -7,6 +7,7 @@ import LogInFormContainer from './session/login_form_container';
 import HomepageContainer from './homepage/homepage_container'
 import NavBarContainer from './navbar/navbar_container';
 import ProfileContainer from './profile/profile_container';
+import EditBoardContainer from './board/edit_board_form_container';
 
 import BoardFormContainer from './board/board_form';
 import BoardShowContainer from './board/board_show_container';
@@ -34,6 +35,7 @@ const App = () => (
         
       <ProtectedRoute exact path="/" component={HomepageContainer} />
       <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
+    <ProtectedRoute exact path="/boards/:boardId/edit" component={EditBoardContainer} />
       {/* <ProtectedRoute exact path="/users/:user_id/boards" component={ProfileContainer} />  */}
 
  

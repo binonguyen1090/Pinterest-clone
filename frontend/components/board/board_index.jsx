@@ -22,13 +22,15 @@ export default class BoardIndex extends React.Component {
         if  (!this.props.boards){
             return null
         }
-        const { boards, deleteBoard, currentUser} = this.props
+        const { boards, deleteBoard, currentUser, openModal, closeModal} = this.props
 
         return (
             <div>
                 This is from Board_Index_Component
                 <ul>
-                    {boards.map((board, idx) => <BoardIndexItem board={board} currentUser={this.props.currentUser} deleteBoard={this.props.deleteBoard} key={idx}/> )}
+                    {boards.map((board, idx) => <BoardIndexItem openModal={this.props.openModal} 
+                    board={board} currentUser={this.props.currentUser}
+                     deleteBoard={this.props.deleteBoard} key={idx}/> )}
                 </ul>
                 
             </div>

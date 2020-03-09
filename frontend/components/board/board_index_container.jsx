@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { fetchBoards } from '../../actions/board_action';
 import BoardIndex from '../board/board_index'
 import { withRouter } from 'react-router-dom';
+import { openModal, closeModal } from "../../actions/modal_action";
 
 
 const mSTP = state => ({
@@ -15,8 +16,9 @@ const mSTP = state => ({
 const mDTP = dispatch => ({
     fetchBoards: (userId) => dispatch(fetchBoards(userId)),
     deleteBoard: (boardId) => dispatch(deleteBoard(boardId)),
+    closeModal: () => dispatch(closeModal()),
+    openModal: (modal,boardId) => dispatch(openModal(modal,boardId)),
 
-    // deleteEvent: eventId => dispatch(deleteEvent(eventId))
 });
 
 export default connect(mSTP, mDTP)(BoardIndex);

@@ -4,13 +4,15 @@ import { connect } from "react-redux";
 import LoginFormContainer from "../session/login_form_container";
 import SignupFormContainer from "../session/signup_form_container";
 import CreateBoardFormContainer from "../board/create_board_form_container"
+import EditBoardFormContainer from "../board/edit_board_form_container"
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }
   let component;
-  switch (modal) {
+  
+  switch (modal.modal) {
     case "Log in":
       component = <LoginFormContainer />;
       break;
@@ -19,6 +21,9 @@ function Modal({ modal, closeModal }) {
       break;
     case "Create Board":
       component = <CreateBoardFormContainer />;
+      break;
+    case "Edit Board":
+      component = <EditBoardFormContainer />;
       break;
     default:
       return null;

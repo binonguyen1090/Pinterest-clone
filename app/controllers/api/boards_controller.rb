@@ -1,6 +1,6 @@
 class Api::BoardsController < ApplicationController
     def index
-      # debugger
+      # 
       @boards = User.find(params[:user_id]).boards 
       # @boards = Board.all.where(user_id: current_user.id)
       render :index
