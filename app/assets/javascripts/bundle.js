@@ -652,7 +652,9 @@ var BoardIndex = /*#__PURE__*/function (_React$Component) {
           currentUser = _this$props.currentUser,
           openModal = _this$props.openModal,
           closeModal = _this$props.closeModal;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "This is from Board_Index_Component", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, boards.map(function (board, idx) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "This is from Board_Index_Component", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "box-index-items-container"
+      }, boards.map(function (board, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_board_index_items__WEBPACK_IMPORTED_MODULE_3__["default"], {
           key: idx,
           board: board,
@@ -661,7 +663,7 @@ var BoardIndex = /*#__PURE__*/function (_React$Component) {
           currentUserId: _this.props.currentUserId,
           user: _this.props.user
         });
-      })));
+      }))));
     }
   }]);
 
@@ -1635,6 +1637,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var Profile = /*#__PURE__*/function (_React$Component) {
   _inherits(Profile, _React$Component);
 
+  // debugger
   function Profile(props) {
     _classCallCheck(this, Profile);
 
@@ -1646,29 +1649,56 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
+      // let id = this.props.match.params.userId 
+      var user = this.props.currentUser;
+      var name = user.fname === null || user.lname === null ? user.email : user.fname + " " + user.lname;
+      var location = user.location === null ? "" : user.location;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "board"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "topboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "in-topboard"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "dropdown"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-plus"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "dropdown-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "splashsignin",
+        className: "dropdownbutton",
         onClick: function onClick() {
           return _this.props.openModal("Create Board");
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "navcontentlongin"
-      }, "Create Board")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "dropdownbutton-size"
+      }, "Create Board")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "dropdownbutton",
+        onClick: function onClick() {
+          return _this.props.openModal("Create Board");
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "dropdownbutton-size"
+      }, "Create Pin")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/settings",
         className: "fa-pen-profile"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-pen "
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "info-profile"
-      }, "Name , age"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "name-profile"
+      }, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "location-profile"
+      }, location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "link-on-profile"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Boards"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Pins"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "link-on-profile-1"
+      }, "Board"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "link-on-profile-1"
+      }, "Pins")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bottomboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_board_board_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
     }
@@ -2201,7 +2231,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "session_title"
       }, "Welcome to B-interest"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType !== "Log in" ? "Sign Up! It’s quick and easy." : ""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
+        type: "email",
         value: this.state.email,
         onChange: this.update("email"),
         placeholder: "Email"
@@ -2383,7 +2413,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.f3
+        src: window.c32
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
         src: window.c22
@@ -2415,7 +2445,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.f1
+        src: window.c30
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
         src: window.splash14
@@ -2449,7 +2479,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.f5
+        src: window.c31
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
         src: window.splash15

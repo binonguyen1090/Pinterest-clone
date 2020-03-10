@@ -21,13 +21,15 @@ export default class BoardIndexItem extends React.Component {
 
         const { board , idx} = this.props;
         return (
-          
-            <div className="box-index-items">
-                {board.title} <br/>
-                {board.body} <br/>
-                {editButton}
-                
-            </div>
+            
+                <div className="box-index-items">
+                    {board.title} <br />
+                    {board.body} <br />
+                    {editButton}
+
+                </div>
+            
+            
         )
     }
 };

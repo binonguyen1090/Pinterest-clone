@@ -69,7 +69,7 @@ class SessionForm extends React.Component {
 
 
             <input
-              type="text"
+              type="email"
               value={this.state.email}
               onChange={this.update("email")}
               placeholder="Email"

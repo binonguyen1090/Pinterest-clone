@@ -29,8 +29,9 @@ export default class BoardIndex extends React.Component {
 
         return (
             <div>
+                <div >
                 This is from Board_Index_Component
-                <ul>
+                <ul className="box-index-items-container">
                     {
                         boards.map((board, idx) =>
                         <BoardIndexItem 
@@ -43,6 +44,7 @@ export default class BoardIndex extends React.Component {
                         />)
                     }
                 </ul>
+                </div>
             </div>
         )
     }

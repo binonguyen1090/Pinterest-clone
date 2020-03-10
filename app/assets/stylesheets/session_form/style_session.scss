@@ -125,6 +125,23 @@ input[type=text]:focus {
   border: 3px solid rgb(27, 139, 243);
 }
 
+
+input[type=email] {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+//   -webkit-transition: 0.5s;
+//   transition: 0.5s;
+  outline: none;
+  
+  
+}
+
+input[type=email]:focus {
+  border: 3px solid rgb(27, 139, 243);
+}
 .session_button{
   width: 70%;
 //   padding: 12px 20px;

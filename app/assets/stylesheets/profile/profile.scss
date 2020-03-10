@@ -1,10 +1,10 @@
 .board{
     background-color: rgb(94, 59, 59);
-    color: white;
-    // width: 100%;
-    padding: 75px;
-    display: flex;
-    flex-direction: column;
+    // color: white;
+    // width: 90%;
+    padding-top: 75px;
+    // display: flex;
+    // flex-direction: column;
     // align-content: center;
     // justify-content: center;
 
@@ -14,50 +14,94 @@
 }
 .bottomboard {
     background-color: rgb(233, 190, 190);
-    padding: 20px;
-    margin: 20px;
-    height: 300px;
+    display: flex;
+    justify-content: center;
+    // padding: 20px;
+    // margin: 20px;
+    // height: 300px;
+    // display: flex;
+    // justify-content: center;
 }
 .topboard {
     background-color: rgb(169, 193, 207);
-    width: auto;
-        padding: 20px;
-        margin: 20px;
-        height: 200px;
+    // width: auto;
+    //     padding: 20px;
+    //     margin: 20px;
+    //     height: 200px;
         display: flex;
         flex-direction: column;
-        // justify-content: space-evenly;
+        justify-items: center;
 
 }
 .profile-button {
-    margin-left: 350px;
+    // margin-left: 350px;
     background-color: blue;
+    // display: flex;
+    // justify-items: center;
     // margin-bottom: 50px;
 }
 .info-profile{
-    margin-left: 350px;
+    // margin-left: 350px;
     background-color: pink;
-        // margin-bottom: 50px;
+    //     // margin-bottom: 50px;
+    // // display: flex;
+    // margin-top: 10px;
+  
+    //     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
 
 
 }
 .link-on-profile {
     background-color: red;
-    margin-top: 100px;
-    display: flex;
-    justify-content: space-evenly;
+    // margin-top: 50px;
+    // display: flex;
+    // justify-content: space-evenly;
     font-size: 25px;
-    width: 30%;
+    padding-top: 20px;
+    // width: 30%;
+    // margin-left: 400px;
+    display: flex;
+    justify-content: center;
     
     
 }
 .fa-pen-profile {
     font-size: 30px;
-	margin-bottom: 490px;
-	padding: 20px;
-	color: black;;
+	// margin-bottom: 490px;
+	padding-left: 30px;
+	// color: black;;
+}
+
+.fas.fa-plus{
+    font-size: 37px;
+    // color: black;
+}
+.location-profile{
+    padding-top: 10px;
 }
 
 
+.space-name{
+    // height: 20px;
+}
 
+.name-profile{
+    color: black;
+    font-size: 27px;
+    font-weight: bold;
+    padding-top: 25px;
+}
+.location-profile{
+    color: black;
+    font-size: 17px;
+}
 
+ .in-topboard{
+    background-color: chartreuse;
+    padding: 10px 500px;
+    
+ }
+ .link-on-profile-1{
+    padding: 20px;
+ }

@@ -1,0 +1,19 @@
+.box-index-items-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+//   justify-content: flex-start;
+//   align-content: center;
+  background-color: green;
+//   width: 100%;
+}
+
+.box-index-items{
+    color: white;
+    background-color: blue;
+    margin: 2px;
+    padding: 10px;
+    width: 165px;
+    height: 200px;
+}
+

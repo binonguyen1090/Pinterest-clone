@@ -28,7 +28,7 @@ export default class Splash extends React.Component {
                       <img className="bottom" src={window.splash12}  />
                     </div>
                     <div id="cf">
-                        <img className="top" src={window.f3} />
+                        <img className="top" src={window.c32} />
                     <img className="bottom" src={window.c22} />
                     </div>
                   </div>
@@ -50,7 +50,7 @@ export default class Splash extends React.Component {
                   <div className="divSplashpics">
                     <div className="dummy2"></div>
                     <div id="cf">
-                      <img className="top" src={window.f1}  />
+                      <img className="top" src={window.c30}  />
                       <img className="bottom" src={window.splash14}  />
                     </div>
                     <div id="cf">
@@ -74,7 +74,7 @@ export default class Splash extends React.Component {
                   <div className="divSplashpics">
                     <div className="dummy2"></div>
                     <div id="cf">
-                      <img className="top" src={window.f5}  />
+                      <img className="top" src={window.c31}  />
                       <img className="bottom" src={window.splash15}  />
                     </div>
                     <div id="cf">
