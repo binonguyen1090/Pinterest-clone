@@ -12,11 +12,17 @@
     // margin-top: 50px;
     // position: fixed;
 }
+.wrap{
+     display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto)
+}
 .bottomboard {
-    background-color: rgb(233, 190, 190);
-    display: flex;
-    justify-content: center;
-    // padding: 20px;
+    // background-color: rgb(233, 190, 190);
+    // display: row;
+ 
+    // justify-content: center;
+    // padding-top: 20px;
     // margin: 20px;
     // height: 300px;
     // display: flex;
@@ -35,10 +41,11 @@
 }
 .profile-button {
     // margin-left: 350px;
-    background-color: blue;
+    // background-color: blue;
     // display: flex;
     // justify-items: center;
     // margin-bottom: 50px;
+    // width: 18%;
 }
 .info-profile{
     // margin-left: 350px;
@@ -46,6 +53,7 @@
     //     // margin-bottom: 50px;
     // // display: flex;
     // margin-top: 10px;
+    padding-top: 10px;
   
     //     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 

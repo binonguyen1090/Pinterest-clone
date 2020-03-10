@@ -851,9 +851,16 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           board = _this$props.board,
           idx = _this$props.idx;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "box-index-items"
-      }, board.title, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), board.body, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), editButton);
+      return (// <div className="wrapper">
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "box-index-item"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "item-image"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "title-edit"
+        }, board.title, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), editButton)) // </div>
+
+      );
     }
   }]);
 
@@ -1677,7 +1684,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }, "Create Board")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "dropdownbutton",
         onClick: function onClick() {
-          return _this.props.openModal("Create Board");
+          return _this.props.openModal("Create Pin");
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "dropdownbutton-size"
@@ -2425,7 +2432,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.c20
+        src: window.c6
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
         src: window.c18
@@ -2433,7 +2440,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.f2
+        src: window.c21
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
         src: window.c24
@@ -2453,7 +2460,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.f9
+        src: window.c33
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
         src: window.c16
@@ -2487,7 +2494,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.f8
+        src: window.c7
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
         src: window.c15
@@ -2499,7 +2506,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.c21
+        src: window.c5
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
         src: window.c17
@@ -2507,7 +2514,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.f7
+        src: window.c34
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
         src: window.c25
@@ -2525,7 +2532,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
-        src: window.f6
+        src: window.c35
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "bottom",
         src: window.c23

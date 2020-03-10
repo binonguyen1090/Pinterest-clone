@@ -34,7 +34,7 @@ export default class Profile extends React.Component {
 
                                     <button
                                         className="dropdownbutton"
-                                        onClick={() => this.props.openModal("Create Board")}>
+                                        onClick={() => this.props.openModal("Create Pin")}>
                                         <p className="dropdownbutton-size">Create Pin</p>
                                     </button>
                                 </div>
