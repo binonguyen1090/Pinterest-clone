@@ -4,22 +4,22 @@
     // background-color: pink;
     // position: fixed;
     // width: max-content;
-    // display: flex;
-    // justify-content: space-evenly;
-    // border-bottom: 1px solid #EFEFEF;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 1px solid #EFEFEF;
     // box-shadow: none;
     // height: 65px;
     // position: fixed;
     // right: 0;
     // left: 0;
     // z-index: 999;
-	// flex-direction: row;
+	flex-direction: row;
 	// align-items: center;
     // align-content: center;
     // width: 100%;
     // margin: auto;
     //  display: inline;
-    background-color: red;
+    // background-color: red;
     // float: left;
 
 
@@ -45,33 +45,46 @@
 
 }
 .rightNav {
-    background-color: green;
+    // background-color: green;
     display: flex;
-    // padding: 5px;
     justify-content: center;
     // margin-right: 300px;
 }
 
 .item {
     margin: auto 5px;
+    color: #8E8E8E;
+    // border: 1px red solid;
+    font-size: 25px;
+        padding: 0px 25px;
+
+}
+.item.comment{
+    border-left: solid 1px #8E8E8E;
 }
 .navbarLogo{
     // height: 30px;
     // width: 30px;
     // padding: 10px;
     // padding-left: 100px;
-    background-color: yellow;
+    // background-color: yellow;
+    margin-top: 6px;
+}
+.topnav{
+    width: 30%;
+    // height: 90px;
 }
 .topnav input[type=text] {
 //   float: right;
 //   padding: 6px;
 //   border: none;
-//   width: 600px;
+  width: 100%;
+  height: 70%;
 //   margin-top: 11px;
 //   margin-right: 16px;
 //   font-size: 17px;
-    // background-color:#EFEFEF;
-    background-color:blue;
+    background-color:#EFEFEF;
+    // background-color:blue;
 }
 // input.search {
 //    border-color: #28a745;
@@ -81,4 +94,33 @@
 //    background-size: 20px 20px;
 //    background-position: right center;
 // }
+/////testing
 
+
+// .homeNavbar {
+//   overflow: hidden;
+// //   background-color: #333;
+// }
+
+// .homeNavbar div {
+//   float: left;
+//   color: #f2f2f2;
+//   text-align: center;
+//   padding: 14px 16px;
+//   text-decoration: none;
+// //   font-size: 17px;
+// }
+
+// .topnav div:hover {
+// //   background-color: #ddd;
+//   color: black;
+// }
+
+// .topnav div.active {
+// //   background-color: #4CAF50;
+// //   color: white;
+// }
+
+// .rightNav{
+//   float: right;
+// }

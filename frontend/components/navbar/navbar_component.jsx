@@ -8,14 +8,8 @@ export const Navbar = ({ currentUser, logout}) => {
             ""
          ) : ( 
     <div className="homeNavbar">
-                     <div class="w3-bar w3-light-grey w3-border">
-                         <a href="#" class="w3-bar-item w3-button w3-green"><i class="fa fa-home"></i></a>
-                         <a href="#" class="w3-bar-item w3-button"><i class="fa fa-search"></i></a>
-                         <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
-                         <a href="#" class="w3-bar-item w3-button"><i class="fa fa-globe"></i></a>
-                         <a href="#" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i></a>
-                     </div>
-            <div >
+                     
+            <div className="logoNav">
                 <Link className="logoLink" to="/"><img className="navbarLogo" src={window.favicon} /></Link>       
             </div>
 
@@ -24,16 +18,22 @@ export const Navbar = ({ currentUser, logout}) => {
             </div>
 
             <div className="rightNav">
-                <div className="item" >Home </div>
-                <div className="item" >Following </div>
+                <a href={`/`} className="item" ><i class="fa fa-home"></i></a>
+                <a href={`#`} className="item" ><i class="fas fa-users"></i></a>
+                {/* <a href={`#`} className="item" ><i class="fas fa-sign-out-alt"></i></a> */}
+                         {/* <div className="item" ><i class="fa fa-home"></i></div> */}
+                {/* <div className="item" >Following </div> */}
                 <div className="item" >
                     <Link className="proLink" to={`/users/${currentUser.id}`}>
                         <i className="far fa-smile">{currentUser.email.split('@')[0]}</i>
                     </Link>           
                 </div>
-                <div className="item" >Inbox </div>
-                <div className="item" >Notification </div>
-                <button  className="item" onClick={logout}>Logout</button>
+                {/* <div className="item" >Inbox </div> */}
+                         
+                <a href={`#`} className="item comment" ><i class="fas fa-comment-dots"></i></a>
+                <a href={`/`} className="item" ><i class="fas fa-bell"></i></a>
+
+                <Link className="item" onClick={logout}><i class="fas fa-sign-out-alt"></i></Link>
             </div>
             
 
@@ -44,9 +44,7 @@ export const Navbar = ({ currentUser, logout}) => {
 
      
     return (
-        <div >{display}
-       
-        </div>
+        <div >{display}</div>
     )
 };
 
