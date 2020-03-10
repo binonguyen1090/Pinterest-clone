@@ -22,7 +22,7 @@
     // background-color: red;
     // float: left;
 
-
+    padding: 9px 0px;
 
      
     // padding: 20px;
@@ -42,23 +42,24 @@
 //   width: 100%;
 
 
-
 }
 .rightNav {
     // background-color: green;
     display: flex;
     justify-content: center;
     // margin-right: 300px;
+    // padding-left: 50px;
 }
 
 .item {
     margin: auto 5px;
     color: #8E8E8E;
     // border: 1px red solid;
-    font-size: 25px;
+    font-size: 30px;
         padding: 0px 25px;
 
 }
+
 .item.comment{
     border-left: solid 1px #8E8E8E;
 }
@@ -124,3 +125,40 @@
 // .rightNav{
 //   float: right;
 // }
+.email-nav{
+    color: red;
+    padding-top: 5px;
+    padding-left: 2px;
+    color:black;
+    font-weight: 500;
+}
+.proLink{
+    display: flex;
+}
+
+.item.circle-alphabet{
+    // width: 20px;
+    // height: 20px;
+    // width: 20%;
+    background-color: #8E8E8E;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border-radius: 70px;
+    height: 45px;
+    width: 0px;
+    // margin-top: 2px;
+    align-items: center;
+}
+.i-circle {
+    background-color: #8E8E8E;
+    color: #fff;
+    // padding: 6px 17px;
+    padding-bottom: 3px;
+    padding-top: -1px;
+    padding-left: 17px;
+    padding-right: 17px;
+    border-radius: 50%;
+    font-size: 35px;
+    font-weight: bold;
+}

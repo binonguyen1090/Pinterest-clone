@@ -1523,34 +1523,37 @@ var Navbar = function Navbar(_ref) {
     href: "/",
     className: "item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "fa fa-home"
+    className: "fa fa-home"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#",
+    href: "/",
     className: "item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "fas fa-users"
+    className: "fas fa-users"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "proLink",
     to: "/users/".concat(currentUser.id)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "far fa-smile"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "i-circle"
+  }, currentUser.email[0]), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "email-nav"
   }, currentUser.email.split('@')[0]))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#",
+    href: "/",
     className: "item comment"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "fas fa-comment-dots"
+    className: "fas fa-comment-dots"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "/",
     className: "item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "fas fa-bell"
+    className: "fas fa-bell"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "",
     className: "item",
     onClick: logout
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "fas fa-sign-out-alt"
+    className: "fas fa-sign-out-alt"
   }))));
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, display);
 }; //saving

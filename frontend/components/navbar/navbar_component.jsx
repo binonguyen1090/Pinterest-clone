@@ -18,22 +18,23 @@ export const Navbar = ({ currentUser, logout}) => {
             </div>
 
             <div className="rightNav">
-                <a href={`/`} className="item" ><i class="fa fa-home"></i></a>
-                <a href={`#`} className="item" ><i class="fas fa-users"></i></a>
-                {/* <a href={`#`} className="item" ><i class="fas fa-sign-out-alt"></i></a> */}
-                         {/* <div className="item" ><i class="fa fa-home"></i></div> */}
-                {/* <div className="item" >Following </div> */}
-                <div className="item" >
-                    <Link className="proLink" to={`/users/${currentUser.id}`}>
-                        <i className="far fa-smile">{currentUser.email.split('@')[0]}</i>
-                    </Link>           
-                </div>
-                {/* <div className="item" >Inbox </div> */}
-                         
-                <a href={`#`} className="item comment" ><i class="fas fa-comment-dots"></i></a>
-                <a href={`/`} className="item" ><i class="fas fa-bell"></i></a>
+                <a href={`/`} className="item" ><i className="fa fa-home"></i></a>
+                <a href={`/`} className="item" ><i className="fas fa-users"></i></a>
 
-                <Link className="item" onClick={logout}><i class="fas fa-sign-out-alt"></i></Link>
+                <div className="item" >
+                             
+
+
+                    <Link className="proLink" to={`/users/${currentUser.id}`}>
+                                 <span className="i-circle">{currentUser.email[0]}</span> <p className="email-nav">{currentUser.email.split('@')[0]}</p>
+                    </Link>
+                </div>
+                
+                      
+                <a href={`/`} className="item comment" ><i className="fas fa-comment-dots"></i></a>
+                <a href={`/`} className="item" ><i className="fas fa-bell"></i></a>
+
+                <Link to="" className="item" onClick={logout}><i className="fas fa-sign-out-alt"></i></Link>
             </div>
             
 
