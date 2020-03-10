@@ -29,13 +29,18 @@ export const Navbar = ({ currentUser, logout}) => {
                 <div className="item" >Notification </div>
                 <button  className="item" onClick={logout}>Logout</button>
             </div>
+            
+
+         
     </div>
         
          );
 
      
     return (
-      <div >{display}</div>
+        <div >{display}
+       
+        </div>
     )
 };
 

@@ -11,16 +11,25 @@ export default class Profile extends React.Component {
         return (
             <div className="board">
                 <div className="topboard">
-                    <button
-                        className="splashsignin"
-                        onClick={() => this.props.openModal("Create Board")}>
-                        <p className="navcontentlongin">Create Board</p>
-                    </button>
-                    <button>
-                        <Link to={`/settings`}>Edit User</Link>
-                        
+                    <div className="profile-button">
+                        <button
+                            className="splashsignin"
+                            onClick={() => this.props.openModal("Create Board")}>
+                            <p className="navcontentlongin">Create Board</p>
                         </button>
-                    <div className="profile">This is Hello from Profile Component</div>
+                        <Link to={`/settings`} className="fa-pen-profile" ><i className="fas fa-pen "></i></Link>
+                
+
+                        
+                    </div>
+                    <div className="info-profile">
+                        Name , age
+                    </div>
+                    <div className="link-on-profile">
+                        <div>Boards</div>
+                        <div>Pins</div>
+                    </div>
+                    
                 </div>
 
                 <div className="bottomboard">
