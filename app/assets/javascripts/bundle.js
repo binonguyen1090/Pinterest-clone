@@ -652,7 +652,7 @@ var BoardIndex = /*#__PURE__*/function (_React$Component) {
           currentUser = _this$props.currentUser,
           openModal = _this$props.openModal,
           closeModal = _this$props.closeModal;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "This is from Board_Index_Component", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "box-index-items-container"
       }, boards.map(function (board, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_board_index_items__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -836,14 +836,15 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
       var editButton;
 
       if (this.props.currentUserId === this.props.user.id) {
-        editButton = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "splashsignin",
+        editButton = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "#",
+          className: "edit-board-item-edit",
           onClick: function onClick() {
             return _this.props.openModal("Edit Board", _this.props.board.id);
           }
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "navcontentlongin"
-        }, "Edit Board"));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-pen "
+        }));
       } else {
         editButton = null;
       }
@@ -858,7 +859,11 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
           className: "item-image"
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "title-edit"
-        }, board.title, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), editButton)) // </div>
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "title-board"
+        }, board.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "hover-edit-board"
+        }, editButton))) // </div>
 
       );
     }
@@ -1497,7 +1502,34 @@ var Navbar = function Navbar(_ref) {
       logout = _ref.logout;
   var display = !currentUser ? "" : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "homeNavbar"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "w3-bar w3-light-grey w3-border"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    "class": "w3-bar-item w3-button w3-green"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fa fa-home"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    "class": "w3-bar-item w3-button"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fa fa-search"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    "class": "w3-bar-item w3-button"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fa fa-envelope"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    "class": "w3-bar-item w3-button"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fa fa-globe"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    "class": "w3-bar-item w3-button"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fa fa-sign-in"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "logoLink",
     to: "/"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1703,7 +1735,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         className: "link-on-profile"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "link-on-profile-1"
-      }, "Board"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Boards"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "link-on-profile-1"
       }, "Pins")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bottomboard"

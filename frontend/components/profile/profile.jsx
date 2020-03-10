@@ -53,7 +53,7 @@ export default class Profile extends React.Component {
                         
                         </div>
                         <div className="link-on-profile">
-                            <div className="link-on-profile-1">Board</div>
+                            <div className="link-on-profile-1">Boards</div>
                             <div className="link-on-profile-1">Pins</div>
                         </div>
                     </div>

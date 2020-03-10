@@ -9,11 +9,12 @@ export default class BoardIndexItem extends React.Component {
     render() {
         let editButton;
         if (this.props.currentUserId === this.props.user.id) {
-            editButton = <button
-                className="splashsignin"
+            editButton = <Link to="#"
+                className="edit-board-item-edit"
                 onClick={() => this.props.openModal("Edit Board", this.props.board.id)} >
-                <p className="navcontentlongin">Edit Board</p>
-            </button>
+                <i className="fas fa-pen "></i>
+            </Link>
+                
         }else {
             editButton = null
         }
@@ -26,8 +27,12 @@ export default class BoardIndexItem extends React.Component {
                 <div className="box-index-item">
                     <div className="item-image"></div>
                     <div className="title-edit">
-                        {board.title} <br />
-                        {editButton}
+                        <div className="title-board">
+
+                            {board.title} 
+                        </div>
+                        <div className="hover-edit-board">{editButton}</div>
+
                     </div>
                    
 
@@ -40,6 +45,7 @@ export default class BoardIndexItem extends React.Component {
             
         )
     }
+    
 };
 // import React from 'react';
 // import { Link } from 'react-router-dom';
