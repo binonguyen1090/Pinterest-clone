@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import LoginFormContainer from "../session/login_form_container";
 import SignupFormContainer from "../session/signup_form_container";
 import CreateBoardFormContainer from "../board/create_board_form_container"
+import CreatePinFormContainer from "../pin/create_pin_form_container"
 import EditBoardFormContainer from "../board/edit_board_form_container"
 
 function Modal({ modal, closeModal }) {
@@ -23,6 +24,9 @@ function Modal({ modal, closeModal }) {
       break;
     case "Create Board":
       component = <CreateBoardFormContainer />;
+      break;
+    case "Create Pin":
+      component = <CreatePinFormContainer />;
       break;
     case "Edit Board":
       component = <EditBoardFormContainer />;

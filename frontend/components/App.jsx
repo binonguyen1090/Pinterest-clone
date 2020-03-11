@@ -9,6 +9,7 @@ import NavBarContainer from './navbar/navbar_container';
 import ProfileContainer from './profile/profile_container';
 import EditBoardContainer from './board/edit_board_form_container';
 import SettingContainer from './profile/setting_container';
+import UserPinsContainer from './pin/user_pins_container';
 
 import BoardFormContainer from './board/board_form';
 import BoardShowContainer from './board/board_show_container';
@@ -35,6 +36,7 @@ const App = () => (
       {/* <Route path="/home/" component={NavBarContainer} /> */}
         
       <ProtectedRoute exact path="/" component={HomepageContainer} />
+    <ProtectedRoute exact path="/users/:useId/pins" component={UserPinsContainer} />
       <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
       <ProtectedRoute exact path="/settings" component={SettingContainer} />
     <ProtectedRoute exact path="/boards/:boardId/edit" component={EditBoardContainer} />

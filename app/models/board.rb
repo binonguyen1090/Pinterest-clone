@@ -11,7 +11,7 @@
 #  updated_at :datetime         not null
 #
 class Board < ApplicationRecord
-    validates :title,:body, :user_id, presence: true;
+    validates :title, :body, :user_id, presence: true;
 
     # include Following
 

@@ -10,7 +10,7 @@ export default class Profile extends React.Component {
     }
     render() {
         
-        // let id = this.props.match.params.userId 
+        let id = this.props.match.params.userId 
         let user = this.props.currentUser
         let name = (user.fname === null || user.lname === null) ? (user.email) : (user.fname + " " + user.lname)
         let location = (user.location === null ) ? "" : (user.location)
@@ -53,8 +53,9 @@ export default class Profile extends React.Component {
                         
                         </div>
                         <div className="link-on-profile">
-                            <div className="link-on-profile-1">Boards</div>
-                            <div className="link-on-profile-1">Pins</div>
+                            <Link to={`/users/${id}`} className="link-on-profile-1">Boards</Link>
+                            <Link to={`/users/${id}/pins`} className="link-on-profile-1">Pins</Link>
+                            
                         </div>
                     </div>
                     
