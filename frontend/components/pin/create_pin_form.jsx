@@ -7,7 +7,7 @@ export default class PinCreateForm extends React.Component {
         this.state = {
             title: '',
             body: '',
-            board_id: 51,
+            board_id: '',
             photoFile: null
             // boardId: "",
 
@@ -85,8 +85,11 @@ export default class PinCreateForm extends React.Component {
                             <div >
                                 <input className="inputCreateBoard" type="text" value={this.state.body} onChange={this.update('body')} placeholder="Description" />
                             </div>
+                            <div>
+                                {choice}
+                            </div>
                             <div >
-                                {/* <input className="inputCreateBoard" type="option" value={this.state.board_id} onChange={this.update('board_id')} placeholder="board_id" /> */}
+                                <input className="inputCreateBoard" type="option" value={this.state.board_id} onChange={this.update('board_id')} placeholder="board_id" />
                             </div>
                        
                             <div>

@@ -19,7 +19,7 @@ export default class PinUserIndexItem extends React.Component {
             editButton = null
         }
 
-        debugger
+        // debugger
         const { pin } = this.props;
         return (
             // <div className="wrapper">
@@ -42,9 +42,15 @@ export default class PinUserIndexItem extends React.Component {
 
             // </div>
 
-            <div className="user_pins_container">
-                <img src={pin.photoUrl} />
-            </div>
+            // <div className="user_pins_container">
+                // <div className="user_pins_box">
+            <div className="user_pins_box">
+                    <img className="user_pin_item" src={pin.photoUrl} />
+
+                </div>
+                    
+                // </div>
+            // </div>
         )
     }
 

@@ -1782,7 +1782,7 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       title: '',
       body: '',
-      board_id: 51,
+      board_id: '',
       photoFile: null // boardId: "",
 
     };
@@ -1871,7 +1871,13 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.body,
         onChange: this.update('body'),
         placeholder: "Description"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, choice), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "inputCreateBoard",
+        type: "option",
+        value: this.state.board_id,
+        onChange: this.update('board_id'),
+        placeholder: "board_id"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         onChange: this.handleFile
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2075,8 +2081,8 @@ var UserPins = /*#__PURE__*/function (_React$Component) {
         to: "/users/".concat(id, "/pins"),
         className: "link-on-profile-1"
       }, "Pins")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user-pins"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.pins.map(function (pin, idx) {
+        className: "user_pins_container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.pins.map(function (pin, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_user_pins_index_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
           key: idx,
           pin: pin,
@@ -2084,7 +2090,7 @@ var UserPins = /*#__PURE__*/function (_React$Component) {
           user: _this.props.user,
           src: pin.photoUrl
         });
-      })))));
+      }))));
     }
   }]);
 
@@ -2228,9 +2234,9 @@ var PinUserIndexItem = /*#__PURE__*/function (_React$Component) {
         }));
       } else {
         editButton = null;
-      }
+      } // debugger
 
-      debugger;
+
       var pin = this.props.pin;
       return (// <div className="wrapper">
         //     <div className="box-index-item">
@@ -2243,11 +2249,16 @@ var PinUserIndexItem = /*#__PURE__*/function (_React$Component) {
         //         </div>
         //     </div>
         // </div>
+        // <div className="user_pins_container">
+        // <div className="user_pins_box">
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "user_pins_container"
+          className: "user_pins_box"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "user_pin_item",
           src: pin.photoUrl
-        }))
+        })) // </div>
+        // </div>
+
       );
     }
   }]);

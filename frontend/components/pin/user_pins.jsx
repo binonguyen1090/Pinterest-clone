@@ -82,10 +82,10 @@ export default class UserPins extends React.Component {
 
                 </div>
 
-                <div className="user-pins">
+                <div className="user_pins_container">
                     {/* <Link to={`/users/${id}`}><i className="fas fa-long-arrow-alt-left"></i></Link>               */}
-                    <div>
-                        <ul>
+                    
+                    <ul >
                             {/* {this.props.pins.map(pin => {
                                 return (
                                     <li key={pin.id}>
@@ -108,7 +108,7 @@ export default class UserPins extends React.Component {
                                 )   
                             }
                         </ul>
-                    </div>
+                
                 </div>
             </div>
         )
