@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import BoardIndexContainer from '../board/board_index_container'
 export default class UserPins extends React.Component {
     constructor(props) {
-        debugger
+        // debugger
         super(props);
     }
     componentDidMount() {
-        debugger
+        // debugger
         this.props.fetchOneUserPins(this.props.currentUser.id);
         // this.props.fetchPins(this.props.currentUser.id);
 
@@ -18,10 +18,10 @@ export default class UserPins extends React.Component {
     render() {
         let userPins = this.props.pins.map((pin,i) => {
             return (
-                <option value={pin.id} key={i}> {pin.title}</option>
+                <Link to={`pins/${pin.id}`} key={i}> {pin.title}{pin.body}</Link>
             )
         })
-        debugger
+        // debugger
 
         // let id = this.props.match.params.userId 
         // let user = this.props.currentUser
@@ -31,6 +31,7 @@ export default class UserPins extends React.Component {
             <div className="board">
                 <ul>
                     {userPins}
+                 
                 </ul>
             </div>
         )

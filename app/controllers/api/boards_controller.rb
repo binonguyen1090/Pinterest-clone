@@ -12,7 +12,7 @@ class Api::BoardsController < ApplicationController
       end
     
       def create
-        debugger
+        # debugger
         @board = current_user.boards.new(board_params)
     
         if @board.save

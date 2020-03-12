@@ -9,7 +9,7 @@ import BoardIndexContainer from '../board/board_index_container'
 // import { logout } from "../../actions/session_action";
 
 const mSTP = state => {
-    debugger
+    // debugger
     return {
 
         currentUser: state.entities.users[state.session.id],
@@ -25,7 +25,7 @@ const mSTP = state => {
 };
 
 const mDTP = dispatch => {
-    debugger
+    // debugger
     return {
 
         fetchBoards: userId => dispatch(fetchBoards(userId)),

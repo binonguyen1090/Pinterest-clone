@@ -21,7 +21,7 @@ export const fetchBoard = boardId => {
 };
 
 export const createBoard = board => {
-    debugger
+    // debugger
     return $.ajax({
         url: 'api/boards',
         method: 'POST',

@@ -26,7 +26,7 @@ export const Navbar = ({ currentUser, logout}) => {
 
 
                     <Link className="proLink" to={`/users/${currentUser.id}`}>
-                                 <span className="i-circle">{currentUser.email[0]}</span> <p className="email-nav">{currentUser.email.split('@')[0]}</p>
+                                 <span className="i-circle">{currentUser.email[0]}</span> <p className="email-nav">{currentUser.email.split('@')[0].slice(1)}</p>
                     </Link>
                 </div>
                 

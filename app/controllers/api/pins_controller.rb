@@ -4,7 +4,7 @@ class Api::PinsController < ApplicationController
 
 
     def index
-      debugger
+      
       if params[:user_id]
         boardIds = Board.where(user_id: params[:user_id])
         @pins = Pin.where(board_id: boardIds)
@@ -22,6 +22,7 @@ class Api::PinsController < ApplicationController
   
     def create
       @pin = Pin.new(pin_params)
+      debugger
       if @pin.save
           render '/api/pins/show'
       else
@@ -31,6 +32,7 @@ class Api::PinsController < ApplicationController
 
     
     def update
+      
       @pin = Pin.find(params[:id]) 
       if @pin.update(pin_params)
         render '/api/pins/show'
@@ -49,7 +51,7 @@ class Api::PinsController < ApplicationController
     private
   
     def pin_params
-      params.require(:pin).permit(:title, :body, :board_id)
+      params.require(:pin).permit(:title, :body, :board_id, :photo)
     end
 end
 

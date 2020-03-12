@@ -10,6 +10,7 @@ import ProfileContainer from './profile/profile_container';
 import EditBoardContainer from './board/edit_board_form_container';
 import SettingContainer from './profile/setting_container';
 import UserPinsContainer from './pin/user_pins_container';
+import ShowPinContainer from './pin/user_pins_container';
 
 import BoardFormContainer from './board/board_form';
 import BoardShowContainer from './board/board_show_container';
@@ -30,16 +31,17 @@ const App = () => (
       {/* < SplashHeaderContainer /> */}
     </header>
 
-    {/* <Switch> */}
+    <AuthRoute exact path="/" component={Splash} />
+    <ProtectedRoute exact path="/" component={HomepageContainer} />
+    <Switch>
+    <ProtectedRoute exact path="/boards/:boardId/edit" component={EditBoardContainer} />
+    <ProtectedRoute exact path="/users/:userId/pins" component={UserPinsContainer} />
+    <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
+    <ProtectedRoute exact path="/pins/:pinId" component={ShowPinContainer} />
+    <ProtectedRoute exact path="/settings" component={SettingContainer} />
 
-      <AuthRoute exact path="/" component={Splash} />
       {/* <Route path="/home/" component={NavBarContainer} /> */}
         
-      <ProtectedRoute exact path="/" component={HomepageContainer} />
-    <ProtectedRoute exact path="/users/:useId/pins" component={UserPinsContainer} />
-      <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
-      <ProtectedRoute exact path="/settings" component={SettingContainer} />
-    <ProtectedRoute exact path="/boards/:boardId/edit" component={EditBoardContainer} />
 
     {/* <Route path="/users/:userId/boards" component={BoardIndexContainer} /> */}
       {/* <ProtectedRoute exact path="/users/:user_id/boards" component={ProfileContainer} />  */}
@@ -54,7 +56,7 @@ const App = () => (
       {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />  */}
       
-    {/* </Switch> */}
+    </Switch>
     
   </div>
 );

@@ -7,3 +7,4 @@ if @pin.photo.attached?
 else
     json.photoUrl ""
 end
+

@@ -37,12 +37,13 @@ export const fetchPin = PinId => dispatch => (
     PinApiUtil.fetchPin(PinId).then(pin => dispatch(receivePin(pin)))
     );
     
-export const createPin = (pin) => dispatch => (
-    PinApiUtil.createPin(pin)
-    .then(pin => dispatch(receivePin(pin)),
+export const createPin = (pin) => dispatch => {
+    debugger
+    return PinApiUtil.createPin(pin)
+        .then(pin => dispatch(receivePin(pin)),
     errors => dispatch(receivePinErrors(errors.responseJSON))
     )
-    );
+};
     
 export const deletePin = pinId => dispatch => (
     PinApiUtil.deletePin(pinId).then(pinId => dispatch(removePin(pinId)))
@@ -50,7 +51,7 @@ export const deletePin = pinId => dispatch => (
         
             
 export const fetchOneUserPins = (user_id) => dispatch => {
-    debugger
+    // debugger
 
     return PinApiUtil.fetchOneUserPins(user_id)
         .then(pins => dispatch(receiveAllPins(pins)))

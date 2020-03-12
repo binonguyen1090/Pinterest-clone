@@ -1,5 +1,5 @@
 export const fetchOneUserPins = (user_id) => {
-    debugger
+    // debugger
      return $.ajax({
         method: 'GET',
         url: `/api/users/${user_id}/pins`
@@ -27,6 +27,8 @@ export const createPin = (pin) => {
         url: '/api/pins',
         method: 'POST',
         data: {pin},
+        contentType: false,
+        processData: false
     })
 };
 

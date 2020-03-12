@@ -298,6 +298,7 @@ var fetchPin = function fetchPin(PinId) {
 };
 var createPin = function createPin(pin) {
   return function (dispatch) {
+    debugger;
     return _util_pin_api_util__WEBPACK_IMPORTED_MODULE_0__["createPin"](pin).then(function (pin) {
       return dispatch(receivePin(pin));
     }, function (errors) {
@@ -314,7 +315,7 @@ var deletePin = function deletePin(pinId) {
 };
 var fetchOneUserPins = function fetchOneUserPins(user_id) {
   return function (dispatch) {
-    debugger;
+    // debugger
     return _util_pin_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchOneUserPins"](user_id).then(function (pins) {
       return dispatch(receiveAllPins(pins));
     });
@@ -512,6 +513,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
  // import 
 
 
@@ -527,9 +529,13 @@ var App = function App() {
     exact: true,
     path: "/",
     component: _homepage_homepage_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_15__["ProtectedRoute"], {
+    exact: true,
+    path: "/boards/:boardId/edit",
+    component: _board_edit_board_form_container__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_15__["ProtectedRoute"], {
     exact: true,
-    path: "/users/:useId/pins",
+    path: "/users/:userId/pins",
     component: _pin_user_pins_container__WEBPACK_IMPORTED_MODULE_10__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_15__["ProtectedRoute"], {
     exact: true,
@@ -537,13 +543,13 @@ var App = function App() {
     component: _profile_profile_container__WEBPACK_IMPORTED_MODULE_7__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_15__["ProtectedRoute"], {
     exact: true,
-    path: "/settings",
-    component: _profile_setting_container__WEBPACK_IMPORTED_MODULE_9__["default"]
+    path: "/pins/:pinId",
+    component: _pin_user_pins_container__WEBPACK_IMPORTED_MODULE_10__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_15__["ProtectedRoute"], {
     exact: true,
-    path: "/boards/:boardId/edit",
-    component: _board_edit_board_form_container__WEBPACK_IMPORTED_MODULE_8__["default"]
-  }));
+    path: "/settings",
+    component: _profile_setting_container__WEBPACK_IMPORTED_MODULE_9__["default"]
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -1648,7 +1654,7 @@ var Navbar = function Navbar(_ref) {
     className: "i-circle"
   }, currentUser.email[0]), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "email-nav"
-  }, currentUser.email.split('@')[0]))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, currentUser.email.split('@')[0].slice(1)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "/",
     className: "item comment"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -1783,15 +1789,17 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, PinCreateForm);
 
-    debugger;
+    // debugger
     _this = _possibleConstructorReturn(this, _getPrototypeOf(PinCreateForm).call(this, props));
     _this.state = {
       title: '',
       body: '',
-      board_id: '' // boardId: "",
+      board_id: '',
+      photoFile: null // boardId: "",
 
     };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); // this.state = this.props.pins
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this)); // this.state = this.props.pins
 
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.renderErrors = _this.renderErrors.bind(_assertThisInitialized(_this));
@@ -1808,14 +1816,34 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
       };
     }
   }, {
+    key: "handleFile",
+    value: function handleFile(e) {
+      debugger;
+      this.setState({
+        photoFile: e.currentTarget.files[0]
+      }); // e.preventDefault()
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault(), this.props.createPin(this.state).then(this.props.closeModal);
+      e.preventDefault();
+      var formData = new FormData();
+      formData.append('pin[title]', this.state.title);
+      formData.append('pin[body]', this.state.body);
+      formData.append('pin[photo]', this.state.photoFile);
+      formData.append('pin[board_id]', this.state.board_id);
+      $.ajax({
+        url: '/api/pins',
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false
+      }).then(this.props.closeModal);
     }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
+      // debugger
       this.props.fetchBoards(this.props.currentUser.id); // this.props.fetchPins(this.props.currentUser.id);
     }
   }, {
@@ -1830,7 +1858,8 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
+      // debugger 
+      console.log(this.state);
 
       if (!this.props.errors) {
         return [];
@@ -1840,7 +1869,7 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           value: board.id,
           key: i
-        }, " ", board.title, ",", board.id, " ");
+        }, " ", board.title, ",", board.id, board.photo, " ");
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "all_board"
@@ -1867,6 +1896,9 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.board_id,
         onChange: this.update('board_id'),
         placeholder: "board_id"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        onChange: this.handleFile
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-group-btton"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1881,7 +1913,22 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
   }]);
 
   return PinCreateForm;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // Result
+// EDIT ON
+//     < nav role = "navigation" >
+//         <ul>
+//             <li><a href="#">One</a></li>
+//             <li><a href="#">Two</a>
+//                 <ul class="dropdown">
+//                     <li><a href="#">Sub-1</a></li>
+//                     <li><a href="#">Sub-2</a></li>
+//                     <li><a href="#">Sub-3</a></li>
+//                 </ul>
+//             </li>
+//             <li><a href="#">Three</a></li>
+//         </ul>
+// </nav >
+
 
 
 
@@ -1915,7 +1962,7 @@ __webpack_require__.r(__webpack_exports__);
  // import { logout } from "../../actions/session_action";
 
 var mSTP = function mSTP(state) {
-  debugger;
+  // debugger
   return {
     currentUser: state.entities.users[state.session.id],
     boardId: Object.keys(state.entities.boards),
@@ -1927,7 +1974,7 @@ var mSTP = function mSTP(state) {
 };
 
 var mDTP = function mDTP(dispatch) {
-  debugger;
+  // debugger
   return {
     fetchBoards: function fetchBoards(userId) {
       return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_3__["fetchBoards"])(userId));
@@ -1993,26 +2040,26 @@ var UserPins = /*#__PURE__*/function (_React$Component) {
   function UserPins(props) {
     _classCallCheck(this, UserPins);
 
-    debugger;
+    // debugger
     return _possibleConstructorReturn(this, _getPrototypeOf(UserPins).call(this, props));
   }
 
   _createClass(UserPins, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
+      // debugger
       this.props.fetchOneUserPins(this.props.currentUser.id); // this.props.fetchPins(this.props.currentUser.id);
     }
   }, {
     key: "render",
     value: function render() {
       var userPins = this.props.pins.map(function (pin, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: pin.id,
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "pins/".concat(pin.id),
           key: i
-        }, " ", pin.title);
-      });
-      debugger; // let id = this.props.match.params.userId 
+        }, " ", pin.title, pin.body);
+      }); // debugger
+      // let id = this.props.match.params.userId 
       // let user = this.props.currentUser
       // let name = (user.fname === null || user.lname === null) ? (user.email) : (user.fname + " " + user.lname)
       // let location = (user.location === null) ? "" : (user.location)
@@ -2059,7 +2106,7 @@ __webpack_require__.r(__webpack_exports__);
  // import { logout } from "../../actions/session_action";
 
 var mSTP = function mSTP(state) {
-  debugger;
+  // debugger
   return {
     currentUser: state.entities.users[state.session.id],
     boardId: Object.keys(state.entities.boards),
@@ -2072,7 +2119,7 @@ var mSTP = function mSTP(state) {
 };
 
 var mDTP = function mDTP(dispatch) {
-  debugger;
+  // debugger
   return {
     fetchBoards: function fetchBoards(userId) {
       return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_3__["fetchBoards"])(userId));
@@ -2706,7 +2753,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
     value: function handleDemo(e) {
       e.preventDefault();
       var user = {
-        email: "special_999@gmail.com",
+        email: "D-mo@gmail.com",
         password: "123123"
       };
       this.props.processForm(user).then(this.props.closeModal);
@@ -3434,7 +3481,7 @@ __webpack_require__.r(__webpack_exports__);
 var PinsReducer = function PinsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  debugger;
+  // debugger
   Object.freeze(state);
   var nextState = Object.assign({}, state);
 
@@ -3681,7 +3728,7 @@ var fetchBoard = function fetchBoard(boardId) {
   });
 };
 var createBoard = function createBoard(board) {
-  debugger;
+  // debugger
   return $.ajax({
     url: 'api/boards',
     method: 'POST',
@@ -3725,7 +3772,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updatePin", function() { return updatePin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePin", function() { return deletePin; });
 var fetchOneUserPins = function fetchOneUserPins(user_id) {
-  debugger;
+  // debugger
   return $.ajax({
     method: 'GET',
     url: "/api/users/".concat(user_id, "/pins")
@@ -3750,7 +3797,9 @@ var createPin = function createPin(pin) {
     method: 'POST',
     data: {
       pin: pin
-    }
+    },
+    contentType: false,
+    processData: false
   });
 };
 var updatePin = function updatePin(pin) {
