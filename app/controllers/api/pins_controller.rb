@@ -21,8 +21,10 @@ class Api::PinsController < ApplicationController
     end
   
     def create
+
+
       @pin = Pin.new(pin_params)
-      debugger
+ 
       if @pin.save
           render '/api/pins/show'
       else

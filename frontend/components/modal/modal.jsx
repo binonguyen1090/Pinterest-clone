@@ -8,7 +8,7 @@ import CreatePinFormContainer from "../pin/create_pin_form_container"
 import EditBoardFormContainer from "../board/edit_board_form_container"
 
 function Modal({ modal, closeModal }) {
-  // debugger
+  
   if (!modal) {
     return null;
   }
@@ -44,14 +44,14 @@ function Modal({ modal, closeModal }) {
 }
 
 const mSTP = state => {
-  // debugger
+  
   return {
     modal: state.ui.modal
   };
 };
 
 const mDTP = dispatch => {
-  // debugger
+  
   return {
     closeModal: () => dispatch(closeModal())
   };

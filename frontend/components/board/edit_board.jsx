@@ -15,7 +15,7 @@ export default class EditBoardForm extends React.Component {
         
     }
     componentDidMount() {
-        // debugger
+       
         this.props.fetchBoard(this.props.board.id)
 
     }
@@ -27,7 +27,7 @@ export default class EditBoardForm extends React.Component {
         return (e) => this.setState({ [v]: e.target.value })
     }
     deleteBoard(e) {
-        // debugger
+       
         e.preventDefault(),
             this.props.closeModal()
             this.props.deleteBoard(this.props.boardId)
@@ -44,7 +44,7 @@ export default class EditBoardForm extends React.Component {
     }
     
     render() {
-        // debugger
+       
         const { board, currentUser, errors, updateBoard, openModal, closeModal} = this.props
         if (!board) return null;
         if (!errors) return null;

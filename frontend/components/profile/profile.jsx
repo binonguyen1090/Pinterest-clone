@@ -3,8 +3,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BoardIndexContainer from '../board/board_index_container'
+import UserPinContainer from '../pin/user_pins_container'
 export default class Profile extends React.Component {
-    // debugger
+
     constructor(props){
         super(props);
     }
@@ -64,6 +65,9 @@ export default class Profile extends React.Component {
                 <div className="bottomboard">
                     <BoardIndexContainer />
                 </div>
+
+               
+
             </div>
         )
     }

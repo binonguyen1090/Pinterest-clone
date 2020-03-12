@@ -21,7 +21,7 @@ export const fetchBoard = boardId => {
 };
 
 export const createBoard = board => {
-    // debugger
+    
     return $.ajax({
         url: 'api/boards',
         method: 'POST',
@@ -38,7 +38,7 @@ export const updateBoard = board => {
 };
 
 export const deleteBoard = (boardId) => {
-    // debugger
+    
     return $.ajax({
         url: `api/boards/${boardId}`,
         method: 'DELETE'

@@ -38,11 +38,11 @@ export default class Splash extends React.Component {
                     <div className="dummy1"></div>
                     <div id="cf">
                       <img className="top" src={window.c6}  />
-                      <img className="bottom" src={window.c18}  />
+                      <img className="bottom" src={window.c39}  />
                     </div>
                     <div id="cf">
-                      <img className="top" src={window.c21} />
-                        <img className="bottom" src={window.c24} />
+                      <img className="top" src={window.c18} />
+                        <img className="bottom" src={window.c36} />
                     </div>
                   </div>
 
@@ -51,11 +51,11 @@ export default class Splash extends React.Component {
                     <div className="dummy2"></div>
                     <div id="cf">
                       <img className="top" src={window.c30}  />
-                      <img className="bottom" src={window.splash14}  />
+                      <img className="bottom" src={window.c16}  />
                     </div>
                     <div id="cf">
                       <img className="top" src={window.c33} />
-                        <img className="bottom" src={window.c16} />
+                        <img className="bottom" src={window.splash14} />
                     </div>
                   </div>
 
@@ -65,8 +65,8 @@ export default class Splash extends React.Component {
                         <h2 className="textinsplash">Yo</h2>
                     </div>
                     <div id="cf">
-                    <img className="top" src={window.c26} />
-                        <img className="bottom" src={window.c27} />
+                    <img className="top" src={window.c27} />
+                        <img className="bottom" src={window.c26} />
                     </div>
                   </div>
 
@@ -74,12 +74,12 @@ export default class Splash extends React.Component {
                   <div className="divSplashpics">
                     <div className="dummy2"></div>
                     <div id="cf">
-                      <img className="top" src={window.c31}  />
-                      <img className="bottom" src={window.splash15}  />
+                      <img className="top" src={window.c38}  />
+                      <img className="bottom" src={window.c37}  />
                     </div>
                     <div id="cf">
                       <img className="top" src={window.c7} />
-                        <img className="bottom" src={window.c15} />
+                        <img className="bottom" src={window.splash15} />
                     </div>
                   </div>
 

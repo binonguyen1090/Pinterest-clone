@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
             {/* <div class="lds-circle"><div></div></div> */}
 
 
-          <h3 className="session_title">Welcome to B-interest</h3>
+          <h3 className="session_title">Welcome to B-interested</h3>
           <div>
             <div>
               {this.props.formType !== "Log in"

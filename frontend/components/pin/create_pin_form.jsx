@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 export default class PinCreateForm extends React.Component {
     constructor(props) {
-        // debugger
+  
         super(props); 
         this.state = {
             title: '',
             body: '',
-            board_id: '',
+            board_id: 51,
             photoFile: null
             // boardId: "",
 
@@ -23,7 +23,7 @@ export default class PinCreateForm extends React.Component {
         return (e) => this.setState({ [v]: e.target.value })
     }
     handleFile(e){
-        debugger
+        
         this.setState({photoFile: e.currentTarget.files[0]})
         // e.preventDefault()
 
@@ -37,19 +37,13 @@ export default class PinCreateForm extends React.Component {
         formData.append('pin[body]', this.state.body);
         formData.append('pin[photo]', this.state.photoFile); 
         formData.append('pin[board_id]', this.state.board_id);
-        $.ajax({
-            url: '/api/pins',
-            method: 'POST',
-            data: formData,
-            contentType: false,
-            processData: false
-        }).then(this.props.closeModal)
+        this.props.createPin(formData).then(() => this.props.closeModal())
     }
     
 
 
     componentDidMount() {
-        // debugger
+  
         this.props.fetchBoards(this.props.currentUser.id);
         // this.props.fetchPins(this.props.currentUser.id);
 
@@ -66,17 +60,18 @@ export default class PinCreateForm extends React.Component {
     }
 
     render() {
-        // debugger 
+   
         console.log(this.state)
         if (!this.props.errors) {
             return []
         }
-
-        const boardChoice = this.props.boards.map((board, i) => {
+        
+        let choice = this.props.boards.map((board, i) => {
             return (
-                <option value={board.id} key={i}> {board.title},{board.id}{board.photo} </option>
-            );
-        });  
+              board.id
+            )
+        }); 
+        debugger
         return (
             <div>
                 
@@ -84,29 +79,31 @@ export default class PinCreateForm extends React.Component {
 
                     <form className="boardform" onSubmit={this.handleSubmit}>
                         <div className="titlecreateForm">Create Pin</div>
-                        <div >
-                            <input className="inputCreateBoard" type="text" value={this.state.title} onChange={this.update('title')} placeholder="Topic" />
-                        </div>
-                        <div >
-                            <input className="inputCreateBoard" type="text" value={this.state.body} onChange={this.update('body')} placeholder="Description" />
-                        </div>
-                        <div >
-                            <input className="inputCreateBoard" type="text" value={this.state.board_id} onChange={this.update('board_id')} placeholder="board_id" />
-                        </div>
-                        <div>
-                            <input type="file" onChange={this.handleFile}/>
-                        </div>
+                            <div >
+                                <input className="inputCreateBoard" type="text" value={this.state.title} onChange={this.update('title')} placeholder="Topic" />
+                            </div>
+                            <div >
+                                <input className="inputCreateBoard" type="text" value={this.state.body} onChange={this.update('body')} placeholder="Description" />
+                            </div>
+                            <div >
+                                {/* <input className="inputCreateBoard" type="option" value={this.state.board_id} onChange={this.update('board_id')} placeholder="board_id" /> */}
+                            </div>
+                       
+                            <div>
+                                <input type="file" onChange={this.handleFile}/>
+                            </div>
                         
                         <div className="create-group-btton">
+                            
+
                             <button className='canclebutton' onClick={this.props.closeModal}>Cancle</button>
                             <input className='createbutton' type="submit" value="Create" />
                         </div>
-                        <div>
-                            <ul>
-                                {boardChoice}
-                            </ul>
+                        {/* <div>
+                            {choice}
                         </div>
-
+                         */}
+               
                     </form>
 
                 </div>
@@ -115,18 +112,5 @@ export default class PinCreateForm extends React.Component {
     }
 }
 
-// Result
-// EDIT ON
-//     < nav role = "navigation" >
-//         <ul>
-//             <li><a href="#">One</a></li>
-//             <li><a href="#">Two</a>
-//                 <ul class="dropdown">
-//                     <li><a href="#">Sub-1</a></li>
-//                     <li><a href="#">Sub-2</a></li>
-//                     <li><a href="#">Sub-3</a></li>
-//                 </ul>
-//             </li>
-//             <li><a href="#">Three</a></li>
-//         </ul>
-// </nav >
+
+

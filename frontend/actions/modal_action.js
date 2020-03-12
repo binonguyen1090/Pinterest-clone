@@ -5,7 +5,7 @@ export const CLOSE_MODAL = "CLOSE_MODAL";
 // export const openModal = (modal, boardId) => {
 
 export const openModal = (modal,options={}) => {
-    // debugger
+  
     return({
     type: OPEN_MODAL,
     modal,

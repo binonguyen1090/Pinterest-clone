@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 export default class ProfileSetting extends React.Component {
     constructor(props) {
-        // debugger
+       
         
         super(props);
         this.state = {
@@ -22,7 +22,7 @@ export default class ProfileSetting extends React.Component {
 
     }
     // componentDidMount() {
-    //     // debugger
+    //    
     //     this.props.fetchBoard(this.props.board.id)
 
     // }
@@ -35,7 +35,7 @@ export default class ProfileSetting extends React.Component {
         return (e) => this.setState({ [v]: e.target.value })
     }
     // deleteBoard(e) {
-    //     // debugger
+    //     
     //     e.preventDefault(),
     //         this.props.closeModal()
     //     this.props.deleteBoard(this.props.boardId)
@@ -52,8 +52,7 @@ export default class ProfileSetting extends React.Component {
     // }
 
     render() {
-        // debugger
-        // debugger
+       
         // const { board, currentUser, errors, updateBoard, openModal, closeModal } = this.props
         // if (!board) return null;
         // if (this.props.errors) return null;
@@ -64,7 +63,7 @@ export default class ProfileSetting extends React.Component {
                 <div className="arrow-left">
                     <Link to={`/users/${this.state.id}`}><i className="fas fa-arrow-left"></i></Link>
                     {/* <i class="fas fa-arrow-left"></i> */}
-                    </div>
+                </div>
                 <div className="left-setting">
                     
                     <div className="icon-setting"><i className="fas fa-pen">    Edit Profile</i></div>

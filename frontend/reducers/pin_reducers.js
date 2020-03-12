@@ -9,7 +9,7 @@ import merge from 'lodash/merge';
 
 
 const PinsReducer = (state = {}, action) => {
-    // debugger
+  
     Object.freeze(state)
     let nextState = Object.assign({}, state)
     switch (action.type) {

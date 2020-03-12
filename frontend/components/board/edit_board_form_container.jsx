@@ -7,7 +7,7 @@ import { openModal, closeModal } from "../../actions/modal_action";
 
 
 const mSTP = (state, oP) => {
-    // debugger
+ 
     return { errors: state.errors.board,
     currentUser: state.entities.users[state.session.id],
     board: state.entities.boards[state.ui.modal.options.boardId],
@@ -21,7 +21,7 @@ const mSTP = (state, oP) => {
 };
 
 const mDTP = dispatch => {
-    // debugger
+
     return {
     fetchBoard: (boardId) => dispatch(fetchBoard(boardId)),
     deleteBoard: (boardId) => dispatch(deleteBoard(boardId)),
