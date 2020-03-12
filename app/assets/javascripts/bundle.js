@@ -2919,7 +2919,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         src: window.favicon
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "session_title"
-      }, "Welcome to B-interested"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType !== "Log in" ? "Sign Up! It’s quick and easy." : ""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Welcome to B-interest"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType !== "Log in" ? "Sign Up! It’s quick and easy." : ""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "email",
         value: this.state.email,
         onChange: this.update("email"),
@@ -3152,7 +3152,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "textinsplash"
-      }, "Yo")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Yo"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
@@ -3323,7 +3323,7 @@ var SplashHeader = function SplashHeader(_ref) {
     id: "navcontent",
     to: "/"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: window.logo1,
+    src: window.logo,
     id: "logo"
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "signinupbutton"

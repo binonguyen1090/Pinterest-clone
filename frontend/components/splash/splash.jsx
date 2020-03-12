@@ -62,7 +62,13 @@ export default class Splash extends React.Component {
 
                   <div className="divSplashpics">
                     <div id="cf">
-                        <h2 className="textinsplash">Yo</h2>
+                    <h2 className="textinsplash">
+                      <div>Yo</div>
+                      {/* <div><i className="fab fa-opera"></i></div> */}
+                      
+                    </h2>
+                    
+
                     </div>
                     <div id="cf">
                     <img className="top" src={window.c27} />

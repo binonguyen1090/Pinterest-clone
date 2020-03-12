@@ -29,26 +29,7 @@
     overflow: hidden;
     padding: 7px;
 }
-.textinsplash{
-    font-size: 150px;
-    margin: 2px;
-    font-weight: 700;
-    height: 250px;
-    margin-top: 10px;
-    text-align: center;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,ヒラギノ角ゴ Pro W3,Hiragino Kaku Gothic Pro,メイリオ,Meiryo,ＭＳ Ｐゴシック,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-    animation-name: title;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-}
-@keyframes title {
-  0%   {color: red;}
-  20%  {color: rgb(124, 255, 2);}
-  40%  {color: blue;}
-  60% {color: rgb(152, 247, 199);}
-  80% {color: rgb(238, 41, 133);}
-  100% {color: rgb(220, 15, 247);}
-}
+
 
 .dummy1{
     height: 100px;
