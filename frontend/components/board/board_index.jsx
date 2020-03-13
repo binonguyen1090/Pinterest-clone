@@ -10,7 +10,7 @@ export default class BoardIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchBoards(this.props.user.id);
+        this.props.fetchBoards(this.props.user.id); 
     }
     componentDidUpdate(prevProps) {
         if (prevProps.user.id != this.props.user.id) {

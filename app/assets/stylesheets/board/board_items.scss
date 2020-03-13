@@ -86,5 +86,20 @@ text-overflow: ellipsis;
   height: 80%;
   width: 100%;
   border-radius: 10px;
-  background-color: #8E8E8E;
+  background-color: #D3D3D3	;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+}
+
+.board_title{
+  padding-top: 70px;
+  padding-right: 70;
+  padding-bottom: 70px;
+  padding-left: 100px;
+  text-decoration: none;
+}
+.link_to_board_show{
+  text-decoration: none;
 }

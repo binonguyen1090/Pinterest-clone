@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+// import AllUsersPins from '../../components/pin/all_pins'
+import AllPinsContainer from '../pin/all_pins_container'
 
 export default class HomePage extends React.Component {
     constructor(props){
@@ -11,9 +12,8 @@ export default class HomePage extends React.Component {
         return(
 
             <div className="homepage">
-                <h2 className="textinsplash">Yo...Come back later</h2>
-                
+                <h2 className="textinsplash">hello again</h2>
             </div>
-        )
+        ) 
     }
 }

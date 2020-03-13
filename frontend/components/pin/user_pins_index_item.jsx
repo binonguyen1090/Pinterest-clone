@@ -19,42 +19,35 @@ export default class PinUserIndexItem extends React.Component {
             editButton = null
         }
 
-        // debugger
         const { pin } = this.props;
         return (
-            // <div className="wrapper">
-
-            //     <div className="box-index-item">
-            //         <div className="item-image"></div>
-            //         <div className="title-edit">
-            //             <div className="title-board">
-
-            //                 <img src={pin.photoUrl} />
-            //             </div>
-            //             <div className="hover-edit-board">{editButton}</div>
-
-            //         </div>
-
-
-
-            //     </div>
-
-
-            // </div>
-
-            // <div className="user_pins_container">
-                // <div className="user_pins_box">
+           
             <div className="user_pins_box">
-                    <img className="user_pin_item" src={pin.photoUrl} />
+                <img className="user_pin_item" src={pin.photoUrl} />
 
-                </div>
-                    
-                // </div>
-            // </div>
+            </div>
+
         )
     }
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import React from 'react';
 // import { Link } from 'react-router-dom';
 

@@ -1,20 +1,31 @@
-// import { connect } from 'react-redux';
-// import { fetchBoard } from '../../actions/board_action';
-// import BoardShow from './board_show';
+import { connect } from 'react-redux';
+import { fetchBoard } from '../../actions/board_action';
+import BoardShow from './board_show';
+import { openModal, closeModal } from "../../actions/modal_action";
+import { withRouter } from 'react-router-dom';
 
-// /*
-// Export a container component for the `EventShow` that maps in the appropriate
-// event from the store as an `event` prop. Additionally, it should map in
-// a function that will dispatch `requestEvent` to the store as a prop of the same
-// name.
-// */
 
-// const mSTP = (state, oP) => ({
-//     board: state.entities.boards[oP.match.params.boardId]
-// })
 
-// const mDTP = dispatch => ({
-//     fetchBoard: boardId => dispatch(fetchBoard(boardId))
-// })
+const mSTP = (state, ownProps) => {
 
-// export default connect(mSTP, mDTP)(BoardShow)
+    return {
+    board: state.entities.boards[ownProps.match.params.boardId],
+    currentUser: state.entities.users[state.session.id],
+    currentUserId: state.session.id,
+    }
+
+}
+
+const mDTP = dispatch => {
+
+    return {
+    fetchBoard: boardId => dispatch(fetchBoard(boardId)),
+    openModal: modal => dispatch(openModal(modal)),
+    fetchBoards: userId => dispatch(fetchBoards(userId)),
+    fetchPins: () => dispatch(fetchPins()),
+    }
+}
+
+export default withRouter((connect(mSTP, mDTP)(BoardShow))); 
+
+

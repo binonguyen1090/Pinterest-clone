@@ -51,8 +51,16 @@ export const deletePin = pinId => dispatch => (
         
             
 export const fetchOneUserPins = (user_id) => dispatch => {
-
-
     return PinApiUtil.fetchOneUserPins(user_id)
+        .then(pins => dispatch(receiveAllPins(pins)))
+};
+
+export const fetchOneBoardPins = (board_id) => dispatch => {
+    return PinApiUtil.fetchOneBoardPins(board_id)
+        .then(pins => dispatch(receiveAllPins(pins)))
+};
+
+export const fetchAllUsersPins = () => dispatch => {
+    return PinApiUtil.fetchAllUsersPins()
         .then(pins => dispatch(receiveAllPins(pins)))
 };

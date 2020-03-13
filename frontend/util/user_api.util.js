@@ -6,3 +6,10 @@ export const patchUser = (user) => {
         data: { user }
     })
 }
+
+export const fetchUsers = () => (
+    $.ajax({
+        method: 'GET',
+        url: `api/users/`
+    })
+);

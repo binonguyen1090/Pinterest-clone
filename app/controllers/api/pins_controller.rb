@@ -8,6 +8,10 @@ class Api::PinsController < ApplicationController
       if params[:user_id]
         boardIds = Board.where(user_id: params[:user_id])
         @pins = Pin.where(board_id: boardIds)
+
+      elsif (params[:board_id])
+        @pins = Pin.where(board_id: params[:board_id])
+        
       else
         @pins = Pin.all
       end

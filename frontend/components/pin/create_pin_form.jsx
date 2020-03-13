@@ -71,7 +71,7 @@ export default class PinCreateForm extends React.Component {
               board.id
             )
         }); 
-        debugger
+        
         return (
             <div>
                 
