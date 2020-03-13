@@ -80,9 +80,9 @@ p10 = Pin.create!({ title: "place", body: "place" , board_id: b3.id})
 file = open('https://binterest-seeds.s3-us-west-1.amazonaws.com/p10.jpg')
 p10.photo.attach(io: file, filename: "p10.jpg")
 
-p11 = Pin.create!({ title: "place", body: "place" , board_id: b3.id})
-file = open('https://binterest-seeds.s3-us-west-1.amazonaws.com/p11.jpg')
-p11.photo.attach(io: file, filename: "p11.jpg")
+# p11 = Pin.create!({ title: "place", body: "place" , board_id: b3.id})
+# file = open('https://binterest-seeds.s3-us-west-1.amazonaws.com/p11.jpg')
+# p11.photo.attach(io: file, filename: "p11.jpg")
 
 p12 = Pin.create!({ title: "place", body: "place" , board_id: b3.id})
 file = open('https://binterest-seeds.s3-us-west-1.amazonaws.com/p12.jpg')
