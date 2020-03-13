@@ -53,8 +53,9 @@ export default class BoardShow extends React.Component {
 
                         </div>
                         <div className="info-profile">
-
-                            <div className="name-show-board">{board.title}</div>
+                            <div>ID:{board.id}</div>
+                            <div className="name-show-board">{board.title}<div>ID:{board.id}</div></div>
+                            
 
 
 

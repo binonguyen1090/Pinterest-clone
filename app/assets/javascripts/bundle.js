@@ -1143,9 +1143,9 @@ var BoardShow = /*#__PURE__*/function (_React$Component) {
         className: "dropdownbutton-size"
       }, "Create Pin"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "info-profile"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "ID:", board.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "name-show-board"
-      }, board.title)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, board.title, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "ID:", board.id))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user_pins_container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_board_pin_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
     }
@@ -1608,10 +1608,8 @@ var HomePage = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "homepage"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "textinsplash"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_all_pins_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
+        className: "home-page-pin"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_all_pins_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
@@ -1806,7 +1804,7 @@ var Navbar = function Navbar(_ref) {
     to: "/users/".concat(currentUser.id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "i-circle"
-  }, currentUser.email[0]), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, currentUser.email[0].toUpperCase()), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "email-nav"
   }, currentUser.email.split('@')[0].slice(1)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "/",
@@ -1962,59 +1960,19 @@ var AllPins = /*#__PURE__*/function (_React$Component) {
 
       if (!pins) {
         return null;
-      } // let userPins = this.props.pins.map((pin, i) => {
-      //     return (
-      //         <div>
-      //             <Link to={`pins/${pin.id}`} key={i}> {pin.title} </Link>
-      //         </div>
-      //     )
-      // })
-      // let id = this.props.match.params.userId
-      // let user = this.props.currentUser
-      // let name = (user.fname === null || user.lname === null) ? (user.email) : (user.fname + " " + user.lname)
-      // let location = (user.location === null) ? "" : (user.location)
+      }
 
-
-      return (// <div>Hello, this is the Pin in board, from Board_Pin.jsx
-        //     <AllPinsIndexItem />
-        // </div>
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.pins.map(function (pin, idx) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_all_pins_index_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            key: idx,
-            pin: pin // currentUserId={this.props.currentUserId}
-            // user={this.props.user}
-            ,
-            src: pin.photoUrl
-          });
-        }))) // 
-        //     </div>
-        //     <div className="user_pins_container">
-        //         <Link to={`/users/${id}`}><i className="fas fa-long-arrow-alt-left"></i></Link>              
-        //         <ul >
-        //             {this.props.pins.map(pin => {
-        //                     return (
-        //                         <li key={pin.id}>
-        //                             <h2>{pin.title}</h2>
-        //                             <img src={pin.photoUrl} />
-        //                         </li>
-        //                     );
-        //                 })}
-        //             {
-        //                 this.props.pins.map((pin, idx) =>
-        //                     <PinUserIndexItem
-        //                         key={idx}
-        //                         pin={pin}
-        //                         currentUserId={this.props.currentUserId}
-        //                         user={this.props.user}
-        //                         src={pin.photoUrl}
-        //                     />
-        //                 )
-        //             }
-        //         </ul>
-        //     </div>
-        // </div>
-
-      );
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user_pins_container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.pins.map(function (pin, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_all_pins_index_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          key: idx,
+          pin: pin // currentUserId={this.props.currentUserId}
+          // user={this.props.user}
+          ,
+          src: pin.photoUrl
+        });
+      })));
     }
   }]);
 
@@ -3577,7 +3535,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
     value: function handleDemo(e) {
       e.preventDefault();
       var user = {
-        email: "D-mo@gmail.com",
+        email: "Bno@gmail.com",
         password: "123123"
       };
       this.props.processForm(user).then(this.props.closeModal);
@@ -3599,7 +3557,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         src: window.favicon
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "session_title"
-      }, "Welcome to B-interest"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType !== "Log in" ? "Sign Up! It’s quick and easy." : ""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Welcome to B-interested"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.formType !== "Log in" ? "Sign Up! It’s quick and easy." : ""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "email",
         value: this.state.email,
         onChange: this.update("email"),
@@ -3832,7 +3790,9 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "textinsplash"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Yo"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Y"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fab fa-opera"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
@@ -4003,7 +3963,7 @@ var SplashHeader = function SplashHeader(_ref) {
     id: "navcontent",
     to: "/"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: window.logo,
+    src: window.logo2,
     id: "logo"
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "signinupbutton"

@@ -40,7 +40,7 @@ class SessionForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
-    const user = { email: "D-mo@gmail.com", password: "123123" };
+    const user = { email: "Bno@gmail.com", password: "123123" };
     this.props.processForm(user).then(this.props.closeModal);
   }
 
@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
             {/* <div class="lds-circle"><div></div></div> */}
 
 
-          <h3 className="session_title">Welcome to B-interest</h3>
+          <h3 className="session_title">Welcome to B-interested</h3>
           <div>
             <div>
               {this.props.formType !== "Log in"

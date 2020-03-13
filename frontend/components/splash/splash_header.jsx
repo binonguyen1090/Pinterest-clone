@@ -9,7 +9,7 @@ export const SplashHeader = ({ currentUser, logout, openModal }) => {
                 <div>
                     {/* <button> */}
                         
-                        <Link id="navcontent" to="/"><img src={window.logo} id="logo" /></Link>
+                        <Link id="navcontent" to="/"><img src={window.logo2} id="logo" /></Link>
                     {/* </button> */}
                 </div>
 

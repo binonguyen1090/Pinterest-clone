@@ -8,33 +8,59 @@
 
 
 
-# require 'open-uri'
+require 'open-uri'
 
-# User.delete_all
-# Board.delete_all
-# Pin.delete_all
+User.delete_all
+Board.delete_all
+Pin.delete_all
 
-# demo = User.create!({
-#     email: "Demo@gmail.com",
-#     password: "123123", 
-#     fname: "Demo", 
-#     lname: "Ng", 
-#     description: "Hi, I'm demo user", 
-#     location: "Dallas Texas", 
-# })
+demo = User.create!({
+    email: "demo@gmail.com",
+    password: "123123", 
+    fname: "Demo", 
+    lname: "Ng", 
+    description: "Hi, I'm demo user", 
+    location: "Dallas Texas", 
+})
+
+sarah = User.create!({
+    email: "sarah@gmail.com",
+    password: "123123", 
+    fname: "Sarah", 
+    lname: "Brown", 
+    description: "Hi, I'm Sarah", 
+    location: "New York", 
+})
+jess = User.create!({
+    email: "jess@gmail.com",
+    password: "123123", 
+    fname: "Jess", 
+    lname: "Smith", 
+    description: "Hi, I'm Jess", 
+    location: "California", 
+})
+casey = User.create!({
+    email: "casey@gmail.com",
+    password: "123123", 
+    fname: "casey", 
+    lname: "Murrt", 
+    description: "Hi, I'm Casey", 
+    location: "Delaware", 
+})
 
 
-# id: demo.id 
 
 
-# board = Board.create!({
-#     tite: "abc",
-#     boduy: "abc",
-#     id: demo.id
-# })
 
 
-# board_id: board.id
+board = Board.create!({
+    tite: "abc",
+    boduy: "abc",
+    id: demo.id
+})
 
 
-# pic1 = 
+board_id: board.id
+
+
+pic1 = 

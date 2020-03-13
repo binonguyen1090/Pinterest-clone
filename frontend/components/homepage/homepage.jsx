@@ -10,8 +10,8 @@ export default class HomePage extends React.Component {
     render (){
         return(
 
-            <div className="homepage">
-                <h2 className="textinsplash"><AllPinsContainer /></h2>
+            <div className="home-page-pin">
+                <AllPinsContainer />
             </div>
         ) 
     }
