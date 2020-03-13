@@ -702,3 +702,6 @@ file = open('https://binterest-seeds.s3-us-west-1.amazonaws.com/f9.jpg')
 f9.photo.attach(io: file, filename: "f9.jpg")
 
 ###Food
+# e1 = Pin.create!({ title: "fashion", body: "fashion" , board_id: b2.id})
+# file = open('https://binterest-seeds.s3-us-west-1.amazonaws.com/e1.jpg')
+# e1.photo.attach(io: file, filename: "e1.jpg")
