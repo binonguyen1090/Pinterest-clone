@@ -1,6 +1,6 @@
 .homepage{
-    background-color: rgb(94, 59, 59);
-    color: white;
+    // background-color: rgb(94, 59, 59);
+    // color: white;
     // width: 100%;
     padding: 75px;
 
@@ -8,4 +8,74 @@
     
     // margin-top: 50px;
     // position: fixed;
+}
+// @import url('https://fonts.googleapis.com/cass?family=Poppins:300,400');
+
+
+.user_pins_box{
+   
+}
+
+.user_pin_item{ 
+    width: 250px;
+    // margin-top: px;
+    border-radius: 10px;
+
+
+}
+.user_pins_container{
+    // background-color: royalblue;
+    width: 1300px;
+    // margin: 20px 20px;
+    
+    column-count: 5;
+    column-gap: 10px;
+    // justify-content: center;
+    margin: 10px 0px 0px 70px;
+}
+
+.user_pins_container .user_pins_box{
+    width: 100%;
+    // margin: 0 0 10px;
+    padding: 10px;
+    // background-color: yellow;
+    overflow: hidden;
+    // break-inside: avoid;
+
+}
+// .user_pins_container .user_pins_box img {
+//     max-width: 100%;
+// }
+
+@media (max-width: 1300px) {
+    .user_pins_container{
+        columns: 4;
+        width: calc(100%-10px);
+        box-sizing: border-box;
+
+    }
+}
+@media (max-width: 1040px) {
+    .user_pins_container{
+        columns: 3;
+        width: calc(100%-10px);
+        box-sizing: border-box;
+
+    }
+}
+@media (max-width: 780) {
+    .user_pins_container{
+        columns: 2;
+        width: calc(100%-10px);
+        box-sizing: border-box;
+
+    }
+}
+@media (max-width: 520px) {
+    .user_pins_container{
+        columns: 1;
+        width: calc(100%-10px);
+        box-sizing: border-box;
+
+    }
 }

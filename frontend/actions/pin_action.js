@@ -61,6 +61,7 @@ export const fetchOneBoardPins = (board_id) => dispatch => {
 };
 
 export const fetchAllUsersPins = () => dispatch => {
+    // debugger
     return PinApiUtil.fetchAllUsersPins()
         .then(pins => dispatch(receiveAllPins(pins)))
 };
