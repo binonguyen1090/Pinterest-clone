@@ -1,7 +1,7 @@
 import { patchUser, fetchUsers} from '../util/user_api.util'
 import {receiveErrors, receiveCurrentUser} from './session_action'
 
-export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
+// export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
 
 export const updateUser = user => dispatch =>
     patchUser(user).then(
@@ -10,13 +10,13 @@ export const updateUser = user => dispatch =>
     );
 
 
-const receiveAllUsers = users => {
-    // const pins = payload.pins
-    return ({
-        type: RECEIVE_ALL_USERS,
-        users
-    })
-};
+// const receiveAllUsers = users => {
+//     const pins = payload.pins
+//     return ({
+//         type: RECEIVE_ALL_USERS,
+//         users
+//     })
+// };
 
 // export const requestUsers = () => dispatch => {
 //     return fetchUsers()
