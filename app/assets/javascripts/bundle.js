@@ -3535,7 +3535,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
     value: function handleDemo(e) {
       e.preventDefault();
       var user = {
-        email: "Bno@gmail.com",
+        email: "demo@gmail.com",
         password: "123123"
       };
       this.props.processForm(user).then(this.props.closeModal);
