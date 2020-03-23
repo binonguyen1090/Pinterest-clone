@@ -2725,6 +2725,8 @@ var UserPins = /*#__PURE__*/function (_React$Component) {
         to: "/users/".concat(id, "/pins"),
         className: "link-on-profile-1"
       }, "Pins")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "abc"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user_pins_container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.pins.map(function (pin, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_user_pins_index_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -2734,7 +2736,7 @@ var UserPins = /*#__PURE__*/function (_React$Component) {
           user: _this.props.user,
           src: pin.photoUrl
         });
-      }))));
+      })))));
     }
   }]);
 
@@ -3788,11 +3790,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "divSplashpics"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "cf"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "textinsplash"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Y"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fab fa-opera"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",

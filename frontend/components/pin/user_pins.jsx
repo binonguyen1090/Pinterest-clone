@@ -82,22 +82,24 @@ export default class UserPins extends React.Component {
                     </div>
 
                 </div>
-
-                <div className="user_pins_container">                    
-                    <ul >                          
+                <div id="abc">
+                    <div className="user_pins_container">
+                        <ul >
                             {
                                 this.props.pins.map((pin, idx) =>
-                                    <PinUserIndexItem 
+                                    <PinUserIndexItem
                                         key={idx}
                                         pin={pin}
                                         currentUserId={this.props.currentUserId}
                                         user={this.props.user}
                                         src={pin.photoUrl}
-                                        />
-                                )   
+                                    />
+                                )
                             }
                         </ul>
+                    </div>
                 </div>
+                
             </div>
         )
     }
