@@ -3726,7 +3726,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "all-splash"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splash-title"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Get ur next idea")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Get your next idea")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "containerSplashImg"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "divSplashpics"
