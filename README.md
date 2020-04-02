@@ -1,13 +1,11 @@
 
-<<<<<<< HEAD
+# B-interested
+![alt text](https://github.com/binonguyen1090/Pinterest-clone/blob/master/app/assets/images/session_logo.png)
 
-# Kimterest
-![alt text](https://github.com/lisali72159/pinterestclone/blob/master/app/assets/images/header_logo.png)
-
-### Kimterest is a single-page application inspired by Pinterest. Users can create boards, collections that store images called "kims", which can be uploaded, and allow images to be viewed on a feed. 
+### Binterested is a single-page application inspired by Pinterest. Users can create boards, collections that store images, which can be uploaded, and allow images to be viewed on a feed. 
 
 ## Live Link
-https://kimterest.herokuapp.com
+https://Binterested.herokuapp.com
 
 
 ## Technologies
@@ -20,73 +18,64 @@ https://kimterest.herokuapp.com
 
 ## Features
 * User authentication
-* User profile feed with user's information and boards
+* User profile feed with user's information and boards, pins.
 * Create and edit boards
-* Upload and delete kims
+* Upload and delete pins
 * Home feed with responsive masonry layout
 * Modal forms
 
-![alt text](https://github.com/lisali72159/pinterestclone/blob/master/app/assets/images/profile.png)
+![alt text](https://github.com/binonguyen1090/Pinterest-clone/blob/master/app/assets/images/edituser.png)
 
 ## Modals
-The majority the forms on Kimterest are implemented using modals. A modal component was utilitzed to render the correct forms based on switch cases. Since some forms required information about a specific board or pin, an optional props argument was used to encompass these cases. Furthermore, the rendering of the login and signup modals were modified to prevent closing of the modal in the splash page and to display only one form at all times.
+The majority the forms on Binterested are implemented using modals. Furthermore, the rendering of the login and signup modals were modified to prevent closing of the modal in the splash page and to display only one form at all times.
 
-![alt text](https://github.com/lisali72159/pinterestclone/blob/master/app/assets/images/modal.png)
+![alt text](https://github.com/binonguyen1090/Pinterest-clone/blob/master/app/assets/images/modal.png)
 
 ```javascript
-function Modal({ modal, props, closeModal }) {
-
+function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }
   let component;
-  switch (modal) {
-    case "login":
+
+  switch (modal.modal) {
+    // switch (modal) {
+    case "Log in":
       component = <LoginFormContainer />;
       break;
-    case "signup":
+    case "Sign up":
       component = <SignupFormContainer />;
       break;
-    case "createBoard":
-      component = <BoardFormContainer />;
+    case "Create Board":
+      component = <CreateBoardFormContainer />;
       break;
-    case "editBoard":
-      component = <EditBoardFormContainer id={props.id} />;
+    case "Create Pin":
+      component = <CreatePinFormContainer />;
       break;
-    case "editPin":
-      component = <EditPinFormContainer id={props.pinId} />;
+    case "Edit Board":
+      component = <EditBoardFormContainer />;
       break;
     default:
       return null;
   }
-  if (modal === "login" || modal === "signup") {
-    return (
-      <div className="modal-background">
-        <div className="modal-child">{component}</div>
+  return (
+    <div className="modal-background" onClick={closeModal}>
+      <div className="modal-child" onClick={e => e.stopPropagation()}>
+        {component}
       </div>
-    )
-  } else {
-    return (
-      <div className="modal-background" onClick={closeModal}>
-        <div className="modal-child" onClick={e => e.stopPropagation()}>
-          {component}
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
 }
+
 ```
 
 ## Responsive CSS Masonry Layout
 CSS grid was used to implement the mosaic-like appearance of a Pinterest feed. Image sizes and columns are adjusted based on the size of the screen, allowing for a more visually appealing user interface.
 
-![alt text](https://github.com/lisali72159/pinterestclone/blob/master/app/assets/images/feed.png)
+![alt text](https://github.com/binonguyen1090/Pinterest-clone/blob/master/app/assets/images/reponsivecss.png)
 
 ## Future Implementations
 * Followers for boards and users
 * Infinity scrolling
 * Search bar
 
-
-=======
->>>>>>> 46b871999c4279630a90caa13ff3d355b7a45e8b
