@@ -1,5 +1,5 @@
-# README
 
+<<<<<<< HEAD
 
 # Kimterest
 ![alt text](https://github.com/lisali72159/pinterestclone/blob/master/app/assets/images/header_logo.png)
@@ -88,3 +88,5 @@ CSS grid was used to implement the mosaic-like appearance of a Pinterest feed. I
 * Search bar
 
 
+=======
+>>>>>>> 46b871999c4279630a90caa13ff3d355b7a45e8b
