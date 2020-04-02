@@ -1,18 +1,12 @@
 <!-- window.currentUser = { id: 3, username: "sennecy_the_cat" }; -->
-
 <% if logged_in? %>
-
   <script type="text/javascript">
-
     window.currentUser = <%= render(
       "api/users/user.json.jbuilder",
       user: current_user
     ).html_safe %>
-
   </script>
-
 <% end %>
-
-
-
-<main id="root"><h1>Hello from /views/static/root.erb</h1></main>
+<main id="root">
+  <h1>Hello from /views/static/root.erb</h1>
+</main>

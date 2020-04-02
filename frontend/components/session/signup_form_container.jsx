@@ -6,10 +6,9 @@ import React from "react";
 // import {openModal} from '../../actions/modal_action.js'
 import { openModal, closeModal } from "../../actions/modal_action";
 
-
 const mSTP = state => ({
   errors: state.errors.session,
-  formType: "Sign up",
+  formType: "Sign up"
 });
 
 const mDTP = dispatch => ({

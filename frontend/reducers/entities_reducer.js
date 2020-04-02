@@ -5,10 +5,9 @@ import BoardsReducer from "./board_reducers";
 import PinsReducer from "./pin_reducers";
 
 const entitiesReducer = combineReducers({
-    users: usersReducer,
-    boards: BoardsReducer,
-    pins: PinsReducer,
-
+  users: usersReducer,
+  boards: BoardsReducer,
+  pins: PinsReducer
 });
 
 export default entitiesReducer;

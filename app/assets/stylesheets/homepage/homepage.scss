@@ -1,89 +1,54 @@
-// .homepage{
-//     background-color: red;
-//     // color: white;
-//     // width: 100%;
-//     padding: 75px;
-
-// }
-.home-page-pin{
-    // background-color: red;
-    // padding-left: 50px;
-    // margin-left: 180px;
-    // padding-right: 200px
-    display: flex;
-    justify-content: center;
-    min-width: 100%;
-}
-// @import url('https://fonts.googleapis.com/cass?family=Poppins:300,400');
-
-
-
-
-.user_pin_item{ 
-    width: 200px;
-    // margin-top: px;
-    border-radius: 10px;
-
-
-}
-// #abc{
-//     display: flex;
-//     justify-content: center;
-//     background-color: red;
-// }
-.user_pins_container{
-    // background-color: royalblue;
-    width: 1300px;
-    // margin: 20px 20px;
-    
-    column-count: 5;
-    column-gap: 10px;
-    // justify-content: center;
-    margin: 10px 0px 0px 70px;
+.home-page-pin {
+  display: flex;
+  justify-content: center;
+  min-width: 100%;
 }
 
-.user_pins_container .user_pins_box{
-    width: 100%;
-    // margin: 0 0 10px;
-    padding: 10px;
-    // background-color: yellow;
-    overflow: hidden;
-    // break-inside: avoid;
+.user_pin_item {
+  width: 200px;
 
+  border-radius: 10px;
 }
-// .user_pins_container .user_pins_box img {
-//     max-width: 100%;
-// }
+
+.user_pins_container {
+  width: 1300px;
+
+  column-count: 5;
+  column-gap: 10px;
+  margin: 10px 0px 0px 70px;
+}
+
+.user_pins_container .user_pins_box {
+  width: 100%;
+  padding: 10px;
+  overflow: hidden;
+}
 
 @media (max-width: 1300px) {
-    .user_pins_container{
-        columns: 4;
-        width: calc(100%-10px);
-        box-sizing: border-box;
-
-    }
+  .user_pins_container {
+    columns: 4;
+    width: calc(100%-10px);
+    box-sizing: border-box;
+  }
 }
 @media (max-width: 1040px) {
-    .user_pins_container{
-        columns: 3;
-        width: calc(100%-10px);
-        box-sizing: border-box;
-
-    }
+  .user_pins_container {
+    columns: 3;
+    width: calc(100%-10px);
+    box-sizing: border-box;
+  }
 }
 @media (max-width: 780) {
-    .user_pins_container{
-        columns: 2;
-        width: calc(100%-10px);
-        box-sizing: border-box;
-
-    }
+  .user_pins_container {
+    columns: 2;
+    width: calc(100%-10px);
+    box-sizing: border-box;
+  }
 }
 @media (max-width: 520px) {
-    .user_pins_container{
-        columns: 1;
-        width: calc(100%-10px);
-        box-sizing: border-box;
-
-    }
+  .user_pins_container {
+    columns: 1;
+    width: calc(100%-10px);
+    box-sizing: border-box;
+  }
 }

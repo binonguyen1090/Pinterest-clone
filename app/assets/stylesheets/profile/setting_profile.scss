@@ -1,152 +1,149 @@
-
-
-.setting{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
-	// background-color: red;
-	padding-top: 50px;
+.setting {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-top: 50px;
 }
-.left-setting{
-	// background-color: sandybrown;
-	display: flex;
-	flex-direction: column;
-	color: #8E8E8E;
-	margin-right: 50px;
-	margin-bottom: 230px;
+.left-setting {
+  display: flex;
+  flex-direction: column;
+  color: #8e8e8e;
+  margin-right: 50px;
+  margin-bottom: 230px;
 }
-.right-setting{
-	// background-color: seagreen;
-	margin-right: 200px;
-	width: 800px;
-	height: 500px;
-	
-	
+.right-setting {
+  margin-right: 200px;
+  width: 800px;
+  height: 500px;
 }
-.edittext{
-	margin-left:65px;
-	font-weight: bold;
-	font-size: 40px;
-	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-
+.edittext {
+  margin-left: 65px;
+  font-weight: bold;
+  font-size: 40px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ,
+    Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
 }
-.textedit{
-		margin-left:65px;
+.textedit {
+  margin-left: 65px;
 
-	padding-top: 20px;
-	font-size: 20px;
-		font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-
+  padding-top: 20px;
+  font-size: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ,
+    Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
 }
-.fas.fa-arrow-left{
-	font-size: 40px;
-	margin-bottom: 500px;
-	padding: 20px;
-	color: black;;
+.fas.fa-arrow-left {
+  font-size: 40px;
+  margin-bottom: 500px;
+  padding: 20px;
+  color: black;
+}
 
-}   
-
-.icon-setting{
-	padding: 9px;
-	font-size: 20px;
+.icon-setting {
+  padding: 9px;
+  font-size: 20px;
 }
 
 .label-setting {
-	padding-bottom: 100px;
-	font-size: 18px;
+  padding-bottom: 100px;
+  font-size: 18px;
 }
 /////////setting form
 
-
 .form-style-1 {
-	margin:10px auto;
-	max-width: 700px;
-	padding: 50px 12px 10px 20px;
-	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  margin: 10px auto;
+  max-width: 700px;
+  padding: 50px 12px 10px 20px;
+  font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 .form-style-1 li {
-	padding: 20px;
-	display: block;
-	list-style: none;
-	margin: 10px 0 0 0;
+  padding: 20px;
+  display: block;
+  list-style: none;
+  margin: 10px 0 0 0;
 }
-.form-style-1 label{
-	margin:0 0 3px 0;
-	padding:0px;
-	display:block;
-	font-weight: bold;
+.form-style-1 label {
+  margin: 0 0 3px 0;
+  padding: 0px;
+  display: block;
+  font-weight: bold;
 }
-.form-style-1 input[type=text], 
-.form-style-1 input[type=date],
-.form-style-1 input[type=datetime],
-.form-style-1 input[type=number],
-.form-style-1 input[type=search],
-.form-style-1 input[type=time],
-.form-style-1 input[type=url],
-.form-style-1 input[type=email],
-textarea, 
-select{
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	border:1px solid #BEBEBE;
-	padding: 7px;
-	margin:0px;
-	height: 50px;
-	border-radius: 10px;
-	-webkit-transition: all 0.30s ease-in-out;
-	-moz-transition: all 0.30s ease-in-out;
-	-ms-transition: all 0.30s ease-in-out;
-	-o-transition: all 0.30s ease-in-out;
-	outline: none;	
+.form-style-1 input[type="text"],
+.form-style-1 input[type="date"],
+.form-style-1 input[type="datetime"],
+.form-style-1 input[type="number"],
+.form-style-1 input[type="search"],
+.form-style-1 input[type="time"],
+.form-style-1 input[type="url"],
+.form-style-1 input[type="email"],
+textarea,
+select {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px solid #bebebe;
+  padding: 7px;
+  margin: 0px;
+  height: 50px;
+  border-radius: 10px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  outline: none;
 }
-.form-style-1 input[type=text]:focus, 
-.form-style-1 input[type=date]:focus,
-.form-style-1 input[type=datetime]:focus,
-.form-style-1 input[type=number]:focus,
-.form-style-1 input[type=search]:focus,
-.form-style-1 input[type=time]:focus,
-.form-style-1 input[type=url]:focus,
-.form-style-1 input[type=email]:focus,
-.form-style-1 textarea:focus, 
-.form-style-1 select:focus{
-	-moz-box-shadow: 0 0 8px rgb(46, 178, 211);
-	-webkit-box-shadow: 0 0 8pxrgb(46, 178, 211);
-	box-shadow: 0 0 8px rgb(46, 178, 211);
-	border: 1px solid rgb(46, 178, 211);
+.form-style-1 input[type="text"]:focus,
+.form-style-1 input[type="date"]:focus,
+.form-style-1 input[type="datetime"]:focus,
+.form-style-1 input[type="number"]:focus,
+.form-style-1 input[type="search"]:focus,
+.form-style-1 input[type="time"]:focus,
+.form-style-1 input[type="url"]:focus,
+.form-style-1 input[type="email"]:focus,
+.form-style-1 textarea:focus,
+.form-style-1 select:focus {
+  -moz-box-shadow: 0 0 8px rgb(46, 178, 211);
+  -webkit-box-shadow: 0 0 8pxrgb (46, 178, 211);
+  box-shadow: 0 0 8px rgb(46, 178, 211);
+  border: 1px solid rgb(46, 178, 211);
 }
-.form-style-1 .field-divided{
-	width: 49%;
-}
-
-.form-style-1 .field-long{
-	width: 100%;
-}
-.form-style-1 .field-select{
-	width: 100%;
-}
-.form-style-1 .field-textarea{
-	height: 100px;
-}
-.form-style-1 input[type=submit], .form-style-1 input[type=button]{
-	background: #EFEFEF;
-	padding: 8px 15px 8px 15px;
-	border: none;
-	color: #8E8E8E;
-	width: 100px;
-	height: 40px;
-	font-size: 20px;
-}
-.form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
-	background: rgb(193, 211, 216);
-	box-shadow:none;
-	-moz-box-shadow:none;
-	-webkit-box-shadow:none;
-}
-.form-style-1 .required{
-	color:red;
+.form-style-1 .field-divided {
+  width: 49%;
 }
 
-
+.form-style-1 .field-long {
+  width: 100%;
+}
+.form-style-1 .field-select {
+  width: 100%;
+}
+.form-style-1 .field-textarea {
+  height: 100px;
+}
+.form-style-1 input[type="submit"],
+.form-style-1 input[type="button"] {
+  background: #efefef;
+  padding: 8px 15px 8px 15px;
+  border: none;
+  color: #8e8e8e;
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+}
+.form-style-1 input[type="submit"]:hover,
+.form-style-1 input[type="button"]:hover {
+  background: rgb(193, 211, 216);
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.form-style-1 .required {
+  color: red;
+}

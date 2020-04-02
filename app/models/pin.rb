@@ -10,14 +10,13 @@
 #  updated_at :datetime         not null
 #
 class Pin < ApplicationRecord
-    validates :title, :body, :board_id, presence: true;
+  validates :title, :body, :board_id, presence: true
 
-    has_one_attached :photo
+  has_one_attached :photo
 
-    belongs_to :board
+  belongs_to :board
 
-
-    # belongs_to :users,
-    #     through: :board,
-    #     source: :user 
+  # belongs_to :users,
+  #     through: :board,
+  #     source: :user
 end

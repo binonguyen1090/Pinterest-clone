@@ -3,19 +3,18 @@ import { closeModal } from "../../actions/modal_action";
 import { connect } from "react-redux";
 import LoginFormContainer from "../session/login_form_container";
 import SignupFormContainer from "../session/signup_form_container";
-import CreateBoardFormContainer from "../board/create_board_form_container"
-import CreatePinFormContainer from "../pin/create_pin_form_container"
-import EditBoardFormContainer from "../board/edit_board_form_container"
+import CreateBoardFormContainer from "../board/create_board_form_container";
+import CreatePinFormContainer from "../pin/create_pin_form_container";
+import EditBoardFormContainer from "../board/edit_board_form_container";
 
 function Modal({ modal, closeModal }) {
-  
   if (!modal) {
     return null;
   }
   let component;
-  
+
   switch (modal.modal) {
-  // switch (modal) {
+    // switch (modal) {
     case "Log in":
       component = <LoginFormContainer />;
       break;
@@ -44,14 +43,12 @@ function Modal({ modal, closeModal }) {
 }
 
 const mSTP = state => {
-  
   return {
     modal: state.ui.modal
   };
 };
 
 const mDTP = dispatch => {
-  
   return {
     closeModal: () => dispatch(closeModal())
   };

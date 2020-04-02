@@ -1,6 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import React from "react";
+import { Link } from "react-router-dom";
 
 export const Greeting = ({ currentUser, logout }) => {
   const display = currentUser ? (
@@ -10,8 +9,7 @@ export const Greeting = ({ currentUser, logout }) => {
     </div>
   ) : null;
   return (
-    <div className ="user_index_nav">
- 
+    <div className="user_index_nav">
       <div>{display}</div>
     </div>
   );

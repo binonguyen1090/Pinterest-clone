@@ -1,118 +1,66 @@
-.board{
-    // background-color: rgb(94, 59, 59);
-    // color: white;
-    // width: 90%;
-    padding-top: 20px;
-    // display: flex;
-    // flex-direction: column;
-    // align-content: center;
-    // justify-content: center;
-
-    
-    // margin-top: 50px;
-    // position: fixed;
+.board {
+  padding-top: 20px;
 }
-.wrap{
-     display: grid;
+.wrap {
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(100px, auto)
+  grid-auto-rows: minmax(100px, auto);
 }
 .bottomboard {
-    // background-color: rgb(233, 190, 190);
-    // display: row;
- 
-    // justify-content: center;
-    // padding-top: 20px;
-    // margin: 20px;
-    // height: 300px;
-    // display: flex;
-    // justify-content: center;
 }
 .topboard {
-    // background-color: rgb(169, 193, 207);
-    // width: auto;
-    //     padding: 20px;
-    //     margin: 20px;
-    //     height: 200px;
-        display: flex;
-        flex-direction: column;
-        justify-items: center;
-
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
 }
 .profile-button {
-    // margin-left: 350px;
-    // background-color: blue;
-    display: flex;
-    justify-items: center;
-    // margin-bottom: 50px;
-    // width: 18%;
+  display: flex;
+  justify-items: center;
 }
-.info-profile{
-    // margin-left: 350px;
-    // background-color: pink;
-    //     // margin-bottom: 50px;
-    // // display: flex;
-    // margin-top: 10px;
-    padding-top: 10px;
-  
-    //     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-
-
-
+.info-profile {
+  padding-top: 10px;
 }
 .link-on-profile {
-    // background-color: red;
-    // margin-top: 50px;
-    // display: flex;
-    // justify-content: space-evenly;
-    font-size: 25px;
-    padding-top: 20px;
-    // width: 30%;
-    // margin-left: 400px;
-    display: flex;
-    justify-content: center;
-    
-    
+  font-size: 25px;
+  padding-top: 20px;
+
+  display: flex;
+  justify-content: center;
 }
 .fa-pen-profile {
-    font-size: 30px;
-	// margin-bottom: 490px;
-	padding-left: 30px;
-	color:#8E8E8E;
+  font-size: 30px;
+
+  padding-left: 30px;
+  color: #8e8e8e;
 }
 
-.fas.fa-plus{
-    font-size: 37px;
-	color:#8E8E8E;
+.fas.fa-plus {
+  font-size: 37px;
+  color: #8e8e8e;
 }
-.location-profile{
-    padding-top: 10px;
-}
-
-
-.space-name{
-    // height: 20px;
+.location-profile {
+  padding-top: 10px;
 }
 
-.name-profile{
-    color: black;
-    font-size: 35px;
-    font-weight: bold;
-    padding-top: 30px;
-}
-.location-profile{
-    color: black;
-    font-size: 17px;
+.space-name {
 }
 
- .in-topboard{
-    // background-color: chartreuse;
-    padding: 10px 500px;
-    
- }
- .link-on-profile-1{
-    padding: 20px;
-    border-bottom: solid 1px rgb(230, 227, 227);
-    // width: 50%;
-    text-decoration: none;
- }
+.name-profile {
+  color: black;
+  font-size: 35px;
+  font-weight: bold;
+  padding-top: 30px;
+}
+.location-profile {
+  color: black;
+  font-size: 17px;
+}
+
+.in-topboard {
+  padding: 10px 500px;
+}
+.link-on-profile-1 {
+  padding: 20px;
+  border-bottom: solid 1px rgb(230, 227, 227);
+  text-decoration: none;
+}

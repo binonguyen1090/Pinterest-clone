@@ -1,76 +1,61 @@
 class Api::PinsController < ApplicationController
-
-
-
-
-    def index
-      # debugger
-      if params[:user_id]
-        boardIds = Board.where(user_id: params[:user_id])
-        @pins = Pin.where(board_id: boardIds)
-
-      elsif (params[:board_id])
-        @pins = Pin.where(board_id: params[:board_id])
-  
-      else
-        @pins = Pin.all
-      end
+  def index
+    # debugger
+    if params[:user_id]
+      boardIds = Board.where(user_id: params[:user_id])
+      @pins = Pin.where(board_id: boardIds)
+    elsif (params[:board_id])
+      @pins = Pin.where(board_id: params[:board_id])
+    else
+      @pins = Pin.all
     end
+  end
 
+  def show
+    @pin = Pin.find(params[:id])
+    render "/api/pins/show"
+  end
 
-    
-    def show
-      @pin = Pin.find(params[:id])
-      render '/api/pins/show'
+  def create
+    @pin = Pin.new(pin_params)
+
+    if @pin.save
+      render "/api/pins/show"
+    else
+      render json: @pin.errors.full_messages, status: 422
     end
-  
-    def create
+  end
 
+  def update
+    @pin = Pin.find(params[:id])
+    if @pin.update(pin_params)
+      render "/api/pins/show"
+    else
+      render json: @pin.errors.full_messages, status: 422
+    end
+  end
 
-      @pin = Pin.new(pin_params)
- 
-      if @pin.save
-          render '/api/pins/show'
-      else
-        render json: @pin.errors.full_messages, status: 422
-      end
-    end
+  def destroy
+    @pin = Pin.find(params[:id])
+    @pin.destroy
 
-    
-    def update
-      
-      @pin = Pin.find(params[:id]) 
-      if @pin.update(pin_params)
-        render '/api/pins/show'
-      else
-        render json: @pin.errors.full_messages, status: 422
-      end
-    end
+    render "/api/pins/show"
+  end
 
-    def destroy
-      @pin = Pin.find(params[:id])
-      @pin.destroy
-  
-      render '/api/pins/show'
-    end
-  
-    private
-  
-    def pin_params
-      params.require(:pin).permit(:title, :body, :board_id, :photo)
-    end
+  private
+
+  def pin_params
+    params.require(:pin).permit(:title, :body, :board_id, :photo)
+  end
 end
 
 # if params[:board_id]
-      #   @pins = Board.find(params[:board_id]).pins 
-      # elsif params[:boardIds]
-      #   @pins= Pin.where(board_id: params[:boardIds]) 
-      # elsif params[:user_id]
-      #   @pins = Pin.joins(:board).where("boards.user_id = #{params[:user_id]}")
-      # elsif params[:userIds] 
-      #   boardIds = Board.where(user_id: params[:userIds]).ids 
-      #   @pins = Pin.where(board_id: boardIds)
-      # else 
-
-
-
+#   @pins = Board.find(params[:board_id]).pins
+# elsif params[:boardIds]
+#   @pins= Pin.where(board_id: params[:boardIds])
+# elsif params[:user_id]
+#   @pins = Pin.joins(:board).where("boards.user_id = #{params[:user_id]}")
+# elsif params[:userIds]
+#   boardIds = Board.where(user_id: params[:userIds]).ids
+#   @pins = Pin.where(board_id: boardIds)
+# else

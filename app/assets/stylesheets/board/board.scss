@@ -1,110 +1,89 @@
-
-
-
-
-
-.errorInBoardForm{
-    color: white;
+.errorInBoardForm {
+  color: white;
 }
-.all_board{
-    // background-color: pink;
-    padding-top: 60px;
+.all_board {
+  padding-top: 60px;
 
-    height: 400px;
-    
+  height: 400px;
 }
 .boardform {
-    margin: auto;
-    ;
-    // background: white;
-    text-align: center;
-    width: 410px;
-    // height: fit-content;
-    border-radius: 10px;
-    border: 1px solid black;
-    padding: 20px;
-    background-color: white;
-    // box-sizing: border-box;
-    // overflow: hidden;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  margin: auto;
+  text-align: center;
+  width: 410px;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 20px;
+  background-color: white;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ,
+    Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-.errorInBoardForm{
-    color: red;
-    padding: 5px;
+.errorInBoardForm {
+  color: red;
+  padding: 5px;
 }
-.titlecreateForm{
-    font-weight: bold;
-    font-size: 40px;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    padding: 20px;
-    
-    //   border-radius: 10px;
-
-
+.titlecreateForm {
+  font-weight: bold;
+  font-size: 40px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ,
+    Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  padding: 20px;
 }
-.inputCreateBoard{
-    border-radius: 40px;
+.inputCreateBoard {
+  border-radius: 40px;
 }
 
-// .canclebutton{
-//     margin-right: 30px;
-// }
-
-.canclebutton{
+.canclebutton {
   width: 80%;
-//   padding: 12px 20px;
   margin: 8px 0;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   color: black;
-//   -webkit-transition: 0.5s;
-//   transition: 0.5s;
+
   outline: none;
   height: 45px;
   align-items: center;
   margin-right: 30px;
   border-radius: 10px;
-
-//   padding: 20px;
 }
-.createbutton{
-    width: 80%;  
-    // padding: 20px;
+.createbutton {
+  width: 80%;
 
-      border-radius: 10px;
+  border-radius: 10px;
 
-//   padding: 12px 20px;
   margin: 8px 0;
-  background-color: #8E8E8E;
+  background-color: #8e8e8e;
   color: white;
-//   -webkit-transition: 0.5s;
-//   transition: 0.5s;
+
   outline: none;
   height: 45px;
   align-items: center;
   margin-right: 30px;
 }
-.delete-edit-button{
+.delete-edit-button {
   display: flex;
-  // background-color: rosybrown;
 }
-.delete-board{
-    margin: 10px;
-    // background-color: sandybrown;
-    text-decoration: none;
-    font-size: 30px;
-    border: none;
-    padding-top: 30px;
+.delete-board {
+  margin: 10px;
 
+  text-decoration: none;
+  font-size: 30px;
+  border: none;
+  padding-top: 30px;
 }
-.create-group-btton{
-    display: flex;
-    justify-content: right;
-    // background-color: pink;
-    height: 30px;
-    margin-top: 20px;
-    margin-left: 180px;
-    padding: 10px;
-    margin-bottom: 20px;
+.create-group-btton {
+  display: flex;
+  justify-content: right;
 
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 180px;
+  padding: 10px;
+  margin-bottom: 20px;
 }

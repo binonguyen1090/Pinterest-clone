@@ -1,170 +1,68 @@
-
-
-.homeNavbar{
-    // background-color: pink;
-    // position: fixed;
-    // width: max-content;
-    display: flex;
-    justify-content: space-evenly;
-    border-bottom: 1px solid #EFEFEF;
-    // box-shadow: none;
-    // height: 65px;
-    // position: fixed;
-    // right: 0;
-    // left: 0;
-    // z-index: 999;
-    flex-direction: row;
-    // padding: 10px;
-	// align-items: center;
-    // align-content: center;
-    // width: 100%;
-    // margin: auto;
-    //  display: inline;
-    // background-color: red;
-    // float: left;
-
-    // padding: 9px 0px;
-    // padding-top: 5px;
-
-     
-    // padding: 20px;
-    // align-items: center;
-    // position: fixed;
-    // top: 0;
-    // width: 100%;
-//       overflow: hidden;
-//       position: fixed;
-//        padding: 16px;
-//   margin-top: 30px;
-//   height: 1500px;
-//   top: 0;
-//   width: 100%;
-// position: fixed;
-//   top: 0;
-//   width: 100%;
-height: 50px;
-
-
+.homeNavbar {
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid #efefef;
+  flex-direction: row;
+  height: 50px;
 }
 .rightNav {
-    // background-color: green;
-    display: flex;
-    justify-content: center;
-    // padding-left: 5px;
-    // margin-right: 300px;
-    // padding-left: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 .item {
-    margin: auto 5px;
-    color: #8E8E8E;
-    // border: 1px red solid;
-    font-size: 23px;
-        padding: 0px 10px;
-
+  margin: auto 5px;
+  color: #8e8e8e;
+  font-size: 23px;
+  padding: 0px 10px;
 }
 
-.item.comment{
-    border-left: solid 1px #8E8E8E;
+.item.comment {
+  border-left: solid 1px #8e8e8e;
 }
-.navbarLogo{
-    height: 40px;
-    width: 40px;
-    // padding: -50px;
-    // padding-left: 100px;
-    // background-color: yellow;
-    margin-top: 5px;
-    // padding: 2px;
-    // font-size: 10px;
+.navbarLogo {
+  height: 40px;
+  width: 40px;
+  margin-top: 5px;
 }
-.topnav{
-    width: 30%;
-    // height: 90px;
+.topnav {
+  width: 30%;
 }
-.topnav input[type=text] {
-//   float: right;
-//   padding: 6px;
-//   border: none;
+.topnav input[type="text"] {
   width: 100%;
   height: 60%;
-//   margin-top: 11px;
-//   margin-right: 16px;
-//   font-size: 17px;
-    background-color:#EFEFEF;
-    // background-color:blue;
-}
-// input.search {
-//    border-color: #28a745;
-//    padding-right: 30px;
-//    background-image: url('https://www.stephenwadechryslerdodgejeep.com/wp-content/plugins/pm-motors-plugin/modules/vehicle_save/images/check.png');
-//    background-repeat: no-repeat;
-//    background-size: 20px 20px;
-//    background-position: right center;
-// }
-/////testing
-
-
-// .homeNavbar {
-//   overflow: hidden;
-// //   background-color: #333;
-// }
-
-// .homeNavbar div {
-//   float: left;
-//   color: #f2f2f2;
-//   text-align: center;
-//   padding: 14px 16px;
-//   text-decoration: none;
-// //   font-size: 17px;
-// }
-
-// .topnav div:hover {
-// //   background-color: #ddd;
-//   color: black;
-// }
-
-// .topnav div.active {
-// //   background-color: #4CAF50;
-// //   color: white;
-// }
-
-// .rightNav{
-//   float: right;
-// }
-.email-nav{
-    color: red;
-    padding-top: 5px;
-    padding-left: 2px;
-    color:black;
-    font-weight: 500;
-}
-.proLink{
-    display: flex;
+  background-color: #efefef;
 }
 
-.item.circle-alphabet{
-    // width: 20px;
-    // height: 20px;
-    // width: 20%;
-    background-color: #8E8E8E;
-    font-size: 20px;
-    font-weight: lighter;
-    color: white;
-    border-radius: 70px;
-    height: 45px;
-    width: 0px;
-    // margin-top: 2px;
-    align-items: center;
+.email-nav {
+  color: red;
+  padding-top: 5px;
+  padding-left: 2px;
+  color: black;
+  font-weight: 500;
+}
+.proLink {
+  display: flex;
+}
+
+.item.circle-alphabet {
+  background-color: #8e8e8e;
+  font-size: 20px;
+  font-weight: lighter;
+  color: white;
+  border-radius: 70px;
+  height: 45px;
+  width: 0px;
+  align-items: center;
 }
 .i-circle {
-    background-color: #8E8E8E;
-    color: #fff;
-    // padding: 6px 17px;
-    padding-bottom: 3px;
-    padding-top: -1px;
-    padding-left: 11px;
-    padding-right: 10px;
-    border-radius: 50%;
-    font-size: 30px;
-    font-weight: bold;
+  background-color: #8e8e8e;
+  color: #fff;
+  padding-bottom: 3px;
+  padding-top: -1px;
+  padding-left: 11px;
+  padding-right: 10px;
+  border-radius: 50%;
+  font-size: 30px;
+  font-weight: bold;
 }

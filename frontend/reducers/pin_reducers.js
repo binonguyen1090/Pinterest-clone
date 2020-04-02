@@ -1,28 +1,25 @@
 import {
-    RECEIVE_ALL_PINS,
-    RECEIVE_PIN,
-    REMOVE_PIN,
-    Re
-} from '../actions/pin_action';
-import merge from 'lodash/merge';
-
-
+  RECEIVE_ALL_PINS,
+  RECEIVE_PIN,
+  REMOVE_PIN,
+  Re
+} from "../actions/pin_action";
+import merge from "lodash/merge";
 
 const PinsReducer = (state = {}, action) => {
-  
-    Object.freeze(state)
-    let nextState = Object.assign({}, state)
-    switch (action.type) {
-        case RECEIVE_ALL_PINS:
-            return action.pins
-        case RECEIVE_PIN:
-            nextState[action.pin.id] = action.pin
-            return nextState
-        case REMOVE_PIN:
-            delete nextState[action.pinId]
-            return nextState
-        default:
-            return state;
-    }
-}
-export default PinsReducer
+  Object.freeze(state);
+  let nextState = Object.assign({}, state);
+  switch (action.type) {
+    case RECEIVE_ALL_PINS:
+      return action.pins;
+    case RECEIVE_PIN:
+      nextState[action.pin.id] = action.pin;
+      return nextState;
+    case REMOVE_PIN:
+      delete nextState[action.pinId];
+      return nextState;
+    default:
+      return state;
+  }
+};
+export default PinsReducer;

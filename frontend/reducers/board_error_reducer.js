@@ -1,26 +1,14 @@
-
-import { RECEIVE_BOARD_ERRORS} from "../actions/board_action";
-
+import { RECEIVE_BOARD_ERRORS } from "../actions/board_action";
 
 const boardErrorsReducer = (state = [], action) => {
-    Object.freeze(state);
-    const _nullErrors = []
-    switch (action.type) {
-        case RECEIVE_BOARD_ERRORS:
-            return action.errors;
-        // case RECEIVE_CURRENT_USER:
-        //     return [];
-        default:
-            return _nullErrors;
-    }
-}
-export default boardErrorsReducer
-
-
-
-
-
-
-
-
-
+  Object.freeze(state);
+  const _nullErrors = [];
+  switch (action.type) {
+    case RECEIVE_BOARD_ERRORS:
+      return action.errors;
+      return [];
+    default:
+      return _nullErrors;
+  }
+};
+export default boardErrorsReducer;

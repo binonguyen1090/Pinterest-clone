@@ -1,6 +1,5 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
-
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -37,88 +36,106 @@ class SessionForm extends React.Component {
     this.props.processForm(user).then(this.props.closeModal);
   }
 
-
-  handleDemo(e) {
+  handleDemo(e, speed = 120) {
     e.preventDefault();
     const user = { email: "demo@gmail.com", password: "123123" };
-    this.props.processForm(user).then(this.props.closeModal);
+    let { email, password } = user;
+    if (this.state.email !== email) {
+      const inputUser = setInterval(() => {
+        if (this.state.email !== email) {
+          const temp = email.slice(0, this.state.email.length + 1);
+          this.setState({ email: temp });
+        } else {
+          clearInterval(inputUser);
+          animatePassword();
+        }
+      }, speed);
+    }
+
+    const animatePassword = () => {
+      const inputPassword = setInterval(() => {
+        if (this.state.password !== password)
+          this.setState({
+            password: password.slice(0, this.state.password.length + 1)
+          });
+        else {
+          clearInterval(inputPassword);
+          login();
+        }
+      }, speed);
+    };
+    const login = () => {
+      this.props.processForm(this.state).then(this.props.closeModal());
+      this.setState({ username: "", password: "" });
+    };
+    // this.props.processForm(user).then(this.props.closeModal);
   }
 
   render() {
     return (
       <div>
-        
         <div className="all_session">
-        <form className="sessionform" onSubmit={this.handleSubmit}>
-
-
-
-          <div className="lds-circle">
-            <img className="session_logo_img" src={window.favicon} />
-          </div>
+          <form className="sessionform" onSubmit={this.handleSubmit}>
+            <div className="lds-circle">
+              <img className="session_logo_img" src={window.favicon} />
+            </div>
             {/* <div class="lds-circle"><div></div></div> */}
 
-
-          <h3 className="session_title">Welcome to B-interested</h3>
-          <div>
+            <h3 className="session_title">Welcome to B-interested</h3>
             <div>
-              {this.props.formType !== "Log in"
-                ? "Sign Up! It’s quick and easy."
-                : ""}
+              <div>
+                {this.props.formType !== "Log in"
+                  ? "Sign Up! It’s quick and easy."
+                  : ""}
+              </div>
+
+              <input
+                type="email"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="Email"
+              />
             </div>
 
-
-            <input
-              type="email"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
-          </div>
-
-          <div>
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Enter Password"
-            />
-          </div>
-
-        
-
-          <div className="forgot_password">
-            {this.props.formType === "Log in" ? "Forgot your password?" : ""}
-          </div>
-          <div>
-            <input
-              className="session_button"
-              type="submit"
-              value={this.props.formType === "Log in" ? "Log In" : "Continue"}
-              onChange={this.update("password")}
-            />
-          </div>
-          <div>
-            {this.props.formType === "Log in" ? (
+            <div>
               <input
-                className="session_button demo"
-                type="submit"
-                value={"DEMO USER"}
-                onClick={this.handleDemo}
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="Enter Password"
               />
-            ) : ( 
-                  <input
-                    className="session_button demo"
-                    type="submit"
-                    value={"DEMO USER"}
-                    onClick={() => this.props.openModal("Log in")}
-                  />
-             )} 
-          </div>
+            </div>
 
-            
+            <div className="forgot_password">
+              {this.props.formType === "Log in" ? "Forgot your password?" : ""}
+            </div>
+            <div>
+              <input
+                className="session_button"
+                type="submit"
+                value={this.props.formType === "Log in" ? "Log In" : "Continue"}
+                onChange={this.update("password")}
+              />
+            </div>
+            <div>
+              {this.props.formType === "Log in" ? (
+                <input
+                  className="session_button demo"
+                  type="submit"
+                  value={"DEMO USER"}
+                  onClick={this.handleDemo}
+                />
+              ) : (
+                <input
+                  className="session_button demo"
+                  type="submit"
+                  value={"DEMO USER"}
+                  onClick={() => this.props.openModal("Log in")}
+                />
+              )}
+            </div>
 
-          {/* <div className="or">OR</div>
+            {/* <div className="or">OR</div>
 
           <a href="https://www.facebook.com/" className="fbbutton">
             <i className="fab fa-facebook"></i>
@@ -132,36 +149,32 @@ class SessionForm extends React.Component {
             ></img>
             Continue with Google
           </a> */}
-          <div className="session_dummy"></div>
+            <div className="session_dummy"></div>
 
-          <div>
-            {this.props.formType !== "Log in" ? (
-              <button
-                className="navlink"
-                onClick={() => this.props.openModal("Log in")}
-              >
-                {/* {" "} */}
-                Already a member? Log in
-              </button>
-            ) : (
-              <button
-                className="navlink"
-                onClick={() => this.props.openModal("Sign up")}>
-                {/* {" "} */}
-                Not on Pinterest yet? Sign Up
-              </button>
-            )}
-          </div>
-          <div className="session_errors">{this.renderErrors()}</div>
-
-        </form>
-      </div>
-
-
-
+            <div>
+              {this.props.formType !== "Log in" ? (
+                <button
+                  className="navlink"
+                  onClick={() => this.props.openModal("Log in")}
+                >
+                  {/* {" "} */}
+                  Already a member? Log in
+                </button>
+              ) : (
+                <button
+                  className="navlink"
+                  onClick={() => this.props.openModal("Sign up")}
+                >
+                  {/* {" "} */}
+                  Not on Pinterest yet? Sign Up
+                </button>
+              )}
+            </div>
+            <div className="session_errors">{this.renderErrors()}</div>
+          </form>
+        </div>
       </div>
     );
   }
 }
-  export default SessionForm;
-
+export default SessionForm;
