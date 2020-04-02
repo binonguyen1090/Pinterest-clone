@@ -1,11 +1,10 @@
 
 # B-interested
-![alt text](https://github.com/binonguyen1090/Pinterest-clone/blob/master/app/assets/images/session_logo.png)
+![](https://github.com/binonguyen1090/Pinterest-clone/blob/master/images/session_logo.png | width=48)
 
 ### Binterested is a single-page application inspired by Pinterest. Users can create boards, collections that store images, which can be uploaded, and allow images to be viewed on a feed. 
 
-## Live Link
-https://Binterested.herokuapp.com
+## [Live site here](https://binterest.herokuapp.com/)
 
 
 ## Technologies
