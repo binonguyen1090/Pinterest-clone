@@ -3790,7 +3790,11 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "divSplashpics"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "cf"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "textinsplash"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Y"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fab fa-opera"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",
@@ -3884,55 +3888,9 @@ var Splash = /*#__PURE__*/function (_React$Component) {
   }]);
 
   return Splash;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); //////dummy
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 
-
-{
-  /* <div className="divSplashpics">
-              
-                   <img className="imgSplash" src={window.splash12} />
-                   <img className="imgSplash" src={window.splash3} />
-                 
-                 
-               </div>
-  
-                <div className="divSplashpics">
-                 <div className="dummy1"></div>
-                 <img className="imgSplash" src={window.splash16} />
-                 <img className="imgSplash" src={window.splash17} />
-               </div> 
-  
-                <div className="divSplashpics">
-                 <div className="dummy2"></div>
-                 <img className="imgSplash" src={window.splash14} />
-                 <img className="imgSplash" src={window.splash5} />
-               </div> 
-  
-               <div className="divSplashpics">
-                 <h2 className="textinsplash">Yo</h2>
-                 <img className="imgSplash 1" src={window.dress6} />
-               </div> 
-  
-               <div className="divSplashpics">
-                 <div className="dummy2"></div>
-                 <img className="imgSplash" src={window.splash15} />
-                 <img className="imgSplash" src={window.splash4} />
-               </div> 
-  
-               <div className="divSplashpics">
-                 <div className="dummy1"></div>
-                 <img className="imgSplash" src={window.splash8} />
-                 <img className="imgSplash" src={window.splash18} />
-               </div> 
-  
-            
-                   <div className="divSplashpics">
-                     <img className="imgSplash" src={window.dress2} />
-                     <img className="imgSplash" src={window.dress4} />
-                   </div>
-             */
-}
 
 /***/ }),
 
@@ -3957,12 +3915,22 @@ var SplashHeader = function SplashHeader(_ref) {
       openModal = _ref.openModal;
   var display = currentUser ? "" : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navbar not_login"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "left-not-login-navbar"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     id: "navcontent",
     to: "/"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: window.logo2,
     id: "logo"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://github.com/binonguyen1090"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fab fa-github"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://www.linkedin.com/in/binonguyen1090"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fab fa-linkedin"
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "signinupbutton"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
