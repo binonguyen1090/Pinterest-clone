@@ -45,11 +45,11 @@ const App = () => (
         path="/pins/:pinId"
         component={PinShowContainer}
       /> */}
-      <ProtectedRoute
+      {/* <ProtectedRoute
         exact
         path="/boards/:boardId/edit"
         component={EditBoardContainer}
-      />
+      /> */}
       <ProtectedRoute
         exact
         path="/users/:userId/pins"

@@ -32,7 +32,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
   return {
-    openModal: modal => dispatch(openModal(modal)),
+    // openModal: modal => dispatch(openModal(modal)),
+    openModal: (modal, pinId) => dispatch(openModal(modal, { pinId })),
 
     fetchBoards: userId => dispatch(fetchBoards(userId)),
     fetchPins: () => dispatch(fetchPins()),

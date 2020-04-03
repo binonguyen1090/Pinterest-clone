@@ -7,11 +7,11 @@ export default class PinShow extends React.Component {
   constructor(props) {
     super(props);
   }
-//   componentDidMount() {
-//     this.props.fetchBoard(this.props.match.params.boardId);
-//   }
+  componentDidMount() {
+    this.props.fetchPin(this.props.pinId);
+  }
   render() {
-    // const { board } = this.props;
+    const { pin } = this.props;
     // if (!board) {
     //   return null;
     // }
@@ -24,50 +24,47 @@ export default class PinShow extends React.Component {
     // let location = user.location === null ? "" : user.location;
 
     return (
-    //   <div className="board">
-    //     <div className="topboard">
-    //       <Link to={`/users/${this.props.currentUserId}`}>
-    //         <i className="fas fa-long-arrow-alt-left"></i>
-    //       </Link>
+      //   <div className="board">
+      //     <div className="topboard">
+      //       <Link to={`/users/${this.props.currentUserId}`}>
+      //         <i className="fas fa-long-arrow-alt-left"></i>
+      //       </Link>
 
-    //       <div className="in-topboard">
-    //         <div className="profile-button">
-    //           <div className="dropdown">
-    //             <i className="fas fa-plus"></i>
-    //             <div className="add-pin-in-show-board">Add Pin</div>
-    //             <div className="dropdown-content">
-    //               <button
-    //                 className="dropdownbutton"
-    //                 onClick={() => this.props.openModal("Create Pin")}
-    //               >
-    //                 <p className="dropdownbutton-size">Create Pin</p>
-    //               </button>
-    //             </div>
-    //           </div>
-    //         </div>
-    //         <div className="info-profile">
-    //           <div>ID:{board.id}</div>
-    //           <div className="name-show-board">
-    //             {board.title}
-    //             <div>ID:{board.id}</div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
+      //       <div className="in-topboard">
+      //         <div className="profile-button">
+      //           <div className="dropdown">
+      //             <i className="fas fa-plus"></i>
+      //             <div className="add-pin-in-show-board">Add Pin</div>
+      //             <div className="dropdown-content">
+      //               <button
+      //                 className="dropdownbutton"
+      //                 onClick={() => this.props.openModal("Create Pin")}
+      //               >
+      //                 <p className="dropdownbutton-size">Create Pin</p>
+      //               </button>
+      //             </div>
+      //           </div>
+      //         </div>
+      //         <div className="info-profile">
+      //           <div>ID:{board.id}</div>
+      //           <div className="name-show-board">
+      //             {board.title}
+      //             <div>ID:{board.id}</div>
+      //           </div>
+      //         </div>
+      //       </div>
+      //     </div>
 
-    //     <div>
-    //       <BoardPinContainer />
-    //     </div>
-    //   </div>
-    <div className="box-index-item">
-  
-         Hello there, Im still trying to get image ID *_^
-          
-       
-        
+      //     <div>
+      //       <BoardPinContainer />
+      //     </div>
+      //   </div>
+      <div className="pin-show-box">
+        <div className="pinshow-left">
+          <img className="board-pin-show" src={pin.photoUrl} />
+        </div>
+        <div className="pinshow-right">Info Coming *_^ </div>
       </div>
-
-   
     );
   }
 }

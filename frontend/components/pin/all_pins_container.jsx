@@ -15,7 +15,6 @@ import { openModal, closeModal } from "../../actions/modal_action";
 import BoardIndexContainer from "../board/board_index_container";
 
 const mSTP = (state, ownProps) => {
-  // debugger
   return {
     currentUser: state.entities.users[state.session.id],
     users: Object.values(state.entities.users),
@@ -31,9 +30,9 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = dispatch => {
-  // debugger
   return {
-    openModal: modal => dispatch(openModal(modal)),
+    // openModal: modal => dispatch(openModal(modal)),
+    openModal: (modal, pinId) => dispatch(openModal(modal, { pinId })),
 
     fetchBoards: userId => dispatch(fetchBoards(userId)),
     fetchPins: () => dispatch(fetchPins()),

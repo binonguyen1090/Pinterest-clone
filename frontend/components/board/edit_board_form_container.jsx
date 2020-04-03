@@ -12,6 +12,7 @@ import { openModal, closeModal } from "../../actions/modal_action";
 
 const mSTP = (state, oP) => {
   return {
+    
     errors: state.errors.board,
     currentUser: state.entities.users[state.session.id],
     board: state.entities.boards[state.ui.modal.options.boardId],

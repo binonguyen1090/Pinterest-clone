@@ -538,10 +538,6 @@ var App = function App() {
     component: _board_board_show_container__WEBPACK_IMPORTED_MODULE_12__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_16__["ProtectedRoute"], {
     exact: true,
-    path: "/boards/:boardId/edit",
-    component: _board_edit_board_form_container__WEBPACK_IMPORTED_MODULE_8__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_16__["ProtectedRoute"], {
-    exact: true,
     path: "/users/:userId/pins",
     component: _pin_user_pins_container__WEBPACK_IMPORTED_MODULE_10__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_16__["ProtectedRoute"], {
@@ -1799,7 +1795,6 @@ var AllPins = /*#__PURE__*/function (_React$Component) {
   function AllPins(props) {
     _classCallCheck(this, AllPins);
 
-    // debugger
     return _possibleConstructorReturn(this, _getPrototypeOf(AllPins).call(this, props));
   }
 
@@ -1813,7 +1808,6 @@ var AllPins = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      // debugger
       var pins = this.props.pins;
 
       if (!pins) {
@@ -1822,6 +1816,7 @@ var AllPins = /*#__PURE__*/function (_React$Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.pins.map(function (pin, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_all_pins_index_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          pinId: pin.id,
           key: idx,
           pin: pin,
           src: pin.photoUrl,
@@ -1869,7 +1864,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  // debugger
   return {
     currentUser: state.entities.users[state.session.id],
     users: Object.values(state.entities.users),
@@ -1884,10 +1878,12 @@ var mSTP = function mSTP(state, ownProps) {
 };
 
 var mDTP = function mDTP(dispatch) {
-  // debugger
   return {
-    openModal: function openModal(modal) {
-      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_7__["openModal"])(modal));
+    // openModal: modal => dispatch(openModal(modal)),
+    openModal: function openModal(modal, pinId) {
+      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_7__["openModal"])(modal, {
+        pinId: pinId
+      }));
     },
     fetchBoards: function fetchBoards(userId) {
       return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_3__["fetchBoards"])(userId));
@@ -1958,12 +1954,13 @@ var AllPinsIndexItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      var pin = this.props.pin;
+      var _this$props = this.props,
+          pin = _this$props.pin,
+          pinId = _this$props.pinId;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "#",
-        className: "edit-board-item-edit",
         onClick: function onClick() {
-          return _this.props.openModal("Show Pin", pin.id);
+          return _this.props.openModal("Show Pin", pinId);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-photo"
@@ -2037,6 +2034,8 @@ var BoardPins = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       var pins = this.props.pins;
 
       if (!pins) {
@@ -2049,7 +2048,8 @@ var BoardPins = /*#__PURE__*/function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_board_pin_index_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
           key: idx,
           pin: pin,
-          src: pin.photoUrl
+          src: pin.photoUrl,
+          openModal: _this.props.openModal
         });
       })));
     }
@@ -2108,8 +2108,11 @@ var mSTP = function mSTP(state, ownProps) {
 
 var mDTP = function mDTP(dispatch) {
   return {
-    openModal: function openModal(modal) {
-      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_7__["openModal"])(modal));
+    // openModal: modal => dispatch(openModal(modal)),
+    openModal: function openModal(modal, pinId) {
+      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_7__["openModal"])(modal, {
+        pinId: pinId
+      }));
     },
     fetchBoards: function fetchBoards(userId) {
       return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_3__["fetchBoards"])(userId));
@@ -2178,13 +2181,19 @@ var BoardPinIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(BoardPinIndexItem, [{
     key: "render",
     value: function render() {
-      // debugger
+      var _this = this;
+
       var pin = this.props.pin;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pin-photo "
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "#",
+        onClick: function onClick() {
+          return _this.props.openModal("Show Pin", pin.id);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pin-photo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: pin.photoUrl
-      }));
+      })));
     }
   }]);
 
@@ -2467,16 +2476,17 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, PinShow);
 
     return _possibleConstructorReturn(this, _getPrototypeOf(PinShow).call(this, props));
-  } //   componentDidMount() {
-  //     this.props.fetchBoard(this.props.match.params.boardId);
-  //   }
-
+  }
 
   _createClass(PinShow, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchPin(this.props.pinId);
+    }
+  }, {
     key: "render",
     value: function render() {
-      // const { board } = this.props;
-      // if (!board) {
+      var pin = this.props.pin; // if (!board) {
       //   return null;
       // }
       // let user = this.props.currentUser;
@@ -2485,6 +2495,7 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
       //     ? user.email
       //     : user.fname + " " + user.lname;
       // let location = user.location === null ? "" : user.location;
+
       return (//   <div className="board">
         //     <div className="topboard">
         //       <Link to={`/users/${this.props.currentUserId}`}>
@@ -2519,8 +2530,15 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
         //     </div>
         //   </div>
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "box-index-item"
-        }, "Hello there, Im still trying to get image ID *_^")
+          className: "pin-show-box"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "pinshow-left"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "board-pin-show",
+          src: pin.photoUrl
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "pinshow-right"
+        }, "Info Coming *_^ "))
       );
     }
   }]);
@@ -2542,7 +2560,7 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_board_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/board_action */ "./frontend/actions/board_action.js");
+/* harmony import */ var _actions_pin_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/pin_action */ "./frontend/actions/pin_action.js");
 /* harmony import */ var _show_pin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./show_pin */ "./frontend/components/pin/show_pin.jsx");
 /* harmony import */ var _actions_modal_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_action */ "./frontend/actions/modal_action.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
@@ -2553,17 +2571,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  return {// board: state.entities.boards[ownProps.match.params.boardId],
+  return {
+    // board: state.entities.boards[ownProps.match.params.boardId],
     // currentUser: state.entities.users[state.session.id],
     // currentUserId: state.session.id
+    pin: state.entities.pins[state.ui.modal.options.pinId],
+    pinId: state.ui.modal.options.pinId
   };
 };
 
 var mDTP = function mDTP(dispatch) {
-  return {// fetchBoard: boardId => dispatch(fetchBoard(boardId)),
+  return {
+    fetchPin: function fetchPin(pinId) {
+      return dispatch(Object(_actions_pin_action__WEBPACK_IMPORTED_MODULE_1__["fetchPin"])(pinId));
+    } // fetchBoard: boardId => dispatch(fetchBoard(boardId)),
     // openModal: modal => dispatch(openModal(modal)),
     // fetchBoards: userId => dispatch(fetchBoards(userId)),
     // fetchPins: () => dispatch(fetchPins())
+
   };
 };
 
@@ -2639,8 +2664,7 @@ var UserPins = /*#__PURE__*/function (_React$Component) {
       var id = this.props.match.params.userId;
       var user = this.props.currentUser;
       var name = user.fname === null || user.lname === null ? user.email : user.fname + " " + user.lname;
-      var location = user.location === null ? "" : user.location; // debugger
-
+      var location = user.location === null ? "" : user.location;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "board"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2698,7 +2722,8 @@ var UserPins = /*#__PURE__*/function (_React$Component) {
           pin: pin,
           currentUserId: _this.props.currentUserId,
           user: _this.props.user,
-          src: pin.photoUrl
+          src: pin.photoUrl,
+          openModal: _this.props.openModal
         });
       })))));
     }
@@ -2757,8 +2782,11 @@ var mSTP = function mSTP(state, ownProps) {
 
 var mDTP = function mDTP(dispatch) {
   return {
-    openModal: function openModal(modal) {
-      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_7__["openModal"])(modal));
+    // openModal: modal => dispatch(openModal(modal)),
+    openModal: function openModal(modal, pinId) {
+      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_7__["openModal"])(modal, {
+        pinId: pinId
+      }));
     },
     fetchBoards: function fetchBoards(userId) {
       return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_3__["fetchBoards"])(userId));
@@ -2830,27 +2858,17 @@ var PinUserIndexItem = /*#__PURE__*/function (_React$Component) {
       var _this = this;
 
       var editButton;
-
-      if (this.props.currentUserId === this.props.user.id) {
-        editButton = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-          to: "#",
-          className: "edit-board-item-edit",
-          onClick: function onClick() {
-            return _this.props.openModal("Edit Board", _this.props.board.id);
-          }
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-pen "
-        }));
-      } else {
-        editButton = null;
-      }
-
       var pin = this.props.pin;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "#",
+        onClick: function onClick() {
+          return _this.props.openModal("Show Pin", pin.id);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-photo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: pin.photoUrl
-      })) //  <div className="masonry">
+      }))) //  <div className="masonry">
       //   <div className="pin-photo">
       //       <img className="user_pin_item" src={pin.photoUrl} />
       //   </div>

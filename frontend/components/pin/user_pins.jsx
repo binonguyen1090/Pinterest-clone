@@ -32,7 +32,6 @@ export default class UserPins extends React.Component {
         ? user.email
         : user.fname + " " + user.lname;
     let location = user.location === null ? "" : user.location;
-    // debugger
     return (
       <div className="board">
         <div className="topboard">
@@ -86,6 +85,7 @@ export default class UserPins extends React.Component {
                   currentUserId={this.props.currentUserId}
                   user={this.props.user}
                   src={pin.photoUrl}
+                  openModal={this.props.openModal}
                 />
               ))}
             </ul>

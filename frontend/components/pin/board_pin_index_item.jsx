@@ -7,13 +7,17 @@ export default class BoardPinIndexItem extends React.Component {
   }
 
   render() {
-    // debugger
 
     const { pin } = this.props;
     return (
-      <div className="pin-photo ">
-        <img src={pin.photoUrl} />
-      </div>
+      <Link
+        to="#"
+        onClick={() => this.props.openModal("Show Pin", pin.id)}
+      >
+        <div className="pin-photo">
+          <img src={pin.photoUrl} />
+        </div>
+      </Link>
     );
   }
 }

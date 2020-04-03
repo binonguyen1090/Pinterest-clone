@@ -7,6 +7,7 @@ export default class BoardIndexItem extends React.Component {
   }
 
   render() {
+    
     let editButton;
     if (this.props.currentUserId === this.props.user.id) {
       editButton = (
