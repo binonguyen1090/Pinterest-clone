@@ -6,6 +6,7 @@ import SignupFormContainer from "../session/signup_form_container";
 import CreateBoardFormContainer from "../board/create_board_form_container";
 import CreatePinFormContainer from "../pin/create_pin_form_container";
 import EditBoardFormContainer from "../board/edit_board_form_container";
+import ShowPinContainer from "../pin/show_pin_container";
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -29,6 +30,9 @@ function Modal({ modal, closeModal }) {
       break;
     case "Edit Board":
       component = <EditBoardFormContainer />;
+      break;
+    case "Show Pin":
+      component = <ShowPinContainer />;
       break;
     default:
       return null;

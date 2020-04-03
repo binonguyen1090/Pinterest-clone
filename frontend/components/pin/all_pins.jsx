@@ -21,15 +21,16 @@ export default class AllPins extends React.Component {
     }
 
     return (
-        <ul>
-          {this.props.pins.map((pin, idx) => (
-            <AllPinsIndexItem
-              key={idx}
-              pin={pin}
-              src={pin.photoUrl}
-            />
-          ))}
-        </ul>
+      <ul>
+        {this.props.pins.map((pin, idx) => (
+          <AllPinsIndexItem
+            key={idx}
+            pin={pin}
+            src={pin.photoUrl}
+            openModal={this.props.openModal}
+          />
+        ))}
+      </ul>
     );
   }
 }

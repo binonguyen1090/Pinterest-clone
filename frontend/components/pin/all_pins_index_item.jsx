@@ -9,14 +9,18 @@ export default class AllPinsIndexItem extends React.Component {
   render() {
     const { pin } = this.props;
     return (
-      
-        <div className="pin-photo">
-          <img src={pin.photoUrl} />
-        </div>
-   
-      // <div className="user_pins_box">
-      //   <img className="user_pin_item" src={pin.photoUrl} />
-      // </div>
+      <Link
+          to="#"
+          className="edit-board-item-edit"
+          onClick={() =>
+            this.props.openModal("Show Pin", pin.id)
+          }
+        >
+          <div className="pin-photo">
+            <img src={pin.photoUrl} />
+          </div>
+        </Link>
+          
     );
   }
 }

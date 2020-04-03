@@ -10,10 +10,11 @@ import ProfileContainer from "./profile/profile_container";
 import EditBoardContainer from "./board/edit_board_form_container";
 import SettingContainer from "./profile/setting_container";
 import UserPinsContainer from "./pin/user_pins_container";
-import ShowPinContainer from "./pin/user_pins_container";
+// import ShowPinContainer from "./pin/user_pins_container";
 
 import BoardFormContainer from "./board/board_form";
 import BoardShowContainer from "./board/board_show_container";
+import PinShowContainer from "./pin/show_pin_container";
 import BoardIndexContainer from "./board/board_index_container";
 // import
 import Splash from "./splash/splash";
@@ -39,6 +40,11 @@ const App = () => (
         path="/boards/:boardId"
         component={BoardShowContainer}
       />
+      {/* <ProtectedRoute
+        exact
+        path="/pins/:pinId"
+        component={PinShowContainer}
+      /> */}
       <ProtectedRoute
         exact
         path="/boards/:boardId/edit"
@@ -54,7 +60,7 @@ const App = () => (
         path="/users/:userId"
         component={ProfileContainer}
       />
-      <ProtectedRoute exact path="/pins/:pinId" component={ShowPinContainer} />
+      {/* <ProtectedRoute exact path="/pins/:pinId" component={ShowPinContainer} /> */}
       <ProtectedRoute exact path="/settings" component={SettingContainer} />
 
       {/* <Route path="/home/" component={NavBarContainer} /> */}
