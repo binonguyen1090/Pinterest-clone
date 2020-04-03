@@ -26,7 +26,6 @@ export default class BoardIndexItem extends React.Component {
 
     const { board, idx } = this.props;
     return (
-      // <div className="wrapper">
 
       <div className="box-index-item">
         <Link to={`/boards/${board.id}`} className="link_to_board_show">
@@ -40,7 +39,6 @@ export default class BoardIndexItem extends React.Component {
         </div>
       </div>
 
-      // </div>
     );
   }
 }

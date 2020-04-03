@@ -1,54 +1,22 @@
-.home-page-pin {
-  display: flex;
-  justify-content: center;
-  min-width: 100%;
-}
 
-.user_pin_item {
-  width: 200px;
-
-  border-radius: 10px;
-}
-
-.user_pins_container {
-  width: 1300px;
-
+.masonry {
   column-count: 5;
-  column-gap: 10px;
-  margin: 10px 0px 0px 70px;
+  column-gap: 1em;
+  width: 90%;
+  margin:  50px auto;
+}
+.pin-photo > img{
+  transition: opacity .4s ease-in-out;
+  display: inline-block;
+  width:100%;
+  margin: 0 0 1em;
+  border-radius: 5px;
+  cursor: zoom-in;
+  z-index: -2;
 }
 
-.user_pins_container .user_pins_box {
-  width: 100%;
-  padding: 10px;
-  overflow: hidden;
-}
-
-@media (max-width: 1300px) {
-  .user_pins_container {
-    columns: 4;
-    width: calc(100%-10px);
-    box-sizing: border-box;
-  }
-}
-@media (max-width: 1040px) {
-  .user_pins_container {
-    columns: 3;
-    width: calc(100%-10px);
-    box-sizing: border-box;
-  }
-}
-@media (max-width: 780) {
-  .user_pins_container {
-    columns: 2;
-    width: calc(100%-10px);
-    box-sizing: border-box;
-  }
-}
-@media (max-width: 520px) {
-  .user_pins_container {
-    columns: 1;
-    width: calc(100%-10px);
-    box-sizing: border-box;
-  }
+.pin-photo > img:hover {
+  filter: brightness(0.7);
+  z-index: -1;
+  display: initial;
 }

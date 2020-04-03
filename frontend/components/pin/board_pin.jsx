@@ -19,7 +19,7 @@ export default class BoardPins extends React.Component {
     }
 
     return (
-      <div>
+      <div className="masonry">
         <ul>
           {this.props.pins.map((pin, idx) => (
             <BoardPinIndexItem key={idx} pin={pin} src={pin.photoUrl} />

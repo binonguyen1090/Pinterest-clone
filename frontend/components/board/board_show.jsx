@@ -55,7 +55,7 @@ export default class BoardShow extends React.Component {
           </div>
         </div>
 
-        <div className="user_pins_container">
+        <div>
           <BoardPinContainer />
         </div>
       </div>

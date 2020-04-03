@@ -21,19 +21,15 @@ export default class AllPins extends React.Component {
     }
 
     return (
-      <div className="user_pins_container">
         <ul>
           {this.props.pins.map((pin, idx) => (
             <AllPinsIndexItem
               key={idx}
               pin={pin}
-              // currentUserId={this.props.currentUserId}
-              // user={this.props.user}
               src={pin.photoUrl}
             />
           ))}
         </ul>
-      </div>
     );
   }
 }

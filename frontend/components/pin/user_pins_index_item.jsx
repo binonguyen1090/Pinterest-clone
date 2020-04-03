@@ -26,9 +26,15 @@ export default class PinUserIndexItem extends React.Component {
 
     const { pin } = this.props;
     return (
-      <div className="user_pins_box">
-        <img className="user_pin_item" src={pin.photoUrl} />
-      </div>
+      
+      <div className="pin-photo">
+          <img src={pin.photoUrl} />
+        </div>
+      //  <div className="masonry">
+      //   <div className="pin-photo">
+      //       <img className="user_pin_item" src={pin.photoUrl} />
+      //   </div>
+      // </div>
     );
   }
 }

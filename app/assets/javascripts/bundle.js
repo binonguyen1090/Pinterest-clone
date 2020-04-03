@@ -915,25 +915,22 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           board = _this$props.board,
           idx = _this$props.idx;
-      return (// <div className="wrapper">
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "box-index-item"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-          to: "/boards/".concat(board.id),
-          className: "link_to_board_show"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "item-image"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-          className: "board_title"
-        }, board.title))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "title-edit"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "title-board"
-        }, "ID: ", board.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "hover-edit-board"
-        }, editButton))) // </div>
-
-      );
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "box-index-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/boards/".concat(board.id),
+        className: "link_to_board_show"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "item-image"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "board_title"
+      }, board.title))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "title-edit"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "title-board"
+      }, "ID: ", board.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "hover-edit-board"
+      }, editButton)));
     }
   }]);
 
@@ -1041,9 +1038,7 @@ var BoardShow = /*#__PURE__*/function (_React$Component) {
         className: "info-profile"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "ID:", board.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "name-show-board"
-      }, board.title, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "ID:", board.id))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user_pins_container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_board_pin_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
+      }, board.title, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "ID:", board.id))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_board_pin_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
     }
   }]);
 
@@ -1493,7 +1488,7 @@ var HomePage = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "home-page-pin"
+        className: "masonry"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_all_pins_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
@@ -1819,17 +1814,13 @@ var AllPins = /*#__PURE__*/function (_React$Component) {
         return null;
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user_pins_container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.pins.map(function (pin, idx) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.pins.map(function (pin, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_all_pins_index_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
           key: idx,
-          pin: pin // currentUserId={this.props.currentUserId}
-          // user={this.props.user}
-          ,
+          pin: pin,
           src: pin.photoUrl
         });
-      })));
+      }));
     }
   }]);
 
@@ -1960,11 +1951,13 @@ var AllPinsIndexItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var pin = this.props.pin;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user_pins_box"
+        className: "pin-photo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "user_pin_item",
         src: pin.photoUrl
-      }));
+      })) // <div className="user_pins_box">
+      //   <img className="user_pin_item" src={pin.photoUrl} />
+      // </div>
+      ;
     }
   }]);
 
@@ -2038,7 +2031,9 @@ var BoardPins = /*#__PURE__*/function (_React$Component) {
         return null;
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.pins.map(function (pin, idx) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "masonry"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.pins.map(function (pin, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_board_pin_index_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
           key: idx,
           pin: pin,
@@ -2174,9 +2169,8 @@ var BoardPinIndexItem = /*#__PURE__*/function (_React$Component) {
       // debugger
       var pin = this.props.pin;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user_pins_box"
+        className: "pin-photo "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "user_pin_item",
         src: pin.photoUrl
       }));
     }
@@ -2536,7 +2530,7 @@ var UserPins = /*#__PURE__*/function (_React$Component) {
       }, "Pins")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "abc"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user_pins_container"
+        className: "masonry"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.pins.map(function (pin, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_user_pins_index_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
           key: idx,
@@ -2692,11 +2686,15 @@ var PinUserIndexItem = /*#__PURE__*/function (_React$Component) {
 
       var pin = this.props.pin;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user_pins_box"
+        className: "pin-photo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "user_pin_item",
         src: pin.photoUrl
-      }));
+      })) //  <div className="masonry">
+      //   <div className="pin-photo">
+      //       <img className="user_pin_item" src={pin.photoUrl} />
+      //   </div>
+      // </div>
+      ;
     }
   }]);
 
