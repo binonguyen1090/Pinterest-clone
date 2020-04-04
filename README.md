@@ -13,7 +13,12 @@
 * React/ Redux
 * PostgreSQL database
 * AWS for hosting images
-
+* JBuilder
+* JavaScript
+* HTML
+* CSS
+* Heroku
+* Amazon Storage (AWS S3)
 
 ## Features
 * User authentication
