@@ -1512,7 +1512,7 @@ var HomePage = /*#__PURE__*/function (_React$Component) {
       this.props.startLoading();
       setTimeout(function () {
         return _this.props.stopLoading();
-      }, 3000);
+      }, 4000);
     }
   }, {
     key: "render",
@@ -2302,19 +2302,30 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       title: "",
       body: "",
-      board_id: "",
-      photoFile: null // boardId: "",
-
+      board_id: 0,
+      photoFile: null
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this)); // this.state = this.props.pins
-
+    _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.renderErrors = _this.renderErrors.bind(_assertThisInitialized(_this));
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(PinCreateForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchBoards(this.props.currentUser.id);
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(e) {
+      this.setState({
+        board_id: e.target.value
+      });
+    }
+  }, {
     key: "update",
     value: function update(v) {
       var _this2 = this;
@@ -2346,11 +2357,6 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchBoards(this.props.currentUser.id); // this.props.fetchPins(this.props.currentUser.id);
-    }
-  }, {
     key: "renderErrors",
     value: function renderErrors() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, idx) {
@@ -2362,14 +2368,15 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state);
-
       if (!this.props.errors) {
         return [];
       }
 
-      var choice = this.props.boards.map(function (board, i) {
-        return board.id;
+      var choice = this.props.boards.map(function (board, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          key: idx,
+          value: board.id
+        }, board.title);
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "all_board"
@@ -2390,13 +2397,9 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.body,
         onChange: this.update("body"),
         placeholder: "Description"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, choice), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "inputCreateBoard",
-        type: "option",
-        value: this.state.board_id,
-        onChange: this.update("board_id"),
-        placeholder: "board_id"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        onChange: this.handleChange
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, " Select board"), choice)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         onChange: this.handleFile
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2408,7 +2411,9 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
         className: "createbutton",
         type: "submit",
         value: "Create"
-      })))));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "errorInBoardForm"
+      }, this.renderErrors()))));
     }
   }]);
 
@@ -2452,7 +2457,7 @@ var mSTP = function mSTP(state) {
     boardId: Object.keys(state.entities.boards),
     boards: Object.values(state.entities.boards),
     pins: Object.values(state.entities.pins),
-    errors: Object.values(state.errors.board) // pins: Object.values(state.entities.pins),
+    errors: Object.values(state.errors.pin) // pins: Object.values(state.entities.pins),
 
   };
 };

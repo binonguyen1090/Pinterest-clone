@@ -18,7 +18,7 @@ const mSTP = state => {
     boardId: Object.keys(state.entities.boards),
     boards: Object.values(state.entities.boards),
     pins: Object.values(state.entities.pins),
-    errors: Object.values(state.errors.board)
+    errors: Object.values(state.errors.pin)
     // pins: Object.values(state.entities.pins),
   };
 };

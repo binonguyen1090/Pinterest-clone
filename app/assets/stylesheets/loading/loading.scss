@@ -9,7 +9,7 @@
   opacity: 1;
   z-index: 3;
   &:after {
-  transition: 6s ease-in-out;
+  transition: 7s ease-in-out;
 
   }
 }
@@ -32,10 +32,10 @@
 .loading:before,
 .loading:after {
   border-radius: 100%;
-  -webkit-animation-duration: 3s;
-     -moz-animation-duration: 3s;
-    -ms-animation-duration: 3s;
-      animation-duration: 3s;
+  -webkit-animation-duration: 5s;
+     -moz-animation-duration: 5s;
+    -ms-animation-duration: 5s;
+      animation-duration: 5s;
   -webkit-animation-iteration-count: infinite;
      -moz-animation-iteration-count: infinite;
     -ms-animation-iteration-count: infinite;

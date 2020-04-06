@@ -6,18 +6,25 @@ export default class PinCreateForm extends React.Component {
     this.state = {
       title: "",
       body: "",
-      board_id: "",
-      photoFile: null
-      // boardId: "",
+      board_id: 0,
+      photoFile: null,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
-    // this.state = this.props.pins
     this.update = this.update.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchBoards(this.props.currentUser.id);
+  }
+
+  handleChange(e) {
+    this.setState({ board_id: e.target.value });
   }
   update(v) {
-    return e => this.setState({ [v]: e.target.value });
+    return (e) => this.setState({ [v]: e.target.value });
   }
   handleFile(e) {
     this.setState({ photoFile: e.currentTarget.files[0] });
@@ -34,11 +41,6 @@ export default class PinCreateForm extends React.Component {
     this.props.createPin(formData).then(() => this.props.closeModal());
   }
 
-  componentDidMount() {
-    this.props.fetchBoards(this.props.currentUser.id);
-    // this.props.fetchPins(this.props.currentUser.id);
-  }
-
   renderErrors() {
     return (
       <ul>
@@ -50,13 +52,12 @@ export default class PinCreateForm extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     if (!this.props.errors) {
       return [];
     }
-
-    let choice = this.props.boards.map((board, i) => {
-      return board.id;
+    
+    let choice = this.props.boards.map((board,idx) => {
+    return <option key={idx} value={board.id}>{board.title}</option>;
     });
 
     return (
@@ -82,16 +83,12 @@ export default class PinCreateForm extends React.Component {
                 placeholder="Description"
               />
             </div>
-            <div>{choice}</div>
-            <div>
-              <input
-                className="inputCreateBoard"
-                type="option"
-                value={this.state.board_id}
-                onChange={this.update("board_id")}
-                placeholder="board_id"
-              />
-            </div>
+            <label>
+              <select onChange={this.handleChange}>
+                <option> Select board</option>
+                {choice}
+              </select>
+            </label>
 
             <div>
               <input type="file" onChange={this.handleFile} />
@@ -103,10 +100,7 @@ export default class PinCreateForm extends React.Component {
               </button>
               <input className="createbutton" type="submit" value="Create" />
             </div>
-            {/* <div>
-                            {choice}
-                        </div>
-                         */}
+            <div className="errorInBoardForm">{this.renderErrors()}</div>
           </form>
         </div>
       </div>

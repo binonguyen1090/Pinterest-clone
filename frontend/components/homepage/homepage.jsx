@@ -7,7 +7,7 @@ export default class HomePage extends React.Component {
   }
   componentDidMount() {
       this.props.startLoading();
-      setTimeout(() => this.props.stopLoading(), 3000);
+      setTimeout(() => this.props.stopLoading(), 4000);
   }
 
   render() {
