@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export default class BoardIndexItem extends React.Component {
   constructor(props) {
     super(props);
+   
   }
 
   render() {
@@ -31,11 +32,10 @@ export default class BoardIndexItem extends React.Component {
       <div className="box-index-item">
         <Link to={`/boards/${board.id}`} className="link_to_board_show">
           <div className="item-image">
-            <h1 className="board_title">{board.title}</h1>
           </div>
         </Link>
         <div className="title-edit">
-          <div className="title-board">ID: {board.id}</div>
+          <div className="title-board">{board.title}</div>
           <div className="hover-edit-board">{editButton}</div>
         </div>
       </div>

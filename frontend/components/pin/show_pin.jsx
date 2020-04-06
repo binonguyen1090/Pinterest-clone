@@ -13,21 +13,30 @@ export default class PinShow extends React.Component {
 
   }
   render() {
-    debugger
     const { pin } = this.props;
     return (
-      <div className="pin-show-box">
-        <div className="pinshow-left">
-          <img className="board-pin-show" src={pin.photoUrl} />
-        </div>
-        <div className="pinshow-right">
-          <div>
-            
+      <div className="pin-show main-container">
+        <div className="pin-show wrapper">
+          <div className="pin-show container">
+            <div className="pinshow-left">
+              <img className="board-pin-show" src={pin.photoUrl} />
+            </div>
+            <div className="pin-show-right">
+              <div className="pin-show nav-bar">
+                <i className="fas fa-pen"></i>
+                <div></div>
+                <div className="pin-show save-board-pin-text">Save</div>
+
+              </div>
+              <div className="pin-show info">
+                <div className="pin-show title">{pin.title}</div>
+                <div className="pin-show description">{pin.body}</div>
+              </div>
+              <div className="pin-show credit">
+                Upload by: *_^ (trying to get User id )
+              </div>
+            </div>
           </div>
-          <h1>Title</h1>
-            {pin.title}
-          <h2>Body</h2>
-            {pin.body}
         </div>
       </div>
     );

@@ -1,12 +1,13 @@
 import { connect } from "react-redux";
 import { fetchPin } from "../../actions/pin_action";
 import { fetchBoard } from "../../actions/board_action";
+import {  } from "../../actions/user_action";
 import PinShow from "./show_pin";
 import { openModal, closeModal } from "../../actions/modal_action";
 import { withRouter } from "react-router-dom";
 
 const mSTP = (state, ownProps) => {
-  debugger
+  
   return {
     
     // board: state.entities.boards[ownProps.match.params.boardId],
@@ -14,7 +15,8 @@ const mSTP = (state, ownProps) => {
     // currentUserId: state.session.id
     pin: state.entities.pins[state.ui.modal.options.pinId],
     pinId: state.ui.modal.options.pinId,
-    // board: state.entities.boards[boardId]
+    board: state.entities.boards[0],
+    // user: state.entities.users[0]
   };
 };
 

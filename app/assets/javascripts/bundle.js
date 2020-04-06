@@ -944,13 +944,11 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "link_to_board_show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "item-image"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "board_title"
-      }, board.title))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "title-edit"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "title-board"
-      }, "ID: ", board.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, board.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "hover-edit-board"
       }, editButton)));
     }
@@ -1870,6 +1868,7 @@ var AllPins = /*#__PURE__*/function (_React$Component) {
           key: idx,
           pin: pin,
           src: pin.photoUrl,
+          boardId: pin.board_id,
           openModal: _this.props.openModal
         });
       }));
@@ -2542,18 +2541,35 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       var pin = this.props.pin;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pin-show-box"
+        className: "pin-show main-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pin-show wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pin-show container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pinshow-left"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "board-pin-show",
         src: pin.photoUrl
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pinshow-right"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Title"), pin.title, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Body"), pin.body));
+        className: "pin-show-right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pin-show nav-bar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-pen"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pin-show save-board-pin-text"
+      }, "Save")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pin-show info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pin-show title"
+      }, pin.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pin-show description"
+      }, pin.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pin-show credit"
+      }, "Upload by: *_^ (trying to get User id )")))));
     }
   }]);
 
@@ -2576,9 +2592,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_pin_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/pin_action */ "./frontend/actions/pin_action.js");
 /* harmony import */ var _actions_board_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/board_action */ "./frontend/actions/board_action.js");
-/* harmony import */ var _show_pin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./show_pin */ "./frontend/components/pin/show_pin.jsx");
-/* harmony import */ var _actions_modal_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/modal_action */ "./frontend/actions/modal_action.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_user_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/user_action */ "./frontend/actions/user_action.js");
+/* harmony import */ var _show_pin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./show_pin */ "./frontend/components/pin/show_pin.jsx");
+/* harmony import */ var _actions_modal_action__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/modal_action */ "./frontend/actions/modal_action.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 
@@ -2587,13 +2605,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  debugger;
   return {
     // board: state.entities.boards[ownProps.match.params.boardId],
     // currentUser: state.entities.users[state.session.id],
     // currentUserId: state.session.id
     pin: state.entities.pins[state.ui.modal.options.pinId],
-    pinId: state.ui.modal.options.pinId // board: state.entities.boards[boardId]
+    pinId: state.ui.modal.options.pinId,
+    board: state.entities.boards[0] // user: state.entities.users[0]
 
   };
 };
@@ -2613,7 +2631,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_show_pin__WEBPACK_IMPORTED_MODULE_3__["default"])));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_show_pin__WEBPACK_IMPORTED_MODULE_4__["default"])));
 
 /***/ }),
 
@@ -3045,10 +3063,7 @@ var mSTP = function mSTP(state) {
 };
 
 var mDTP = function mDTP(dispatch) {
-  return {
-    openModal: function openModal(modal) {
-      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_2__["openModal"])(modal));
-    }
+  return {// openModal: modal => dispatch(openModal(modal))
   };
 };
 

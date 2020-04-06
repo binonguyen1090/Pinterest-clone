@@ -26,6 +26,7 @@ export default class AllPins extends React.Component {
             key={idx}
             pin={pin}
             src={pin.photoUrl}
+            boardId={pin.board_id}
             openModal={this.props.openModal}
           />
         ))}
