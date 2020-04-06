@@ -1229,16 +1229,11 @@ var EditBoardForm = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, EditBoardForm);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditBoardForm).call(this, props)); // this.state = {
-    //     title: '',
-    //     body: ''
-    // };
-
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditBoardForm).call(this, props));
     _this.state = _this.props.board;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.update = _this.update.bind(_assertThisInitialized(_this));
-    _this.deleteBoard = _this.deleteBoard.bind(_assertThisInitialized(_this)); // this.renderErrors = this.renderErrors.bind(this)
-
+    _this.deleteBoard = _this.deleteBoard.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2338,7 +2333,7 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
     value: function handleFile(e) {
       this.setState({
         photoFile: e.currentTarget.files[0]
-      }); // e.preventDefault()
+      });
     }
   }, {
     key: "handleSubmit",
@@ -2543,8 +2538,6 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var pin = this.props.pin;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pin-show main-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-show wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-show container"
@@ -2569,7 +2562,7 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
         className: "pin-show description"
       }, pin.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-show credit"
-      }, "Upload by: *_^ (trying to get User id )")))));
+      }, "Upload by: *_^ (trying to get User id )", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), pin.board_id))));
     }
   }]);
 
@@ -2611,8 +2604,7 @@ var mSTP = function mSTP(state, ownProps) {
     // currentUserId: state.session.id
     pin: state.entities.pins[state.ui.modal.options.pinId],
     pinId: state.ui.modal.options.pinId,
-    board: state.entities.boards[0] // user: state.entities.users[0]
-
+    boards: Object.values(state.entities.boards)
   };
 };
 
@@ -3063,7 +3055,10 @@ var mSTP = function mSTP(state) {
 };
 
 var mDTP = function mDTP(dispatch) {
-  return {// openModal: modal => dispatch(openModal(modal))
+  return {
+    openModal: function openModal(modal) {
+      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_2__["openModal"])(modal));
+    }
   };
 };
 

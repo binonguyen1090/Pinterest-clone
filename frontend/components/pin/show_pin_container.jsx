@@ -9,14 +9,12 @@ import { withRouter } from "react-router-dom";
 const mSTP = (state, ownProps) => {
   
   return {
-    
     // board: state.entities.boards[ownProps.match.params.boardId],
     // currentUser: state.entities.users[state.session.id],
     // currentUserId: state.session.id
     pin: state.entities.pins[state.ui.modal.options.pinId],
     pinId: state.ui.modal.options.pinId,
-    board: state.entities.boards[0],
-    // user: state.entities.users[0]
+    boards: Object.values(state.entities.boards),
   };
 };
 

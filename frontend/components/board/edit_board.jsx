@@ -3,15 +3,10 @@ import React from "react";
 export default class EditBoardForm extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //     title: '',
-    //     body: ''
-    // };
     this.state = this.props.board;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.deleteBoard = this.deleteBoard.bind(this);
-    // this.renderErrors = this.renderErrors.bind(this)
   }
   componentDidMount() {
     this.props.fetchBoard(this.props.board.id);
@@ -55,7 +50,6 @@ export default class EditBoardForm extends React.Component {
           <form className="boardform" onSubmit={this.handleSubmit}>
             <div className="titlecreateForm">Edit board</div>
             <div>
-              {/* <input className="inputCreateBoard" type="text" placeholder="Topic" /> */}
               <input
                 className="inputCreateBoard"
                 type="text"
@@ -64,7 +58,6 @@ export default class EditBoardForm extends React.Component {
               />
             </div>
             <div>
-              {/* <input className="inputCreateBoard" type="text"  placeholder="Description" /> */}
               <input
                 className="inputCreateBoard"
                 type="text"

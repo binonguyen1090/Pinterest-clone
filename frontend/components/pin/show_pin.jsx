@@ -15,7 +15,6 @@ export default class PinShow extends React.Component {
   render() {
     const { pin } = this.props;
     return (
-      <div className="pin-show main-container">
         <div className="pin-show wrapper">
           <div className="pin-show container">
             <div className="pinshow-left">
@@ -34,11 +33,12 @@ export default class PinShow extends React.Component {
               </div>
               <div className="pin-show credit">
                 Upload by: *_^ (trying to get User id )
+                <br/><br/>
+                {pin.board_id}
               </div>
             </div>
           </div>
         </div>
-      </div>
     );
   }
 }

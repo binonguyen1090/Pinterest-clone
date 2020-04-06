@@ -28,7 +28,6 @@ export default class PinCreateForm extends React.Component {
   }
   handleFile(e) {
     this.setState({ photoFile: e.currentTarget.files[0] });
-    // e.preventDefault()
   }
 
   handleSubmit(e) {

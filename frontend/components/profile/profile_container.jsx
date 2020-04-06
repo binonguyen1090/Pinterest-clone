@@ -8,7 +8,7 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-  // openModal: modal => dispatch(openModal(modal))
+  openModal: modal => dispatch(openModal(modal))
 });
 
 export default connect(mSTP, mDTP)(Profile);
