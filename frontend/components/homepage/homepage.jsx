@@ -1,6 +1,5 @@
 import React from "react";
 import AllPinsContainer from "../pin/all_pins_container";
-
 export default class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -17,10 +16,10 @@ export default class HomePage extends React.Component {
       </div>
     ) : null;
     return (
-      <div className="masonry">
-        {loader}
-        <AllPinsContainer />
-      </div>
+        <div className="masonry">
+          {loader}
+          <AllPinsContainer />
+        </div>
     );
   }
 }

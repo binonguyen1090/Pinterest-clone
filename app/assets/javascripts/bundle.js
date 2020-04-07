@@ -2996,7 +2996,7 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this.props.closeModal();
         }
-      }, email), ";"))));
+      }, email)))));
     }
   }]);
 

@@ -9,6 +9,7 @@ export default class PinShow extends React.Component {
   componentDidMount() {
     
     this.props.fetchPin(this.props.pinId);
+    
     this.props.fetchBoard(this.props.pin.board_id);
 
     // this.props.getCreator(this.props.board.user_id);
@@ -60,7 +61,7 @@ export default class PinShow extends React.Component {
               >
                 {email}
               </Link>
-              ;
+              
             </div>
           </div>
         </div>

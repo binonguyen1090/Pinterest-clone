@@ -29,9 +29,6 @@ const App = () => (
 
     <header>
       <NavBarContainer />
-      {/* <GreetingContainer /> */}
-      {/* <AuthRoute component={NavBarContainer} /> */}
-      {/* < SplashHeaderContainer /> */}
     </header>
 
     <AuthRoute exact path="/" component={Splash} />
