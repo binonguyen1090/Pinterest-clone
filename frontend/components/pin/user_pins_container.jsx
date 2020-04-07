@@ -17,6 +17,7 @@ import BoardIndexContainer from "../board/board_index_container";
 // import { logout } from "../../actions/session_action";
 
 const mSTP = (state, ownProps) => {
+  
   return {
     currentUser: state.entities.users[state.session.id],
     user: state.entities.users[ownProps.match.params.userId],
@@ -32,6 +33,7 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = dispatch => {
+  
   return {
     // openModal: modal => dispatch(openModal(modal)),
     openModal: (modal, pinId) => dispatch(openModal(modal, { pinId })),

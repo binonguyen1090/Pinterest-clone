@@ -6,8 +6,18 @@ export const patchUser = user => {
   });
 };
 
-export const fetchUsers = () =>
-  $.ajax({
+export const fetchUsers = () =>{
+  debugger
+  return $.ajax({
     method: "GET",
     url: `api/users/`
-  });
+  })};
+
+
+export const fetchCreator = (id) => {
+  
+  return $.ajax({
+    method: "GET",
+    url: `/api/users/${id}`,
+  })
+};

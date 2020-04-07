@@ -3,6 +3,10 @@ class Api::UsersController < ApplicationController
     @users = User.all
     render :index
   end
+  def show
+    @user = User.find(params[:id])
+    render "api/users/show"
+  end
 
   def create
     @user = User.new(user_params)
@@ -32,4 +36,6 @@ class Api::UsersController < ApplicationController
   def user_update
     params.require(:user).permit(:location, :description, :lname, :fname)
   end
+
+
 end

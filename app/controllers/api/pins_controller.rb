@@ -1,6 +1,5 @@
 class Api::PinsController < ApplicationController
   def index
-    # debugger
     if params[:user_id]
       boardIds = Board.where(user_id: params[:user_id])
       @pins = Pin.where(board_id: boardIds)

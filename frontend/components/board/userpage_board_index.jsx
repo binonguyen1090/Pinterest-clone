@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import BoardShow from "./board_show";
 import BoardIndexItem from "./board_index_items";
 
-export default class BoardIndex extends React.Component {
+export default class UserpageBoardIndex extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -30,7 +30,7 @@ export default class BoardIndex extends React.Component {
       deleteBoard,
       currentUser,
       openModal,
-      closeModal
+      closeModal,
     } = this.props;
 
     return (

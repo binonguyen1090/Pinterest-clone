@@ -25,9 +25,12 @@ export const Navbar = ({ currentUser, logout }) => {
         <a href={`/`} className="item">
           <i className="fa fa-home"></i>
         </a>
-        <a href={`/`} className="item">
+        <Link className="item" to={`/users`}>
           <i className="fas fa-users"></i>
-        </a>
+        </Link>
+        {/* <a href={`/`} className="item">
+          <i className="fas fa-users"></i>
+        </a> */}
 
         <div className="item">
           <Link className="proLink" to={`/users/${currentUser.id}`}>

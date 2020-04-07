@@ -1,42 +1,3 @@
-
-.pinshow-left {
-  width: 508px;
-  max-height: 770px;
-  padding: 20px;
-  position: relative;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-  // background-color: red;
-  justify-content: center;
-  align-items: center;
-  border-radius: 32px 0 0 32px;
-  @media (max-width: 1056px) {
-    border-radius: 32px 32px 0 0;
-  }
-}
-
-.pinshow-right {
-  width: 508px;
-  height: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.board-pin-show{
-    width: 90%;
-    height: 90%;
-    border-radius: 10px;
-     display: flex;
-  justify-content: center;
-  align-items: center;
-     
-}
-
-
-
 .pin-show.wrapper {
   cursor: zoom-out;
   height: 100%;
@@ -45,143 +6,170 @@
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 32px;
+  background-color: red;
 }
 
+.pinshow-left  {
+  // width: 508px;
+  // max-height: 500px;
+  // padding: 20px;
+  // position: relative;
+  // box-sizing: border-box;
+  // overflow: hidden;
+  // display: flex;
+  // background-color: red;
+  // justify-content: center;
+  // align-items: center;
+  // border-radius: 32px 0 0 32px;
+  // @media (max-width: 1056px) {
+  //   border-radius: 32px 32px 0 0;
+  // }
+}
+
+.pinshow-right {
+  // width: 508px;
+  // height: 100%;
+  // box-sizing: border-box;
+  // overflow: hidden;
+  // display: flex;
+  // flex-direction: column;
+}
+
+.board-pin-show{
+  //   width: 60%;
+  //   height: 40%;
+  //   border-radius: 10px;
+  //    display: flex;
+  // justify-content: center;
+  // align-items: center;
+     
+}
+
+
+
+
 .pin-show.container {
-  cursor: auto;
-  background-color: #fff;
-  box-shadow: rgba(0,0,0,0.1) 0 1px 20px 0;
-  box-sizing: border-box;
-  border-radius: 32px;
-  position: relative;
-  height: 100%;
-  width: 1016px;
-  display: flex;
-  @media (max-width: 1056px) {
-    width: 508px;
-    display: initial;
-  }
+  // cursor: auto;
+  // background-color: #fff;
+  // box-shadow: rgba(0,0,0,0.1) 0 1px 20px 0;
+  // box-sizing: border-box;
+  // border-radius: 32px;
+  // position: relative;
+  // height: 100%;
+  // width: 1016px;
+  // display: flex;
+  // @media (max-width: 1056px) {
+  //   width: 508px;
+  //   display: initial;
+  // }
 }
 
 
 
 
 .pin-show.overlay {
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,.03);
+  // pointer-events: none;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
+  // background: rgba(0,0,0,.03);
 }
 
 
 
 .pin-show.nav-bar {
-  min-height: 100px;
-  padding: 20px 20px 16px 28px;
-  border-radius: 0 32px 32px 0;
-  box-sizing: border-box;
-  background-color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 30px;
+  // min-height: 100px;
+  // padding: 20px 20px 16px 28px;
+  // border-radius: 0 32px 32px 0;
+  // box-sizing: border-box;
+  // background-color: #fff;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  // font-size: 30px;
 }
 
 .pin-show.save-board-pin-text {
-  cursor: pointer;
-  font-size: 30px;
-  color: white;
-  margin-left: 12px;
-  border-radius: 12px;
-  border: none;
-  outline: none;
-  padding: 0 16px;
-  -webkit-box-align: center;
-  display: flex;
-  align-items: center;
-  flex: 0 0 auto;
-  background-color: #e60023;
+  // cursor: pointer;
+  // font-size: 30px;
+  // color: white;
+  // margin-left: 12px;
+  // border-radius: 12px;
+  // border: none;
+  // outline: none;
+  // padding: 0 16px;
+  // -webkit-box-align: center;
+  // display: flex;
+  // align-items: center;
+  // flex: 0 0 auto;
+  // background-color: #e60023;
   
 }
 
 .pin-show.info {
 //   height: calc(100% - 80px);
-  padding: 0 40px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
+  // padding: 0 40px;
+  // box-sizing: border-box;
+  // display: flex;
+  // flex-direction: column;
 }
 
 
 .pin-show.title {
-  margin-top: 16px;
-  font-size: 36px;
-  font-weight: 700;
-  text-align: left;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
-  word-wrap: break-word;
-  letter-spacing: -.4px;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  color: #333;
+  // margin-top: 16px;
+  // font-size: 36px;
+  // font-weight: 700;
+  // text-align: left;
+  // -webkit-hyphens: auto;
+  // -ms-hyphens: auto;
+  // hyphens: auto;
+  // word-wrap: break-word;
+  // letter-spacing: -.4px;
+  // -moz-osx-font-smoothing: grayscale;
+  // -webkit-font-smoothing: antialiased;
+  // color: #333;
 }
 
 .pin-show.description {
-  margin-top: 8px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: left;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
-  word-wrap: break-word;
-  letter-spacing: -.4px;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  color: #333;
+  // margin-top: 8px;
+  // font-size: 14px;
+  // font-weight: 400;
+  // text-align: left;
+  // -webkit-hyphens: auto;
+  // -ms-hyphens: auto;
+  // hyphens: auto;
+  // word-wrap: break-word;
+  // letter-spacing: -.4px;
+  // -moz-osx-font-smoothing: grayscale;
+  // -webkit-font-smoothing: antialiased;
+  // color: #333;
 }
 
 .pin-show.credit {
-  box-sizing: border-box;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  padding: 0 40px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  // box-sizing: border-box;
+  // margin-top: 40px;
+  // margin-bottom: 20px;
+  // padding: 0 40px;
+  // -webkit-box-orient: vertical;
+  // -webkit-box-direction: normal;
+  // display: flex;
+  // flex-direction: row;
+  // align-items: center;
 }
 
 
-.pin-show.credit-summary {
-  max-width: 100%;
-  flex: 1 1 auto;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  text-align: left;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
-  word-wrap: break-word;
-  font-weight: 400;
-  letter-spacing: -.4px;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-size: 14px;
-  color: #333;
-  & > .credit-link {
-    color: #333;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+.pin-show.credit{
+  // display: flex;
+  // justify-content: space-evenly;
+}
+
+.Uploadby{
+  // font-size: 15px;
+}
+.pinowner {
+  // font-size: 20px;
+  // text-decoration: none;
+  // color: black;
 }

@@ -2,7 +2,7 @@ import {
   RECEIVE_ALL_PINS,
   RECEIVE_PIN,
   REMOVE_PIN,
-  Re
+  
 } from "../actions/pin_action";
 import merge from "lodash/merge";
 

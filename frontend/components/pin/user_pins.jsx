@@ -9,6 +9,7 @@ export default class UserPins extends React.Component {
     super(props);
   }
   componentDidMount() {
+    
     this.props.fetchOneUserPins(this.props.currentUser.id);
     // this.props.fetchPins(this.props.currentUser.id);
   }
@@ -62,7 +63,8 @@ export default class UserPins extends React.Component {
             </div>
             <div className="info-profile">
               <div className="name-profile">{name}</div>
-              {/* <div className="space-name"></div> */}
+              <div className="space-name">{user.email}</div>
+
               <div className="location-profile">{location}</div>
             </div>
             <div className="link-on-profile">

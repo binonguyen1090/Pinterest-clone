@@ -21,7 +21,7 @@ export default class BoardShow extends React.Component {
       user.fname === null || user.lname === null
         ? user.email
         : user.fname + " " + user.lname;
-    let location = user.location === null ? "" : user.location;
+    user.location === null ? "" : user.location;
 
     return (
       <div className="board">
@@ -46,10 +46,10 @@ export default class BoardShow extends React.Component {
               </div>
             </div>
             <div className="info-profile">
-              <div>ID:{board.id}</div>
+              
               <div className="name-show-board">
                 {board.title}
-                <div>ID:{board.id}</div>
+                
               </div>
             </div>
           </div>

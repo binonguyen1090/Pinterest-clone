@@ -35,7 +35,7 @@ export default class PinCreateForm extends React.Component {
     const formData = new FormData();
     formData.append("pin[title]", this.state.title);
     formData.append("pin[body]", this.state.body);
-    formData.append("pin[photo]", this.state.photoFile);
+    formData.append("pin[photo]", (this.state.photoFile));
     formData.append("pin[board_id]", this.state.board_id);
     this.props.createPin(formData).then(() => this.props.closeModal());
   }
