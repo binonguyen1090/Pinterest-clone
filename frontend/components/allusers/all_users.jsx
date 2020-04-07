@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BoardIndexContainer from "../board/board_index_container";
 import UserPinContainer from "../pin/user_pins_container";
+import AllUsersItem from "../allusers/all_users_item";
 export default class AllUsers extends React.Component {
   constructor(props) {
-      debugger
+      
     super(props);
   }
 
@@ -13,17 +14,24 @@ export default class AllUsers extends React.Component {
   }
 
   render() {
-    debugger
     // if(this.props.users.length < 1) return null
     const {users} = this.props
+     if (!users) {
+       return null;
+     }
     return (
-      <div className="board">
+      <div className="allUser">
         <ul>
-          {users.map((u, idx) => (
-            <li key={idx}>{u.email}</li>
+          {this.props.users.map((user, idx) => (
+            <AllUsersItem
+              userId={user.id}
+              key={idx}
+              user={user}
+            />
           ))}
         </ul>
       </div>
     );
   }
 }
+

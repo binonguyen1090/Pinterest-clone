@@ -17,7 +17,7 @@ import BoardIndexContainer from "../board/board_index_container";
 const mSTP = (state, ownProps) => {
   return {
     currentUser: state.entities.users[state.session.id],
-    users: Object.values(state.entities.users),
+    // users: Object.values(state.entities.users),
     currentUserId: state.session.id,
 
     boardId: Object.keys(state.entities.boards),

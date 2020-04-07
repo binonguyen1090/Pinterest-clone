@@ -8,11 +8,11 @@ import { openModal } from "../../actions/modal_action";
 // import { withRouter } from 'react-router-dom'
 
 const mSTP = (state) => {
-    debugger
+    
     return{
   //   currentUser: state.entities.users[state.session.id],
   //   currentUserId: state.session.id,
-    users: Object.values(state.entities.users) || []
+    users: Object.values(state.entities.users)
     }
 };
 

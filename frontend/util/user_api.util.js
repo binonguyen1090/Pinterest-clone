@@ -7,7 +7,7 @@ export const patchUser = user => {
 };
 
 export const fetchUsers = () =>{
-  debugger
+  
   return $.ajax({
     method: "GET",
     url: `api/users/`

@@ -13,6 +13,7 @@ export default class AllPins extends React.Component {
   }
 
   render() {
+    
     const { pins } = this.props;
     if (!pins) {
       return null;

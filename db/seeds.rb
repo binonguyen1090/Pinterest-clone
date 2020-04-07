@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-1
+
 
 
 require 'open-uri'
@@ -21,24 +21,24 @@ u3 = User.create!({email: "jess@gmail.com", password: "123123", fname: "Jess", l
 u4 = User.create!({ email: "casey@gmail.com",password: "123123", fname: "casey", lname: "Murrt", description: "Hi, I'm Casey", location: "Delaware" })
 
 
-b1 = Board.create!({ title: "Fashion", body: "fashion",user_id: u1.id })
-b2 = Board.create!({ title: "Food", body: "food",user_id: u1.id })
-b3 = Board.create!({ title: "Place", body: "place",user_id: u1.id })
+b1 = Board.create!({ title: "Fashion", body: "Welcome, this is all the fashion",user_id: u1.id })
+b2 = Board.create!({ title: "Food", body: "Welcome, this is all the food",user_id: u1.id })
+b3 = Board.create!({ title: "Place", body: "Welcome, this is all the place",user_id: u1.id })
 
 
-b4 = Board.create!({ title: "Fashion", body: "fashion",user_id: u2.id })
-b5 = Board.create!({ title: "Food", body: "food",user_id: u2.id })
-b6 = Board.create!({ title: "Place", body: "place",user_id: u2.id })
+b4 = Board.create!({ title: "Fashion", body: "Welcome, this is all the fashion",user_id: u2.id })
+b5 = Board.create!({ title: "Food", body: "Welcome, this is all the food",user_id: u2.id })
+b6 = Board.create!({ title: "Place", body: "Welcome, this is all the place",user_id: u2.id })
 
 
-b7 = Board.create!({ title: "Fashion", body: "fashion",user_id: u3.id })
-b8 = Board.create!({ title: "Food", body: "food",user_id: u3.id })
-b9 = Board.create!({ title: "Place", body: "place",user_id: u3.id })
+b7 = Board.create!({ title: "Fashion", body: "Welcome, this is all the fashion",user_id: u3.id })
+b8 = Board.create!({ title: "Food", body: "Welcome, this is all the food",user_id: u3.id })
+b9 = Board.create!({ title: "Place", body: "Welcome, this is all the place",user_id: u3.id })
 
 
-b10 = Board.create!({ title: "Fashion", body: "fashion",user_id: u4.id })
-b11 = Board.create!({ title: "Food", body: "food",user_id: u4.id })
-b12 = Board.create!({ title: "Place", body: "place",user_id: u4.id })
+b10 = Board.create!({ title: "Fashion", body: "Welcome, this is all the fashion",user_id: u4.id })
+b11 = Board.create!({ title: "Food", body: "Welcome, this is all the food",user_id: u4.id })
+b12 = Board.create!({ title: "Place", body: "Welcome, this is all the place",user_id: u4.id })
 
 p1 = Pin.create!({ title: "place", body: "place" , board_id: b3.id})
 file = open('https://binterest-seeds.s3-us-west-1.amazonaws.com/p1.jpg')
@@ -48,9 +48,6 @@ p2 = Pin.create!({ title: "place", body: "place" , board_id: b3.id})
 file = open('https://binterest-seeds.s3-us-west-1.amazonaws.com/p2.jpg')
 p2.photo.attach(io: file, filename: "p2.jpg")
 
-# p3 = Pin.create!({ title: "place", body: "place" , board_id: b3.id})
-# file = open('https://binterest-seeds.s3-us-west-1.amazonaws.com/p3.jpg')
-# p3.photo.attach(io: file, filename: "p3.jpg")
 
 p4 = Pin.create!({ title: "place", body: "place" , board_id: b3.id})
 file = open('https://binterest-seeds.s3-us-west-1.amazonaws.com/p4.jpg')

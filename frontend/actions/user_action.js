@@ -36,6 +36,6 @@ export const getUser = id => dispatch => {
 
 
 export const getAllUsers = () => dispatch =>{
-  debugger
+  
 
   return fetchUsers().then(users => dispatch(receiveAllUsers(users)))};
