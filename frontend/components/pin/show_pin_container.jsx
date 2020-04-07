@@ -8,6 +8,7 @@ import { openModal, closeModal } from "../../actions/modal_action";
 import { withRouter } from "react-router-dom";
 
 const mSTP = (state, ownProps) => {
+  
   return {
     // board: state.entities.boards[ownProps.match.params.boardId],
     // currentUser: state.entities.users[state.session.id],
@@ -16,10 +17,12 @@ const mSTP = (state, ownProps) => {
     pinId: state.ui.modal.options.pinId,
     board: state.ui.boardCreator.board || "",
     user: state.ui.creator.user || "",
+    // user_id: state.ui.boardCreator.board.user_id || 0
   };
 };
 
 const mDTP = dispatch => {
+  
   return {
     fetchPin: (pinId) => dispatch(fetchPin(pinId)),
     fetchBoard: (boardId) => dispatch(fetchBoard(boardId)),

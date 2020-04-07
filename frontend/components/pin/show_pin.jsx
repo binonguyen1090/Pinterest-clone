@@ -10,22 +10,31 @@ export default class PinShow extends React.Component {
     
     this.props.fetchPin(this.props.pinId);
     this.props.fetchBoard(this.props.pin.board_id);
+
     // this.props.getCreator(this.props.board.user_id);
     
   }
   
-  componentDidUpdate(){
-    if (this.props.board.user_id !== "") {
-      this.props.getCreator(this.props.board.user_id);
-      this.props.board.user_id = ""
-    }else{
-      return;
-    }
-  }
+  // componentDidUpdate(){
+  //   debugger
+  //   if (this.props.board.user_id !== 'undefined') {
+  //     this.props.getCreator(this.props.board.user_id);
+  //     this.props.board.user_id = 'undefined';
+  //   } else {
+  //     return;
+  //   }
+  // }
 
   render() {
-    
-    const { pin,user } = this.props;
+    let id;
+    let email;
+    if (this.props.board !== "") {
+      id = this.props.board.user.id;
+      email = this.props.board.user.email;
+    }else{
+      return ""
+    }
+    const { pin } = this.props;
     return (
       <div className="pin-show wrapper">
         <div className="pin-show container">
@@ -45,12 +54,13 @@ export default class PinShow extends React.Component {
             <div className="pin-show credit">
               <h1 className="Uploadby">Upload by:</h1>
               <Link
-                to={`/user/${user.id}`}
+                to={`/user/${id}`}
                 className="pinowner"
                 onClick={() => this.props.closeModal()}
               >
-                {user.email}
+                {email}
               </Link>
+              ;
             </div>
           </div>
         </div>

@@ -8,7 +8,6 @@ export default class AllUsers extends React.Component {
       
     super(props);
   }
-
    componentDidMount() {
     this.props.getAllUsers();
   }

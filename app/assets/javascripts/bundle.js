@@ -2937,25 +2937,32 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchPin(this.props.pinId);
       this.props.fetchBoard(this.props.pin.board_id); // this.props.getCreator(this.props.board.user_id);
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      if (this.props.board.user_id !== "") {
-        this.props.getCreator(this.props.board.user_id);
-        this.props.board.user_id = "";
-      } else {
-        return;
-      }
-    }
+    } // componentDidUpdate(){
+    //   debugger
+    //   if (this.props.board.user_id !== 'undefined') {
+    //     this.props.getCreator(this.props.board.user_id);
+    //     this.props.board.user_id = 'undefined';
+    //   } else {
+    //     return;
+    //   }
+    // }
+
   }, {
     key: "render",
     value: function render() {
       var _this = this;
 
-      var _this$props = this.props,
-          pin = _this$props.pin,
-          user = _this$props.user;
+      var id;
+      var email;
+
+      if (this.props.board !== "") {
+        id = this.props.board.user.id;
+        email = this.props.board.user.email;
+      } else {
+        return "";
+      }
+
+      var pin = this.props.pin;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-show wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2984,12 +2991,12 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "Uploadby"
       }, "Upload by:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/user/".concat(user.id),
+        to: "/user/".concat(id),
         className: "pinowner",
         onClick: function onClick() {
           return _this.props.closeModal();
         }
-      }, user.email)))));
+      }, email), ";"))));
     }
   }]);
 
@@ -3033,7 +3040,8 @@ var mSTP = function mSTP(state, ownProps) {
     pin: state.entities.pins[state.ui.modal.options.pinId],
     pinId: state.ui.modal.options.pinId,
     board: state.ui.boardCreator.board || "",
-    user: state.ui.creator.user || ""
+    user: state.ui.creator.user || "" // user_id: state.ui.boardCreator.board.user_id || 0
+
   };
 };
 
