@@ -661,9 +661,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -675,13 +675,18 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var AllUsers = /*#__PURE__*/function (_React$Component) {
   _inherits(AllUsers, _React$Component);
 
   function AllUsers(props) {
+    var _this;
+
     _classCallCheck(this, AllUsers);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(AllUsers).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AllUsers).call(this, props));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(AllUsers, [{
@@ -690,8 +695,17 @@ var AllUsers = /*#__PURE__*/function (_React$Component) {
       this.props.getAllUsers();
     }
   }, {
+    key: "handleClick",
+    value: function handleClick(e) {
+      e.preventDefault();
+      var formId = e.currentTarget.value;
+      this.props.destroyForm(formId);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       // if(this.props.users.length < 1) return null
       var users = this.props.users;
 
@@ -699,15 +713,33 @@ var AllUsers = /*#__PURE__*/function (_React$Component) {
         return null;
       }
 
+      var user = this.props.users.map(function (user) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: user.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          id: "link-forms",
+          to: "/user/".concat(user.id)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "form-index-form"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, user.fname + " " + user.lname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "form-footer"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, user.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: _this2.handleClick,
+          value: 1
+        }, "Follow")))));
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "allUser"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.users.map(function (user, idx) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_allusers_all_users_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          userId: user.id,
-          key: idx,
-          user: user
-        });
-      })));
+        className: "user-form-out"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "user-form-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Community")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "users-follow"
+      }, "Followers: Following:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "form-item-padding"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-item",
+        key: user.id
+      }, user)));
     }
   }]);
 
@@ -811,11 +843,13 @@ var AllPinsIndexItem = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           user = _this$props.user,
           userId = _this$props.userId;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "all_users_container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "user/".concat(userId)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-photo"
-      }, user.email));
+      }, user.email)));
     }
   }]);
 

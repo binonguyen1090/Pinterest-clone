@@ -10,11 +10,12 @@ export default class AllPinsIndexItem extends React.Component {
     
     const { user, userId } = this.props;
     return (
-      <Link to={`user/${userId}`}>
-        <div className="pin-photo">
-          {user.email}
-        </div>
-      </Link>
+      
+      <div className="all_users_container">
+        <Link to={`user/${userId}`}>
+          <div className="pin-photo">{user.email}</div>
+        </Link>
+      </div>
     );
   }
 }
