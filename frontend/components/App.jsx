@@ -17,6 +17,7 @@ import AllUsersContainer from "./allusers/all_users_container";
 import BoardFormContainer from "./board/board_form";
 import BoardShowContainer from "./board/board_show_container";
 import BoardIndexContainer from "./board/board_index_container";
+import EachUserPinsContainer from "./pin/userpage_pin_index_container";
 
 import Splash from "./splash/splash";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
@@ -42,6 +43,11 @@ const App = () => (
         exact
         path="/users/:userId/pins"
         component={UserPinsContainer}
+      />
+      <ProtectedRoute
+        exact
+        path="/user/:userId/pins"
+        component={EachUserPinsContainer}
       />
       <ProtectedRoute exact path="/users" component={AllUsersContainer} />
       <ProtectedRoute
