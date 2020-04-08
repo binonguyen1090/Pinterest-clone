@@ -6,7 +6,7 @@ import { startLoading, stopLoading } from "../../actions/loading_action";
 import HomePage from "./homepage";
 
 const mSTP = state => ({
-  currentUser: state.entities.users[state.session.id],
+  // currentUser: state.entities.users[state.session.id],
   loading: state.ui.loading,
 });
 

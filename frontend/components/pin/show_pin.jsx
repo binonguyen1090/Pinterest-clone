@@ -7,24 +7,11 @@ export default class PinShow extends React.Component {
     super(props);
   }
   componentDidMount() {
-    
     this.props.fetchPin(this.props.pinId);
-    
-    this.props.fetchBoard(this.props.pin.board_id);
-
-    // this.props.getCreator(this.props.board.user_id);
-    
+    this.props.fetchBoard(this.props.pin.board_id);  
   }
   
-  // componentDidUpdate(){
-  //   debugger
-  //   if (this.props.board.user_id !== 'undefined') {
-  //     this.props.getCreator(this.props.board.user_id);
-  //     this.props.board.user_id = 'undefined';
-  //   } else {
-  //     return;
-  //   }
-  // }
+
 
   render() {
     let id;

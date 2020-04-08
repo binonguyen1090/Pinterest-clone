@@ -13,6 +13,9 @@ const usersReducer = (state = {}, action) => {
       nextState[action.user.id] = action.user;
       return nextState;
     
+    case RECEIVE_CURRENT_USER:
+      return Object.assign({}, state, { [action.user.id]: action.user });
+    
     
 
     default:

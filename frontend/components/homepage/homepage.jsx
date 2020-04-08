@@ -16,10 +16,12 @@ export default class HomePage extends React.Component {
       </div>
     ) : null;
     return (
+      <div>
         <div className="masonry">
           {loader}
           <AllPinsContainer />
         </div>
+      </div>
     );
   }
 }
