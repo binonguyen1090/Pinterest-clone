@@ -1267,6 +1267,22 @@ var BoardShow = /*#__PURE__*/function (_React$Component) {
         return null;
       }
 
+      var link1;
+
+      if (this.props.currentUser.id === this.props.board.user_id) {
+        link1 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/users/".concat(this.props.currentUserId)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-long-arrow-alt-left"
+        }));
+      } else {
+        link1 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/user/".concat(this.props.board.user_id)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-long-arrow-alt-left"
+        }));
+      }
+
       var user = this.props.currentUser;
       var name = user.fname === null || user.lname === null ? user.email : user.fname + " " + user.lname;
       user.location === null ? "" : user.location;
@@ -1274,11 +1290,7 @@ var BoardShow = /*#__PURE__*/function (_React$Component) {
         className: "board"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "topboard"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/users/".concat(this.props.currentUserId)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-long-arrow-alt-left"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, link1, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "in-topboard"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-button"

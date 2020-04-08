@@ -15,6 +15,16 @@ export default class BoardShow extends React.Component {
     if (!board) {
       return null;
     }
+    let link1;
+    if (this.props.currentUser.id === this.props.board.user_id) {
+      link1 = <Link to={`/users/${this.props.currentUserId}`}>
+          <i className="fas fa-long-arrow-alt-left"></i>
+        </Link>
+    } else {
+      link1 = <Link to={`/user/${this.props.board.user_id}`}>
+          <i className="fas fa-long-arrow-alt-left"></i>
+        </Link>
+    }
 
     let user = this.props.currentUser;
     let name =
@@ -26,9 +36,7 @@ export default class BoardShow extends React.Component {
     return (
       <div className="board">
         <div className="topboard">
-          <Link to={`/users/${this.props.currentUserId}`}>
-            <i className="fas fa-long-arrow-alt-left"></i>
-          </Link>
+          {link1}
 
           <div className="in-topboard">
             <div className="profile-button">
