@@ -2963,8 +2963,6 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
 
       var pin = this.props.pin;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pin-show wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-show container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pinshow-left"
@@ -2972,12 +2970,12 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
         className: "board-pin-show",
         src: pin.photoUrl
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pin-show-right"
+        className: "pinshow-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-show nav-bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-pen"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-show save-board-pin-text"
       }, "Save")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-show info"
@@ -2989,13 +2987,13 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
         className: "pin-show credit"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "Uploadby"
-      }, "Upload by:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, "Upload by:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/user/".concat(id),
         className: "pinowner",
         onClick: function onClick() {
           return _this.props.closeModal();
         }
-      }, email)))));
+      }, email))));
     }
   }]);
 
