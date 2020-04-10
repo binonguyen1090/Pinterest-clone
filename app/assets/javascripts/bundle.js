@@ -371,7 +371,7 @@ var fetchAllUsersPins = function fetchAllUsersPins() {
 /*!********************************************!*\
   !*** ./frontend/actions/session_action.js ***!
   \********************************************/
-/*! exports provided: RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_ERRORS, receiveCurrentUser, receiveErrors, signup, login, logout */
+/*! exports provided: RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_ERRORS, FOLLOW_USER, UNFOLLOW_USER, receiveCurrentUser, receiveErrors, getfollowUser, getunfollowUser, signup, login, logout, follow, unfollow */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -379,16 +379,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_USER", function() { return RECEIVE_CURRENT_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_CURRENT_USER", function() { return LOGOUT_CURRENT_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ERRORS", function() { return RECEIVE_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FOLLOW_USER", function() { return FOLLOW_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UNFOLLOW_USER", function() { return UNFOLLOW_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveCurrentUser", function() { return receiveCurrentUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveErrors", function() { return receiveErrors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getfollowUser", function() { return getfollowUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getunfollowUser", function() { return getunfollowUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signup", function() { return signup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "follow", function() { return follow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unfollow", function() { return unfollow; });
 /* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js");
 
 var RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 var LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 var RECEIVE_ERRORS = "RECEIVE_ERRORS";
+var FOLLOW_USER = "FOLLOW_USER";
+var UNFOLLOW_USER = "UNFOLLOW_USER";
 var receiveCurrentUser = function receiveCurrentUser(user) {
   return {
     type: RECEIVE_CURRENT_USER,
@@ -406,6 +414,18 @@ var receiveErrors = function receiveErrors(errors) {
   return {
     type: RECEIVE_ERRORS,
     errors: errors
+  };
+};
+var getfollowUser = function getfollowUser(id) {
+  return {
+    type: FOLLOW_USER,
+    id: id
+  };
+};
+var getunfollowUser = function getunfollowUser(id) {
+  return {
+    type: UNFOLLOW_USER,
+    id: id
   };
 };
 var signup = function signup(user) {
@@ -430,6 +450,22 @@ var logout = function logout() {
   return function (dispatch) {
     return Object(_util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["destroySession"])().then(function () {
       return dispatch(logoutCurrentUser());
+    });
+  };
+}; // follow
+
+var follow = function follow(userId) {
+  return function (dispatch) {
+    debugger;
+    return Object(_util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["followUser"])(userId).then(function (userId) {
+      return dispatch(getfollowUser(userId));
+    });
+  };
+};
+var unfollow = function unfollow(userId) {
+  return function (dispatch) {
+    return Object(_util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["unfollowUser"])(userId).then(function (userId) {
+      return dispatch(getunfollowUser(userId));
     });
   };
 };
@@ -5685,7 +5721,7 @@ var ProtectedRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withR
 /*!*******************************************!*\
   !*** ./frontend/util/session_api_util.js ***!
   \*******************************************/
-/*! exports provided: postUser, postSession, destroySession */
+/*! exports provided: postUser, postSession, destroySession, followUser, unfollowUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5693,6 +5729,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postUser", function() { return postUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postSession", function() { return postSession; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroySession", function() { return destroySession; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "followUser", function() { return followUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unfollowUser", function() { return unfollowUser; });
 //postUser , postSession, destrou
 var postUser = function postUser(user) {
   return $.ajax({
@@ -5716,6 +5754,27 @@ var destroySession = function destroySession() {
   return $.ajax({
     url: "api/session",
     method: "DELETE"
+  });
+}; //follow
+
+var followUser = function followUser(user_id) {
+  debugger;
+  return $.ajax({
+    method: 'POST',
+    url: "/api/follows",
+    data: {
+      user_id: user_id
+    }
+  });
+};
+var unfollowUser = function unfollowUser(user_id) {
+  debugger;
+  return $.ajax({
+    method: 'DELETE',
+    url: "/api/follows",
+    data: {
+      user_id: user_id
+    }
   });
 };
 

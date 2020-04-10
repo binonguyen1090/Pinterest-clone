@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :users do
       resources :pins, only: [:index]
       resources :boards, only: [:index]
+      get "followers", on: :collection
+      get "followees", on: :collection
     end
 
 
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
 
 
     resources :pins
+    resource :follows, only: [:create, :destroy]
 
 
 
