@@ -90,7 +90,7 @@
 /*!******************************************!*\
   !*** ./frontend/actions/board_action.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_ALL_BOARDS, RECEIVE_BOARD, REMOVE_BOARD, RECEIVE_BOARD_ERRORS, receiveBoard, receiveBoardErrors, fetchBoards, fetchBoard, createBoard, updateBoard, deleteBoard */
+/*! exports provided: RECEIVE_ALL_BOARDS, RECEIVE_BOARD, REMOVE_BOARD, RECEIVE_BOARD_ERRORS, receiveBoard, receiveBoardErrors, fetchBoards, fetchBoard, createBoard, updateBoard, movePintoBoard, deleteBoard */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -105,6 +105,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBoard", function() { return fetchBoard; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBoard", function() { return createBoard; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateBoard", function() { return updateBoard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "movePintoBoard", function() { return movePintoBoard; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteBoard", function() { return deleteBoard; });
 /* harmony import */ var _util_board_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/board_api_util */ "./frontend/util/board_api_util.js");
 
@@ -173,6 +174,17 @@ var updateBoard = function updateBoard(board) {
     });
   };
 };
+var movePintoBoard = function movePintoBoard(pin, boardId) {
+  return function (dispatch) {
+    // debugger
+    return _util_board_api_util__WEBPACK_IMPORTED_MODULE_0__["movePintoBoard"](pin, boardId).then(function (board) {
+      return dispatch(receiveBoard(board));
+    }, function (errors) {
+      return dispatch(receiveBoardErrors(errors.responseJSON));
+    });
+  };
+}; // movePintoBoard: (pin, boardId) => dispatch(movePintoBoard(pin, boardId)),
+
 var deleteBoard = function deleteBoard(boardId) {
   return function (dispatch) {
     return _util_board_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteBoard"](boardId).then(function (boardId) {
@@ -316,6 +328,7 @@ var fetchPin = function fetchPin(PinId) {
 };
 var createPin = function createPin(pin) {
   return function (dispatch) {
+    // debugger
     return _util_pin_api_util__WEBPACK_IMPORTED_MODULE_0__["createPin"](pin).then(function (pin) {
       return dispatch(receivePin(pin));
     }, function (errors) {
@@ -2958,9 +2971,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -2975,9 +2988,19 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
   _inherits(PinShow, _React$Component);
 
   function PinShow(props) {
+    var _this;
+
     _classCallCheck(this, PinShow);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(PinShow).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PinShow).call(this, props));
+    _this.state = {
+      board_id: 0 // photoFile: e.currentTarget.files[0],
+
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this)); // this.renderErrors = this.renderErrors.bind(this);
+
+    return _this;
   }
 
   _createClass(PinShow, [{
@@ -2985,12 +3008,55 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchPin(this.props.pinId);
       this.props.fetchBoard(this.props.pin.board_id);
+      this.props.fetchBoards(this.props.currentUser.id);
+    } //  renderErrors() {
+    //     return (
+    //       <ul>
+    //         {this.props.errors.map((error, idx) => (
+    //           <li key={idx}>{error}</li>
+    //         ))}
+    //       </ul>
+    //     );
+    //   }
+
+  }, {
+    key: "handleChange",
+    value: function handleChange(e) {
+      this.setState({
+        board_id: e.target.value
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit() {
+      var _this2 = this;
+
+      // debugger
+      // const formData1 = new FormData();
+      // formData1.append("pin[title]", this.props.pin.title);
+      // formData1.append("pin[body]", this.props.pin.body);
+      // formData1.append("pin[photo]", this.state.photoFile);
+      // formData1.append("pin[board_id]", this.state.board_id);
+      // this.props.createPin(formData1).then(() => this.props.closeModal());
+      this.props.movePintoBoard(this.props.pin, this.state.board_id).then(function () {
+        return _this2.props.closeModal();
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this3 = this;
 
+      // debugger
+      // if (!this.props.errors) {
+      //   return [];
+      // }
+      var choice = this.props.boards.map(function (board, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          key: idx,
+          value: board.id
+        }, board.title);
+      });
       var id;
       var email;
 
@@ -3015,8 +3081,12 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
         className: "pin-show nav-bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-pen"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pin-show save-board-pin-text"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        onChange: this.handleChange
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, " Select board"), choice)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pin-show save-board-pin-text",
+        onClick: this.handleSubmit,
+        type: "submit"
       }, "Save")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-show info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3031,7 +3101,7 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
         to: "/user/".concat(id),
         className: "pinowner",
         onClick: function onClick() {
-          return _this.props.closeModal();
+          return _this3.props.closeModal();
         }
       }, email))));
     }
@@ -3071,10 +3141,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state, ownProps) {
   return {
+    boards: Object.values(state.entities.boards),
     pin: state.entities.pins[state.ui.modal.options.pinId],
     pinId: state.ui.modal.options.pinId,
     board: state.ui.boardCreator.board || "",
-    user: state.ui.creator.user || ""
+    user: state.ui.creator.user || "",
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
@@ -3086,11 +3158,23 @@ var mDTP = function mDTP(dispatch) {
     fetchBoard: function fetchBoard(boardId) {
       return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["fetchBoard"])(boardId));
     },
+    fetchBoards: function fetchBoards(userId) {
+      return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["fetchBoards"])(userId));
+    },
     getCreator: function getCreator(boardId) {
       return dispatch(Object(_actions_user_action__WEBPACK_IMPORTED_MODULE_3__["getCreator"])(boardId));
     },
+    movePintoBoard: function movePintoBoard(pin, boardId) {
+      return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["movePintoBoard"])(pin, boardId));
+    },
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_5__["closeModal"])());
+    },
+    createPin: function createPin(pin) {
+      return dispatch(Object(_actions_pin_action__WEBPACK_IMPORTED_MODULE_1__["createPin"])(pin));
+    },
+    receivePinErrors: function receivePinErrors(errors) {
+      return dispatch(Object(_actions_pin_action__WEBPACK_IMPORTED_MODULE_1__["receivePinErrors"])(errors));
     }
   };
 };
@@ -5396,7 +5480,7 @@ var configureStore = function configureStore() {
 /*!*****************************************!*\
   !*** ./frontend/util/board_api_util.js ***!
   \*****************************************/
-/*! exports provided: fetchBoards, fetchBoard, createBoard, updateBoard, deleteBoard */
+/*! exports provided: fetchBoards, fetchBoard, createBoard, updateBoard, movePintoBoard, deleteBoard */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5405,6 +5489,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBoard", function() { return fetchBoard; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBoard", function() { return createBoard; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateBoard", function() { return updateBoard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "movePintoBoard", function() { return movePintoBoard; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteBoard", function() { return deleteBoard; });
 // 1. `fetchBoards`
 // 2. `fetchBoard(boardId)`
@@ -5439,6 +5524,14 @@ var updateBoard = function updateBoard(board) {
     data: {
       board: board
     }
+  });
+};
+var movePintoBoard = function movePintoBoard(pin, boardId) {
+  // debugger
+  return $.ajax({
+    url: "api/boards/".concat(boardId, "/").concat(pin.id),
+    method: "GET" // data: { board }
+
   });
 };
 var deleteBoard = function deleteBoard(boardId) {
@@ -5498,6 +5591,7 @@ var fetchPin = function fetchPin(pinId) {
   });
 };
 var createPin = function createPin(pin) {
+  // debugger
   return $.ajax({
     url: "/api/pins",
     method: "POST",

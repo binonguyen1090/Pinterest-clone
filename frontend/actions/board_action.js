@@ -45,7 +45,13 @@ export const updateBoard = board => dispatch =>
         board => dispatch(receiveBoard(board)),
         errors => dispatch(receiveBoardErrors(errors.responseJSON))
     );
-
+export const movePintoBoard = (pin, boardId )=> dispatch =>{
+// debugger
+    return BoardApiUtil.movePintoBoard(pin, boardId).then(
+        board => dispatch(receiveBoard(board)),
+        errors => dispatch(receiveBoardErrors(errors.responseJSON))
+    );}
+// movePintoBoard: (pin, boardId) => dispatch(movePintoBoard(pin, boardId)),
 export const deleteBoard = boardId => dispatch =>
     BoardApiUtil.deleteBoard(boardId).then(boardId =>
         dispatch(removeBoard(boardId))

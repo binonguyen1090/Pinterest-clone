@@ -32,7 +32,14 @@ export const updateBoard = board => {
     data: { board }
   });
 };
-
+export const movePintoBoard = (pin, boardId) => {
+  // debugger
+  return $.ajax({
+    url: `api/boards/${boardId}/${pin.id}`,
+    method: "GET",
+    // data: { board }
+  });
+};
 export const deleteBoard = boardId => {
   return $.ajax({
     url: `api/boards/${boardId}`,

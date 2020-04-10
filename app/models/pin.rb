@@ -15,7 +15,6 @@ class Pin < ApplicationRecord
   has_one_attached :photo
 
   belongs_to :board
-
   # belongs_to :users,
   #     through: :board,
   #     source: :user
