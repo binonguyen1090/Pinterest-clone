@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     end 
 
     resources :pins
-    resources :follows, only: [:create, :destroy, :index]
+    resources :follows, only: [:create, :index]
+    delete "/follows", to: "follows#destroy"
     resource :session, only: [:create, :destroy]
 
     get "/boards/:boardId/:pinId", to: "boards#move"

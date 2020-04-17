@@ -7,12 +7,11 @@ export const createFollow = follow => {
     });
 };
 
-export const deleteFollow = follow => {
-    debugger
+export const deleteFollow = id => {
     return $.ajax({
         method: "DELETE",
-        url: `/api/follows/${follow.id}`,
-        data: { follow }
+        url: `/api/follows/`,
+        data: { id }
     });
 };
 

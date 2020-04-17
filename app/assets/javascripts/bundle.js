@@ -526,7 +526,6 @@ var logout = function logout() {
 
 var follow = function follow(userId) {
   return function (dispatch) {
-    debugger;
     return Object(_util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["followUser"])(userId).then(function (userId) {
       return dispatch(getfollowUser(userId));
     });
@@ -819,7 +818,7 @@ var AllUsers = /*#__PURE__*/function (_React$Component) {
   _createClass(AllUsers, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // debugger
+      // 
       this.props.getAllUsers();
       this.props.fetchFollows();
     }
@@ -827,16 +826,12 @@ var AllUsers = /*#__PURE__*/function (_React$Component) {
     key: "handleUnfollow",
     value: function handleUnfollow(e) {
       e.preventDefault();
-      var follow = {
-        follower_id: this.props.currentUser.id,
-        followee_id: e.currentTarget.value
-      };
-      this.props.deleteFollow(follow);
+      var id = e.currentTarget.value;
+      this.props.deleteFollow(id).then(this.props.getAllUsers());
     }
   }, {
     key: "handleFollow",
     value: function handleFollow(e) {
-      debugger;
       e.preventDefault();
       var follow = {
         follower_id: this.props.currentUser.id,
@@ -934,7 +929,6 @@ __webpack_require__.r(__webpack_exports__);
  // import { withRouter } from 'react-router-dom'
 
 var mSTP = function mSTP(state) {
-  debugger;
   return {
     currentUser: state.entities.users[state.session.id],
     followers: state.entities.follows,
@@ -5257,7 +5251,6 @@ var FollowsReducer = function FollowsReducer() {
       return Object.assign({}, action.follows);
 
     case _actions_follow_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FOLLOW"]:
-      debugger;
       return Object(lodash__WEBPACK_IMPORTED_MODULE_2__["merge"])({}, newState, _defineProperty({}, action.follow.id, action.follow));
 
     case _actions_follow_action__WEBPACK_IMPORTED_MODULE_0__["REMOVE_FOLLOW"]:
@@ -5267,7 +5260,6 @@ var FollowsReducer = function FollowsReducer() {
       return newState;
 
     case _actions_session_action__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_USER"]:
-      debugger;
       return Object.assign({}, state, action.follows);
 
     default:
@@ -5631,6 +5623,7 @@ var usersReducer = function usersReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
   var nextState = Object.assign({}, state);
+  var newState2 = Object.assign({}, state);
 
   switch (action.type) {
     case _actions_user_action__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_USERS"]:
@@ -5641,21 +5634,18 @@ var usersReducer = function usersReducer() {
       return nextState;
 
     case _actions_session_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      debugger;
       return Object.assign({}, state, _defineProperty({}, action.user.id, action.user), action.followers, action.followees);
 
     case _actions_follow_action__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_FOLLOW"]:
-      debugger;
-      var newState2 = Object.assign({}, state);
-      var array = [];
-      var array2 = []; // array.push(action.follow.followee_id)
-      // newState2[action.follow.follower_id].followee_ids = array
-
-      newState2[action.follow.follower_id].followee_ids.push(action.follow.followee_id); // array2.push(action.follow.follower_id)
-      // newState2[action.follow.followee_id].follower_ids = array2
-
+      newState2[action.follow.follower_id].followee_ids.push(action.follow.followee_id);
       newState2[action.follow.followee_id].follower_ids.push(action.follow.follower_id);
       return newState2;
+    // case REMOVE_FOLLOW:
+    // debugger
+    // delete newState[action.follow];
+    // newState2[action.follow.follower_id].followee_ids.delete(action.follow.followee_id)
+    // newState2[action.follow.followee_id].follower_ids.delete(action.follow.follower_id)
+    // return newState2;
 
     default:
       return state;
@@ -5791,13 +5781,12 @@ var createFollow = function createFollow(follow) {
     }
   });
 };
-var deleteFollow = function deleteFollow(follow) {
-  debugger;
+var deleteFollow = function deleteFollow(id) {
   return $.ajax({
     method: "DELETE",
-    url: "/api/follows/".concat(follow.id),
+    url: "/api/follows/",
     data: {
-      follow: follow
+      id: id
     }
   });
 };
@@ -5989,7 +5978,6 @@ var destroySession = function destroySession() {
 }; //follow
 
 var followUser = function followUser(user_id) {
-  debugger;
   return $.ajax({
     method: 'POST',
     url: "/api/follows",
@@ -5999,7 +5987,6 @@ var followUser = function followUser(user_id) {
   });
 };
 var unfollowUser = function unfollowUser(user_id) {
-  debugger;
   return $.ajax({
     method: 'DELETE',
     url: "/api/follows",

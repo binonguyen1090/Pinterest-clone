@@ -25,7 +25,7 @@ export const destroySession = () => {
 
 //follow
 export const followUser = user_id => {
-  debugger
+  
   return $.ajax({
     method: 'POST',
     url: `/api/follows`,
@@ -35,7 +35,7 @@ export const followUser = user_id => {
 };
 
 export const unfollowUser = user_id => {
-  debugger
+  
   return $.ajax({
     method: 'DELETE',
     url: `/api/follows`,

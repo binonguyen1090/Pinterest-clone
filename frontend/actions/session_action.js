@@ -57,7 +57,7 @@ export const logout = () => dispatch =>
 
   // follow
 export const follow = userId => dispatch =>{
-    debugger
+    
     return followUser(userId).then(
     userId => dispatch(getfollowUser(userId))
   )};

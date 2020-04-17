@@ -9,7 +9,7 @@ const FollowsReducer = (state = {}, action) => {
             // debugger
             return Object.assign({}, action.follows)
         case RECEIVE_FOLLOW:
-            debugger
+            
             return merge({}, newState, {
                 [action.follow.id]: action.follow
             })
@@ -19,7 +19,7 @@ const FollowsReducer = (state = {}, action) => {
             delete newState[action.follow];
             return newState;
         case RECEIVE_CURRENT_USER:
-            debugger
+            
             return Object.assign({}, state, action.follows)
         default:
             return state;

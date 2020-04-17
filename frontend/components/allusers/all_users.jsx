@@ -13,22 +13,22 @@ export default class AllUsers extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
+    // 
     this.props.getAllUsers();
     this.props.fetchFollows();
   }
   handleUnfollow(e) {
-    e.preventDefault();
-    let follow = {
-      follower_id: this.props.currentUser.id,
-      followee_id: e.currentTarget.value,
-    };
     
-    this.props.deleteFollow(follow);
+    e.preventDefault();
+   
+    const id= e.currentTarget.value
+ 
+    
+    this.props.deleteFollow(id).then(this.props.getAllUsers());
   }
 
   handleFollow(e) {
-    debugger
+    
     e.preventDefault();
     let follow = {
       follower_id: this.props.currentUser.id,

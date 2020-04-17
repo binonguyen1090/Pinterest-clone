@@ -14,7 +14,7 @@ import { openModal } from "../../actions/modal_action";
 // import { withRouter } from 'react-router-dom'
 
 const mSTP = (state) => {
-    debugger
+    
     return{
     currentUser: state.entities.users[state.session.id],
     followers: state.entities.follows ,
