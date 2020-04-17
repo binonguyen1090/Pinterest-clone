@@ -1,22 +1,24 @@
 class Api::FollowsController < ApplicationController
-    def create
-        @follow = current_user.out_follows.create!(followee_id: params[:user_id])
-        @user = User.find_by(id: params[:user_id])
-        render :show
+  def index
+    @follows = Follow.all
+    render "api/follows/index"
+  end
+  def create
+    @follow = Follow.new(follow_params)
+    @follow.follower_id = current_user.id
+    if @follow.save
+      render "api/follows/show"
+    else
+      render json: @follow.errors.full_messages, status: 422
     end
+  end
 
-    def destroy
-        @follow = current_user.out_follows.find_by(followee_id: params[:user_id])
-        @follow.destroy!
-        @user = User.find_by(id: params[:user_id])
-        render :show
-    end
-
-    def followers
-        User.find_by(id: params[:id]).followers
-    end
-
-    def followees
-        User.find_by(id: params[:id]).followees
-    end
+  def destroy
+    @follow = Follow.find(params[:id])
+    @follow.destroy
+    render "api/follows/show"
+  end
+  def follow_params
+    params.require(:follow).permit(:follower_id, :followee_id)
+  end
 end

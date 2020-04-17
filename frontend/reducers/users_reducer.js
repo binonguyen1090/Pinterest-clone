@@ -1,5 +1,7 @@
 import { RECEIVE_CURRENT_USER } from "../actions/session_action";
 import { RECEIVE_ALL_USERS, RECEIVE_SINGLE_USER} from '../actions/user_action'
+import { RECEIVE_FOLLOW } from '../actions/follow_action'
+
 
 const usersReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -14,8 +16,26 @@ const usersReducer = (state = {}, action) => {
       return nextState;
     
     case RECEIVE_CURRENT_USER:
-      return Object.assign({}, state, { [action.user.id]: action.user });
-    
+      debugger
+      return Object.assign({}, state, { [action.user.id]: action.user }, action.followers, action.followees);
+    case RECEIVE_FOLLOW:
+      debugger
+      let newState2 = Object.assign({}, state);
+      let array = [];
+      let array2 = [];
+
+      // state[action.follow.follower_id].followee_ids.forEach((id) => {
+      //   array.push(id)
+      // })
+      array.push(action.follow.followee_id)
+      newState2[action.follow.follower_id].followee_ids = array
+
+      // state[action.follow.followee_id].follower_ids.forEach((id) => {
+      //   array2.push(id)
+      // })
+      array2.push(action.follow.follower_id)
+      newState2[action.follow.followee_id].follower_ids = array2
+      return newState2;
     
 
     default:

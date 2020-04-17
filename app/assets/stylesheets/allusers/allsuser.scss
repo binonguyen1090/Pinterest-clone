@@ -33,7 +33,7 @@
 }
 
 #form-footer button {
-  background: red;
+  // background: red;
   color: white;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -88,4 +88,10 @@
     padding: 50px;
     border-radius: 10px;
     margin: 10px;
+}
+.unfollow-button{
+  background-color: red;
+}
+.follow-button{
+  background-color: green;
 }

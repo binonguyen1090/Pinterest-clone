@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_032825) do
+ActiveRecord::Schema.define(version: 2020_04_16_234939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 2020_04_10_032825) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "board_pins", force: :cascade do |t|
+    t.integer "board_id", null: false
+    t.integer "pin_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["board_id", "pin_id"], name: "index_board_pins_on_board_id_and_pin_id", unique: true
+  end
+
   create_table "boards", force: :cascade do |t|
     t.string "title"
     t.boolean "visibility"
@@ -47,13 +55,12 @@ ActiveRecord::Schema.define(version: 2020_04_10_032825) do
   end
 
   create_table "follows", force: :cascade do |t|
-    t.string "following_type", null: false
-    t.integer "following_id", null: false
-    t.integer "user_id", null: false
+    t.integer "follower_id", null: false
+    t.integer "followee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["following_id", "following_type", "user_id"], name: "index_follows_on_following_id_and_following_type_and_user_id", unique: true
-    t.index ["user_id"], name: "index_follows_on_user_id"
+    t.index ["followee_id"], name: "index_follows_on_followee_id"
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
   end
 
   create_table "pins", force: :cascade do |t|

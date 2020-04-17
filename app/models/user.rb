@@ -34,6 +34,24 @@ class User < ApplicationRecord
   has_many :pins,
            through: :boards,
            source: :pins
+#follow
+  has_many :fanusers,
+           primary_key: :id,
+           foreign_key: :followee_id,
+           class_name: :Follow
+
+  has_many :followusers,
+            primary_key: :id,
+            foreign_key: :follower_id,
+            class_name: :Follow
+
+  has_many :followers,
+          through: :fanusers,
+          source: :follower
+
+  has_many :followees,
+          through: :followusers,
+          source: :followee
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
