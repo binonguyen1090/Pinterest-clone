@@ -24,17 +24,14 @@ const usersReducer = (state = {}, action) => {
       let array = [];
       let array2 = [];
 
-      // state[action.follow.follower_id].followee_ids.forEach((id) => {
-      //   array.push(id)
-      // })
-      array.push(action.follow.followee_id)
-      newState2[action.follow.follower_id].followee_ids = array
-
-      // state[action.follow.followee_id].follower_ids.forEach((id) => {
-      //   array2.push(id)
-      // })
-      array2.push(action.follow.follower_id)
-      newState2[action.follow.followee_id].follower_ids = array2
+      
+      // array.push(action.follow.followee_id)
+      // newState2[action.follow.follower_id].followee_ids = array
+      newState2[action.follow.follower_id].followee_ids.push(action.follow.followee_id)
+     
+      // array2.push(action.follow.follower_id)
+      // newState2[action.follow.followee_id].follower_ids = array2
+      newState2[action.follow.followee_id].follower_ids.push(action.follow.follower_id)
       return newState2;
     
 

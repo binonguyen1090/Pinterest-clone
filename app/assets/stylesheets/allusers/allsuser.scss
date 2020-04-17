@@ -88,10 +88,20 @@
     padding: 50px;
     border-radius: 10px;
     margin: 10px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 .unfollow-button{
   background-color: red;
 }
 .follow-button{
   background-color: green;
+}
+.currentUser-in-community{
+  justify-content: center;
+  font-weight: bold;
+  font-size: 25px;
+  padding-bottom: 5px;
+  margin-left: 20px;
 }

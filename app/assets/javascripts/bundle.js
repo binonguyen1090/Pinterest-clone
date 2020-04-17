@@ -819,7 +819,7 @@ var AllUsers = /*#__PURE__*/function (_React$Component) {
   _createClass(AllUsers, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
+      // debugger
       this.props.getAllUsers();
       this.props.fetchFollows();
     }
@@ -854,7 +854,9 @@ var AllUsers = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      debugger; // if(this.props.users.length < 1) return null
+      var followees = Object.values(this.props.currentUser.followee_ids).length;
+      var followers = Object.values(this.props.currentUser.follower_ids).length; // debugger
+      // if(this.props.users.length < 1) return null
 
       var users = this.props.users;
 
@@ -863,7 +865,7 @@ var AllUsers = /*#__PURE__*/function (_React$Component) {
       }
 
       var user = this.props.users.map(function (user) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return user.id !== _this2.props.currentUser.id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: user.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           id: "link-forms",
@@ -880,7 +882,7 @@ var AllUsers = /*#__PURE__*/function (_React$Component) {
           onClick: _this2.handleFollow,
           className: "follow-button",
           value: user.id
-        }, "Follow")))));
+        }, "Follow"))))) : "";
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-form-out"
@@ -888,7 +890,9 @@ var AllUsers = /*#__PURE__*/function (_React$Component) {
         id: "user-form-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Community")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "users-follow"
-      }, "Followers: Following:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "currentUser-in-community"
+      }, this.props.currentUser.fname + " " + this.props.currentUser.lname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Followers:", followers, "  Following:", followees)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "form-item-padding"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-item",
@@ -5644,17 +5648,13 @@ var usersReducer = function usersReducer() {
       debugger;
       var newState2 = Object.assign({}, state);
       var array = [];
-      var array2 = []; // state[action.follow.follower_id].followee_ids.forEach((id) => {
-      //   array.push(id)
-      // })
+      var array2 = []; // array.push(action.follow.followee_id)
+      // newState2[action.follow.follower_id].followee_ids = array
 
-      array.push(action.follow.followee_id);
-      newState2[action.follow.follower_id].followee_ids = array; // state[action.follow.followee_id].follower_ids.forEach((id) => {
-      //   array2.push(id)
-      // })
+      newState2[action.follow.follower_id].followee_ids.push(action.follow.followee_id); // array2.push(action.follow.follower_id)
+      // newState2[action.follow.followee_id].follower_ids = array2
 
-      array2.push(action.follow.follower_id);
-      newState2[action.follow.followee_id].follower_ids = array2;
+      newState2[action.follow.followee_id].follower_ids.push(action.follow.follower_id);
       return newState2;
 
     default:

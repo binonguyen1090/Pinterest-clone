@@ -13,7 +13,7 @@ export default class AllUsers extends React.Component {
   }
 
   componentDidMount() {
-    debugger
+    // debugger
     this.props.getAllUsers();
     this.props.fetchFollows();
   }
@@ -43,13 +43,16 @@ export default class AllUsers extends React.Component {
   //     this.props.destroyForm(formId)
   // }
   render() {
-    debugger
+    let followees = Object.values(this.props.currentUser.followee_ids).length
+    let followers = Object.values(this.props.currentUser.follower_ids).length
+    // debugger
     // if(this.props.users.length < 1) return null
     const { users } = this.props;
     if (!users) {
       return null;
     }
     const user = this.props.users.map((user) => (
+      user.id !== this.props.currentUser.id ?
       <div key={user.id}>
         <Link id="link-forms" to={`/user/${user.id}`}>
           <div className="form-index-form">
@@ -81,13 +84,21 @@ export default class AllUsers extends React.Component {
           </div>
         </Link>
       </div>
+      : ""
     ));
     return (
       <div className="user-form-out">
         <div id="user-form-header">
           <h1>Community</h1>
         </div>
-        <div className="users-follow">Followers: Following:</div>
+        <div className="users-follow">
+          <div className="currentUser-in-community">
+            {this.props.currentUser.fname + " " + this.props.currentUser.lname}
+          </div>
+          <div>
+            Followers:{followers}  Following:{followees}
+          </div>
+        </div>
         <div id="form-item-padding">
           <div className="form-item" key={user.id}>
             {user}
