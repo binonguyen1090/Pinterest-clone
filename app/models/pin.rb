@@ -14,6 +14,16 @@ class Pin < ApplicationRecord
 
   has_one_attached :photo
 
+
+  has_many :likes,
+         primary_key: :id,
+         foreign_key: :pin_id,
+         class_name: :Like
+
+# has_many :likers,
+#   through: :likes,
+#   source: :user
+ 
   belongs_to :board
   # belongs_to :users,
   #     through: :board,

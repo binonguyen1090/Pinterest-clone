@@ -11,8 +11,33 @@ export default class PinShow extends React.Component {
     };
      this.handleSubmit = this.handleSubmit.bind(this);
      this.handleChange = this.handleChange.bind(this);
+     this.handleLike = this.handleLike.bind(this);
+     this.handleUnlike = this.handleUnlike.bind(this);
     // this.renderErrors = this.renderErrors.bind(this);
 
+  }
+  handleUnlike(e) {
+    
+    e.preventDefault();
+   
+    const id = e.currentTarget.value
+ 
+    
+    // this.props.deleteLike(id).then(this.props.getAllUsers());
+    this.props
+      .deleteLike(id)
+      // .then(() => this.props.openModal("Show Pin", id));
+  }
+  handleLike(e) {
+    // debugger
+    e.preventDefault();
+    let like = {
+      user_id: this.props.currentUser.id,
+      pin_id: e.currentTarget.value,
+    };
+    this.props.createLike(like)
+    // this.props.openModal("Show Pin", this.props.pinId)
+    
   }
   componentDidMount() {
     this.props.fetchPin(this.props.pinId);
@@ -48,10 +73,8 @@ export default class PinShow extends React.Component {
   }
 
   render() {
-    // debugger
-      // if (!this.props.errors) {
-      //   return [];
-      // }
+    debugger
+  
     let choice = this.props.boards.map((board, idx) => {
       return (
         <option key={idx} value={board.id}>
@@ -71,19 +94,19 @@ export default class PinShow extends React.Component {
     return (
       <div className="pin-show container">
         {/* <form className="pin-show container" onSubmit={this.handleSubmit}> */}
-          <div className="pinshow-left">
-            <img className="board-pin-show" src={pin.photoUrl} />
-          </div>
-          <div className="pinshow-right">
-            <div className="pin-show nav-bar">
-              <i className="fas fa-pen"></i>
-              <label>
-                <select onChange={this.handleChange}>
-                  <option> Select board</option>
-                  {choice}
-                </select>
-              </label>
-              <div
+        <div className="pinshow-left">
+          <img className="board-pin-show" src={pin.photoUrl} />
+        </div>
+        <div className="pinshow-right">
+          <div className="pin-show nav-bar">
+            <i className="fas fa-pen"></i>
+            <label>
+              <select onChange={this.handleChange}>
+                <option> Select board</option>
+                {choice}
+              </select>
+            </label>
+            <div
               className="pin-show save-board-pin-text"
               onClick={this.handleSubmit}
               type="submit"
@@ -91,29 +114,47 @@ export default class PinShow extends React.Component {
               Save
             </div>
 
-              {/* <input
+            {/* <input
                 className="pin-show save-board-pin-text"
                 type="submit"
                 value="Save"
               /> */}
-            </div>
-            <div className="pin-show info">
-              <div className="pin-show title">{pin.title}</div>
-              <div className="pin-show description">{pin.body}</div>
-            </div>
-            <div className="pin-show credit">
-              <h1 className="Uploadby">Upload by:</h1>
-              <br />
-              <Link
-                to={`/user/${id}`}
-                className="pinowner"
-                onClick={() => this.props.closeModal()}
-              >
-                {email}
-              </Link>
-              {/* <div className="errorInBoardForm">{this.renderErrors()}</div> */}
-            </div>
           </div>
+          <div className="pin-show info">
+            <div className="pin-show title">{pin.title}</div>
+            <div className="pin-show description">{pin.body}</div>
+          </div>
+          <div className="pin-show credit">
+            <h1 className="Uploadby">Upload by:</h1>
+            <br />
+            <Link
+              to={`/user/${id}`}
+              className="pinowner"
+              onClick={() => this.props.closeModal()}
+            >
+              {email}
+            </Link>
+            {/* <div className="errorInBoardForm">{this.renderErrors()}</div> */}
+          </div>
+          {pin.liked_by_current_user ? (
+            <button
+              onClick={this.handleUnlike}
+              className="unfollow-button"
+              value={pin.id}
+            >
+              Unlike
+            </button>
+          ) : (
+            <button
+              onClick={this.handleLike}
+              className="follow-button"
+              value={pin.id}
+            >
+              Like
+            </button>
+          )}
+          {pin.likes}
+        </div>
         {/* </form> */}
       </div>
     );

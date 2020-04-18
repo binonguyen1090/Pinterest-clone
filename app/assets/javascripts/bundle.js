@@ -265,6 +265,76 @@ var deleteFollow = function deleteFollow(follow) {
 
 /***/ }),
 
+/***/ "./frontend/actions/like_action.js":
+/*!*****************************************!*\
+  !*** ./frontend/actions/like_action.js ***!
+  \*****************************************/
+/*! exports provided: RECEIVE_LIKE, REMOVE_LIKE, RECEIVE_LIKES, fetchLikes, createLike, deleteLike */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_LIKE", function() { return RECEIVE_LIKE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_LIKE", function() { return REMOVE_LIKE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_LIKES", function() { return RECEIVE_LIKES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchLikes", function() { return fetchLikes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createLike", function() { return createLike; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteLike", function() { return deleteLike; });
+/* harmony import */ var _util_like_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/like_api_util */ "./frontend/util/like_api_util.js");
+
+var RECEIVE_LIKE = 'RECEIVE_LIKE';
+var REMOVE_LIKE = 'REMOVE_LIKE';
+var RECEIVE_LIKES = 'RECEIVE_LIKES';
+
+var receiveLike = function receiveLike(like) {
+  // debugger
+  return {
+    type: RECEIVE_LIKE,
+    like: like
+  };
+};
+
+var removeLike = function removeLike(like) {
+  return {
+    type: REMOVE_LIKE,
+    like: like
+  };
+};
+
+var receiveLikes = function receiveLikes(likes) {
+  // debugger
+  return {
+    type: RECEIVE_LIKES,
+    likes: likes
+  };
+};
+
+var fetchLikes = function fetchLikes() {
+  return function (dispatch) {
+    return _util_like_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchLikes"]().then(function (likes) {
+      return dispatch(receiveLikes(likes));
+    });
+  };
+};
+var createLike = function createLike(like) {
+  // debugger
+  return function (dispatch) {
+    return _util_like_api_util__WEBPACK_IMPORTED_MODULE_0__["createLike"](like).then(function (like) {
+      return dispatch(receiveLike(like));
+    });
+  };
+};
+var deleteLike = function deleteLike(like) {
+  debugger;
+  return function (dispatch) {
+    return _util_like_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteLike"](like).then(function (like) {
+      return dispatch(removeLike(like));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/loading_action.js":
 /*!********************************************!*\
   !*** ./frontend/actions/loading_action.js ***!
@@ -3147,12 +3217,33 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
 
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this)); // this.renderErrors = this.renderErrors.bind(this);
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleLike = _this.handleLike.bind(_assertThisInitialized(_this));
+    _this.handleUnlike = _this.handleUnlike.bind(_assertThisInitialized(_this)); // this.renderErrors = this.renderErrors.bind(this);
 
     return _this;
   }
 
   _createClass(PinShow, [{
+    key: "handleUnlike",
+    value: function handleUnlike(e) {
+      e.preventDefault();
+      var id = e.currentTarget.value; // this.props.deleteLike(id).then(this.props.getAllUsers());
+
+      this.props.deleteLike(id); // .then(() => this.props.openModal("Show Pin", id));
+    }
+  }, {
+    key: "handleLike",
+    value: function handleLike(e) {
+      // debugger
+      e.preventDefault();
+      var like = {
+        user_id: this.props.currentUser.id,
+        pin_id: e.currentTarget.value
+      };
+      this.props.createLike(like); // this.props.openModal("Show Pin", this.props.pinId)
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchPin(this.props.pinId);
@@ -3196,10 +3287,7 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      // debugger
-      // if (!this.props.errors) {
-      //   return [];
-      // }
+      debugger;
       var choice = this.props.boards.map(function (board, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           key: idx,
@@ -3252,7 +3340,15 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this3.props.closeModal();
         }
-      }, email))));
+      }, email)), pin.liked_by_current_user ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleUnlike,
+        className: "unfollow-button",
+        value: pin.id
+      }, "Unlike") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleLike,
+        className: "follow-button",
+        value: pin.id
+      }, "Like"), pin.likes));
     }
   }]);
 
@@ -3274,11 +3370,13 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_pin_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/pin_action */ "./frontend/actions/pin_action.js");
-/* harmony import */ var _actions_board_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/board_action */ "./frontend/actions/board_action.js");
-/* harmony import */ var _actions_user_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/user_action */ "./frontend/actions/user_action.js");
-/* harmony import */ var _show_pin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./show_pin */ "./frontend/components/pin/show_pin.jsx");
-/* harmony import */ var _actions_modal_action__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/modal_action */ "./frontend/actions/modal_action.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_like_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/like_action */ "./frontend/actions/like_action.js");
+/* harmony import */ var _actions_board_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/board_action */ "./frontend/actions/board_action.js");
+/* harmony import */ var _actions_user_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/user_action */ "./frontend/actions/user_action.js");
+/* harmony import */ var _show_pin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./show_pin */ "./frontend/components/pin/show_pin.jsx");
+/* harmony import */ var _actions_modal_action__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/modal_action */ "./frontend/actions/modal_action.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 
@@ -3289,13 +3387,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
+  debugger;
   return {
     boards: Object.values(state.entities.boards),
     pin: state.entities.pins[state.ui.modal.options.pinId],
     pinId: state.ui.modal.options.pinId,
     board: state.ui.boardCreator.board || "",
     user: state.ui.creator.user || "",
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id] // likes: Object.values(state.entities.boards),
+
   };
 };
 
@@ -3305,22 +3405,31 @@ var mDTP = function mDTP(dispatch) {
       return dispatch(Object(_actions_pin_action__WEBPACK_IMPORTED_MODULE_1__["fetchPin"])(pinId));
     },
     fetchBoard: function fetchBoard(boardId) {
-      return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["fetchBoard"])(boardId));
+      return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_3__["fetchBoard"])(boardId));
     },
     fetchBoards: function fetchBoards(userId) {
-      return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["fetchBoards"])(userId));
+      return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_3__["fetchBoards"])(userId));
     },
     getCreator: function getCreator(boardId) {
-      return dispatch(Object(_actions_user_action__WEBPACK_IMPORTED_MODULE_3__["getCreator"])(boardId));
+      return dispatch(Object(_actions_user_action__WEBPACK_IMPORTED_MODULE_4__["getCreator"])(boardId));
     },
     movePintoBoard: function movePintoBoard(pin, boardId) {
-      return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_2__["movePintoBoard"])(pin, boardId));
+      return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_3__["movePintoBoard"])(pin, boardId));
     },
     closeModal: function closeModal() {
-      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_5__["closeModal"])());
+      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_6__["closeModal"])());
+    },
+    openModal: function openModal(modal, id) {
+      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_6__["openModal"])(modal, id));
     },
     createPin: function createPin(pin) {
       return dispatch(Object(_actions_pin_action__WEBPACK_IMPORTED_MODULE_1__["createPin"])(pin));
+    },
+    createLike: function createLike(pin) {
+      return dispatch(Object(_actions_like_action__WEBPACK_IMPORTED_MODULE_2__["createLike"])(pin));
+    },
+    deleteLike: function deleteLike(id) {
+      return dispatch(Object(_actions_like_action__WEBPACK_IMPORTED_MODULE_2__["deleteLike"])(id));
     },
     receivePinErrors: function receivePinErrors(errors) {
       return dispatch(Object(_actions_pin_action__WEBPACK_IMPORTED_MODULE_1__["receivePinErrors"])(errors));
@@ -3328,7 +3437,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_show_pin__WEBPACK_IMPORTED_MODULE_4__["default"])));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_show_pin__WEBPACK_IMPORTED_MODULE_5__["default"])));
 
 /***/ }),
 
@@ -5180,6 +5289,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _board_reducers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./board_reducers */ "./frontend/reducers/board_reducers.js");
 /* harmony import */ var _pin_reducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pin_reducers */ "./frontend/reducers/pin_reducers.js");
 /* harmony import */ var _follow_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./follow_reducer */ "./frontend/reducers/follow_reducer.js");
+/* harmony import */ var _like_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./like_reducer */ "./frontend/reducers/like_reducer.js");
+
 
 
 
@@ -5189,7 +5300,8 @@ var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   boards: _board_reducers__WEBPACK_IMPORTED_MODULE_2__["default"],
   pins: _pin_reducers__WEBPACK_IMPORTED_MODULE_3__["default"],
-  follows: _follow_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
+  follows: _follow_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
+  likes: _like_reducer__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -5268,6 +5380,55 @@ var FollowsReducer = function FollowsReducer() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (FollowsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/like_reducer.js":
+/*!*******************************************!*\
+  !*** ./frontend/reducers/like_reducer.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_like_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/like_action */ "./frontend/actions/like_action.js");
+/* harmony import */ var _actions_session_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/session_action */ "./frontend/actions/session_action.js");
+/* harmony import */ var _actions_pin_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/pin_action */ "./frontend/actions/pin_action.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+var LikesReducer = function LikesReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var nextState = Object.assign({}, state);
+
+  switch (action.type) {
+    case _actions_like_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_LIKE"]:
+      debugger;
+      nextState[action.like.id] = action.like;
+      return nextState;
+
+    case _actions_like_action__WEBPACK_IMPORTED_MODULE_0__["REMOVE_LIKE"]:
+      delete nextState[action.likeId];
+      return nextState;
+
+    case _actions_pin_action__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_PIN"]:
+      return Object.assign(nextState, action.pin.likes);
+
+    default:
+      return nextState;
+  }
+
+  ;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (LikesReducer);
 
 /***/ }),
 
@@ -5437,8 +5598,12 @@ var pinErrorsReducer = function pinErrorsReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_pin_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/pin_action */ "./frontend/actions/pin_action.js");
-/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
-/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _actions_like_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/like_action */ "./frontend/actions/like_action.js");
+/* harmony import */ var _actions_session_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/session_action */ "./frontend/actions/session_action.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_3__);
+
+
 
 
 
@@ -5447,6 +5612,7 @@ var PinsReducer = function PinsReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
   var nextState = Object.assign({}, state);
+  var newState2 = Object.assign({}, state);
 
   switch (action.type) {
     case _actions_pin_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_PINS"]:
@@ -5459,6 +5625,14 @@ var PinsReducer = function PinsReducer() {
     case _actions_pin_action__WEBPACK_IMPORTED_MODULE_0__["REMOVE_PIN"]:
       delete nextState[action.pinId];
       return nextState;
+    // case RECEIVE_CURRENT_USER:
+    //   debugger
+    //   return Object.assign({}, state, { [action.user.id]: action.user }, action.likes);
+    // case RECEIVE_LIKE:
+    //   debugger
+    //   newState2[action.like.pin_id].likes.push(action.like.user_id)
+    //   // newState2[action.like.user_id].likes.push(action.like.pin_id)
+    //   return newState2;
 
     default:
       return state;
@@ -5794,6 +5968,47 @@ var fetchFollows = function fetchFollows() {
   return $.ajax({
     method: "GET",
     url: "/api/follows"
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/like_api_util.js":
+/*!****************************************!*\
+  !*** ./frontend/util/like_api_util.js ***!
+  \****************************************/
+/*! exports provided: createLike, deleteLike, fetchLikes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createLike", function() { return createLike; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteLike", function() { return deleteLike; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchLikes", function() { return fetchLikes; });
+var createLike = function createLike(like) {
+  // debugger
+  return $.ajax({
+    method: "POST",
+    url: "/api/likes",
+    data: {
+      like: like
+    }
+  });
+};
+var deleteLike = function deleteLike(id) {
+  return $.ajax({
+    method: "DELETE",
+    url: "/api/likes/",
+    data: {
+      id: id
+    }
+  });
+};
+var fetchLikes = function fetchLikes() {
+  debugger;
+  return $.ajax({
+    method: "GET",
+    url: "/api/likes"
   });
 };
 

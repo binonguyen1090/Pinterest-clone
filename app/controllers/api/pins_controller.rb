@@ -11,7 +11,7 @@ class Api::PinsController < ApplicationController
   end
 
   def show
-    @pin = Pin.find(params[:id])
+    @pin = Pin.includes(:likes).find(params[:id])
     render "/api/pins/show"
   end
 
