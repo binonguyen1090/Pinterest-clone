@@ -17,7 +17,7 @@ export const deleteLike = id => {
 
 
 export const fetchLikes = () => {
-    debugger
+    // debugger
     return $.ajax({
         method: "GET",
         url: `/api/likes`,

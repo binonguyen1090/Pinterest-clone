@@ -93,10 +93,13 @@
     flex-direction: column;
 }
 .unfollow-button{
-  background-color: red;
+  border: none;
+    outline: none;
 }
 .follow-button{
-  background-color: green;
+     border: none;
+    outline: none;
+
 }
 .currentUser-in-community{
   justify-content: center;

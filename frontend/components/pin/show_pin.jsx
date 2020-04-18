@@ -73,7 +73,7 @@ export default class PinShow extends React.Component {
   }
 
   render() {
-    debugger
+    // debugger
   
     let choice = this.props.boards.map((board, idx) => {
       return (
@@ -142,7 +142,7 @@ export default class PinShow extends React.Component {
               className="unfollow-button"
               value={pin.id}
             >
-              Unlike
+              <i className="fas fa-heart"></i>
             </button>
           ) : (
             <button
@@ -150,7 +150,7 @@ export default class PinShow extends React.Component {
               className="follow-button"
               value={pin.id}
             >
-              Like
+              <i className="far fa-heart"></i>
             </button>
           )}
           {pin.likes}

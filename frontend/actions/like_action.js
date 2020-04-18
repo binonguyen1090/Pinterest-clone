@@ -41,7 +41,7 @@ export const createLike = (like) => {
 }
 
 export const deleteLike = (like) => {
-    debugger
+    // debugger
     return dispatch => {
         return APIUtil.deleteLike(like).then(like => dispatch(removeLike(like)))
     }

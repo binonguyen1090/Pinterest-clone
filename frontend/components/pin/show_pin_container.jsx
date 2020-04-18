@@ -15,7 +15,7 @@ import { openModal, closeModal } from "../../actions/modal_action";
 import { withRouter } from "react-router-dom";
 
 const mSTP = (state, ownProps) => {
-  debugger
+  // debugger
   return {
     boards: Object.values(state.entities.boards),
 

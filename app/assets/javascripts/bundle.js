@@ -325,7 +325,7 @@ var createLike = function createLike(like) {
   };
 };
 var deleteLike = function deleteLike(like) {
-  debugger;
+  // debugger
   return function (dispatch) {
     return _util_like_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteLike"](like).then(function (like) {
       return dispatch(removeLike(like));
@@ -3287,7 +3287,7 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      debugger;
+      // debugger
       var choice = this.props.boards.map(function (board, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           key: idx,
@@ -3344,11 +3344,15 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
         onClick: this.handleUnlike,
         className: "unfollow-button",
         value: pin.id
-      }, "Unlike") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-heart"
+      })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleLike,
         className: "follow-button",
         value: pin.id
-      }, "Like"), pin.likes));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-heart"
+      })), pin.likes));
     }
   }]);
 
@@ -3387,7 +3391,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  debugger;
+  // debugger
   return {
     boards: Object.values(state.entities.boards),
     pin: state.entities.pins[state.ui.modal.options.pinId],
@@ -5410,7 +5414,7 @@ var LikesReducer = function LikesReducer() {
 
   switch (action.type) {
     case _actions_like_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_LIKE"]:
-      debugger;
+      // debugger
       nextState[action.like.id] = action.like;
       return nextState;
 
@@ -6005,7 +6009,7 @@ var deleteLike = function deleteLike(id) {
   });
 };
 var fetchLikes = function fetchLikes() {
-  debugger;
+  // debugger
   return $.ajax({
     method: "GET",
     url: "/api/likes"

@@ -10,7 +10,7 @@ const LikesReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_LIKE:
-            debugger
+            // debugger
             nextState[action.like.id] = action.like
             return nextState
         case REMOVE_LIKE:
