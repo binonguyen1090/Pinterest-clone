@@ -4,6 +4,27 @@ export const RECEIVE_ALL_PINS = "RECEIVE_ALL_PINS";
 export const RECEIVE_PIN = "RECEIVE_PIN";
 export const REMOVE_PIN = "REMOVE_PIN";
 export const RECEIVE_PIN_ERRORS = "RECEIVE_PIN_ERRORS";
+import { postLikeToPin, deleteLikeFromPin} from '../util/like_api_util';
+
+export const RECEIVE_LIKE = 'RECEIVE_LIKE';
+export const REMOVE_LIKE = 'REMOVE_LIKE';
+export const RECEIVE_LIKES = 'RECEIVE_LIKES'
+
+const receiveLike = like => {
+    // debugger
+    return {
+        type: RECEIVE_LIKE,
+        like
+    }
+}
+
+const removeLike = like => {
+    return {
+        type: REMOVE_LIKE,
+        like
+    }
+}
+
 
 const receiveAllPins = pins => {
   return {
@@ -61,3 +82,16 @@ export const fetchAllUsersPins = () => dispatch => {
     dispatch(receiveAllPins(pins))
   );
 };
+
+
+export const likePin = id => dispatch => {
+  debugger
+  return postLikeToPin(id)
+    .then(like => dispatch(receiveLike(like)));
+}
+
+export const unLikePin = id => dispatch => {
+  debugger
+  return deleteLikeFromPin(id)
+    .then(like => dispatch(removeLike(like)));
+}

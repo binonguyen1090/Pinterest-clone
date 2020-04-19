@@ -1,25 +1,17 @@
-export const createLike = like => {
-    // debugger
+export const postLikeToPin = id => {
+    debugger
     return $.ajax({
-        method: "POST",
-        url: "/api/likes",
-        data: { like }
-    });
-};
-
-export const deleteLike = id => {
-    return $.ajax({
-        method: "DELETE",
-        url: `/api/likes/`,
+        url: '/api/likes',
+        method: 'POST',
         data: { id }
     });
-};
+}
 
-
-export const fetchLikes = () => {
-    // debugger
+export const deleteLikeFromPin = id => {
+    debugger
     return $.ajax({
-        method: "GET",
-        url: `/api/likes`,
+        url: '/api/likes',
+        method: 'DELETE',
+        data: { id }
     });
-};
+}

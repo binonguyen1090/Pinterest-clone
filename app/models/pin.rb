@@ -20,9 +20,9 @@ class Pin < ApplicationRecord
          foreign_key: :pin_id,
          class_name: :Like
 
-# has_many :likers,
-#   through: :likes,
-#   source: :user
+has_many :likers,
+  through: :likes,
+  source: :user
  
   belongs_to :board
   # belongs_to :users,

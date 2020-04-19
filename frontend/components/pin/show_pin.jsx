@@ -18,33 +18,32 @@ export default class PinShow extends React.Component {
   }
   handleUnlike(e) {
     
+    e.stopPropagation();
     e.preventDefault();
-     e.stopPropagation();
-    const id = e.currentTarget.value
- 
+    // const id = e.currentTarget.value
+    // let pin_id = e.currentTarget.value;
     
     // this.props.deleteLike(id).then(this.props.getAllUsers());
-    this.props
-      .deleteLike(id)
+    this.props.unLikePin(e.currentTarget.value);
       // .then(() => this.props.openModal("Show Pin", id));
   }
   handleLike(e) {
     // debugger
+    e.stopPropagation();
     e.preventDefault();
-     e.stopPropagation();
-    let like = {
-      user_id: this.props.currentUser.id,
-      pin_id: e.currentTarget.value,
-    };
-    this.props.createLike(like)
-    this.props.fetchLikes(this.props.pinId);
+    // let like = {
+    //   user_id: this.props.currentUser.id,
+      // let pin_id = e.currentTarget.value
+    // };
+    this.props.likePin(e.currentTarget.value);
+    // this.props.fetchLikes(this.props.pinId);
     
   }
   componentDidMount() {
     this.props.fetchPin(this.props.pinId);
     this.props.fetchBoard(this.props.pin.board_id);  
     this.props.fetchBoards(this.props.currentUser.id);
-    this.props.fetchLikes(this.props.pinId);
+    // this.props.fetchLikes(this.props.pinId);
 
   }
   
@@ -73,9 +72,11 @@ export default class PinShow extends React.Component {
     this.props.movePintoBoard(this.props.pin, this.state.board_id).then(() => this.props.closeModal());
     
   }
-
+  
   render() {
+    debugger
     
+
     
     let choice = this.props.boards.map((board, idx) => {
       return (
@@ -155,7 +156,7 @@ export default class PinShow extends React.Component {
               <i className="far fa-heart"></i>
             </button>
           )}
-          {this.props.likes}
+          {pin.likes}
         </div>
         {/* </form> */}
       </div>

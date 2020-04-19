@@ -14,12 +14,14 @@ Rails.application.routes.draw do
     end 
 
     resources :pins do 
-      resources :likes, only: [:index]
+      # resources :likes, only: [:index]
     end
-    resources :follows, only: [:create, :index]
     resources :likes, only: [:create]
-    delete "/follows", to: "follows#destroy"
     delete "/likes", to: "likes#destroy"
+    resources :follows, only: [:create, :index]
+    
+    delete "/follows", to: "follows#destroy"
+    
     resource :session, only: [:create, :destroy]
 
     get "/boards/:boardId/:pinId", to: "boards#move"
