@@ -1,7 +1,8 @@
 class Api::LikesController < ApplicationController
   def index
-    @likes = Like.all
-    render "api/pins/index"
+    debugger
+      @likes = Pin.find_by(id: params[:pin_id]).likes
+      render "api/likes/index"
   end
 
   def create

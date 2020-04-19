@@ -19,7 +19,7 @@ export default class PinShow extends React.Component {
   handleUnlike(e) {
     
     e.preventDefault();
-   
+     e.stopPropagation();
     const id = e.currentTarget.value
  
     
@@ -31,18 +31,20 @@ export default class PinShow extends React.Component {
   handleLike(e) {
     // debugger
     e.preventDefault();
+     e.stopPropagation();
     let like = {
       user_id: this.props.currentUser.id,
       pin_id: e.currentTarget.value,
     };
     this.props.createLike(like)
-    // this.props.openModal("Show Pin", this.props.pinId)
+    this.props.fetchLikes(this.props.pinId);
     
   }
   componentDidMount() {
     this.props.fetchPin(this.props.pinId);
     this.props.fetchBoard(this.props.pin.board_id);  
     this.props.fetchBoards(this.props.currentUser.id);
+    this.props.fetchLikes(this.props.pinId);
 
   }
   
@@ -73,8 +75,8 @@ export default class PinShow extends React.Component {
   }
 
   render() {
-    // debugger
-  
+    
+    
     let choice = this.props.boards.map((board, idx) => {
       return (
         <option key={idx} value={board.id}>
@@ -153,7 +155,7 @@ export default class PinShow extends React.Component {
               <i className="far fa-heart"></i>
             </button>
           )}
-          {pin.likes}
+          {this.props.likes}
         </div>
         {/* </form> */}
       </div>

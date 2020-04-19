@@ -5,7 +5,7 @@ import {
   receivePinErrors,
 } from "../../actions/pin_action";
 import {
-  createLike, deleteLike
+  createLike, deleteLike, fetchLikes
 } from "../../actions/like_action";
 import { fetchBoard, fetchBoards , movePintoBoard} from "../../actions/board_action";
 import { getCreator } from "../../actions/user_action";
@@ -17,15 +17,14 @@ import { withRouter } from "react-router-dom";
 const mSTP = (state, ownProps) => {
   // debugger
   return {
+    // likes: state.entities.likes.like_counts || 0,
+    likes: Object.values(state.entities.likes).length || 0,
     boards: Object.values(state.entities.boards),
-
     pin: state.entities.pins[state.ui.modal.options.pinId],
     pinId: state.ui.modal.options.pinId,
     board: state.ui.boardCreator.board || "",
     user: state.ui.creator.user || "",
     currentUser: state.entities.users[state.session.id],
-    
-    // likes: Object.values(state.entities.boards),
   };
 };
 
@@ -33,6 +32,7 @@ const mDTP = dispatch => {
   
   return {
     fetchPin: (pinId) => dispatch(fetchPin(pinId)),
+    fetchLikes: (pinId) => dispatch(fetchLikes(pinId)),
     fetchBoard: (boardId) => dispatch(fetchBoard(boardId)),
     fetchBoards: (userId) => dispatch(fetchBoards(userId)),
     getCreator: (boardId) => dispatch(getCreator(boardId)),

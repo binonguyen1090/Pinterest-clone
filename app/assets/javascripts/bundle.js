@@ -3228,6 +3228,7 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
     key: "handleUnlike",
     value: function handleUnlike(e) {
       e.preventDefault();
+      e.stopPropagation();
       var id = e.currentTarget.value; // this.props.deleteLike(id).then(this.props.getAllUsers());
 
       this.props.deleteLike(id); // .then(() => this.props.openModal("Show Pin", id));
@@ -3237,11 +3238,13 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
     value: function handleLike(e) {
       // debugger
       e.preventDefault();
+      e.stopPropagation();
       var like = {
         user_id: this.props.currentUser.id,
         pin_id: e.currentTarget.value
       };
-      this.props.createLike(like); // this.props.openModal("Show Pin", this.props.pinId)
+      this.props.createLike(like);
+      this.props.fetchLikes(this.props.pinId);
     }
   }, {
     key: "componentDidMount",
@@ -3249,6 +3252,7 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
       this.props.fetchPin(this.props.pinId);
       this.props.fetchBoard(this.props.pin.board_id);
       this.props.fetchBoards(this.props.currentUser.id);
+      this.props.fetchLikes(this.props.pinId);
     } //  renderErrors() {
     //     return (
     //       <ul>
@@ -3287,7 +3291,6 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      // debugger
       var choice = this.props.boards.map(function (board, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           key: idx,
@@ -3352,7 +3355,7 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
         value: pin.id
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-heart"
-      })), pin.likes));
+      })), this.props.likes));
     }
   }]);
 
@@ -3393,13 +3396,14 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   // debugger
   return {
+    // likes: state.entities.likes.like_counts || 0,
+    likes: Object.values(state.entities.likes).length || 0,
     boards: Object.values(state.entities.boards),
     pin: state.entities.pins[state.ui.modal.options.pinId],
     pinId: state.ui.modal.options.pinId,
     board: state.ui.boardCreator.board || "",
     user: state.ui.creator.user || "",
-    currentUser: state.entities.users[state.session.id] // likes: Object.values(state.entities.boards),
-
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
@@ -3407,6 +3411,9 @@ var mDTP = function mDTP(dispatch) {
   return {
     fetchPin: function fetchPin(pinId) {
       return dispatch(Object(_actions_pin_action__WEBPACK_IMPORTED_MODULE_1__["fetchPin"])(pinId));
+    },
+    fetchLikes: function fetchLikes(pinId) {
+      return dispatch(Object(_actions_like_action__WEBPACK_IMPORTED_MODULE_2__["fetchLikes"])(pinId));
     },
     fetchBoard: function fetchBoard(boardId) {
       return dispatch(Object(_actions_board_action__WEBPACK_IMPORTED_MODULE_3__["fetchBoard"])(boardId));
@@ -5081,13 +5088,20 @@ var SplashHeader = function SplashHeader(_ref) {
     src: window.logo2,
     id: "logo"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "https://github.com/binonguyen1090"
+    href: "https://github.com/binonguyen1090",
+    target: "_blank"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fab fa-github"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "https://www.linkedin.com/in/binonguyen1090"
+    href: "https://www.linkedin.com/in/binonguyen1090",
+    target: "_blank"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fab fa-linkedin"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://www.binonguyen.com/",
+    target: "_blank"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-portrait"
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "signinupbutton"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {

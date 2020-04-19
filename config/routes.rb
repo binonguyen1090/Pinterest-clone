@@ -13,9 +13,11 @@ Rails.application.routes.draw do
       resources :pins, only: [:index]
     end 
 
-    resources :pins
+    resources :pins do 
+      resources :likes, only: [:index]
+    end
     resources :follows, only: [:create, :index]
-    resources :likes, only: [:create, :index]
+    resources :likes, only: [:create]
     delete "/follows", to: "follows#destroy"
     delete "/likes", to: "likes#destroy"
     resource :session, only: [:create, :destroy]
