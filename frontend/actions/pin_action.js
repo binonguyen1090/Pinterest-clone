@@ -85,13 +85,11 @@ export const fetchAllUsersPins = () => dispatch => {
 
 
 export const likePin = id => dispatch => {
-  debugger
   return postLikeToPin(id)
     .then(like => dispatch(receiveLike(like)));
 }
 
 export const unLikePin = id => dispatch => {
-  debugger
   return deleteLikeFromPin(id)
-    .then(like => dispatch(removeLike(like)));
+    .then(like => dispatch(receiveLike(like)));
 }

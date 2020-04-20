@@ -512,7 +512,6 @@ var fetchAllUsersPins = function fetchAllUsersPins() {
 };
 var likePin = function likePin(id) {
   return function (dispatch) {
-    debugger;
     return Object(_util_like_api_util__WEBPACK_IMPORTED_MODULE_1__["postLikeToPin"])(id).then(function (like) {
       return dispatch(receiveLike(like));
     });
@@ -520,9 +519,8 @@ var likePin = function likePin(id) {
 };
 var unLikePin = function unLikePin(id) {
   return function (dispatch) {
-    debugger;
     return Object(_util_like_api_util__WEBPACK_IMPORTED_MODULE_1__["deleteLikeFromPin"])(id).then(function (like) {
-      return dispatch(removeLike(like));
+      return dispatch(receiveLike(like));
     });
   };
 };
@@ -3249,41 +3247,34 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
   _createClass(PinShow, [{
     key: "handleUnlike",
     value: function handleUnlike(e) {
-      e.stopPropagation();
-      e.preventDefault(); // const id = e.currentTarget.value
-      // let pin_id = e.currentTarget.value;
-      // this.props.deleteLike(id).then(this.props.getAllUsers());
+      var _this2 = this;
 
-      this.props.unLikePin(e.currentTarget.value); // .then(() => this.props.openModal("Show Pin", id));
+      // e.();
+      e.preventDefault();
+      var pin_id = e.currentTarget.value;
+      this.props.unLikePin(pin_id).then(function () {
+        _this2.props.fetchPin(pin_id);
+      });
     }
   }, {
     key: "handleLike",
     value: function handleLike(e) {
-      // debugger
-      e.stopPropagation();
-      e.preventDefault(); // let like = {
-      //   user_id: this.props.currentUser.id,
-      // let pin_id = e.currentTarget.value
-      // };
+      var _this3 = this;
 
-      this.props.likePin(e.currentTarget.value); // this.props.fetchLikes(this.props.pinId);
+      // e.();
+      e.preventDefault();
+      var pin_id = e.currentTarget.value;
+      this.props.likePin(pin_id).then(function () {
+        _this3.props.fetchPin(pin_id);
+      });
     }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchPin(this.props.pinId);
       this.props.fetchBoard(this.props.pin.board_id);
-      this.props.fetchBoards(this.props.currentUser.id); // this.props.fetchLikes(this.props.pinId);
-    } //  renderErrors() {
-    //     return (
-    //       <ul>
-    //         {this.props.errors.map((error, idx) => (
-    //           <li key={idx}>{error}</li>
-    //         ))}
-    //       </ul>
-    //     );
-    //   }
-
+      this.props.fetchBoards(this.props.currentUser.id);
+    }
   }, {
     key: "handleChange",
     value: function handleChange(e) {
@@ -3294,25 +3285,18 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit() {
-      var _this2 = this;
+      var _this4 = this;
 
-      // debugger
-      // const formData1 = new FormData();
-      // formData1.append("pin[title]", this.props.pin.title);
-      // formData1.append("pin[body]", this.props.pin.body);
-      // formData1.append("pin[photo]", this.state.photoFile);
-      // formData1.append("pin[board_id]", this.state.board_id);
-      // this.props.createPin(formData1).then(() => this.props.closeModal());
       this.props.movePintoBoard(this.props.pin, this.state.board_id).then(function () {
-        return _this2.props.closeModal();
+        return _this4.props.closeModal();
       });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this5 = this;
 
-      debugger;
+      ;
       var choice = this.props.boards.map(function (board, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           key: idx,
@@ -3363,17 +3347,17 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
         to: "/user/".concat(id),
         className: "pinowner",
         onClick: function onClick() {
-          return _this3.props.closeModal();
+          return _this5.props.closeModal();
         }
       }, email)), pin.liked_by_current_user ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleUnlike,
-        className: "unfollow-button",
+        className: "unfollow-like",
         value: pin.id
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-heart"
       })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleLike,
-        className: "follow-button",
+        className: "follow-like",
         value: pin.id
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-heart"
@@ -3418,7 +3402,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  debugger;
   return {
     // likes: state.entities.likes.like_counts || 0,
     // likes: Object.values(state.entities.likes).length || 0,
@@ -5454,7 +5437,6 @@ var LikesReducer = function LikesReducer() {
 
   switch (action.type) {
     case _actions_like_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_LIKE"]:
-      // debugger
       nextState[action.like.id] = action.like;
       return nextState;
 
@@ -6030,7 +6012,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postLikeToPin", function() { return postLikeToPin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteLikeFromPin", function() { return deleteLikeFromPin; });
 var postLikeToPin = function postLikeToPin(id) {
-  debugger;
   return $.ajax({
     url: '/api/likes',
     method: 'POST',
@@ -6040,7 +6021,6 @@ var postLikeToPin = function postLikeToPin(id) {
   });
 };
 var deleteLikeFromPin = function deleteLikeFromPin(id) {
-  debugger;
   return $.ajax({
     url: '/api/likes',
     method: 'DELETE',

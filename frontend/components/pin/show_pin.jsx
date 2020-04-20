@@ -9,75 +9,47 @@ export default class PinShow extends React.Component {
       board_id: 0,
       // photoFile: e.currentTarget.files[0],
     };
-     this.handleSubmit = this.handleSubmit.bind(this);
-     this.handleChange = this.handleChange.bind(this);
-     this.handleLike = this.handleLike.bind(this);
-     this.handleUnlike = this.handleUnlike.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleLike = this.handleLike.bind(this);
+    this.handleUnlike = this.handleUnlike.bind(this);
     // this.renderErrors = this.renderErrors.bind(this);
-
   }
   handleUnlike(e) {
-    
-    e.stopPropagation();
+    // e.();
     e.preventDefault();
-    // const id = e.currentTarget.value
-    // let pin_id = e.currentTarget.value;
-    
-    // this.props.deleteLike(id).then(this.props.getAllUsers());
-    this.props.unLikePin(e.currentTarget.value);
-      // .then(() => this.props.openModal("Show Pin", id));
+    let pin_id = e.currentTarget.value;
+    this.props.unLikePin(pin_id).then(()=>{
+      this.props.fetchPin(pin_id)
+    });
   }
+
   handleLike(e) {
-    // debugger
-    e.stopPropagation();
-    e.preventDefault();
-    // let like = {
-    //   user_id: this.props.currentUser.id,
-      // let pin_id = e.currentTarget.value
-    // };
-    this.props.likePin(e.currentTarget.value);
-    // this.props.fetchLikes(this.props.pinId);
+    // e.();
     
+    e.preventDefault();
+    let pin_id = e.currentTarget.value;
+    this.props.likePin(pin_id).then(()=>{
+      this.props.fetchPin(pin_id)
+    });
   }
   componentDidMount() {
     this.props.fetchPin(this.props.pinId);
-    this.props.fetchBoard(this.props.pin.board_id);  
+    this.props.fetchBoard(this.props.pin.board_id);
     this.props.fetchBoards(this.props.currentUser.id);
-    // this.props.fetchLikes(this.props.pinId);
-
   }
-  
-//  renderErrors() {
-//     return (
-//       <ul>
-//         {this.props.errors.map((error, idx) => (
-//           <li key={idx}>{error}</li>
-//         ))}
-//       </ul>
-//     );
-//   }
 
   handleChange(e) {
     this.setState({ board_id: e.target.value });
   }
   handleSubmit() {
-    // debugger
-    // const formData1 = new FormData();
-    // formData1.append("pin[title]", this.props.pin.title);
-    // formData1.append("pin[body]", this.props.pin.body);
-    // formData1.append("pin[photo]", this.state.photoFile);
-    // formData1.append("pin[board_id]", this.state.board_id);
-    
-    // this.props.createPin(formData1).then(() => this.props.closeModal());
-    this.props.movePintoBoard(this.props.pin, this.state.board_id).then(() => this.props.closeModal());
-    
+    this.props
+      .movePintoBoard(this.props.pin, this.state.board_id)
+      .then(() => this.props.closeModal());
   }
-  
-  render() {
-    debugger
-    
 
-    
+  render() {
+    ;
     let choice = this.props.boards.map((board, idx) => {
       return (
         <option key={idx} value={board.id}>
@@ -90,8 +62,8 @@ export default class PinShow extends React.Component {
     if (this.props.board !== "") {
       id = this.props.board.user.id;
       email = this.props.board.user.email;
-    }else{
-      return ""
+    } else {
+      return "";
     }
     const { pin } = this.props;
     return (
@@ -142,7 +114,7 @@ export default class PinShow extends React.Component {
           {pin.liked_by_current_user ? (
             <button
               onClick={this.handleUnlike}
-              className="unfollow-button"
+              className="unfollow-like"
               value={pin.id}
             >
               <i className="fas fa-heart"></i>
@@ -150,7 +122,7 @@ export default class PinShow extends React.Component {
           ) : (
             <button
               onClick={this.handleLike}
-              className="follow-button"
+              className="follow-like"
               value={pin.id}
             >
               <i className="far fa-heart"></i>

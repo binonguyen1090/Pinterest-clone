@@ -16,7 +16,7 @@ import { withRouter } from "react-router-dom";
 import { likePin, unLikePin } from "../../actions/pin_action";
 
 const mSTP = (state, ownProps) => {
-  debugger
+  
   return {
     // likes: state.entities.likes.like_counts || 0,
     // likes: Object.values(state.entities.likes).length || 0,
