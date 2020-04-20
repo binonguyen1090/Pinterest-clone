@@ -92,14 +92,12 @@
     display: flex;
     flex-direction: column;
 }
+
 .unfollow-button{
-  border: none;
-    outline: none;
+  background-color: red;
 }
 .follow-button{
-     border: none;
-    outline: none;
-
+  background-color: green;
 }
 .currentUser-in-community{
   justify-content: center;

@@ -1,5 +1,5 @@
 export const postLikeToPin = id => {
-    debugger
+ 
     return $.ajax({
         url: '/api/likes',
         method: 'POST',
@@ -8,7 +8,7 @@ export const postLikeToPin = id => {
 }
 
 export const deleteLikeFromPin = id => {
-    debugger
+  
     return $.ajax({
         url: '/api/likes',
         method: 'DELETE',

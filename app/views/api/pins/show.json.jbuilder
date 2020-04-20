@@ -9,9 +9,11 @@ json.extract! @pin, :id, :title, :body, :board_id
 #   end
 # end
 json.likes @pin.likes.count
+
 if (@pin.likes && current_user.id)
-json.liked_by_current_user !!@pin.likes.find_by(user_id: current_user.id)
+  json.liked_by_current_user !!@pin.likes.find_by(user_id: current_user.id)
 end
+
 if @pin.photo.attached?
   json.photoUrl url_for(@pin.photo)
 else
