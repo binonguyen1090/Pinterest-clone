@@ -27,6 +27,7 @@ const mSTP = (state, ownProps) => {
     board: state.ui.boardCreator.board || "",
     user: state.ui.creator.user || "",
     currentUser: state.entities.users[state.session.id],
+    currentUserPins: Object.values(state.entities.users[state.session.id]).pins || []
   };
 };
 

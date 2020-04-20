@@ -3296,7 +3296,22 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this5 = this;
 
-      ;
+      debugger;
+      var edit;
+
+      if (this.props.currentUser.pins) {
+        edit = Object.values(this.props.currentUser.pins).map(function (user_pin, idx) {
+          if (user_pin.id === _this5.props.pin.id) {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+              key: idx,
+              className: "fas fa-pen"
+            });
+          }
+
+          ;
+        });
+      }
+
       var choice = this.props.boards.map(function (board, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           key: idx,
@@ -3325,9 +3340,7 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
         className: "pinshow-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-show nav-bar"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-pen"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, edit, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         onChange: this.handleChange
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, " Select board"), choice)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-show save-board-pin-text",
@@ -3411,7 +3424,8 @@ var mSTP = function mSTP(state, ownProps) {
     pinId: state.ui.modal.options.pinId,
     board: state.ui.boardCreator.board || "",
     user: state.ui.creator.user || "",
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    currentUserPins: Object.values(state.entities.users[state.session.id]).pins || []
   };
 };
 
@@ -4964,9 +4978,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "textinsplash"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Y"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fab fa-opera"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "cf"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "top",

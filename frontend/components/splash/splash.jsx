@@ -57,10 +57,10 @@ export default class Splash extends React.Component {
             <div className="divSplashpics">
               <div id="cf">
                 <h2 className="textinsplash">
-                  <div>Y</div>
+                  {/* <div>Y</div>
                   <div>
                     <i className="fab fa-opera"></i>
-                  </div>
+                  </div> */}
                 </h2>
               </div>
               <div id="cf">

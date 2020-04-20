@@ -49,7 +49,15 @@ export default class PinShow extends React.Component {
   }
 
   render() {
-    ;
+    debugger
+    let edit;
+    if (this.props.currentUser.pins) {
+    edit = Object.values(this.props.currentUser.pins).map((user_pin, idx) => {
+      if (user_pin.id === this.props.pin.id){
+        return <i key={idx} className="fas fa-pen"></i>; 
+      }; 
+    })
+    }
     let choice = this.props.boards.map((board, idx) => {
       return (
         <option key={idx} value={board.id}>
@@ -74,7 +82,9 @@ export default class PinShow extends React.Component {
         </div>
         <div className="pinshow-right">
           <div className="pin-show nav-bar">
-            <i className="fas fa-pen"></i>
+            {edit}
+            {/* <i className="fas fa-pen"></i> */}
+
             <label>
               <select onChange={this.handleChange}>
                 <option> Select board</option>
