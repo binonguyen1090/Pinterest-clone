@@ -49,7 +49,7 @@ export default class PinShow extends React.Component {
   }
 
   render() {
-    debugger
+    
     let edit;
     if (this.props.currentUser.pins) {
     edit = Object.values(this.props.currentUser.pins).map((user_pin, idx) => {
@@ -82,8 +82,15 @@ export default class PinShow extends React.Component {
         </div>
         <div className="pinshow-right">
           <div className="pin-show nav-bar">
-            {edit}
-            {/* <i className="fas fa-pen"></i> */}
+            <Link
+              className="edit-board-item-edit"
+              to="#"
+              onClick={() =>
+                this.props.openModal("Edit Pin", { pinId: this.props.pin.id })
+              }
+            >
+              {edit}
+            </Link>
 
             <label>
               <select onChange={this.handleChange}>
@@ -119,7 +126,6 @@ export default class PinShow extends React.Component {
             >
               {email}
             </Link>
-            {/* <div className="errorInBoardForm">{this.renderErrors()}</div> */}
           </div>
           {pin.liked_by_current_user ? (
             <button

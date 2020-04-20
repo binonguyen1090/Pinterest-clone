@@ -379,7 +379,7 @@ var closeModal = function closeModal() {
 /*!****************************************!*\
   !*** ./frontend/actions/pin_action.js ***!
   \****************************************/
-/*! exports provided: RECEIVE_ALL_PINS, RECEIVE_PIN, REMOVE_PIN, RECEIVE_PIN_ERRORS, RECEIVE_LIKE, REMOVE_LIKE, RECEIVE_LIKES, receivePinErrors, fetchPins, fetchPin, createPin, deletePin, fetchOneUserPins, fetchOneBoardPins, fetchAllUsersPins, likePin, unLikePin */
+/*! exports provided: RECEIVE_ALL_PINS, RECEIVE_PIN, REMOVE_PIN, RECEIVE_PIN_ERRORS, RECEIVE_LIKE, REMOVE_LIKE, RECEIVE_LIKES, receivePinErrors, updatePin, fetchPins, fetchPin, createPin, deletePin, fetchOneUserPins, fetchOneBoardPins, fetchAllUsersPins, likePin, unLikePin */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -392,6 +392,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_LIKE", function() { return REMOVE_LIKE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_LIKES", function() { return RECEIVE_LIKES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePinErrors", function() { return receivePinErrors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updatePin", function() { return updatePin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPins", function() { return fetchPins; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPin", function() { return fetchPin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPin", function() { return createPin; });
@@ -458,6 +459,13 @@ var removePin = function removePin(payload) {
   };
 };
 
+var updatePin = function updatePin(pin) {
+  return function (dispatch) {
+    return _util_pin_api_util__WEBPACK_IMPORTED_MODULE_0__["updatePin"](pin).then(function (pin) {
+      return dispatch(receivePin(pin));
+    });
+  };
+};
 var fetchPins = function fetchPins() {
   return function (dispatch) {
     return _util_pin_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchPins"]().then(function (pins) {
@@ -1900,6 +1908,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, oP) {
+  debugger;
   return {
     errors: state.errors.board,
     currentUser: state.entities.users[state.session.id],
@@ -2300,7 +2309,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _board_create_board_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../board/create_board_form_container */ "./frontend/components/board/create_board_form_container.jsx");
 /* harmony import */ var _pin_create_pin_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pin/create_pin_form_container */ "./frontend/components/pin/create_pin_form_container.jsx");
 /* harmony import */ var _board_edit_board_form_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../board/edit_board_form_container */ "./frontend/components/board/edit_board_form_container.jsx");
-/* harmony import */ var _pin_show_pin_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../pin/show_pin_container */ "./frontend/components/pin/show_pin_container.jsx");
+/* harmony import */ var _pin_edit_pin_form_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pin/edit_pin_form_container */ "./frontend/components/pin/edit_pin_form_container.jsx");
+/* harmony import */ var _pin_show_pin_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pin/show_pin_container */ "./frontend/components/pin/show_pin_container.jsx");
+
 
 
 
@@ -2343,8 +2354,12 @@ function Modal(_ref) {
       component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_board_edit_board_form_container__WEBPACK_IMPORTED_MODULE_7__["default"], null);
       break;
 
+    case "Edit Pin":
+      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_edit_pin_form_container__WEBPACK_IMPORTED_MODULE_10__["default"], null);
+      break;
+
     case "Show Pin":
-      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_show_pin_container__WEBPACK_IMPORTED_MODULE_8__["default"], null);
+      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_show_pin_container__WEBPACK_IMPORTED_MODULE_9__["default"], null);
       break;
 
     default:
@@ -3185,6 +3200,155 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/pin/edit_pin.jsx":
+/*!**********************************************!*\
+  !*** ./frontend/components/pin/edit_pin.jsx ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EditPinForm; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var EditPinForm = /*#__PURE__*/function (_React$Component) {
+  _inherits(EditPinForm, _React$Component);
+
+  function EditPinForm(props) {
+    var _this;
+
+    _classCallCheck(this, EditPinForm);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditPinForm).call(this, props));
+    _this.state = _this.props.pin;
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(EditPinForm, [{
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault(), // this.props.updatePin(this.state)
+      this.props.updatePin(this.state).then(this.props.closeModal);
+    }
+  }, {
+    key: "update",
+    value: function update(v) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, v, e.target.value));
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      debugger;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "all_board"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "boardform",
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "titlecreateForm"
+      }, "Edit Pin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "inputCreateBoard",
+        type: "text",
+        value: this.state.title,
+        onChange: this.update("title")
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "inputCreateBoard",
+        type: "text",
+        value: this.state.body,
+        onChange: this.update("body")
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "create-group-btton"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "canclebutton",
+        onClick: this.props.closeModal
+      }, "Cancle"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "createbutton",
+        type: "submit",
+        value: "Update"
+      })))));
+    }
+  }]);
+
+  return EditPinForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
+
+/***/ }),
+
+/***/ "./frontend/components/pin/edit_pin_form_container.jsx":
+/*!*************************************************************!*\
+  !*** ./frontend/components/pin/edit_pin_form_container.jsx ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _edit_pin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit_pin */ "./frontend/components/pin/edit_pin.jsx");
+/* harmony import */ var _actions_pin_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/pin_action */ "./frontend/actions/pin_action.js");
+/* harmony import */ var _actions_modal_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_action */ "./frontend/actions/modal_action.js");
+
+
+
+
+
+var mSTP = function mSTP(state) {
+  debugger;
+  return {
+    pin: state.entities.pins[state.ui.modal.options.pinId],
+    currentUser: state.entities.users[state.session.id]
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    fetchPin: function fetchPin(pinId) {
+      return dispatch(Object(_actions_pin_action__WEBPACK_IMPORTED_MODULE_2__["fetchPin"])(pinId));
+    },
+    closeModal: function closeModal() {
+      return dispatch(Object(_actions_modal_action__WEBPACK_IMPORTED_MODULE_3__["closeModal"])());
+    },
+    updatePin: function updatePin(pin) {
+      return dispatch(Object(_actions_pin_action__WEBPACK_IMPORTED_MODULE_2__["updatePin"])(pin));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_edit_pin__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/components/pin/show_pin.jsx":
 /*!**********************************************!*\
   !*** ./frontend/components/pin/show_pin.jsx ***!
@@ -3296,7 +3460,6 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this5 = this;
 
-      debugger;
       var edit;
 
       if (this.props.currentUser.pins) {
@@ -3340,7 +3503,15 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
         className: "pinshow-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-show nav-bar"
-      }, edit, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "edit-board-item-edit",
+        to: "#",
+        onClick: function onClick() {
+          return _this5.props.openModal("Edit Pin", {
+            pinId: _this5.props.pin.id
+          });
+        }
+      }, edit), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         onChange: this.handleChange
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, " Select board"), choice)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pin-show save-board-pin-text",
@@ -6102,6 +6273,7 @@ var createPin = function createPin(pin) {
   });
 };
 var updatePin = function updatePin(pin) {
+  debugger;
   return $.ajax({
     url: "api/pins/".concat(pin.id),
     method: "PATCH",

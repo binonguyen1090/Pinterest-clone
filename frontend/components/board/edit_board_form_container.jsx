@@ -11,6 +11,7 @@ import React from "react";
 import { openModal, closeModal } from "../../actions/modal_action";
 
 const mSTP = (state, oP) => {
+  debugger
   return {
     
     errors: state.errors.board,

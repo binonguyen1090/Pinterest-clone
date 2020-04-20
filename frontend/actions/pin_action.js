@@ -47,7 +47,9 @@ const removePin = payload => ({
   userId: payload.user_id,
   boardId: payload.board_id
 });
-
+export const updatePin = pin => dispatch => (
+  PinApiUtil.updatePin(pin).then(pin => dispatch(receivePin(pin)))
+);
 export const fetchPins = () => dispatch =>
   PinApiUtil.fetchPins().then(pins => dispatch(receiveAllPins(pins)));
 

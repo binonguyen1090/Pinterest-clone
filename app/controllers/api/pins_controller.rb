@@ -34,6 +34,7 @@ class Api::PinsController < ApplicationController
     end
   end
 
+
   def destroy
     @pin = Pin.find(params[:id])
     @pin.destroy
