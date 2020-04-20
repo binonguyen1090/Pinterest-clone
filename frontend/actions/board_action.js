@@ -46,7 +46,6 @@ export const updateBoard = board => dispatch =>
         errors => dispatch(receiveBoardErrors(errors.responseJSON))
     );
 export const movePintoBoard = (pin, boardId )=> dispatch =>{
-// debugger
     return BoardApiUtil.movePintoBoard(pin, boardId).then(
         board => dispatch(receiveBoard(board)),
         errors => dispatch(receiveBoardErrors(errors.responseJSON))

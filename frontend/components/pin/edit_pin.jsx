@@ -5,6 +5,8 @@ export default class EditPinForm extends React.Component {
     this.state = this.props.pin;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.deletePin = this.deletePin.bind(this);
+
   }
   
   handleSubmit(e) {
@@ -16,9 +18,13 @@ export default class EditPinForm extends React.Component {
   update(v) {
     return (e) => this.setState({ [v]: e.target.value });
   }
+  deletePin(e) {
+    e.preventDefault(), this.props.closeModal();
+    this.props.deletePin(this.props.pin.id);
+  }
 
   render() {
-    debugger;
+    ;
     return (
       <div>
         <div className="all_board">
@@ -40,7 +46,15 @@ export default class EditPinForm extends React.Component {
                 onChange={this.update("body")}
               />
             </div>
+
             <div className="create-group-btton">
+              <div className="delete-edit-button">
+              <div>
+                <button className="delete-pin" onClick={this.deletePin}>
+                  <i className="fas fa-trash-alt"></i>
+                </button>
+              </div>
+              </div>
               <button className="canclebutton" onClick={this.props.closeModal}>
                 Cancle
               </button>

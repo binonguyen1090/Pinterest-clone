@@ -35,7 +35,6 @@ class Api::BoardsController < ApplicationController
     render json: { id: @board.id, user_id: @board.user_id }
   end
   def move
-    # debugger
     @board = Board.find(params[:boardId])
     @pin = Pin.find(params[:pinId])
     @board.save(@pin)

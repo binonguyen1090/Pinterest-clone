@@ -28,7 +28,6 @@ const usersReducer = (state = {}, action) => {
       newState2[action.follow.followee_id].follower_ids.push(action.follow.follower_id)
       return newState2;
     // case REMOVE_FOLLOW:
-      // debugger
       // delete newState[action.follow];
       // newState2[action.follow.follower_id].followee_ids.delete(action.follow.followee_id)
 

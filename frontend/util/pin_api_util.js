@@ -30,7 +30,6 @@ export const fetchPin = pinId =>
   });
 
 export const createPin = pin => {
-  // debugger
   return $.ajax({
     url: "/api/pins",
     method: "POST",
@@ -41,7 +40,7 @@ export const createPin = pin => {
 };
 
 export const updatePin = pin => {
-  debugger
+  
   return $.ajax({
     url: `api/pins/${pin.id}`,
     method: "PATCH",

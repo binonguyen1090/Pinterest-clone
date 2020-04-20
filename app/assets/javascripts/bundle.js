@@ -176,7 +176,6 @@ var updateBoard = function updateBoard(board) {
 };
 var movePintoBoard = function movePintoBoard(pin, boardId) {
   return function (dispatch) {
-    // debugger
     return _util_board_api_util__WEBPACK_IMPORTED_MODULE_0__["movePintoBoard"](pin, boardId).then(function (board) {
       return dispatch(receiveBoard(board));
     }, function (errors) {
@@ -217,7 +216,6 @@ var REMOVE_FOLLOW = 'REMOVE_FOLLOW';
 var RECEIVE_FOLLOWS = 'RECEIVE_FOLLOWS';
 
 var receiveFollow = function receiveFollow(follow) {
-  // debugger
   return {
     type: RECEIVE_FOLLOW,
     follow: follow
@@ -232,7 +230,6 @@ var removeFollow = function removeFollow(follow) {
 };
 
 var receiveFollows = function receiveFollows(follows) {
-  // debugger
   return {
     type: RECEIVE_FOLLOWS,
     follows: follows
@@ -247,7 +244,6 @@ var fetchFollows = function fetchFollows() {
   };
 };
 var createFollow = function createFollow(follow) {
-  // debugger
   return function (dispatch) {
     return _util_follow_api_util__WEBPACK_IMPORTED_MODULE_0__["createFollow"](follow).then(function (follow) {
       return dispatch(receiveFollow(follow));
@@ -255,7 +251,6 @@ var createFollow = function createFollow(follow) {
   };
 };
 var deleteFollow = function deleteFollow(follow) {
-  // debugger
   return function (dispatch) {
     return _util_follow_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteFollow"](follow).then(function (follow) {
       return dispatch(removeFollow(follow));
@@ -277,7 +272,6 @@ var deleteFollow = function deleteFollow(follow) {
 // export const REMOVE_LIKE = 'REMOVE_LIKE';
 // export const RECEIVE_LIKES = 'RECEIVE_LIKES'
 // const receiveLike = like => {
-//     // debugger
 //     return {
 //         type: RECEIVE_LIKE,
 //         like
@@ -290,7 +284,6 @@ var deleteFollow = function deleteFollow(follow) {
 //     }
 // }
 // const receiveLikes = likes => {
-//     // debugger
 //     return {
 //         type: RECEIVE_LIKES,
 //         likes
@@ -302,13 +295,11 @@ var deleteFollow = function deleteFollow(follow) {
 //     }
 // }
 // export const createLike = (like) => {
-//     // debugger
 //     return dispatch => {
 //         return APIUtil.createLike(like).then(like => dispatch(receiveLike(like)))
 //     }
 // }
 // export const deleteLike = (like) => {
-//     // debugger
 //     return dispatch => {
 //         return APIUtil.deleteLike(like).then(like => dispatch(removeLike(like)))
 //     }
@@ -415,7 +406,6 @@ var REMOVE_LIKE = 'REMOVE_LIKE';
 var RECEIVE_LIKES = 'RECEIVE_LIKES';
 
 var receiveLike = function receiveLike(like) {
-  // debugger
   return {
     type: RECEIVE_LIKE,
     like: like
@@ -482,7 +472,6 @@ var fetchPin = function fetchPin(PinId) {
 };
 var createPin = function createPin(pin) {
   return function (dispatch) {
-    // debugger
     return _util_pin_api_util__WEBPACK_IMPORTED_MODULE_0__["createPin"](pin).then(function (pin) {
       return dispatch(receivePin(pin));
     }, function (errors) {
@@ -948,8 +937,7 @@ var AllUsers = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       var followees = Object.values(this.props.currentUser.followee_ids).length;
-      var followers = Object.values(this.props.currentUser.follower_ids).length; // debugger
-      // if(this.props.users.length < 1) return null
+      var followers = Object.values(this.props.currentUser.follower_ids).length; // if(this.props.users.length < 1) return null
 
       var users = this.props.users;
 
@@ -1305,7 +1293,6 @@ var BoardIndex = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchBoards(this.props.userId);
     } // componentDidUpdate(prevProps) {
-    //   debugger
     //   if (prevProps.user.id != this.props.user.id) {
     //     this.props.fetchBoards(this.props.user.id);
     //   }
@@ -1908,7 +1895,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, oP) {
-  debugger;
   return {
     errors: state.errors.board,
     currentUser: state.entities.users[state.session.id],
@@ -1997,7 +1983,6 @@ var UserpageBoardIndex = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchBoards(this.props.userId);
     } // componentDidUpdate(prevProps) {
-    //   debugger
     //   if (prevProps.user.id != this.props.user.id) {
     //     this.props.fetchBoards(this.props.user.id);
     //   }
@@ -3246,6 +3231,7 @@ var EditPinForm = /*#__PURE__*/function (_React$Component) {
     _this.state = _this.props.pin;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.deletePin = _this.deletePin.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -3265,9 +3251,15 @@ var EditPinForm = /*#__PURE__*/function (_React$Component) {
       };
     }
   }, {
+    key: "deletePin",
+    value: function deletePin(e) {
+      e.preventDefault(), this.props.closeModal();
+      this.props.deletePin(this.props.pin.id);
+    }
+  }, {
     key: "render",
     value: function render() {
-      debugger;
+      ;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "all_board"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -3287,7 +3279,14 @@ var EditPinForm = /*#__PURE__*/function (_React$Component) {
         onChange: this.update("body")
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-group-btton"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "delete-edit-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "delete-pin",
+        onClick: this.deletePin
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-trash-alt"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "canclebutton",
         onClick: this.props.closeModal
       }, "Cancle"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -3324,7 +3323,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
-  debugger;
   return {
     pin: state.entities.pins[state.ui.modal.options.pinId],
     currentUser: state.entities.users[state.session.id]
@@ -3341,6 +3339,9 @@ var mDTP = function mDTP(dispatch) {
     },
     updatePin: function updatePin(pin) {
       return dispatch(Object(_actions_pin_action__WEBPACK_IMPORTED_MODULE_2__["updatePin"])(pin));
+    },
+    deletePin: function deletePin(pinId) {
+      return dispatch(Object(_actions_pin_action__WEBPACK_IMPORTED_MODULE_2__["deletePin"])(pinId));
     }
   };
 };
@@ -5568,14 +5569,12 @@ var FollowsReducer = function FollowsReducer() {
 
   switch (action.type) {
     case _actions_follow_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FOLLOWS"]:
-      // debugger
       return Object.assign({}, action.follows);
 
     case _actions_follow_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FOLLOW"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_2__["merge"])({}, newState, _defineProperty({}, action.follow.id, action.follow));
 
     case _actions_follow_action__WEBPACK_IMPORTED_MODULE_0__["REMOVE_FOLLOW"]:
-      // debugger
       // newState = Object.assign({}, state);
       delete newState[action.follow];
       return newState;
@@ -5836,10 +5835,8 @@ var PinsReducer = function PinsReducer() {
       delete nextState[action.pinId];
       return nextState;
     // case RECEIVE_CURRENT_USER:
-    //   debugger
     //   return Object.assign({}, state, { [action.user.id]: action.user }, action.likes);
     // case RECEIVE_LIKE:
-    //   debugger
     //   newState2[action.like.pin_id].likes.push(action.like.user_id)
     //   // newState2[action.like.user_id].likes.push(action.like.pin_id)
     //   return newState2;
@@ -6025,7 +6022,6 @@ var usersReducer = function usersReducer() {
       newState2[action.follow.followee_id].follower_ids.push(action.follow.follower_id);
       return newState2;
     // case REMOVE_FOLLOW:
-    // debugger
     // delete newState[action.follow];
     // newState2[action.follow.follower_id].followee_ids.delete(action.follow.followee_id)
     // newState2[action.follow.followee_id].follower_ids.delete(action.follow.follower_id)
@@ -6127,7 +6123,6 @@ var updateBoard = function updateBoard(board) {
   });
 };
 var movePintoBoard = function movePintoBoard(pin, boardId) {
-  // debugger
   return $.ajax({
     url: "api/boards/".concat(boardId, "/").concat(pin.id),
     method: "GET" // data: { board }
@@ -6156,7 +6151,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteFollow", function() { return deleteFollow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchFollows", function() { return fetchFollows; });
 var createFollow = function createFollow(follow) {
-  // debugger
   return $.ajax({
     method: "POST",
     url: "/api/follows",
@@ -6263,7 +6257,6 @@ var fetchPin = function fetchPin(pinId) {
   });
 };
 var createPin = function createPin(pin) {
-  // debugger
   return $.ajax({
     url: "/api/pins",
     method: "POST",
@@ -6273,7 +6266,6 @@ var createPin = function createPin(pin) {
   });
 };
 var updatePin = function updatePin(pin) {
-  debugger;
   return $.ajax({
     url: "api/pins/".concat(pin.id),
     method: "PATCH",

@@ -5,7 +5,6 @@
 // export const RECEIVE_LIKES = 'RECEIVE_LIKES'
 
 // const receiveLike = like => {
-//     // debugger
 //     return {
 //         type: RECEIVE_LIKE,
 //         like
@@ -20,7 +19,7 @@
 // }
 
 // const receiveLikes = likes => {
-//     // debugger
+
 //     return {
 //         type: RECEIVE_LIKES,
 //         likes
@@ -34,14 +33,14 @@
 // }
 
 // export const createLike = (like) => {
-//     // debugger
+
 //     return dispatch => {
 //         return APIUtil.createLike(like).then(like => dispatch(receiveLike(like)))
 //     }
 // }
 
 // export const deleteLike = (like) => {
-//     // debugger
+
 //     return dispatch => {
 //         return APIUtil.deleteLike(like).then(like => dispatch(removeLike(like)))
 //     }

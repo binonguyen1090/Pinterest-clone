@@ -1,4 +1,3 @@
-# debugger
 json.extract! @pin, :id, :title, :body, :board_id
 
 # json.likes do

@@ -45,7 +45,6 @@ export default class AllUsers extends React.Component {
   render() {
     let followees = Object.values(this.props.currentUser.followee_ids).length
     let followers = Object.values(this.props.currentUser.follower_ids).length
-    // debugger
     // if(this.props.users.length < 1) return null
     const { users } = this.props;
     if (!users) {

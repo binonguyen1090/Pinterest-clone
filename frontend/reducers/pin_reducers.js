@@ -26,10 +26,8 @@ const PinsReducer = (state = {}, action) => {
       delete nextState[action.pinId];
       return nextState;
     // case RECEIVE_CURRENT_USER:
-    //   debugger
     //   return Object.assign({}, state, { [action.user.id]: action.user }, action.likes);
     // case RECEIVE_LIKE:
-    //   debugger
     //   newState2[action.like.pin_id].likes.push(action.like.user_id)
     //   // newState2[action.like.user_id].likes.push(action.like.pin_id)
     //   return newState2;

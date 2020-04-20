@@ -33,7 +33,6 @@ export const updateBoard = board => {
   });
 };
 export const movePintoBoard = (pin, boardId) => {
-  // debugger
   return $.ajax({
     url: `api/boards/${boardId}/${pin.id}`,
     method: "GET",
