@@ -1448,6 +1448,19 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
+      if (this.props.board.pinPhotos === undefined) {
+        return null;
+      }
+
+      var arr = this.props.board.pinPhotos.map(function (pinPhoto, i) {
+        // debugger
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          key: i,
+          className: "index-list-item",
+          src: pinPhoto,
+          alt: ""
+        });
+      });
       var editButton;
 
       if (this.props.currentUserId === this.props.user.id) {
@@ -1458,6 +1471,7 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
             return _this.props.openModal("Edit Board", _this.props.board.id);
           }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          id: "editboardpen",
           className: "fas fa-pen "
         }));
       } else {
@@ -1474,7 +1488,7 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "link_to_board_show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "item-image"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, arr.slice(0, 4))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "title-edit"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "title-board"
@@ -2436,17 +2450,7 @@ var Navbar = function Navbar(_ref) {
     className: "i-circle"
   }, currentUser.email[0].toUpperCase()), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "email-nav"
-  }, currentUser.email.split("@")[0].slice(1)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "/",
-    className: "item comment"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-comment-dots"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "/",
-    className: "item"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fas fa-bell"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, currentUser.email.split("@")[0].slice(1)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "",
     className: "item",
     onClick: logout

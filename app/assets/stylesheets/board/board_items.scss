@@ -13,11 +13,16 @@
 .box-index-items-container {
   // padding: 0 50px 50px 50px;
   // margin: 0 50px 50px 50px;
+  // display: flex;
+  //   column-count: 5;
+  // column-gap: 1em;
+  // width: 90%;
+  // margin:  50px auto;
   display: flex;
-    column-count: 5;
-  column-gap: 1em;
-  width: 90%;
-  margin:  50px auto;
+    flex-wrap: wrap;
+    margin-top: -10%;
+    margin-left: 0;
+    padding: 2%;
 }
 
 .hover-edit-board {
@@ -27,25 +32,13 @@
 
   border: none;
   text-decoration: none;
+  margin-right: 30px;
+  // background-color: red;
+  // height: 100px;
+  margin-top: -6px;
 }
 
-.box-index-item {
-  background-color: #efefef;
-  padding: 20px;
-  height: 200px;
-  width: 20%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  margin: 10px;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-    Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ,
-    Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
-}
+
 
 .edit-board-item-edit {
   font-size: 23px;
@@ -59,15 +52,60 @@
   height: 30px;
 
   overflow: hidden;
+
+}
+.index-list-item {
+    width: 124px;
+    height: 107px;
+    border-radius: 8px;
 }
 .item-image {
-  height: 80%;
-  width: 100%;
-  border-radius: 10px;
-  background-color: #d3d3d3;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  // height: 80%;
+  // width: 100%;
+  // border-radius: 10px;
+  // background-color: #d3d3d3;
+  // justify-content: center;
+  // align-items: center;
+  // align-content: center;
+  //
+  // background-color: rgb(228, 235, 228);
+  // margin-top: 100px;
+    width: 255px;
+    height: 220px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 11px;
+    // animation: .8s ease 0s 1 growdiv;
+    border-radius: 9px;
+    // margin-right: 10px;
+}
+.box-index-item {
+  // background-color: #efefef;
+  // padding: 20px;
+  // height: 200px;
+  // width: 20%;
+  // text-overflow: ellipsis;
+  // overflow: hidden;
+  // margin: 10px;
+  // border-radius: 10px;
+  // font-weight: bold;
+  // font-size: 16px;
+  // font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  //   Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+  //   Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ,
+  //   Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
+  //   "Segoe UI Emoji", "Segoe UI Symbol";
+    margin-top: 100px;
+    /* z-index: -44; */
+    margin-bottom: -10%;
+    background-color: #F0F0F0;
+    border: 2px solid #F0F0F0;
+    border-radius: 10px;
+
+    margin-right: 10px;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .board_title {
@@ -79,4 +117,8 @@
 }
 .link_to_board_show {
   text-decoration: none;
+}
+.title-board{
+  margin-left: 30px;
+  font-weight: bold;
 }

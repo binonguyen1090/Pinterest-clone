@@ -41,12 +41,12 @@ export const Navbar = ({ currentUser, logout }) => {
           </Link>
         </div>
 
-        <a href={`/`} className="item comment">
+        {/* <a href={`/`} className="item comment">
           <i className="fas fa-comment-dots"></i>
         </a>
         <a href={`/`} className="item">
           <i className="fas fa-bell"></i>
-        </a>
+        </a> */}
 
         <Link to="" className="item" onClick={logout}>
           <i className="fas fa-sign-out-alt"></i>
