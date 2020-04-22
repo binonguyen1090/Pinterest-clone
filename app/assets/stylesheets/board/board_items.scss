@@ -18,11 +18,13 @@
   // column-gap: 1em;
   // width: 90%;
   // margin:  50px auto;
-  display: flex;
+    display: flex;
     flex-wrap: wrap;
-    margin-top: -10%;
+    // margin-top: -10%;
     margin-left: 0;
     padding: 2%;
+    // background-color: red;
+    
 }
 
 .hover-edit-board {
@@ -92,17 +94,19 @@
   //   Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ,
   //   Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
   //   "Segoe UI Emoji", "Segoe UI Symbol";
-    margin-top: 150px;
+    // margin-top: 150px;
     /* z-index: -44; */
     margin-bottom: -10%;
     background-color: #F0F0F0;
     border: 2px solid #F0F0F0;
     border-radius: 10px;
-
+    // background-color: pink;
     margin-right: 10px;
     align-content: center;
     display: flex;
     flex-direction: column;
+    // padding-bottom: 100px;
+
 }
 
 .board_title {
