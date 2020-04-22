@@ -5,64 +5,79 @@
   display: flex;
   border-radius: 10px;
   background-color: white;
+  
 }
-.pinshow-left{
-  padding: 20px;
-}
+// .pinshow-left{
+//   padding: 20px;
+// }
 .pinshow-right{
   padding: 20px;
+  // background-color: green;
+  height: 600px;
+    width: 450px;
 }
-.pinshow-left img {
-  border-radius: 10px;
-}
+// .pinshow-left img {
+//   border-radius: 10px;
+// }
 .pin-show.nav-bar{
   display: flex;
   justify-content: space-between;
   min-height: 100px;
   align-items: center;
   font-size: 30px;
+  // background-color: red;
 }
 .pin-show.title{
-  margin-top: 16px;
-  font-size: 36px;
-  font-weight: 700;
-  text-align: left;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
-  word-wrap: break-word;
-  letter-spacing: -.4px;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  color: #333;
+  // margin-top: 16px;
+  font-size: 50px;
+  font-weight: bold;
+  padding-left: 100px;
+  // font-weight: 700;
+  // text-align: left;
+  // -webkit-hyphens: auto;
+  // -ms-hyphens: auto;
+  // hyphens: auto;
+  // word-wrap: break-word;
+  // letter-spacing: -.4px;
+  // -moz-osx-font-smoothing: grayscale;
+  // -webkit-font-smoothing: antialiased;
+  // color: #333;
 }
 
 .pin-show.description{
-  margin-top: 8px;
-  font-size: 20px;
-  font-weight: 400;
+  // margin-top: 8px;
+  // font-size: 20px;
+  // font-weight: 400;
   
-  color: #333;
+  // color: #333;
+  padding-top: 50px;
+  font-size: 30px;
+  font-weight: lighter;
+  padding-left: 100px;
 }
 
 .pin-show.credit{
-  margin-top: 10px;
+  margin-top: 40px;
   padding: 10px;
+  // background-color: yellow;
+  padding-left: 100px;
 }
 .pinowner{
   margin-top: 10px;
   text-decoration: none;
-  padding-top: 10px;
+  padding-left: 100px;
+  font-size: 20px;
 }
 .pin-show.save-board-pin-text{
-  background-color: red;
+  // background-color: red;
   padding: 5px;
   color: white;
   border-radius: 5px;
 }
 
 .Uploadby{
-  font-weight: bold;
+  font-weight: lighter;
+  font-size: 30px;
 }
 .delete-pin{
   margin-right: 30px;
@@ -70,4 +85,61 @@
   border: none;
     outline: none;
     font-size: 30px;
+}
+
+.edit-board-item-edit {
+  font-size: 40px;
+  padding-left: 100px;
+}
+
+/* testttt */ 
+.pinshow-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pinshow-left > img {
+    border-radius: 20px;
+    height: 600px;
+    width: 400px;
+    margin-left: 50px;
+    // max-width: 580px;
+    
+}
+
+.pinshow-left > img:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+.pin-show-main {
+    display: flex;
+    // position: relative;
+    // flex-direction: column; 
+    align-items: center;
+    margin: 0 auto;
+    background: white;
+    width: auto;
+    height: auto;
+    // max-width: 628px;
+    // min-width: 347px;
+    padding: 20px;
+    border-radius: 16px;
+    color: rgb(33, 25, 34);
+    // margin-top: 40px;
+    // margin-bottom: 30px;
+    // padding: 70px 24px;
+    cursor: default;
+}
+.pin-like-show-pin{
+  // background-color: pink;
+  padding-top: 150px;
+  padding-left: 100px;
+  font-size: 40px;
+}
+
+.far.fa-heart{
+  padding-right: 10px;
+}
+.fas.fa-heart{
+  padding-right: 10px;
 }

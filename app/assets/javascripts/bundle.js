@@ -3497,60 +3497,57 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
       }
 
       var pin = this.props.pin;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pin-show container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pinshow-left"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "board-pin-show",
-        src: pin.photoUrl
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pinshow-right"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pin-show nav-bar"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        className: "edit-board-item-edit",
-        to: "#",
-        onClick: function onClick() {
-          return _this5.props.openModal("Edit Pin", {
-            pinId: _this5.props.pin.id
-          });
-        }
-      }, edit), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        onChange: this.handleChange
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, " Select board"), choice)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pin-show save-board-pin-text",
-        onClick: this.handleSubmit,
-        type: "submit"
-      }, "Save")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pin-show info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pin-show title"
-      }, pin.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pin-show description"
-      }, pin.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pin-show credit"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "Uploadby"
-      }, "Upload by:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/user/".concat(id),
-        className: "pinowner",
-        onClick: function onClick() {
-          return _this5.props.closeModal();
-        }
-      }, email)), pin.liked_by_current_user ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.handleUnlike,
-        className: "unfollow-like",
-        value: pin.id
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-heart"
-      })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.handleLike,
-        className: "follow-like",
-        value: pin.id
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-heart"
-      })), pin.likes));
+      return (// <div className="pin-show container">
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "pin-show-main"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "pinshow-left"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: pin.photoUrl
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "pinshow-right"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "pin-show nav-bar"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          className: "edit-board-item-edit",
+          to: "#",
+          onClick: function onClick() {
+            return _this5.props.openModal("Edit Pin", {
+              pinId: _this5.props.pin.id
+            });
+          }
+        }, edit)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "pin-show info"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "pin-show title"
+        }, pin.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "pin-show description"
+        }, pin.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "pin-show credit"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          className: "Uploadby"
+        }, "Upload by:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/user/".concat(id),
+          className: "pinowner",
+          onClick: function onClick() {
+            return _this5.props.closeModal();
+          }
+        }, email)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "pin-like-show-pin"
+        }, pin.liked_by_current_user ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.handleUnlike,
+          className: "unfollow-like",
+          value: pin.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-heart"
+        })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.handleLike,
+          className: "follow-like",
+          value: pin.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "far fa-heart"
+        })), pin.likes)))
+      );
     }
   }]);
 

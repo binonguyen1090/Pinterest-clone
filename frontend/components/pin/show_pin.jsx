@@ -75,10 +75,12 @@ export default class PinShow extends React.Component {
     }
     const { pin } = this.props;
     return (
-      <div className="pin-show container">
+      // <div className="pin-show container">
+      <div className="pin-show-main">
         {/* <form className="pin-show container" onSubmit={this.handleSubmit}> */}
         <div className="pinshow-left">
-          <img className="board-pin-show" src={pin.photoUrl} />
+          {/* <img className="each-pin-show" src={pin.photoUrl} /> */}
+          <img src={pin.photoUrl} />
         </div>
         <div className="pinshow-right">
           <div className="pin-show nav-bar">
@@ -92,7 +94,7 @@ export default class PinShow extends React.Component {
               {edit}
             </Link>
 
-            <label>
+            {/* <label>
               <select onChange={this.handleChange}>
                 <option> Select board</option>
                 {choice}
@@ -104,7 +106,7 @@ export default class PinShow extends React.Component {
               type="submit"
             >
               Save
-            </div>
+            </div> */}
 
             {/* <input
                 className="pin-show save-board-pin-text"
@@ -127,24 +129,26 @@ export default class PinShow extends React.Component {
               {email}
             </Link>
           </div>
-          {pin.liked_by_current_user ? (
-            <button
-              onClick={this.handleUnlike}
-              className="unfollow-like"
-              value={pin.id}
-            >
-              <i className="fas fa-heart"></i>
-            </button>
-          ) : (
-            <button
-              onClick={this.handleLike}
-              className="follow-like"
-              value={pin.id}
-            >
-              <i className="far fa-heart"></i>
-            </button>
-          )}
-          {pin.likes}
+          <div className="pin-like-show-pin">
+            {pin.liked_by_current_user ? (
+              <button
+                onClick={this.handleUnlike}
+                className="unfollow-like"
+                value={pin.id}
+              >
+                <i className="fas fa-heart"></i>
+              </button>
+            ) : (
+              <button
+                onClick={this.handleLike}
+                className="follow-like"
+                value={pin.id}
+              >
+                <i className="far fa-heart"></i>
+              </button>
+            )}
+            {pin.likes}
+          </div>
         </div>
         {/* </form> */}
       </div>
