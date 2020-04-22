@@ -79,7 +79,7 @@ export default class EditBoardForm extends React.Component {
                   className="canclebutton"
                   onClick={this.props.closeModal}
                 >
-                  Cancle
+                  Cancel
                 </button>
                 <input className="createbutton" type="submit" value="Update" />
               </div>

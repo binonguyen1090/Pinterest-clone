@@ -95,7 +95,7 @@ export default class PinCreateForm extends React.Component {
 
             <div className="create-group-btton">
               <button className="canclebutton" onClick={this.props.closeModal}>
-                Cancle
+                Cancel
               </button>
               <input className="createbutton" type="submit" value="Create" />
             </div>

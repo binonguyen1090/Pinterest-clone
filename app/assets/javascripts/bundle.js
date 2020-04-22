@@ -1226,7 +1226,7 @@ var BoardForm = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "canclebutton",
         onClick: this.props.closeModal
-      }, "Cancle"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "createbutton",
         type: "submit",
         value: "Create"
@@ -1856,7 +1856,7 @@ var EditBoardForm = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "canclebutton",
         onClick: this.props.closeModal
-      }, "Cancle"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "createbutton",
         type: "submit",
         value: "Update"
@@ -2294,7 +2294,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _board_create_board_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../board/create_board_form_container */ "./frontend/components/board/create_board_form_container.jsx");
 /* harmony import */ var _pin_create_pin_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pin/create_pin_form_container */ "./frontend/components/pin/create_pin_form_container.jsx");
 /* harmony import */ var _board_edit_board_form_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../board/edit_board_form_container */ "./frontend/components/board/edit_board_form_container.jsx");
-/* harmony import */ var _pin_edit_pin_form_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pin/edit_pin_form_container */ "./frontend/components/pin/edit_pin_form_container.jsx");
+/* harmony import */ var _pin_edit_pin_form_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../pin/edit_pin_form_container */ "./frontend/components/pin/edit_pin_form_container.jsx");
 /* harmony import */ var _pin_show_pin_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pin/show_pin_container */ "./frontend/components/pin/show_pin_container.jsx");
 
 
@@ -2340,7 +2340,7 @@ function Modal(_ref) {
       break;
 
     case "Edit Pin":
-      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_edit_pin_form_container__WEBPACK_IMPORTED_MODULE_10__["default"], null);
+      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pin_edit_pin_form_container__WEBPACK_IMPORTED_MODULE_8__["default"], null);
       break;
 
     case "Show Pin":
@@ -3106,7 +3106,7 @@ var PinCreateForm = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "canclebutton",
         onClick: this.props.closeModal
-      }, "Cancle"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "createbutton",
         type: "submit",
         value: "Create"
@@ -3289,7 +3289,7 @@ var EditPinForm = /*#__PURE__*/function (_React$Component) {
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "canclebutton",
         onClick: this.props.closeModal
-      }, "Cancle"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "createbutton",
         type: "submit",
         value: "Update"
@@ -4958,7 +4958,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this4.props.openModal("Sign up");
         }
-      }, "Not on Pinterest yet? Sign Up")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Not on Binterested yet? Sign Up")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session_errors"
       }, this.renderErrors()))));
     }
@@ -5279,33 +5279,27 @@ var SplashHeader = function SplashHeader(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: window.logo2,
     id: "logo"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "signinupbutton"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://github.com/binonguyen1090",
-    target: "_blank"
+    target: "_blank",
+    id: "navcontent"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fab fa-github"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/binonguyen1090",
-    target: "_blank"
+    target: "_blank",
+    id: "navcontent"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fab fa-linkedin"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.binonguyen.com/",
-    target: "_blank"
+    target: "_blank ",
+    id: "navcontent"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-portrait"
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "signinupbutton"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    id: "navcontent",
-    to: "/"
-  }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    id: "navcontent",
-    to: "/"
-  }, "Business"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    id: "navcontent",
-    to: "/"
-  }, "Blog"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "splashsignin",
     onClick: function onClick() {
       return openModal("Log in");

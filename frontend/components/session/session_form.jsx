@@ -166,7 +166,7 @@ class SessionForm extends React.Component {
                   onClick={() => this.props.openModal("Sign up")}
                 >
                   {/* {" "} */}
-                  Not on Pinterest yet? Sign Up
+                  Not on Binterested yet? Sign Up
                 </button>
               )}
             </div>

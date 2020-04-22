@@ -49,14 +49,14 @@ export default class EditPinForm extends React.Component {
 
             <div className="create-group-btton">
               <div className="delete-edit-button">
-              <div>
-                <button className="delete-pin" onClick={this.deletePin}>
-                  <i className="fas fa-trash-alt"></i>
-                </button>
-              </div>
+                <div>
+                  <button className="delete-pin" onClick={this.deletePin}>
+                    <i className="fas fa-trash-alt"></i>
+                  </button>
+                </div>
               </div>
               <button className="canclebutton" onClick={this.props.closeModal}>
-                Cancle
+                Cancel
               </button>
               <input className="createbutton" type="submit" value="Update" />
             </div>
