@@ -39,7 +39,7 @@ class Search extends React.Component {
             <input
               src={window.favicon}
               className="search"
-              placeholder="Search..."
+              placeholder="Search categories as Food, Fashion, Place ..."
               value={this.state.input}
               onChange={this.handleChange}
               type="text"

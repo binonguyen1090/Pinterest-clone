@@ -4857,7 +4857,7 @@ var Search = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         src: window.favicon,
         className: "search",
-        placeholder: "Search...",
+        placeholder: "Search categories as Food, Fashion, Place ...",
         value: this.state.input,
         onChange: this.handleChange,
         type: "text"
