@@ -11,7 +11,12 @@
 #
 class Pin < ApplicationRecord
   validates :title, :body, :board_id, presence: true
-
+  include PgSearch
+  pg_search_scope :whose_title_starts_with,
+                  :against => :title,
+                  :using => {
+                    :tsearch => { :prefix => true },
+                  }
   has_one_attached :photo
 
 
