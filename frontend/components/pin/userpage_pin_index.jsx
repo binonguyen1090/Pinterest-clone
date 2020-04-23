@@ -32,6 +32,8 @@ export default class EachUserPins extends React.Component {
            ? user.email
            : user.fname + " " + user.lname;
        let location = user.location === null ? "" : user.location;
+           let description = user.description === null ? "" : user.description;
+
     return (
       <div className="board">
         <div className="topboard">
@@ -63,6 +65,8 @@ export default class EachUserPins extends React.Component {
             <div className="info-profile">
               <div className="name-profile">{name}</div>
               <div className="space-name">{user.email}</div>
+              <br/>
+              <div className="space-name">{user.description}</div>
 
               <div className="location-profile">{location}</div>
             </div>

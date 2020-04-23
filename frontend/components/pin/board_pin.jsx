@@ -27,6 +27,8 @@ export default class BoardPins extends React.Component {
               pin={pin}
               src={pin.photoUrl}
               openModal={this.props.openModal}
+              fetchOneBoardPins={this.props.fetchOneBoardPins}
+              boardId={this.props.match.params.boardId}
             />
           ))}
         </ul>

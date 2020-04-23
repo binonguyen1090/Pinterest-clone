@@ -5,7 +5,6 @@ import { withRouter } from "react-router-dom";
 import { openModal, closeModal } from "../../actions/modal_action";
 
 const mSTP = (state, ownProps) => {
-  
   return {
   currentUserId: state.session.id,
   boards: Object.values(state.entities.boards),

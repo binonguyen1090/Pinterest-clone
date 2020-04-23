@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BoardIndexContainer from "../board/board_index_container";
+
 import UserpageBoardIndexContainer from "../board/userpage_board_index_container";
 import UserPinContainer from "../pin/user_pins_container";
 export default class UserPage extends React.Component {
@@ -19,6 +21,8 @@ export default class UserPage extends React.Component {
         ? user.email
         : user.fname + " " + user.lname;
     let location = user.location === null ? "" : user.location;
+    let description = user.description === null ? "" : user.description;
+
     return (
       <div className="board">
         <div className="topboard">
@@ -50,6 +54,8 @@ export default class UserPage extends React.Component {
             <div className="info-profile">
               <div className="name-profile">{name}</div>
               <div className="space-name">{user.email}</div>
+              <br />
+              <div className="space-name">{user.description}</div>
               <div className="location-profile">{location}</div>
             </div>
             <div className="link-on-profile">
@@ -62,7 +68,8 @@ export default class UserPage extends React.Component {
             </div>
           </div>
           <div className="bottomboard">
-            <UserpageBoardIndexContainer />
+            {/* <UserpageBoardIndexContainer /> */}
+            <BoardIndexContainer />
           </div>
         </div>
       </div>

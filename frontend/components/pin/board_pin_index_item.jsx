@@ -5,7 +5,7 @@ export default class BoardPinIndexItem extends React.Component {
   constructor(props) {
     super(props);
   }
-
+ 
   render() {
 
     const { pin } = this.props;

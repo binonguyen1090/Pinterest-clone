@@ -1453,7 +1453,6 @@ var BoardIndexItem = /*#__PURE__*/function (_React$Component) {
       }
 
       var arr = this.props.board.pinPhotos.map(function (pinPhoto, i) {
-        // debugger
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           key: i,
           className: "index-list-item",
@@ -1584,9 +1583,6 @@ var BoardShow = /*#__PURE__*/function (_React$Component) {
         }));
       }
 
-      var user = this.props.currentUser;
-      var name = user.fname === null || user.lname === null ? user.email : user.fname + " " + user.lname;
-      user.location === null ? "" : user.location;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "board"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1601,7 +1597,7 @@ var BoardShow = /*#__PURE__*/function (_React$Component) {
         className: "fas fa-plus"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "add-pin-in-show-board"
-      }, "Add Pin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Add Pin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dropdown-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "dropdownbutton",
@@ -1610,7 +1606,7 @@ var BoardShow = /*#__PURE__*/function (_React$Component) {
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "dropdownbutton-size"
-      }, "Create Pin"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Create Pin"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", board.body))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "info-profile"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "name-show-board"
@@ -2802,7 +2798,9 @@ var BoardPins = /*#__PURE__*/function (_React$Component) {
           key: idx,
           pin: pin,
           src: pin.photoUrl,
-          openModal: _this.props.openModal
+          openModal: _this.props.openModal,
+          fetchOneBoardPins: _this.props.fetchOneBoardPins,
+          boardId: _this.props.match.params.boardId
         });
       })));
     }
@@ -3414,6 +3412,12 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(PinShow, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      debugger;
+      this.props.fetchBoard(this.props.pin.board_id);
+    }
+  }, {
     key: "handleUnlike",
     value: function handleUnlike(e) {
       var _this2 = this;
@@ -3440,6 +3444,7 @@ var PinShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
+      debugger;
       this.props.fetchPin(this.props.pinId);
       this.props.fetchBoard(this.props.pin.board_id);
       this.props.fetchBoards(this.props.currentUser.id);
@@ -3629,8 +3634,6 @@ var mDTP = function mDTP(dispatch) {
     createPin: function createPin(pin) {
       return dispatch(Object(_actions_pin_action__WEBPACK_IMPORTED_MODULE_1__["createPin"])(pin));
     },
-    // createLike: (pin) => dispatch(createLike(pin)),
-    // deleteLike: (id) => dispatch(deleteLike(id)),
     likePin: function likePin(id) {
       return dispatch(Object(_actions_pin_action__WEBPACK_IMPORTED_MODULE_1__["likePin"])(id));
     },
@@ -3716,6 +3719,7 @@ var UserPins = /*#__PURE__*/function (_React$Component) {
       var user = this.props.currentUser;
       var name = user.fname === null || user.lname === null ? user.email : user.fname + " " + user.lname;
       var location = user.location === null ? "" : user.location;
+      var description = user.description === null ? "" : user.description;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "board"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3755,7 +3759,9 @@ var UserPins = /*#__PURE__*/function (_React$Component) {
         className: "name-profile"
       }, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "space-name"
-      }, user.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, user.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "space-name"
+      }, user.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "location-profile"
       }, location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "link-on-profile"
@@ -4010,6 +4016,7 @@ var EachUserPins = /*#__PURE__*/function (_React$Component) {
       var user = this.props.user;
       var name = user.fname === null || user.lname === null ? user.email : user.fname + " " + user.lname;
       var location = user.location === null ? "" : user.location;
+      var description = user.description === null ? "" : user.description;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "board"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4049,7 +4056,9 @@ var EachUserPins = /*#__PURE__*/function (_React$Component) {
         className: "name-profile"
       }, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "space-name"
-      }, user.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, user.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "space-name"
+      }, user.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "location-profile"
       }, location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "link-on-profile"
@@ -4213,6 +4222,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       var user = this.props.currentUser;
       var name = user.fname === null || user.lname === null ? user.email : user.fname + " " + user.lname;
       var location = user.location === null ? "" : user.location;
+      var description = user.description === null ? "" : user.description;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "board"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4252,7 +4262,9 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         className: "name-profile"
       }, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "space-name"
-      }, user.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, user.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "space-name"
+      }, user.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "location-profile"
       }, location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "link-on-profile"
@@ -4537,8 +4549,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _board_userpage_board_index_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../board/userpage_board_index_container */ "./frontend/components/board/userpage_board_index_container.jsx");
-/* harmony import */ var _pin_user_pins_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pin/user_pins_container */ "./frontend/components/pin/user_pins_container.jsx");
+/* harmony import */ var _board_board_index_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../board/board_index_container */ "./frontend/components/board/board_index_container.jsx");
+/* harmony import */ var _board_userpage_board_index_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../board/userpage_board_index_container */ "./frontend/components/board/userpage_board_index_container.jsx");
+/* harmony import */ var _pin_user_pins_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pin/user_pins_container */ "./frontend/components/pin/user_pins_container.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4556,6 +4569,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -4585,6 +4599,7 @@ var UserPage = /*#__PURE__*/function (_React$Component) {
       var user = this.props.user;
       var name = user.fname === null || user.lname === null ? user.email : user.fname + " " + user.lname;
       var location = user.location === null ? "" : user.location;
+      var description = user.description === null ? "" : user.description;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "board"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4624,7 +4639,9 @@ var UserPage = /*#__PURE__*/function (_React$Component) {
         className: "name-profile"
       }, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "space-name"
-      }, user.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, user.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "space-name"
+      }, user.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "location-profile"
       }, location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "link-on-profile"
@@ -4636,7 +4653,7 @@ var UserPage = /*#__PURE__*/function (_React$Component) {
         className: "link-on-profile-1"
       }, "Pins"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bottomboard"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_board_userpage_board_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], null))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_board_board_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], null))));
     }
   }]);
 

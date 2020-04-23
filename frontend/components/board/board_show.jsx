@@ -8,7 +8,7 @@ export default class BoardShow extends React.Component {
     super(props);
   }
   componentDidMount() {
-    this.props.fetchBoard(this.props.match.params.boardId);
+    this.props.fetchBoard(this.props.match.params.boardId)
   }
   render() {
     const { board } = this.props;
@@ -26,12 +26,6 @@ export default class BoardShow extends React.Component {
         </Link>
     }
 
-    let user = this.props.currentUser;
-    let name =
-      user.fname === null || user.lname === null
-        ? user.email
-        : user.fname + " " + user.lname;
-    user.location === null ? "" : user.location;
 
     return (
       <div className="board">
@@ -43,6 +37,8 @@ export default class BoardShow extends React.Component {
               <div className="dropdown">
                 <i className="fas fa-plus"></i>
                 <div className="add-pin-in-show-board">Add Pin</div>
+                <br />
+
                 <div className="dropdown-content">
                   <button
                     className="dropdownbutton"
@@ -51,14 +47,11 @@ export default class BoardShow extends React.Component {
                     <p className="dropdownbutton-size">Create Pin</p>
                   </button>
                 </div>
+                <div> {board.body}</div>
               </div>
             </div>
             <div className="info-profile">
-              
-              <div className="name-show-board">
-                {board.title}
-                
-              </div>
+              <div className="name-show-board">{board.title}</div>
             </div>
           </div>
         </div>

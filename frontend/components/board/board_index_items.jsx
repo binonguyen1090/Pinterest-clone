@@ -12,7 +12,6 @@ export default class BoardIndexItem extends React.Component {
       return null;
     }
     let arr = this.props.board.pinPhotos.map((pinPhoto, i) => {
-      // debugger
       return <img key={i} className="index-list-item" src={pinPhoto} alt="" />;
     }); 
     let editButton;

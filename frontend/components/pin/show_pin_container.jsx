@@ -43,8 +43,7 @@ const mDTP = dispatch => {
     closeModal: () => dispatch(closeModal()),
     openModal: (modal, id) => dispatch(openModal(modal, id)),
     createPin: (pin) => dispatch(createPin(pin)),
-    // createLike: (pin) => dispatch(createLike(pin)),
-    // deleteLike: (id) => dispatch(deleteLike(id)),
+
     likePin: (id) => dispatch(likePin(id)),
     unLikePin: (id) => dispatch(unLikePin(id)),
     receivePinErrors: (errors) => dispatch(receivePinErrors(errors)),
