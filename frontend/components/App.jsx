@@ -18,6 +18,7 @@ import BoardFormContainer from "./board/board_form";
 import BoardShowContainer from "./board/board_show_container";
 import BoardIndexContainer from "./board/board_index_container";
 import EachUserPinsContainer from "./pin/userpage_pin_index_container";
+import ResultsContainer from "./search_results/search_results_container";
 
 import Splash from "./splash/splash";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
@@ -61,6 +62,7 @@ const App = () => (
         component={UserPageContainer}
       />
       <ProtectedRoute exact path="/settings" component={SettingContainer} />
+      <Route exact path="/search/results" component={ResultsContainer} />
 
       {/* <Route path="/home/" component={NavBarContainer} /> */}
 

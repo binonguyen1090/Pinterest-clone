@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import SearchContainer from "../search/search_container";
 export const Navbar = ({ currentUser, logout }) => {
   
   const display = !currentUser ? (
-   ""
+    ""
   ) : (
     <div className="homeNavbar">
       <div className="logoNav">
@@ -13,23 +13,24 @@ export const Navbar = ({ currentUser, logout }) => {
         </Link>
       </div>
 
-      <div className="topnav">
-        <input
+      {/* <div className="topnav"> */}
+        <SearchContainer />
+        {/* <input
           className="search"
           src={window.favicon}
           type="text"
           placeholder="Search.."
-        />
-      </div>
+        /> */}
+      {/* </div> */}
 
       <div className="rightNav">
         <a href={`/`} className="item">
           <i className="fa fa-home"></i>
         </a>
-         <Link className="item" to={`/users`}> 
-        <i className="fas fa-users"></i> 
-        </Link> 
-      
+        <Link className="item" to={`/users`}>
+          <i className="fas fa-users"></i>
+        </Link>
+
         <div className="item">
           <Link className="proLink" to={`/users/${currentUser.id}`}>
             <span className="i-circle">

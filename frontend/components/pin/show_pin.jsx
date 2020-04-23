@@ -16,7 +16,7 @@ export default class PinShow extends React.Component {
     // this.renderErrors = this.renderErrors.bind(this);
   }
   componentWillUnmount(){
-    debugger
+    
     this.props.fetchBoard(this.props.pin.board_id);
   }
   handleUnlike(e) {
@@ -38,7 +38,6 @@ export default class PinShow extends React.Component {
     });
   }
   componentDidMount() {
-    debugger
     this.props.fetchPin(this.props.pinId);
     this.props.fetchBoard(this.props.pin.board_id);
     this.props.fetchBoards(this.props.currentUser.id);
