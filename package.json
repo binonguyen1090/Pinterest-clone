@@ -27,7 +27,7 @@
   },
   "scripts": {
     "postinstall": "webpack",
-    "start": "node index.js"
+    "start": "webpack -w --mode=development"
   },
   "repository": {
     "type": "git",
