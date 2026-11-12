@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: B-interest_production
-  username: B-interest
-  password: <%= ENV['B-INTEREST_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
